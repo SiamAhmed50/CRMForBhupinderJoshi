@@ -1,0 +1,15 @@
+C:\Personal\CRM\CRM\CRM.Service\bin\Debug\net8.0\CRM.Service.deps.json
+C:\Personal\CRM\CRM\CRM.Service\bin\Debug\net8.0\CRM.Service.dll
+C:\Personal\CRM\CRM\CRM.Service\bin\Debug\net8.0\CRM.Service.pdb
+C:\Personal\CRM\CRM\CRM.Service\bin\Debug\net8.0\CRM.Data.dll
+C:\Personal\CRM\CRM\CRM.Service\bin\Debug\net8.0\CRM.Data.pdb
+C:\Personal\CRM\CRM\CRM.Service\obj\Debug\net8.0\CRM.Service.csproj.AssemblyReference.cache
+C:\Personal\CRM\CRM\CRM.Service\obj\Debug\net8.0\CRM.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Personal\CRM\CRM\CRM.Service\obj\Debug\net8.0\CRM.Service.AssemblyInfoInputs.cache
+C:\Personal\CRM\CRM\CRM.Service\obj\Debug\net8.0\CRM.Service.AssemblyInfo.cs
+C:\Personal\CRM\CRM\CRM.Service\obj\Debug\net8.0\CRM.Service.csproj.CoreCompileInputs.cache
+C:\Personal\CRM\CRM\CRM.Service\obj\Debug\net8.0\CRM.Service.csproj.CopyComplete
+C:\Personal\CRM\CRM\CRM.Service\obj\Debug\net8.0\CRM.Service.dll
+C:\Personal\CRM\CRM\CRM.Service\obj\Debug\net8.0\refint\CRM.Service.dll
+C:\Personal\CRM\CRM\CRM.Service\obj\Debug\net8.0\CRM.Service.pdb
+C:\Personal\CRM\CRM\CRM.Service\obj\Debug\net8.0\ref\CRM.Service.dll

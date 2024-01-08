@@ -1,0 +1,14 @@
+C:\Personal\CRM\CRM\CRM.Data\bin\Debug\net8.0\CRM.Data.deps.json
+C:\Personal\CRM\CRM\CRM.Data\bin\Debug\net8.0\CRM.Data.runtimeconfig.json
+C:\Personal\CRM\CRM\CRM.Data\bin\Debug\net8.0\CRM.Data.dll
+C:\Personal\CRM\CRM\CRM.Data\bin\Debug\net8.0\CRM.Data.pdb
+C:\Personal\CRM\CRM\CRM.Data\obj\Debug\net8.0\CRM.Data.csproj.AssemblyReference.cache
+C:\Personal\CRM\CRM\CRM.Data\obj\Debug\net8.0\CRM.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Personal\CRM\CRM\CRM.Data\obj\Debug\net8.0\CRM.Data.AssemblyInfoInputs.cache
+C:\Personal\CRM\CRM\CRM.Data\obj\Debug\net8.0\CRM.Data.AssemblyInfo.cs
+C:\Personal\CRM\CRM\CRM.Data\obj\Debug\net8.0\CRM.Data.csproj.CoreCompileInputs.cache
+C:\Personal\CRM\CRM\CRM.Data\obj\Debug\net8.0\CRM.Data.dll
+C:\Personal\CRM\CRM\CRM.Data\obj\Debug\net8.0\refint\CRM.Data.dll
+C:\Personal\CRM\CRM\CRM.Data\obj\Debug\net8.0\CRM.Data.pdb
+C:\Personal\CRM\CRM\CRM.Data\obj\Debug\net8.0\CRM.Data.genruntimeconfig.cache
+C:\Personal\CRM\CRM\CRM.Data\obj\Debug\net8.0\ref\CRM.Data.dll
