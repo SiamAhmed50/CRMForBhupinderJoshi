@@ -1,0 +1,68 @@
+﻿@page
+@model ClientTableModel
+
+@{
+    ViewData["Title"] = "Client Table";
+}
+
+<div class="container mt-4">
+    <h2>Client Table</h2>
+
+    <table id="clientTable" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Client ID <span class="sort-indicator" id="sortClientId"></span></th>
+                <th>License Number <span class="sort-indicator" id="sortLicenseNumber"></span></th>
+                <th>License Start Date</th>
+                <th>License End Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var client in Model.Clients)
+            {
+                <tr>
+                    <td>@client.Id</td>
+                    <td>@client.Name</td>
+                    <td><input type="text" value="@client.ClientId" readonly /></td>
+                    <td><input type="text" value="@client.LicenseNumber" readonly /></td>
+                    <td>@client.LicenseStartDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td>@client.LicenseEndDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="id" value="@client.Id" />
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.6/css/dataTables.bootstrap4.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.6/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var table = $('#clientTable').DataTable({
+                "order": [[2, 'asc']] 
+            });
+
+            $('#sortClientId').click(function () {
+                var order = table.order()[0][0];
+                table.order([order, (order === 2 ? 'desc' : 'asc')]).draw();
+            });
+
+            $('#sortLicenseNumber').click(function () {
+                var order = table.order()[0][0];
+                table.order([order, (order === 3 ? 'desc' : 'asc')]).draw();
+            });
+        });
+    </script>
+}
