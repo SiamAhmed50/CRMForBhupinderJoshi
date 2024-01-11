@@ -40,6 +40,7 @@
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="~/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="~/assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
 
     <!-- Page CSS -->
 
@@ -720,10 +721,11 @@
               </ul>
             </div>
           </nav>
-
-          <!-- / Navbar -->
-          @RenderBody()
-        
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                         @RenderBody()
+                    </div>
+             </div>
         </div>
         <!-- / Layout page -->
       </div>
@@ -749,11 +751,12 @@
     <script src="~/assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
     <!-- Main JS -->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="~/assets/js/main.js"></script>
 
     <!-- Page JS -->
     <script src="~/assets/js/dashboards-analytics.js"></script>
-
+    <script src="~/assets/js/ui-modals.js"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
