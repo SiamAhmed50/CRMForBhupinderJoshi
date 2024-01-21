@@ -1,5 +1,6 @@
 using CRM.Data.DbContext;
 using CRM.Service.Helpers;
+using CRM.Service.Services;
 using CRM.UI.Helpers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
@@ -48,6 +49,7 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
 });
 builder.Services.AddScoped<SignInManager<ApplicationUser>, SignInManager<ApplicationUser>>();
+builder.Services.AddHostedService<LicenseExpirationService>();
 // Configure JWT settings
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));
 

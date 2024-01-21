@@ -8,6 +8,8 @@ namespace CRM.Data.DbContext
     public class ProjectDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Client> Clients { get; set; } // Add this DbSet for the Client entity
+        public DbSet<ClientTask> ClientTasks { get; set; } // Add this DbSet for the Client entity
+        public DbSet<Tasks> Tasks { get; set; } // Add this DbSet for the Client entity
         public ProjectDbContext(DbContextOptions<ProjectDbContext> options) : base(options)
         {
           

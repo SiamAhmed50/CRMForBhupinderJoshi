@@ -7,15 +7,18 @@ using System.Threading.Tasks;
 
 namespace CRM.Data.Entities
 {
-    public class Client
+    public class ClientTask
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
+        public Client Client { get; set; }
+
+        // Foreign key for Client
         public int ClientId { get; set; }
-        public string LicenseNumber { get; set; }
-        public DateTime LicenseStartDate { get; set; }
-        public DateTime LicenseEndDate { get; set; }
-        public bool LicenseStatus { get; set; } = true;
+
+        // Navigation property for Tasks
+        public List<Tasks> Tasks { get; set; }
+
     }
+     
 }
