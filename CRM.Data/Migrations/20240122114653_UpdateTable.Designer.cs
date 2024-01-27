@@ -4,6 +4,7 @@ using CRM.Data.DbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRM.Data.Migrations
 {
     [DbContext(typeof(ProjectDbContext))]
-    partial class ProjectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240122114653_UpdateTable")]
+    partial class UpdateTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,15 +94,15 @@ namespace CRM.Data.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3cf8f58f-9bc8-480e-a863-755e65b293f0",
+                            ConcurrencyStamp = "a8e9e77b-2b04-4a43-a3ca-ff65bf5ceeda",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHMWm6ob86TTveuSWwd5RmhLTLFtQoWsXlZOH7Opk0qdHxTqSQM4BVK3M4kZBIiTJQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECmCTc2el4EE4H4r05gUCRKusSvZlnf71t7FvLVZJTlAZL30+d052sDC9AKlFM/uwQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7f924483-b74b-4baf-998e-838f9379c78a",
+                            SecurityStamp = "f642de72-4a0d-4caa-89a6-57d9ed229e81",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -156,66 +159,6 @@ namespace CRM.Data.Migrations
                     b.ToTable("ClientTasks");
                 });
 
-            modelBuilder.Entity("CRM.Data.Entities.Jobs", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ClientId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("TaskId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TaskStatus")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClientId");
-
-                    b.HasIndex("TaskId");
-
-                    b.ToTable("Jobs");
-                });
-
-            modelBuilder.Entity("CRM.Data.Entities.Logs", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("JobId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("LogLevel")
-                        .HasColumnType("int");
-
-                    b.Property<string>("LogMessage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("Timestamp")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("JobId");
-
-                    b.ToTable("Logs");
-                });
-
             modelBuilder.Entity("CRM.Data.Entities.Tasks", b =>
                 {
                     b.Property<int>("Id")
@@ -230,9 +173,6 @@ namespace CRM.Data.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TaskId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -404,36 +344,6 @@ namespace CRM.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Client");
-                });
-
-            modelBuilder.Entity("CRM.Data.Entities.Jobs", b =>
-                {
-                    b.HasOne("CRM.Data.Entities.Client", "Client")
-                        .WithMany()
-                        .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CRM.Data.Entities.Tasks", "Task")
-                        .WithMany()
-                        .HasForeignKey("TaskId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Client");
-
-                    b.Navigation("Task");
-                });
-
-            modelBuilder.Entity("CRM.Data.Entities.Logs", b =>
-                {
-                    b.HasOne("CRM.Data.Entities.Jobs", "Job")
-                        .WithMany()
-                        .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Job");
                 });
 
             modelBuilder.Entity("CRM.Data.Entities.Tasks", b =>

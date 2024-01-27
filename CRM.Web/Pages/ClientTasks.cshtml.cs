@@ -13,7 +13,7 @@ namespace CRM.Web.Pages
     public class ClientTasksModel : PageModel
     {
         private readonly string apiBaseUrl = "https://localhost:44300";
-        private readonly string apiEndpoint = "/api/ClientTask";
+        private readonly string apiEndpoint = "/api/ClientTasks";
 
         [BindProperty]
         public ClientTaskModel ClientTaskModel { get; set; }
@@ -42,7 +42,9 @@ namespace CRM.Web.Pages
                  
             }
              
-        } 
+        }
+
+      
         public async Task<IActionResult> OnPost()
         {
             using (var httpClient = new HttpClient())
@@ -129,7 +131,7 @@ namespace CRM.Web.Pages
             {
                 // Get all clients as JSON for DataTable via AJAX
                 await LoadClientsAsync();
-                return new JsonResult(ClientTaskModel);
+                return new JsonResult(ClientTasks);
             }
             catch (Exception ex)
             {
@@ -150,7 +152,7 @@ namespace CRM.Web.Pages
                     if (response.IsSuccessStatusCode)
                     {
                         var content = await response.Content.ReadAsStringAsync();
-                        ClientTasks = JsonConvert.DeserializeObject<List<ClientTaskModel>>(content);
+                        ClientTasks = JsonConvert.DeserializeObject<List<ClientTaskModel>>(content); 
                     }
                     else
                     {
@@ -173,7 +175,7 @@ namespace CRM.Web.Pages
     public class ClientTaskModel
     {
         public int Id { get; set; }
-        public Client Client { get; set; }
+        public Client? Client { get; set; }
 
         // Foreign key for Client
         public int ClientId { get; set; }

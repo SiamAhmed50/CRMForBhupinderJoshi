@@ -15,6 +15,7 @@ using CRM.Service.Interfaces.UnitOfWork;
 using CRM.Service.Services.Repositories;
 using CRM.Service.Services.UnitOfWork;
 using Microsoft.AspNetCore.Hosting;
+using System.Text.Json.Serialization;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,8 +38,10 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 
 
 
-builder.Services.AddControllers(); 
- 
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+;
+
 
 // Configure JWT settings
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));

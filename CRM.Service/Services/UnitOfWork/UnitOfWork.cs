@@ -19,13 +19,24 @@ namespace CRM.Service.Services.UnitOfWork
         public UnitOfWork(ProjectDbContext dbContext)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
-            UserRepository = new Repository<ApplicationUser, string>(_dbContext);
-            ClientRepository = new Repository<Client, string>(_dbContext); // Add this line for Client Repository
+            GenericUserRepository = new Repository<ApplicationUser, string>(_dbContext);
+            GenericClientRepository = new Repository<Client, string>(_dbContext); // Add this line for Client Repository
+            GenericClientTaskRepository = new Repository<ClientTask, string>(_dbContext); // Add this line for Client Repository
+            GenericTaskRepository = new Repository<Task, string>(_dbContext); // Add this line for Client Repository
+
+            // Initialize your specific repositories
+            ClientRepository = new ClientService(_dbContext);
+            ClientTaskRepository = new ClientTaskService(_dbContext);
         }
 
-        public IRepository<ApplicationUser, string> UserRepository { get; }
-        public IRepository<Client, string> ClientRepository { get; } // Add this property for Client Repository
+        public IRepository<ApplicationUser, string> GenericUserRepository { get; }
+        public IRepository<Client, string> GenericClientRepository { get; } // Add this property for Client Repository
+        public IRepository<ClientTask, string> GenericClientTaskRepository { get; } // Add this property for Client Repository
+        public IRepository<Task, string> GenericTaskRepository { get; } // Add this property for Client Repository
 
+
+        public IClientRepository ClientRepository { get; }
+        public IClientTaskRepository ClientTaskRepository { get; }
 
         // Add other repositories here
 

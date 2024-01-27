@@ -11,9 +11,13 @@ namespace CRM.Service.Interfaces.UnitOfWork
 {
     public interface IUnitOfWork : IDisposable
     {
-        IRepository<ApplicationUser, string> UserRepository { get; }
-        IRepository<Client, string> ClientRepository { get; } 
-        IRepository<ClientTask, string> ClientTaskRepository { get; } 
+        IRepository<ApplicationUser, string> GenericUserRepository { get; }
+        IRepository<Client, string> GenericClientRepository { get; } 
+        IRepository<ClientTask, string> GenericClientTaskRepository { get; } 
+        IRepository<Task, string> GenericTaskRepository { get; }
+
+        IClientRepository ClientRepository { get; }
+        IClientTaskRepository ClientTaskRepository { get; }
         // Add other repositories here
 
         Task<int> SaveChangesAsync();

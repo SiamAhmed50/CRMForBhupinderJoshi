@@ -5,10 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CRM.Service.Services.Repositories
 {
-    public class ClientRepository : Repository<Client, int>, IClientRepository
+    public class ClientService : Repository<Client, int>, IClientRepository
     {
-        public ClientRepository(ProjectDbContext dbContext) : base(dbContext)
+        public ClientService(ProjectDbContext dbContext) : base(dbContext)
         {
         }
+        public async Task<Client> GetByClientIdAndLicenseNumberAsync(int clientId, string licenseNumber)
+        {
+            return await GetDbSet().SingleOrDefaultAsync(c => c.ClientId == clientId && c.LicenseNumber == licenseNumber);
+        }
+
     }
 }

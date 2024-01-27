@@ -11,26 +11,16 @@ namespace CRM.Data.Entities
     {
         [Key]
         public int Id { get; set; }
+        public int TaskId { get; set; }
 
         public string Name { get; set; }
 
-        public ClientTask ClientTask { get; set; }
+        public ClientTask? ClientTask { get; set; }
 
         // Foreign key for Client
         public int ClientTaskId { get; set; }
 
-        // Custom logic to generate unique 4-digit IDs
-        public void GenerateUnique4DigitId()
-        {
-            Random random = new Random();
-            HashSet<int> existingIds = new HashSet<int>();
-
-            // Ensure that the generated ID is unique
-            do
-            {
-                Id = random.Next(1000, 10000);
-            } while (!existingIds.Add(Id));
-        }
+       
     }
 
 

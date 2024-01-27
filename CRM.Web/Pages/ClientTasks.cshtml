@@ -10,7 +10,7 @@
             <h2>Task</h2>
         </div>
         <div class="col-sm-6 text-end">
-            <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#TaskModel">
+            <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#CreateTaskModal">
                 Add Task
             </button>
         </div>
@@ -20,16 +20,15 @@
 
 
 
-        <table id="clientTable" class="table table-striped table-bordered">
+        <table id="clientTaskTable" class="table table-striped table-bordered">
             <thead>
                 <tr>
                     
-                    <th>Name</th>
-                    <th>Client ID <span class="sort-indicator" id="sortClientId"></span></th>
-                    <th>License Number <span class="sort-indicator" id="sortLicenseNumber"></span></th>
-                    <th>License Start Date</th>
-                    <th>License End Date</th>
-                    <th>License Status</th>
+                    <th>Client Name</th>
+                    <th>Client ID</th>
+                    <th>Task Name</th>
+                    <th>Task Id</th>
+                    
                     <th>Action</th>
                 </tr>
             </thead>
@@ -41,7 +40,7 @@
     <div class="mt-3">
         <!-- Button trigger modal -->
         <!-- Modal -->
-    <div class="modal fade" id="TaskModel" tabindex="-1" aria-hidden="true" style="display: none;">
+    <div class="modal fade" id="CreateTaskModal" tabindex="-1" aria-hidden="true" style="display: none;">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <form method="post">
@@ -65,8 +64,8 @@
                         </div>
 
                         <!-- Task Name Input and Dynamic Rows -->
-                        <div id="taskRows">
-                            <div class="mb-3">
+                        <div id="createTaskRows" class="create-task-rows">
+                            <div class="mb-3 create-task-row">
                                 <label for="taskName" class="form-label">Task Name</label>
                                 <input type="text" class="form-control" name="ClientTaskModel.Tasks[0].Name" required>
                             </div>
@@ -88,52 +87,35 @@
             </div>
         </div>
 
-@*     <div class="modal fade" id="clientModalEdit" tabindex="-1" aria-hidden="true" style="display: none;">
+    <div class="modal fade" id="clientModalEdit" tabindex="-1" aria-hidden="true" style="display: none;">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <form method="post" asp-page-handler="Update">
 
-                    <input asp-for="ClientModel.Id" type="hidden"/>
+                    <input asp-for="ClientTaskModel.Id" type="hidden"/>
                     <div class="modal-header">
                         <h4 class="modal-title" id="exampleModalLabel1">Client Details</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col mb-4 mt-2">
-                                <div class="form-floating form-floating-outline">
-                                    <input type="text" asp-for="ClientModel.Name" class="form-control" placeholder="Enter Name">
-                                    <label for="nameBasic">Name</label>
-                                </div>
-                            </div>
+                        <div class="mb-3">
+                            <label for="clientId" class="form-label">Select Client</label>
+                            <select class="form-select" id="clientId" name="ClientTaskModel.ClientId" required>
+                                <option value="">Select Client</option>
+                                @foreach (var client in Model.Clients)
+                                {
+                                    <option value="@client.Id">@client.Name</option>
+                                }
+                            </select>
                         </div>
-                        <div class="row g-2">
-                            <div class="col mb-2">
-                                <div class="form-floating form-floating-outline">
-                                    <input type="text" asp-for="ClientModel.ClientId" class="form-control" placeholder="Enter Client ID" readonly>
-                                    <label for="clientIdBasic">Client ID</label>
-                                </div>
-                            </div>
-                            <div class="col mb-2">
-                                <div class="form-floating form-floating-outline">
-                                    <input type="text" asp-for="ClientModel.LicenseNumber" class="form-control" placeholder="Enter License Number" readonly>
-                                    <label for="licenseNumberBasic">License Number</label>
-                                </div>
-                            </div>
+
+                        <div id="editTaskRows" class="edit-task-rows">
+                            
                         </div>
-                        <div class="row g-2">
-                            <div class="col mb-2">
-                                <div class="form-floating form-floating-outline">
-                                    <input type="date" asp-for="ClientModel.LicenseStartDate" class="form-control">
-                                    <label for="licenseStartDateBasic">License Start Date</label>
-                                </div>
-                            </div>
-                            <div class="col mb-2">
-                                <div class="form-floating form-floating-outline">
-                                    <input type="date" asp-for="ClientModel.LicenseEndDate" class="form-control">
-                                    <label for="licenseEndDateBasic">License End Date</label>
-                                </div>
-                            </div>
+
+                        <!-- Add and Delete Buttons -->
+                        <div class="text-end">
+                            <button type="button" class="btn btn-success" onclick="addEditTaskRow()">Add</button>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -145,7 +127,7 @@
                 </form>
             </div>
         </div>
-    </div> *@
+    </div>
     </div>
  
 @section Scripts {
@@ -156,59 +138,60 @@
             taskRowIndex++;
 
             var newRow = `
-                    <div class="mb-3" id="taskRow${taskRowIndex}">
-                                <label for="taskName" class="form-label">Task Name</label> <button type="button" class="btn btn-danger btn-sm ms-2 float-end mb-1" onclick="deleteTaskRow(${taskRowIndex})">Delete</button>
-                                <input type="text" class="form-control" name="addTaskRow.Tasks[${taskRowIndex}].Name" required>
+                            <div class="mb-3 create-task-row" id="createTaskRow${taskRowIndex}">
+                                <label for="taskName" class="form-label">Task Name</label> <button type="button" class="btn btn-danger btn-sm ms-2 float-end mb-1" onclick="deleteCreateTaskRow(${taskRowIndex})">Delete</button>
+                                        <input type="text" class="form-control" name="ClientTaskModel.Tasks[${taskRowIndex}].Name" required>
                          
                     </div>
                 `;
 
-            $("#taskRows").append(newRow);
+            $("#createTaskRows").append(newRow);
         }
 
-        function deleteTaskRow(index) {
-            $("#taskRow" + index).remove();
+        function deleteCreateTaskRow(index) {
+            
+            $("#createTaskRow" + index).remove();
+            var newIndex = 0;
+            $('.create-task-row').each(function () {
+                
+                $(this).attr("id", "createTaskRow" + newIndex);
+                $(this).attr('data-index', newIndex);
+                $(this).find('input').attr('name', 'ClientTaskModel.Tasks[' + newIndex + '].Name');
+                $(this).find('.delete-task').attr('data-index', newIndex);
+                newIndex++;
+            }); 
         }
     </script>
-    @* 
-    <script>
+     <script>
         $(document).ready(function () {
-            var table = $('#clientTable').DataTable({
+            
+            var table = $('#clientTaskTable').DataTable({
                 "ajax": {
                     "type" : "POST",
-                    "url": "/Clients?handler=List",
+                    "url": "/ClientTasks?handler=List",
                     "dataSrc": "",
                     "beforeSend": function (xhr) {
                         xhr.setRequestHeader("XSRF-TOKEN",
                             $('input:hidden[name="__RequestVerificationToken"]').val());
                     }
                 },
-                "columns": [ 
-                    { "data": "name" },
-                    { "data": "clientId" },
-                    { "data": "licenseNumber" },
+                "columns": [
+                    { "data": "client.name", "title": "Client Name" },
+                    { "data": "client.clientId", "title": "Client ID" },
                     {
-                        "data": "licenseStartDate",
-                        "render": function (data, type, row) {
-                            // Format date as mm/dd/yyyy
-                            var startDate = new Date(data);
-                            return startDate.getDate() + 1 + '-' + startDate.getMonth() + 1 +'-' + startDate.getFullYear();
+                        "data": "tasks",
+                        "title": "Task Name",
+                        "render": function (data) {
+                            var taskNames = data.map(task => task.name).join("<br>");
+                            return taskNames;
                         }
                     },
                     {
-                        "data": "licenseEndDate",
-                        "render": function (data, type, row) {
-                            // Format date as mm/dd/yyyy
-                            var endDate = new Date(data);
-                            return endDate.getDate() + 1 + '-' + endDate.getMonth() + 1 +'-' + endDate.getFullYear();
-                        }
-                    },
-                    {
-                        "data": "licenseStatus",
-                        "render": function (data, type, row) {
-                            return data
-                                ? '<span class="badge bg-success">Active</span>'
-                                : '<span class="badge bg-danger">Expired</span>';
+                        "data": "tasks",
+                        "title": "Task ID",
+                        "render": function (data) {
+                            var taskIds = data.map(task => task.taskId).join("<br>");
+                            return taskIds;
                         }
                     },
                     {
@@ -218,64 +201,63 @@
                                 '<i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>' +
                                 '<ul class="dropdown-menu">' +
                                 '<li>' +
-                                '<span class="dropdown-item edit-client" style="cursor:pointer;">' +
+                                '<span class="dropdown-item edit-task" style="cursor:pointer;">' +
                                 '<i class="fas fa-pen mx-2"></i> Update' +
                                 '</span>' +
                                 '</li>' +
                                 '<li>' +
-                                '<span class="dropdown-item delete-client" style="cursor:pointer;">' +
+                                '<span class="dropdown-item delete-task" style="cursor:pointer;">' +
                                 '<i class="fas fa-trash mx-2"></i> Delete' +
                                 '</span>' +
                                 '</li>' +
                                 '</ul>' +
                                 '</div>';
-                        }
-
-
+                        } 
                     }
                 ],
-                "order": [[2, 'asc']]
+                 
             });
 
-            $('#sortClientId').click(function () {
-                sortTable(2);
-            });
 
-            $('#sortLicenseNumber').click(function () {
-                sortTable(3);
-            });
-
-            function sortTable(column) {
-                var order = table.order()[0][0];
-                table.order([order, (order === column ? 'desc' : 'asc')]).draw();
-            }
-
-            // Edit button click event handler
-            $('#clientTable tbody').on('click', 'span.edit-client', function () {
-                debugger;
+            // Edit button click event handler for ClientTasks
+            $('#clientTaskTable tbody').on('click', 'span.edit-task', function () {
+                
                 var row = $(this).closest('tr');
                 var data = table.row(row).data();
-                // Convert the date strings to JavaScript Date objects
-                var startDate = new Date(data.licenseStartDate);
-                var endDate = new Date(data.licenseEndDate);
 
-                // Format the dates as strings in "YYYY-MM-DD" format
-                var formattedStartDate = startDate.toISOString().split('T')[0];
-                var formattedEndDate = endDate.toISOString().split('T')[0];
                 // Populate the edit modal form with the fetched data
-                $('#clientModalEdit #ClientModel_Id').val(data.id);
-                $('#clientModalEdit #ClientModel_Name').val(data.name);
-                $('#clientModalEdit #ClientModel_ClientId').val(data.clientId);
-                $('#clientModalEdit #ClientModel_LicenseNumber').val(data.licenseNumber);
-                $('#clientModalEdit #ClientModel_LicenseStartDate')[0].value = formattedStartDate;
-                $('#clientModalEdit #ClientModel_LicenseEndDate')[0].value = formattedEndDate;
+                $('#clientModalEdit #ClientTaskModel_Id').val(data.id);
+
+                // Set the selected client in the dropdown
+                $('#clientModalEdit #clientId').val(data.clientId); 
+
+                // Add task rows based on the tasks in the data
+                data.tasks.forEach(function (task, index) {
+                    
+                    addTaskRowEdit(task, index);
+                });
 
                 // Show the edit modal
                 $('#clientModalEdit').modal('show');
             });
 
-            $('#clientTable tbody').on('click', 'span.delete-client', function () {
-                debugger;
+            // Function to add task row in edit modal
+            function addTaskRowEdit(task, index) {
+                
+                var deleteButton = index > 0 ? '<button type="button" class="btn btn-danger btn-sm ms-2 float-end mb-1" onclick="deleteEditTaskRow(' + index + ')">Delete</button>' : '';
+
+                var newRow = `
+                <div class="mb-3 edit-task-row" id="editTaskRow${index}">
+                                    <label for="taskName" class="form-label">Task Name</label> ${deleteButton}
+                    <input type="text" class="form-control" name="ClientTaskModel.Tasks[${index}].Name" value="${task.name}" required>
+                </div>
+            `;
+
+                $("#clientModalEdit #editTaskRows").append(newRow);
+            }
+
+            $('#clientTaskTable tbody').on('click', 'span.delete-task', function () {
+                
                 var row = $(this).closest('tr');
                 var id = table.row(row).data().id;
                 Swal.fire({
@@ -289,7 +271,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: `/Clients?handler=Delete&id=${id}`, // Adjust the URL based on your endpoint
+                            url: `/ClientTasks?handler=Delete&id=${id}`, // Adjust the URL based on your endpoint
                             type: 'POST',
                             beforeSend: function (xhr) {
                                 // Set the XSRF token
@@ -300,7 +282,7 @@
                                 table.ajax.reload();
                                 Swal.fire({
                                     title: 'Deleted!',
-                                    text: 'The client has been deleted.',
+                                    text: 'The Task has been deleted.',
                                     icon: 'success'
                                 });
                             },
@@ -308,7 +290,7 @@
                                 // Handle error, e.g., show an error message
                                 Swal.fire({
                                     title: 'Error!',
-                                    text: 'An error occurred while deleting the client.',
+                                    text: 'An error occurred while deleting the task.',
                                     icon: 'error'
                                 });
                             }
@@ -316,10 +298,35 @@
                     }
                 });
             });
-        });
-       
+        }); 
+        function addEditTaskRow() {
+            debugger;
+            taskEditRowIndex = $("#clientModalEdit .edit-task-row").length;
+
+            var newRow = `<div class="mb-3 edit-task-row" id="editTaskRow${taskEditRowIndex}">
+                                                <label for="taskName" class="form-label">Task Name</label> <button type="button" class="btn btn-danger btn-sm ms-2 float-end mb-1" onclick="deleteEditTaskRow(${taskEditRowIndex})">Delete</button>
+                                                        <input type="text" class="form-control" name="ClientTaskModel.Tasks[${taskEditRowIndex}].Name" required>
+
+                            </div>
+                        `;
+
+            $("#editTaskRows").append(newRow);
+        }
+        function deleteEditTaskRow(index) {
+            
+            $("#editTaskRow" + index).remove();
+            var newIndex = 0;
+            $('#clientModalEdit .edit-task-row').each(function () {
+                
+                $(this).attr("id", "editTaskRow" + newIndex);
+                $(this).attr('data-index', newIndex);
+                $(this).find('input').attr('name', 'ClientTaskModel.Tasks[' + newIndex + '].Name');
+                $(this).find('.delete-task').attr('data-index', newIndex);
+                newIndex++;
+            });
+        }
 
 
        
-    </script> *@
+    </script>  
 }

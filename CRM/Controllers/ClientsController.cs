@@ -2,11 +2,13 @@
 using System.Threading.Tasks;
 using CRM.Data.Entities;
 using CRM.Service.Interfaces.UnitOfWork;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CRM.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ClientsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -76,6 +78,21 @@ namespace CRM.Controllers
 
             await _unitOfWork.SaveChangesAsync();
             return NoContent();
+        }
+
+        // GET: api/Clients/ByClientIdAndLicenseNumber?clientId=1&licenseNumber=XYZ123
+        [HttpGet("ByClientIdAndLicenseNumber")]
+        [AllowAnonymous] // Allow anonymous access for this specific API
+        public async Task<IActionResult> GetClientByClientIdAndLicenseNumber(int clientId, string licenseNumber)
+        {
+            var client = await _unitOfWork.ClientRepository.GetByClientIdAndLicenseNumberAsync(clientId, licenseNumber);
+
+            if (client == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(client);
         }
     }
 }

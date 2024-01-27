@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/CRM/FileContentIndex/c26b7d04-4831-440a-86d2-c698a8646f97.vsidx
+*.vsidx
+*.config
+*.v2
+*.bin
+/CRM/obj/Debug/net8.0/ref/CRM.API.dll
+/CRM/obj/Debug/net8.0/refint/CRM.API.dll
+/CRM/obj/Debug/net8.0/apphost.exe
+/CRM.Web/bin/Debug/net8.0/CRM.Service.dll

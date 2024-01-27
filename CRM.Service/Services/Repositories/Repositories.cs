@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,22 +12,83 @@ namespace CRM.Service.Services.Repositories
 {
     public class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntity : class
     {
-        private readonly ProjectDbContext _dbContext;
+        protected readonly ProjectDbContext _dbContext;
+        protected DbSet<TEntity> _dbSet;
 
         public Repository(ProjectDbContext dbContext)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            _dbSet = _dbContext.Set<TEntity>();
         }
 
-        public async Task<TEntity> GetByIdAsync(int id)
+        // Rest of the implementation...
+
+        // Expose _dbSet as a protected property or method
+        protected DbSet<TEntity> GetDbSet()
         {
-            return await _dbContext.Set<TEntity>().FindAsync(id);
+            return _dbSet;
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync()
+        public async Task<TEntity> GetByIdAsync(int id, params Expression<Func<TEntity, object>>[] includeProperties)
         {
-            return await _dbContext.Set<TEntity>().ToListAsync();
+            var query = _dbContext.Set<TEntity>().AsQueryable();
+
+            // Include navigation properties
+            foreach (var includeProperty in includeProperties)
+            {
+                query = query.Include(includeProperty);
+            }
+
+            // Get the type of the entity
+            var entityType = typeof(TEntity);
+
+            // Get the property named "Id" from the entity type
+            var idProperty = entityType.GetProperty("Id");
+
+            // Check if the entity has an "Id" property
+            if (idProperty != null)
+            {
+                // Build the lambda expression for the query
+                 var parameter = Expression.Parameter(entityType, "entity");
+                var propertyAccess = Expression.Property(parameter, idProperty);
+                var equality = Expression.Equal(propertyAccess, Expression.Constant(id));
+                var lambda = Expression.Lambda<Func<TEntity, bool>>(equality, parameter);
+
+                // Apply the filter to the query
+                query = query.Where(lambda);
+            }
+
+            return await query.FirstOrDefaultAsync();
         }
+
+
+        public async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> filter = null,
+                                                        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+                                                        params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            IQueryable<TEntity> query = _dbContext.Set<TEntity>();
+
+            // Include related entities
+            foreach (var includeProperty in includeProperties)
+            {
+                query = query.Include(includeProperty);
+            }
+
+            // Apply filter
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            // Apply ordering
+            if (orderBy != null)
+            {
+                query = orderBy(query);
+            }
+
+            return await query.ToListAsync();
+        }
+
 
         public async Task<TEntity> AddAsync(TEntity entity)
         {
@@ -52,5 +114,7 @@ namespace CRM.Service.Services.Repositories
             await _dbContext.SaveChangesAsync();
             return true;
         }
+
+      
     }
 }

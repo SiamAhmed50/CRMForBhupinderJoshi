@@ -20,6 +20,7 @@ using System.Text;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
+using System.Net;
 
 namespace CRM.UI.Areas.Identity.Pages.Account
 {
@@ -128,13 +129,12 @@ namespace CRM.UI.Areas.Identity.Pages.Account
 
                 var apiBaseUrl = "https://localhost:44300"; // Replace this with the actual base URL of your API
 
-                var loginRequest = new 
+                var loginRequest = new
                 {
                     Email = Input.Email,
                     Password = Input.Password,
                     RememberMe = Input.RememberMe
                 };
-
 
                 var content = new StringContent(JsonConvert.SerializeObject(loginRequest), Encoding.UTF8, "application/json");
 
@@ -142,36 +142,38 @@ namespace CRM.UI.Areas.Identity.Pages.Account
 
                 if (response.IsSuccessStatusCode)
                 {
-
-                   await _signInManager.SignInAsync(await _userManager.FindByEmailAsync(Input.Email), false);
-                    var isAuthenticated = User.Identity.IsAuthenticated;
                     // Extract the JWT token from the response
                     var userResponse = await response.Content.ReadAsStringAsync();
                     var tokenResponse = JsonConvert.DeserializeObject<TokenResponse>(userResponse);
-                    var token = tokenResponse.Token; //here I have the token now I want to sign in the user with the token so that he can access the index page which has authorize attribute
-                    //here using signIn manager just sing in the user authenticate the user
-                     // Sign in the user using the obtained token
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, Input.Email),
-                    // Add other claims if needed
-                };
+                    var token = tokenResponse.Token;
 
-                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                var principal = new ClaimsPrincipal(identity);
+                    // Create a ClaimsIdentity with the user's claims
+                    var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, Input.Email),
+                // Add other claims if needed
+            };
 
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, new AuthenticationProperties
-                {
-                    IsPersistent = Input.RememberMe,
-                    ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
-                });
+                    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var principal = new ClaimsPrincipal(identity);
+
+                    // Set the token in the authentication cookie
+                    var authProperties = new AuthenticationProperties
+                    {
+                        IsPersistent = Input.RememberMe,
+                        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
+                    };
+
+                    authProperties.StoreTokens(new[] { new AuthenticationToken { Name = "access_token", Value = token } });
+
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProperties);
 
                     _logger.LogInformation("User logged in.");
 
                     return LocalRedirect(returnUrl);
                 }
 
-                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                if (response.StatusCode == HttpStatusCode.Unauthorized)
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                     return Page();
@@ -185,7 +187,7 @@ namespace CRM.UI.Areas.Identity.Pages.Account
             return Page();
         }
 
-       
+
 
     }
 
