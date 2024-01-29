@@ -1,10 +1,13 @@
 using CRM.Data.Entities;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace CRM.Web.Pages
@@ -131,7 +134,7 @@ namespace CRM.Web.Pages
 
   
         public async Task<IActionResult> OnPostList()
-        {
+       {
             try
             {
                 // Get all clients as JSON for DataTable via AJAX
@@ -152,6 +155,16 @@ namespace CRM.Web.Pages
                 try
                 {
                     httpClient.BaseAddress = new Uri(apiBaseUrl);
+
+                    // Retrieve the access token from the authentication cookie
+                    var accessToken = await GetAccessTokenAsync();
+
+                    // Set the access token in the Authorization header
+                    if (!string.IsNullOrEmpty(accessToken))
+                    {
+                        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                    }
+
                     var response = await httpClient.GetAsync(apiEndpoint);
 
                     if (response.IsSuccessStatusCode)
@@ -171,12 +184,17 @@ namespace CRM.Web.Pages
                     Clients = new List<ClientModel>();
                 }
             }
-        } 
-       
+        }
+
+        private async Task<string> GetAccessTokenAsync()
+        {
+            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return result?.Principal?.Claims.FirstOrDefault(c => c.Type == "access_token")?.Value;
+        }
     }
 
 
-    
+  
     public class ClientModel
     {
         public int Id { get; set; }

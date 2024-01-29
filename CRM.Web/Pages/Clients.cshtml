@@ -165,6 +165,8 @@
     
     <script>
         $(document).ready(function () {
+            debugger;
+            var val = $('input:hidden[name="__RequestVerificationToken"]').val();
             var table = $('#clientTable').DataTable({
                 "ajax": {
                     "type" : "POST",
