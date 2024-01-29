@@ -11,3 +11,5 @@
 /CRM/obj/Debug/net8.0/refint/CRM.API.dll
 /CRM/obj/Debug/net8.0/apphost.exe
 /CRM.Web/bin/Debug/net8.0/CRM.Service.dll
+config.bat
+node_modules

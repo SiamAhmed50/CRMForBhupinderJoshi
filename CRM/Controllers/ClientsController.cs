@@ -6,9 +6,10 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CRM.Controllers
 {
+
+    //[Authorize(Roles ="Admin")]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class ClientsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
