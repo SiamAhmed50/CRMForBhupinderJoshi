@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,13 +15,14 @@ namespace CRM.Data.Entities
         public int TaskId { get; set; }
 
         public string Name { get; set; }
-
+        [ForeignKey("ClientTaskId")]
         public ClientTask? ClientTask { get; set; }
 
         // Foreign key for Client
-        public int ClientTaskId { get; set; }
+   
+        public int ClientTaskId { get; set; } 
 
-       
+
     }
 
 

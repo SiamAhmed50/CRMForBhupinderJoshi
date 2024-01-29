@@ -143,52 +143,55 @@ namespace CRM.UI.Areas.Identity.Pages.Account
                 if (response.IsSuccessStatusCode)
                 {
                     // Extract the JWT token from the response
-                    var userResponse = await response.Content.ReadAsStringAsync();
-                    var tokenResponse = JsonConvert.DeserializeObject<TokenResponse>(userResponse);
+                    var tokenResponse = JsonConvert.DeserializeObject<TokenResponse>(await response.Content.ReadAsStringAsync());
                     var token = tokenResponse.Token;
 
-                    // Create a ClaimsIdentity with the user's claims
+                    // Set the token in the authentication cookie
                     var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, Input.Email),
-                // Add other claims if needed
-            };
+                    {
+                        new Claim(ClaimTypes.Name, Input.Email),
+                        new Claim("access_token", token), // Add the token as a claim
+                        // Add other claims if needed
+                    };
 
                     var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var principal = new ClaimsPrincipal(identity);
 
                     // Set the token in the authentication cookie
-                    var authProperties = new AuthenticationProperties
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, new AuthenticationProperties
                     {
                         IsPersistent = Input.RememberMe,
                         ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
-                    };
+                    });
+                    var user = await _userManager.FindByEmailAsync(Input.Email);
 
-                    authProperties.StoreTokens(new[] { new AuthenticationToken { Name = "access_token", Value = token } });
+                    if (user != null && await _userManager.CheckPasswordAsync(user, Input.Password))
+                    {
 
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProperties);
+                        // Use SignInManager to sign in the user
+                        await _signInManager.SignInAsync(user, new AuthenticationProperties
+                        {
+                            IsPersistent = Input.RememberMe,
+                            ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
+                        });
 
-                    _logger.LogInformation("User logged in.");
+                        // Log information
+                        _logger.LogInformation("User logged in.");
 
-                    return LocalRedirect(returnUrl);
-                }
-
+                        return LocalRedirect(returnUrl);
+                    }
+                } 
                 if (response.StatusCode == HttpStatusCode.Unauthorized)
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                     return Page();
-                }
-
+                } 
                 _logger.LogWarning($"User login failed with status code: {response.StatusCode}");
                 ModelState.AddModelError(string.Empty, "Something went wrong. Please try again later.");
                 return Page();
-            }
-
+            } 
             return Page();
-        }
-
-
-
+        } 
     }
 
     // Define a class to represent the authentication result from your API

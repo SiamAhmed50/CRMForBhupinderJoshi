@@ -20,7 +20,37 @@ namespace CRM.Data.DbContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+                modelBuilder.Entity<Jobs>()
+            .HasOne(j => j.Client)
+            .WithMany()
+            .HasForeignKey(j => j.ClientId)
+            .OnDelete(DeleteBehavior.NoAction);
 
+            modelBuilder.Entity<Jobs>()
+                .HasOne(j => j.Tasks)
+                .WithMany()
+                .HasForeignKey(j => j.TaskId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // Explicitly configure foreign keys with ON DELETE NO ACTION for JobLogs
+            modelBuilder.Entity<JobLogs>()
+                .HasOne(jl => jl.Client)
+                .WithMany()
+                .HasForeignKey(jl => jl.ClientId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<JobLogs>()
+                .HasOne(jl => jl.Task)
+                .WithMany()
+                .HasForeignKey(jl => jl.TaskId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // Explicitly configure foreign keys with ON DELETE NO ACTION for Logs
+            modelBuilder.Entity<Logs>()
+                .HasOne(l => l.JobLogs)
+                .WithMany(jl => jl.Logs)
+                .HasForeignKey(l => l.JobLogsId)
+                .OnDelete(DeleteBehavior.NoAction);
             // Seed roles
             modelBuilder.Entity<IdentityRole>().HasData(
                 new IdentityRole { Id = "1", Name = "Admin", NormalizedName = "ADMIN" },
