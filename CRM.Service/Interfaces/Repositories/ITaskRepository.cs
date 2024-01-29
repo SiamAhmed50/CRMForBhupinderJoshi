@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CRM.Service.Interfaces.Repositories
 {
-    public interface ITaskRepository : IRepository<Task, int>
+    public interface ITaskRepository : IRepository<Tasks, int>
     {
          
     }

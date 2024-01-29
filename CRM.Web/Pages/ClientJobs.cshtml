@@ -1,0 +1,174 @@
+﻿@page
+@model ClientJobsModel
+
+@{
+    ViewData["Title"] = "Jobs";
+}
+
+<div class="row">
+    <div class="col-sm-6 text-start">
+        <h2>Jobs</h2>
+    </div> 
+</div>
+<div class="container mt-4">
+
+
+
+
+    <table id="jobsTable" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+
+                <th>Client ID</th>
+                <th>Task ID <span class="sort-indicator" id="sortClientId"></span></th>
+                <th>Task Name <span class="sort-indicator" id="sortLicenseNumber"></span></th>
+                <th>Status</th>
+                <th>Started</th>
+                <th>Ended</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="LogsModal" tabindex="-1" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg " role="document">
+        <div class="modal-content p-4">
+            <table id="logsTable" class="table table-striped table-bordered w-100">
+                <thead>
+                    <tr>
+
+                        <th>TimeStamp</th>
+                        <th>Log Message<span class="sort-indicator" id="sortClientId"></span></th>
+                        <th>Log Level<span class="sort-indicator" id="sortLicenseNumber"></span></th>
+                         
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<form id="myForm">
+    @Html.AntiForgeryToken()
+</form>
+
+ 
+@section Scripts {
+
+
+    <script>
+        $(document).ready(function () {
+            debugger;
+            var table = $('#jobsTable').DataTable({
+                "ajax": {
+                    "type": "POST",
+                    "url": "/ClientJobs?handler=List",
+                    "dataSrc": "",
+                    "beforeSend": function (xhr) {
+                        xhr.setRequestHeader("XSRF-TOKEN",
+                            $('input:hidden[name="__RequestVerificationToken"]').val());
+                    }
+                },
+                "columns": [
+                    { "data": "clientId" },
+                    { "data": "taskId" },
+                    { "data": "taskName" },
+                    { "data": "taskStatus" },
+                    {
+                        "data": "startDate",
+                        "render": function (data, type, row) {
+                            // Format date as mm/dd/yyyy hh:mm
+                            var startDate = new Date(data);
+                            var formattedStartDate = pad2(startDate.getMonth() + 1) + '/' +
+                                pad2(startDate.getDate()) + '/' +
+                                startDate.getFullYear() + ' ' +
+                                pad2(startDate.getHours()) + ':' +
+                                pad2(startDate.getMinutes());
+                            return formattedStartDate;
+                        }
+                    },
+                    {
+                        "data": "endDate",
+                        "render": function (data, type, row) {
+                            // Format date as mm/dd/yyyy hh:mm
+                            var endDate = new Date(data);
+                            var formattedEndDate = pad2(endDate.getMonth() + 1) + '/' +
+                                pad2(endDate.getDate()) + '/' +
+                                endDate.getFullYear() + ' ' +
+                                pad2(endDate.getHours()) + ':' +
+                                pad2(endDate.getMinutes());
+                            return formattedEndDate;
+                        }
+                    },
+
+
+                    {
+                        "data": null,
+                        "render": function (data, type, row) {
+                            return '<div class="dropdown ms-auto" style="cursor:pointer;">' +
+                                '<i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>' +
+                                '<ul class="dropdown-menu">' +
+                                '<li>' +
+                                '<span class="dropdown-item view-logs" style="cursor:pointer;" onclick="ShowLogs()"> ' +
+                                '<i class="fas fa-pen mx-2"></i> View Logs' +
+                                '</span>' +
+                                '</li>' + 
+                                '</ul>' +
+                                '</div>';
+                        }
+
+
+                    }
+                ],
+            });
+
+            function pad2(number) {
+                return (number < 10 ? '0' : '') + number;
+            }
+
+            var logsTable = $('#logsTable').DataTable({
+                "ajax": {
+                    "type": "POST",
+                    "url": "/ClientJobs?handler=LogList",
+                    "dataSrc": "",
+                    "beforeSend": function (xhr) {
+                        xhr.setRequestHeader("XSRF-TOKEN",
+                            $('input:hidden[name="__RequestVerificationToken"]').val());
+                    }
+                },
+                "columns": [
+                    { "data": "timestamp" },
+                    { "data": "logMessage" },
+                    {
+                        "data": "logLevel",
+                        "render": function (data, type, row) {
+                            // Map logLevel values to corresponding strings
+                            var logLevelStrings = {
+                                0: 'Info',
+                                1: 'Fetal'
+                                // Add more mappings as needed
+                            };
+
+                            // Display the corresponding string for the logLevel value
+                            return logLevelStrings[data] || data;
+                        }
+                    }
+                ],
+            });
+
+           
+        });
+
+        function ShowLogs(){
+            $("#LogsModal").modal("show");
+        }
+
+
+
+
+    </script>
+}

@@ -91,15 +91,15 @@ namespace CRM.Data.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3cf8f58f-9bc8-480e-a863-755e65b293f0",
+                            ConcurrencyStamp = "887b2e71-7b3a-461a-ac2e-fb9c09ebea37",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHMWm6ob86TTveuSWwd5RmhLTLFtQoWsXlZOH7Opk0qdHxTqSQM4BVK3M4kZBIiTJQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFd113Bga5UT+UeIFOnZjVdJDVd6tnf1dyQeXI465ci9HSqPLdSk5AEde7CiB/riHA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7f924483-b74b-4baf-998e-838f9379c78a",
+                            SecurityStamp = "37b7d9cb-1f46-465d-8cf0-872053a7c88a",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -156,6 +156,29 @@ namespace CRM.Data.Migrations
                     b.ToTable("ClientTasks");
                 });
 
+            modelBuilder.Entity("CRM.Data.Entities.JobLogs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TaskId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("TaskId");
+
+                    b.ToTable("JobLogs");
+                });
+
             modelBuilder.Entity("CRM.Data.Entities.Jobs", b =>
                 {
                     b.Property<int>("Id")
@@ -167,10 +190,10 @@ namespace CRM.Data.Migrations
                     b.Property<int>("ClientId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("StartDate")
+                    b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("TaskId")
@@ -196,7 +219,7 @@ namespace CRM.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("JobId")
+                    b.Property<int>("JobLogsId")
                         .HasColumnType("int");
 
                     b.Property<int>("LogLevel")
@@ -211,7 +234,7 @@ namespace CRM.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("JobId");
+                    b.HasIndex("JobLogsId");
 
                     b.ToTable("Logs");
                 });
@@ -406,18 +429,18 @@ namespace CRM.Data.Migrations
                     b.Navigation("Client");
                 });
 
-            modelBuilder.Entity("CRM.Data.Entities.Jobs", b =>
+            modelBuilder.Entity("CRM.Data.Entities.JobLogs", b =>
                 {
                     b.HasOne("CRM.Data.Entities.Client", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("CRM.Data.Entities.Tasks", "Task")
                         .WithMany()
                         .HasForeignKey("TaskId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Client");
@@ -425,15 +448,34 @@ namespace CRM.Data.Migrations
                     b.Navigation("Task");
                 });
 
-            modelBuilder.Entity("CRM.Data.Entities.Logs", b =>
+            modelBuilder.Entity("CRM.Data.Entities.Jobs", b =>
                 {
-                    b.HasOne("CRM.Data.Entities.Jobs", "Job")
+                    b.HasOne("CRM.Data.Entities.Client", "Client")
                         .WithMany()
-                        .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("Job");
+                    b.HasOne("CRM.Data.Entities.Tasks", "Tasks")
+                        .WithMany()
+                        .HasForeignKey("TaskId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Client");
+
+                    b.Navigation("Tasks");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.Logs", b =>
+                {
+                    b.HasOne("CRM.Data.Entities.JobLogs", "JobLogs")
+                        .WithMany("Logs")
+                        .HasForeignKey("JobLogsId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("JobLogs");
                 });
 
             modelBuilder.Entity("CRM.Data.Entities.Tasks", b =>
@@ -501,6 +543,11 @@ namespace CRM.Data.Migrations
             modelBuilder.Entity("CRM.Data.Entities.ClientTask", b =>
                 {
                     b.Navigation("Tasks");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.JobLogs", b =>
+                {
+                    b.Navigation("Logs");
                 });
 #pragma warning restore 612, 618
         }

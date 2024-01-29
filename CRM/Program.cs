@@ -28,6 +28,9 @@ builder.Services.AddDbContext<ProjectDbContext>(options =>
 
 builder.Services.AddScoped<IClientRepository, ClientService>();
 builder.Services.AddScoped<IClientTaskRepository, ClientTaskService>();
+builder.Services.AddScoped<IJobLogsRepository, JobLogsService>();
+builder.Services.AddScoped<ILogsRepository, LogsService>();
+builder.Services.AddScoped<ITaskRepository, TaskService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ProjectDbContext>()
