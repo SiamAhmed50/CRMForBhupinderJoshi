@@ -9,24 +9,24 @@ using System.Threading.Tasks;
 
 namespace CRM.Data.Entities
 {
-    public class Jobs
+    public class JobLogs
     {
         [Key]
         public int Id { get; set; }
         [ForeignKey("ClientId")]
-        public Client? Client { get; set; } 
+        public Client? Client { get; set; }
+        [ForeignKey("TaskId")]
+        public Tasks? Task { get; set; } 
         // Foreign key for Client
         public int ClientId { get; set; }
-        [ForeignKey("TaskId")]
-        public Tasks? Tasks { get; set; }
+     
         public int TaskId { get; set; }
 
-        public CRM.Data.Enums.TaskStatus? TaskStatus { get; set; }
+        public List<Logs> Logs { get; set; }
 
-        public DateTime StartDate { get; set; }
-        public DateTime? EndDate { get; set; }
 
-         
+
+
 
     }
 }

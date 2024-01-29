@@ -79,11 +79,17 @@ namespace CRM.Controllers
         private string GenerateJwtToken(ApplicationUser user)
         {
             var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id),
-                new Claim(ClaimTypes.Name, user.UserName)
-                // Add other claims as needed
-            }; 
+        {
+            new Claim(ClaimTypes.NameIdentifier, user.Id),
+            new Claim(ClaimTypes.Name, user.UserName),
+            // Include user roles as claims
+            new Claim(ClaimTypes.Role, "User"), // Assuming a default role for all users
+        };
+
+            // Add user roles to claims
+            var userRoles = _userManager.GetRolesAsync(user).Result;
+            claims.AddRange(userRoles.Select(role => new Claim(ClaimTypes.Role, role)));
+
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var expires = DateTime.Now.AddDays(Convert.ToDouble(_configuration["Jwt:ExpireDays"]));
@@ -98,5 +104,6 @@ namespace CRM.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
     }
 }

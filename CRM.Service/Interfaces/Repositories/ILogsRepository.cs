@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace CRM.Service.Interfaces.Repositories
 {
-    public interface ITaskRepository : IRepository<Tasks, int>
+    public interface ILogsRepository : IRepository<Logs, int>
     {
-         
+        
     }
 }

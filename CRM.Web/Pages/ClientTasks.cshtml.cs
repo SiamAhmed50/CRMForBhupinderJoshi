@@ -1,4 +1,5 @@
 using CRM.Data.Entities;
+using CRM.Service.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
@@ -14,7 +15,12 @@ namespace CRM.Web.Pages
     {
         private readonly string apiBaseUrl = "https://localhost:44300";
         private readonly string apiEndpoint = "/api/ClientTasks";
+        private readonly ApiHttpClientFactory _apiHttpClientFactory;
 
+        public ClientTasksModel(ApiHttpClientFactory apiHttpClientFactory)
+        {
+            _apiHttpClientFactory = apiHttpClientFactory;
+        }
         [BindProperty]
         public ClientTaskModel ClientTaskModel { get; set; }
         public List<ClientTaskModel> ClientTasks { get; set; }
@@ -142,11 +148,11 @@ namespace CRM.Web.Pages
 
         private async Task LoadClientsAsync()
         {
-            using (var httpClient = new HttpClient())
+            using (var httpClient = _apiHttpClientFactory.CreateClient(apiBaseUrl))
             {
                 try
                 {
-                    httpClient.BaseAddress = new Uri(apiBaseUrl);
+                   
                     var response = await httpClient.GetAsync(apiEndpoint);
 
                     if (response.IsSuccessStatusCode)

@@ -5,10 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CRM.Service.Services.Repositories
 {
-    public class TaskService : Repository<Tasks, int>, ITaskRepository
+    public class LogsService : Repository<Logs, int>, ILogsRepository
     {
-        public TaskService(ProjectDbContext dbContext) : base(dbContext)
+        public LogsService(ProjectDbContext dbContext) : base(dbContext)
         {
         }
+        
+
     }
 }
