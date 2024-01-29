@@ -63,6 +63,7 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
 });
 builder.Services.AddScoped<SignInManager<ApplicationUser>, SignInManager<ApplicationUser>>();
+builder.Services.AddSingleton<ApiHttpClientFactory>();
 builder.Services.AddHostedService<LicenseExpirationService>();
 // Configure JWT settings
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));
