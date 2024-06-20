@@ -25,8 +25,8 @@ builder.Services.AddDbContext<ProjectDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString"));
 });
 
-builder.Services.AddScoped<IClientRepository, ClientService>();
-builder.Services.AddScoped<IClientTaskRepository, ClientTaskService>();
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
+builder.Services.AddScoped<IClientTaskRepository, IClientTaskService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ProjectDbContext>()

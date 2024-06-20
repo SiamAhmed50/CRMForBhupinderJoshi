@@ -25,6 +25,7 @@ namespace CRM.Service.Services.UnitOfWork
 
         public IRepository<ApplicationUser, string> UserRepository { get; }
         public IRepository<Client, string> ClientRepository { get; } // Add this property for Client Repository
+        public IRepository<ClientTask, string> ClientTaskRepository { get; } // Add this property for Client Repository
 
 
         // Add other repositories here

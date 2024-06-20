@@ -20,8 +20,16 @@ namespace CRM.Controllers
         [HttpGet]
         public async Task<IActionResult> GetClients()
         {
-            var clients = await _unitOfWork.ClientRepository.GetAllAsync();
-            return Ok(clients);
+            try
+            {
+                var clients = await _unitOfWork.ClientRepository.GetAllAsync();
+                return Ok(clients);
+            }
+            catch (Exception ex) { 
+            var message = ex.Message;
+            }
+           
+            return Ok();
         }
 
         // GET: api/Clients/5
