@@ -244,7 +244,7 @@
 
             // Edit button click event handler
             $('#clientTable tbody').on('click', 'span.edit-client', function () {
-                debugger;
+                
                 var row = $(this).closest('tr');
                 var data = table.row(row).data();
                 // Convert the date strings to JavaScript Date objects
@@ -267,7 +267,7 @@
             });
 
             $('#clientTable tbody').on('click', 'span.delete-client', function () {
-                debugger;
+                
                 var row = $(this).closest('tr');
                 var id = table.row(row).data().id;
                 Swal.fire({

@@ -1,7 +1,9 @@
-﻿using CRM.Data.Entities;
+﻿using CRM.API.ViewModels;
+using CRM.Data.Entities;
 using CRM.Service.Helpers;
 using CRM.Service.Interfaces.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -30,7 +32,7 @@ namespace CRM.Controllers
             try
             {
                 var jobs = await _unitOfWork.JobRepository.GetAllAsync(
-                    includeProperties: new Expression<Func<Jobs, object>>[]
+                    includes: new Expression<Func<Job, object>>[]
                     {
                         ct => ct.Client,
                         ct => ct.Tasks
@@ -39,14 +41,14 @@ namespace CRM.Controllers
                 var jobsViewModels = jobs.Select(j => new JobsViewModel
                 {
                     Id = j.Id,
-                    JobId = j.JobId,
+                    JobId = j.Id,
                     ClientId = j.Client.ClientId,
                     ClientName = j.Client.Name,
-                    TaskId = j.Tasks.TaskId,
+                    TaskId = j.Tasks.Id,
                     TaskName = j.Tasks.Name,
-                    TaskStatus = j.TaskStatus.ToString(),
-                    StartDate = j.StartDate.ToString(),
-                    EndDate = j.EndDate.ToString()
+                    TaskStatus = j.Status.ToString(),
+                    StartDate = j.Started.ToString(),
+                    EndDate = j.Ended.ToString()
                 }).ToList();
 
                 return Ok(jobsViewModels);
@@ -80,7 +82,7 @@ namespace CRM.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Jobs job)
+        public async Task<IActionResult> Create(Job job)
         {
             try
             {
@@ -104,36 +106,36 @@ namespace CRM.Controllers
             try
             {
                 var newJobId = GenerateUniqueId();
-                while (await _unitOfWork.JobRepository.GetAllAsync()
-                    .AnyAsync(j => j.JobId == newJobId))
+                var jobs = await _unitOfWork.JobRepository.GetAllAsync();
+                while (jobs.Any(j => j.Id == newJobId))
                 {
                     newJobId = GenerateUniqueId();
                 }
 
-                var client = await _unitOfWork.ClientRepository.GetAllAsync()
-                    .FirstOrDefaultAsync(f => f.ClientId == model.ClientId);
+                var clients = await _unitOfWork.ClientRepository.GetAllAsync();
+                var client = clients.FirstOrDefault(f => f.ClientId == model.ClientId);
 
                 if (client == null)
                 {
                     return BadRequest("Invalid ClientId");
                 }
 
-                var task = await _unitOfWork.TaskRepository.GetAllAsync()
-                    .FirstOrDefaultAsync(f => f.TaskId == model.TaskId);
+                var tasks = await _unitOfWork.TaskRepository.GetAllAsync();
+                var task = tasks.FirstOrDefault(f => f.Id == model.TaskId);
 
                 if (task == null)
                 {
                     return BadRequest("Invalid TaskId");
                 }
 
-                var job = new Jobs
+                var job = new Job
                 {
-                    JobId = newJobId,
+                    Id = newJobId,
                     ClientId = client.Id,
-                    TaskId = task.Id,
-                    TaskStatus = model.Status,
-                    StartDate = model.Started,
-                    EndDate = model.Ended
+                    TasksId = task.Id,
+                    Status = model.Status,
+                    Started = model.Started,
+                    Ended = model.Ended
                 };
 
                 var createdJob = await _unitOfWork.JobRepository.AddAsync(job);
@@ -149,7 +151,7 @@ namespace CRM.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateJob(int id, Jobs job)
+        public async Task<IActionResult> UpdateJob(int id, Job job)
         {
             try
             {

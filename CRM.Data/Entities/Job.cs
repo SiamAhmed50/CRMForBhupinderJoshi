@@ -12,8 +12,10 @@ namespace CRM.Data.Entities
         [Key]
         public int Id { get; set; }
         public int ClientId { get; set; }
+        public Client? Client { get; set; }
 
-        public int TaskId { get; set; }
+        public int TasksId { get; set; }
+        public Tasks? Tasks { get; set; }
 
         public TaskStatus Status { get; set; }
 

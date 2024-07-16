@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using CRM.Data.Entities;
 using CRM.Service.Interfaces.UnitOfWork;
+using System.Linq.Expressions;
 
 namespace CRM.Controllers
 {
@@ -20,7 +21,12 @@ namespace CRM.Controllers
         [HttpGet]
         public async Task<IActionResult> GetClientTasks()
         {
-            var clientTasks = await _unitOfWork.ClientTaskRepository.GetAllAsync();
+            var clientTasks = await _unitOfWork.ClientTaskRepository.GetAllAsync(
+                includes: new Expression<Func<ClientTask, object>>[]
+                    {
+                        ct => ct.Client,
+                        ct => ct.Tasks
+                    });
             return Ok(clientTasks);
         }
 
@@ -42,6 +48,7 @@ namespace CRM.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateClientTask(ClientTask clientTask)
         {
+
             var createdClientTask = await _unitOfWork.ClientTaskRepository.AddAsync(clientTask);
             await _unitOfWork.SaveChangesAsync();
 
@@ -65,8 +72,13 @@ namespace CRM.Controllers
 
         
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteClientTask(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            var data = await _unitOfWork.TaskRepository.GetAllAsync(filter:x=>x.ClientTaskId==id);
+            foreach(var item in data)
+            {
+                await _unitOfWork.TaskRepository.DeleteAsync(item.Id);
+            }
             var deleted = await _unitOfWork.ClientTaskRepository.DeleteAsync(id);
 
             if (!deleted)

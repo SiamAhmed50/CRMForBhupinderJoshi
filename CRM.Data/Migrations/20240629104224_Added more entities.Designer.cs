@@ -4,6 +4,7 @@ using CRM.Data.DbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRM.Data.Migrations
 {
     [DbContext(typeof(ProjectDbContext))]
-    partial class ProjectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240629104224_Added more entities")]
+    partial class Addedmoreentities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,15 +94,15 @@ namespace CRM.Data.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8f8a4b7f-5cd0-45cb-8e1f-40bedb839b9d",
+                            ConcurrencyStamp = "842846f5-1024-471c-9fea-09902d2206aa",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAENi3/NzvC4jPJQZoVqcBvbXT9FSAEC90d2Dg3w4En6xkYCGiWtIcDJ1KECCG4KWjRg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAbRic41dC9U7M8I8oAiejJXBoaZS+UCeNu5rR8m9yumSjLPLzAJmGIG5CK7h/sMvg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7bdd8149-0481-4e7c-9888-0b87bc8bb3f5",
+                            SecurityStamp = "bb94e22f-5a20-487c-93ae-ae49000ab282",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -256,16 +259,12 @@ namespace CRM.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("ClientTaskId")
+                    b.Property<int>("ClientTaskId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TaskId")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -492,7 +491,9 @@ namespace CRM.Data.Migrations
                 {
                     b.HasOne("CRM.Data.Entities.ClientTask", "ClientTask")
                         .WithMany("Tasks")
-                        .HasForeignKey("ClientTaskId");
+                        .HasForeignKey("ClientTaskId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("ClientTask");
                 });

@@ -24,21 +24,25 @@ namespace CRM.Controllers
 
         // GET: api/Logs
         [HttpGet]
-        public async Task<IActionResult> GetLogs(int jobId)
+        public async Task<IActionResult> GetLogs()
         {
             try
             {
-                var logs = await _unitOfWork.GenericJobLogsRepository.GetAllAsync(
-                    jl => jl.ClientId == jobId,
-                    include: ct => ct.Client,
+                var logs = await _unitOfWork.JobLogsRepository.GetAllAsync(
+                includes: new Expression<Func<JobLogs, object>>[]
+                {
+                    ct=>ct.Job,
+                    ct => ct.Client,
                     ct => ct.Task,
-                    ct => ct.Logs);
+                    ct => ct.Logs
+                }
+            );
 
                 var logsViewModel = logs.Select(jobLog => new LogsViewModel
                 {
                     Id = jobLog.Id,
                     ClientId = jobLog.Client.ClientId,
-                    TaskId = jobLog.Task.TaskId,
+                    TaskId = jobLog.Task.Id,
                     TaskName = jobLog.Task.Name,
                     Logs = jobLog.Logs.Select(log => new Logs
                     {
@@ -49,7 +53,7 @@ namespace CRM.Controllers
                     }).ToList()
                 }).ToList();
 
-                return Ok(logsViewModel);
+                return Ok(logs);
             }
             catch (Exception ex)
             {
@@ -62,7 +66,9 @@ namespace CRM.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetLog(int id)
         {
-            var log = await _unitOfWork.JobLogsRepository.GetByIdAsync(id);
+            var jobLog = await _unitOfWork.JobLogsRepository.GetAllAsync(filter: x=>x.Id==id, includes: i=>i.Logs);
+            var logs = jobLog.FirstOrDefault();
+            var log = logs.Logs;
 
             if (log == null)
             {
@@ -118,18 +124,26 @@ namespace CRM.Controllers
         {
             try
             {
-                var existingJobLog = _unitOfWork.JobLogsRepository.GetAllAsync(
-                    include: ct => ct.Client,
-                    ct => ct.Task,
-                    ct => ct.Logs)
-                    .Result
-                    .FirstOrDefault(w => w.JobId == logModel.JobId);
+                var jobLogs = await _unitOfWork.JobLogsRepository.GetAllAsync(
+                    
+                    includes: new Expression<Func<JobLogs, object>>[]
+                    {
+                        ct => ct.Client,
+                        ct => ct.Task,
+                        ct => ct.Logs
+                    }
+                );
+                var existingJobLog = jobLogs.FirstOrDefault();
 
-                var job = _unitOfWork.JobRepository.GetAllAsync(
-                    include: ct => ct.Client,
-                    ct => ct.Tasks)
-                    .Result
-                    .FirstOrDefault(f => f.JobId == logModel.JobId);
+                var jobs = await _unitOfWork.JobRepository.GetAllAsync(
+                    filter: j => j.Id == logModel.JobId,
+                    includes: new Expression<Func<Job, object>>[]
+                    {
+                        j => j.Client,
+                        j => j.Tasks
+                    }
+                );
+                var job = jobs.FirstOrDefault();
 
                 if (job == null)
                 {
@@ -141,8 +155,8 @@ namespace CRM.Controllers
                     var newJobLog = new JobLogs
                     {
                         JobId = logModel.JobId,
-                        ClientId = job.Client.Id,
-                        TaskId = job.Tasks.Id,
+                        ClientId = job.ClientId,
+                        TaskId = job.TasksId,
                         Logs = new List<Logs>()
                     };
 

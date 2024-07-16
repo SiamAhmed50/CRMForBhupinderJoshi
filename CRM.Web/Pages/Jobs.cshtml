@@ -1,0 +1,153 @@
+﻿@page
+@model CRM.UI.Pages.JobsModel
+
+@{
+    ViewData["Title"] = "Jobs";
+}
+<form method="post">
+    @Html.AntiForgeryToken()
+    <!-- Other form fields -->
+</form>
+<div class="row">
+    <div class="col-sm-6 text-start">
+        <h2>Jobs</h2>
+    </div>
+</div>
+<div class="container mt-4">
+    <table id="jobsTable" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th hidden>Id</th>
+                <th>Client ID <span class="sort-indicator" id="sortClientId"></span></th>
+                <th>Task Id</th>
+                <th>Task Name</th>
+                <th>Status</th>
+                <th>Started</th>
+                <th>Ended</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<div class="modal fade" id="logModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form method="post">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel1">Logs</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table id="logTable" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Log Message</th>
+                                <th>Log Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var table = $('#jobsTable').DataTable({
+                ajax: {
+                    "type": "POST",
+                    "url": "/Jobs?handler=List",
+                    "dataSrc": "",
+                    "beforeSend": function (xhr) {
+                        var token = $('input:hidden[name="__RequestVerificationToken"]').val();
+                        xhr.setRequestHeader("XSRF-TOKEN", token);
+                    }
+                },
+                "columns": [
+                    { data: "id", visible: false },
+                    { data: "clientId" },
+                    { data: "task.id" },
+                    { data: "task.name" },
+                    { data: "job.status" },
+                    {
+                        data: "job.started",
+                        render: function (data) {
+                            var startDate = new Date(data);
+                            return (startDate.getMonth() + 1) + '/' + startDate.getDate() + '/' + startDate.getFullYear();
+                        }
+                    },
+                    {
+                        data: "job.ended",
+                        render: function (data) {
+                            var endDate = new Date(data);
+                            return (endDate.getMonth() + 1) + '/' + endDate.getDate() + '/' + endDate.getFullYear();
+                        }
+                    },
+                    {
+                        data: null,
+                        render: function () {
+                            return `
+                                        <div class="dropdown ms-auto" style="cursor:pointer;">
+                                            <i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" data-bs-target="#logModal" aria-expanded="false"></i>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <span class="dropdown-item view-logs" style="cursor:pointer;">
+                                                        <i class="fas fa-pen mx-2"></i>View Logs
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    `;
+                        }
+                    }
+                ],
+                order: [[2, 'asc']]
+            });
+
+            var logTable;
+
+            $('#jobsTable tbody').on('click', 'span.view-logs', function () {
+                var row = $(this).closest('tr');
+                var data = table.row(row).data();
+                var id = data.id;
+                console.log("Job ID:", id);
+
+                // Initialize or reload the logTable DataTable
+                if ($.fn.DataTable.isDataTable('#logTable')) {
+                    logTable.ajax.url(`/Jobs?handler=LogList&id=${id}`).load();
+                } else {
+                    logTable = $('#logTable').DataTable({
+                        ajax: {
+                            type: "POST",
+                            url: `/Jobs?handler=LogList&id=${id}`,
+                            dataSrc: "",
+                            beforeSend: function (xhr) {
+                                var token = $('input:hidden[name="__RequestVerificationToken"]').val();
+                                xhr.setRequestHeader("XSRF-TOKEN", token);
+                            },
+                            error: function (xhr, status, error) {
+                                console.log("Error:", status, error);
+                                console.log("Response Text:", xhr.responseText);
+                            }
+                        },
+                        columns: [
+                            { data: "timestamp" },
+                            { data: "logMessage" },
+                            { data: "logLevel" }
+                        ],
+                        order: [[0, 'desc']]
+                    });
+                }
+
+                $('#logModal').modal('show');
+            });
+        });
+    </script>
+}

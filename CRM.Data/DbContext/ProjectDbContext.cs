@@ -10,6 +10,9 @@ namespace CRM.Data.DbContext
         public DbSet<Client> Clients { get; set; } // Add this DbSet for the Client entity
         public DbSet<ClientTask> ClientTasks { get; set; } // Add this DbSet for the Client entity
         public DbSet<Tasks> Tasks { get; set; } // Add this DbSet for the Client entity
+        public DbSet<Job> Jobs { get; set; } // Add this DbSet for the Jobs entity
+        public DbSet<JobLogs> JobLogs { get; set; } // Add this DbSet for the JobLogs entity
+        public DbSet<Logs> Logs { get; set; } // Add this DbSet for the Logs entity
         public ProjectDbContext(DbContextOptions<ProjectDbContext> options) : base(options)
         {
           

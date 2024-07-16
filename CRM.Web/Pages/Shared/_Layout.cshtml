@@ -94,6 +94,12 @@
                             <div data-i18n="Basic">Tasks</div>
                         </a>
                     </li>
+                    <li class="menu-item" id="clienttasksmenu">
+                        <a href="/Jobs" class="menu-link">
+                            <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+                            <div data-i18n="Basic">Jobs</div>
+                        </a>
+                    </li>
                      
                     <div class="ps__rail-x" style="left: 0px; bottom: -78px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div>
                     <div class="ps__rail-y" style="top: 78px; height: 266px; right: 4px;"><div class="ps__thumb-y" tabindex="0" style="top: 14px; height: 47px;"></div></div>
@@ -250,7 +256,7 @@
     @await RenderSectionAsync("Scripts", required: false)
     <script type="text/javascript">
         $(document).ready(function () {
-            debugger;
+            
             if ("@TempData["SuccessMessage"]" != "") {
                 Swal.fire({
                     position: "top-end",
@@ -270,7 +276,7 @@
                 });
             }
 
-            debugger;
+            
             // Extract the current page from the URL
             var currentPage = window.location.pathname.toLowerCase().replace('/', '');
 

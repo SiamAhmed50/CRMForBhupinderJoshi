@@ -11,9 +11,9 @@ namespace CRM.Data.Entities
     {
         [Key]
         public int Id { get; set; }
-        public Client Client { get; set; }
+        public Client? Client { get; set; }
 
-        // Foreign key for Client
+        // Foreign key for Clienta
         public int ClientId { get; set; }
 
         // Navigation property for Tasks

@@ -23,18 +23,53 @@
         <table id="clientTable" class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    
-                    <th>Name</th>
+                    <th hidden>Id</th>
+                    <th>Client Name</th>
                     <th>Client ID <span class="sort-indicator" id="sortClientId"></span></th>
-                    <th>License Number <span class="sort-indicator" id="sortLicenseNumber"></span></th>
-                    <th>License Start Date</th>
-                    <th>License End Date</th>
-                    <th>License Status</th>
+                    <th>Task Name</th>
+                    <th>Task Id</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-            </tbody>
+            @* @foreach(var task in Model.ClientTasks)
+            {
+                <tr>
+                    <td hidden>@task.Id</td>
+                    <td>@task.Client?.Name</td>
+                    <td>@task.Client?.ClientId</td>
+                    <td>@foreach(var i in task.Tasks)
+                        {
+                            <span>@i.Name</span> <br>
+                        }
+                    </td>
+                    <td>
+                        @foreach (var i in task.Tasks)
+                        {
+                            <span>@i.TaskId</span> <br>
+                        }
+                    </td>
+                    <td>
+                        <div class="dropdown ms-auto" style="cursor:pointer;">
+                            
+                            <i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <span class="dropdown-item edit-client" style="cursor:pointer;">
+                                        <i class="fas fa-pen mx-2"></i> Update
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="dropdown-item delete-client" style="cursor:pointer;">
+                                        <i class="fas fa-trash mx-2"></i> Delete
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            } *@
+        </tbody>
         </table>
     </div>
 
@@ -154,25 +189,155 @@
  
 @section Scripts {
     <script>
-        var taskRowIndex = 0;
+        $(document).ready(function () {
+            console.log("ok");
+            table = $('#clientTable').DataTable({
+                
+                ajax: {
+                    "type": "POST",
+                    "url": "/ClientTasks?handler=List",
+                    "dataSrc": "",
+                    "beforeSend": function (xhr) {
+                        xhr.setRequestHeader("XSRF-TOKEN",
+                            $('input:hidden[name="__RequestVerificationToken"]').val());
+                    }
+                },
+                columns: [
+                    {
+                        "data": "id",
+                        visible: false
+                    },
+                    { data: "client.name" },
+                    { data: "client.clientId" },
+                    {
+                        data: "tasks", render: function (data, type, row) {
+                            return data && Array.isArray(data)
+                                ? data.map(task => `<span>${task.name}</span><br>`).join('')
+                                : '';
+                        }
+                    },
+                    {
+                        data: "tasks", render: function (data, type, row) {
+                            return data && Array.isArray(data)
+                                ? data.map(task => `<span>${task.taskId}</span><br>`).join('')
+                                : '';
+                        }
+                    },
+                    {
+                        data: null, render: function (data, type, row) {
+                            return `
+                                        <div class="dropdown ms-auto" style="cursor:pointer;">
+                                            <i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <span class="dropdown-item edit-client" style="cursor:pointer;">
+                                                        <i class="fas fa-pen mx-2"></i> Update
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="dropdown-item delete-client" style="cursor:pointer;">
+                                                        <i class="fas fa-trash mx-2"></i> Delete
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    `;
+                        }
+                    }
+                ]
+            });
+            var taskRowIndex = 0;
 
-        function addTaskRow() {
-            taskRowIndex++;
+            function addTaskRow() {
+                taskRowIndex++;
 
-            var newRow = `
-                    <div class="mb-3" id="taskRow${taskRowIndex}">
-                                <label for="taskName" class="form-label">Task Name</label> <button type="button" class="btn btn-danger btn-sm ms-2 float-end mb-1" onclick="deleteTaskRow(${taskRowIndex})">Delete</button>
-                                <input type="text" class="form-control" name="addTaskRow.Tasks[${taskRowIndex}].Name" required>
-                         
-                    </div>
-                `;
+                var newRow = `
+                                    <div class="mb-3" id="taskRow${taskRowIndex}">
+                                                <label for="taskName" class="form-label">Task Name</label> <button type="button" class="btn btn-danger btn-sm ms-2 float-end mb-1" onclick="deleteTaskRow(${taskRowIndex})">Delete</button>
+                                                        <input type="text" class="form-control" name="ClientTaskModel.Tasks[${taskRowIndex}].Name" required>
+        
+                                    </div>
+                                `;
 
-            $("#taskRows").append(newRow);
-        }
+                $("#taskRows").append(newRow);
+            }
+            $('#clientTable tbody').on('click', 'span.edit-client', function () {
+                
+                var row = $(this).closest('tr');
+                var data = table.row(row).data();
+                // Convert the date strings to JavaScript Date objects
+                var startDate = new Date(data.licenseStartDate);
+                var endDate = new Date(data.licenseEndDate);
 
-        function deleteTaskRow(index) {
-            $("#taskRow" + index).remove();
-        }
+                // Format the dates as strings in "YYYY-MM-DD" format
+                var formattedStartDate = startDate.toISOString().split('T')[0];
+                var formattedEndDate = endDate.toISOString().split('T')[0];
+                // Populate the edit modal form with the fetched data
+                $('#clientModalEdit #ClientModel_Id').val(data.id);
+                $('#clientModalEdit #ClientModel_ClientId').val(data.clientId);
+                $('#clientModalEdit #ClientModel_LicenseNumber').val(data.Tasks);
+                $('#clientModalEdit #ClientModel_LicenseStartDate')[0].value = formattedStartDate;
+                $('#clientModalEdit #ClientModel_LicenseEndDate')[0].value = formattedEndDate;
+
+                // Show the edit modal
+                $('#clientModalEdit').modal('show');
+            });
+
+            function deleteTaskRow(index) {
+                $("#taskRow" + index).remove();
+            }
+            $('#clientTable tbody').on('click', 'span.delete-client', function () {
+
+                var row = $(this).closest('tr');
+                var data = table.row(row).data();
+                var id = data ? data.id : undefined;// Assuming Client ID is in the second column
+                if (id) {
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "You won't be able to revert this!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, delete it!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $.ajax({
+                                url: `/ClientTasks?handler=Delete&id=${id}`, // Adjust the URL based on your endpoint
+                                type: 'POST',
+                                beforeSend: function (xhr) {
+                                    // Set the XSRF token
+                                    xhr.setRequestHeader('XSRF-TOKEN', $('input:hidden[name="__RequestVerificationToken"]').val());
+                                },
+                                success: function (response) {
+                                    // Handle success, e.g., show a success message
+                                    table.ajax.reload();
+                                    Swal.fire({
+                                        title: 'Deleted!',
+                                        text: 'The client has been deleted.',
+                                        icon: 'success'
+                                    });
+                                },
+                                error: function (error) {
+                                    // Handle error, e.g., show an error message
+                                    Swal.fire({
+                                        title: 'Error!',
+                                        text: 'An error occurred while deleting the client. ',
+                                        icon: 'error'
+                                    });
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Client Task ID not found.',
+                        icon: 'error'
+                    });
+                }
+            });
+        });
     </script>
     @* 
     <script>
@@ -256,7 +421,7 @@
 
             // Edit button click event handler
             $('#clientTable tbody').on('click', 'span.edit-client', function () {
-                debugger;
+                
                 var row = $(this).closest('tr');
                 var data = table.row(row).data();
                 // Convert the date strings to JavaScript Date objects
@@ -279,7 +444,7 @@
             });
 
             $('#clientTable tbody').on('click', 'span.delete-client', function () {
-                debugger;
+                
                 var row = $(this).closest('tr');
                 var id = table.row(row).data().id;
                 Swal.fire({
@@ -326,4 +491,5 @@
 
        
     </script> *@
+
 }

@@ -14,6 +14,11 @@ namespace CRM.Service.Interfaces.UnitOfWork
         IRepository<ApplicationUser, string> UserRepository { get; }
         IRepository<Client, string> ClientRepository { get; } 
         IRepository<ClientTask, string> ClientTaskRepository { get; } 
+        IRepository<Job, string> JobRepository { get; } 
+        IRepository<JobLogs, string> GenericJobLogsRepository { get; } 
+        IRepository<Logs, string> LogsRepository { get; } 
+        IRepository<JobLogs, string> JobLogsRepository { get; } 
+        IRepository<Tasks, string> TaskRepository { get; } 
         // Add other repositories here
 
         Task<int> SaveChangesAsync();

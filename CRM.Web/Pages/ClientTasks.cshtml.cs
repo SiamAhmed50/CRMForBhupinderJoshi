@@ -33,13 +33,19 @@ namespace CRM.Web.Pages
             {
                 httpClient.BaseAddress = new Uri(apiBaseUrl);
                 var response = await httpClient.GetAsync("/api/Clients");
+                var response1 = await httpClient.GetAsync("/api/ClientTask");
 
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     Clients = JsonConvert.DeserializeObject<List<ClientModel>>(content);
                 }
-                 
+                if (response1.IsSuccessStatusCode)
+                {
+                    var content = await response1.Content.ReadAsStringAsync();
+                    ClientTasks = JsonConvert.DeserializeObject<List<ClientTaskModel>>(content);
+                }
+
             }
              
         } 
@@ -129,7 +135,8 @@ namespace CRM.Web.Pages
             {
                 // Get all clients as JSON for DataTable via AJAX
                 await LoadClientsAsync();
-                return new JsonResult(ClientTaskModel);
+                var res =  new JsonResult(ClientTasks);
+                return res;
             }
             catch (Exception ex)
             {
@@ -164,12 +171,9 @@ namespace CRM.Web.Pages
                     ClientTasks = new List<ClientTaskModel>();
                 }
             }
-        } 
-       
+        }
     }
 
-
-    
     public class ClientTaskModel
     {
         public int Id { get; set; }
