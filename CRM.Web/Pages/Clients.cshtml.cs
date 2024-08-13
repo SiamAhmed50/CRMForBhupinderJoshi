@@ -1,6 +1,8 @@
 using CRM.Data.Entities;
+using CRM.UI.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,7 @@ namespace CRM.Web.Pages
     public class ClientsModel : PageModel
     {
         private readonly string apiBaseUrl = "https://localhost:44300";
+        //private readonly string apiBaseUrl;
         private readonly string apiEndpoint = "/api/Clients";
 
         [BindProperty]
@@ -23,6 +26,15 @@ namespace CRM.Web.Pages
         public string SuccessMessage { get; set; }
         [TempData]
         public string ErrorMessage { get; set; }
+
+        //public ClientsModel(IOptions<ApiSettings> apiSettings)
+        //{
+        //    apiBaseUrl = apiSettings.Value.ApiUrl;
+        //}
+        public ClientsModel()
+        {
+            
+        }
         public async Task OnGetAsync()
         {
             // Initialize ClientModel
@@ -128,8 +140,6 @@ namespace CRM.Web.Pages
             return RedirectToPage();
         }
    
-
-  
         public async Task<IActionResult> OnPostList()
         {
             try

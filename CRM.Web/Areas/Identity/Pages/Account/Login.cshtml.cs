@@ -20,6 +20,8 @@ using System.Text;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
+using CRM.UI.Helpers;
+using Microsoft.Extensions.Options;
 
 namespace CRM.UI.Areas.Identity.Pages.Account
 {
@@ -31,18 +33,21 @@ namespace CRM.UI.Areas.Identity.Pages.Account
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IConfiguration _configuration;
 
+        private readonly string apiBaseUrl;
+
         public LoginModel(
             SignInManager<ApplicationUser> signInManager,
             ILogger<LoginModel> logger,
             IHttpClientFactory httpClientFactory,
             IConfiguration configuration,
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager, IOptions<ApiSettings> apiSettings)
         {
             _signInManager = signInManager;
             _logger = logger;
             _httpClientFactory = httpClientFactory;
             _configuration = configuration;
             _userManager = userManager;
+            apiBaseUrl = apiSettings.Value.ApiUrl;
         }
 
         /// <summary>
@@ -124,9 +129,21 @@ namespace CRM.UI.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var httpClient = _httpClientFactory.CreateClient();
 
-                var apiBaseUrl = "https://localhost:44300"; // Replace this with the actual base URL of your API
+
+
+                //var handler = new HttpClientHandler();
+                //handler.ClientCertificateOptions = ClientCertificateOption.Manual;
+                //handler.ServerCertificateCustomValidationCallback =
+                //    (httpRequestMessage, cert, cetChain, policyErrors) =>
+                //    {
+                //        return true;
+                //    };
+
+                //var httpClient = new HttpClient(handler);
+
+                var httpClient = _httpClientFactory.CreateClient();
+                //var apiBaseUrl = "https://localhost:44300"; // Replace this with the actual base URL of your API
 
                 var loginRequest = new 
                 {
@@ -137,9 +154,9 @@ namespace CRM.UI.Areas.Identity.Pages.Account
 
 
                 var content = new StringContent(JsonConvert.SerializeObject(loginRequest), Encoding.UTF8, "application/json");
-
+                Console.WriteLine( "Start " +content);
                 var response = await httpClient.PostAsync($"{apiBaseUrl}/api/Account/login", content);
-
+                Console.WriteLine("Final " + response);
                 if (response.IsSuccessStatusCode)
                 {
 

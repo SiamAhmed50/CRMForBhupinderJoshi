@@ -16,6 +16,6 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CRM.Data
-build_property.ProjectDir = C:\Personal\CRM\CRM\CRM.Data\
+build_property.ProjectDir = D:\Upwork Project\CRMForBhupinderJoshi-main\CRM.Data\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

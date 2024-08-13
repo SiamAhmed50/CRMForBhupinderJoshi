@@ -7871,19 +7871,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\siam\\.nuget\\packages\\": {}
+    "C:\\Users\\Siam Ahmed\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Personal\\CRM\\CRM\\CRM.Data\\CRM.Data.csproj",
+      "projectUniqueName": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\CRM.Data.csproj",
       "projectName": "CRM.Data",
-      "projectPath": "C:\\Personal\\CRM\\CRM\\CRM.Data\\CRM.Data.csproj",
-      "packagesPath": "C:\\Users\\siam\\.nuget\\packages\\",
-      "outputPath": "C:\\Personal\\CRM\\CRM\\CRM.Data\\obj\\",
+      "projectPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\CRM.Data.csproj",
+      "packagesPath": "C:\\Users\\Siam Ahmed\\.nuget\\packages\\",
+      "outputPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\siam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Siam Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7891,6 +7891,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7903,6 +7904,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -7944,7 +7950,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

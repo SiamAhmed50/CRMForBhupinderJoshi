@@ -1,0 +1,377 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\pages\\clients.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\clients.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\pages\\clienttasks.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\clienttasks.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\pages\\jobs.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\jobs.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\pages\\privacy.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\privacy.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\crm.ui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\crm.ui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 16,
+          "SelectedChildIndex": 25,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{131369f2-062d-44a2-8671-91ff31efb4f4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:159:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:160:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:161:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:172:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:175:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:174:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:143:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{809f6ff3-8092-454a-8003-6d4091f9b5bb}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:151:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:150:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Privacy.cshtml.cs",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Privacy.cshtml.cs",
+              "RelativeDocumentMoniker": "CRM.Web\\Pages\\Privacy.cshtml.cs",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Privacy.cshtml.cs",
+              "RelativeToolTip": "CRM.Web\\Pages\\Privacy.cshtml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T07:33:26.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Jobs.cshtml.cs",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Jobs.cshtml.cs",
+              "RelativeDocumentMoniker": "CRM.Web\\Pages\\Jobs.cshtml.cs",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Jobs.cshtml.cs",
+              "RelativeToolTip": "CRM.Web\\Pages\\Jobs.cshtml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T07:33:22.398Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "CRM.Web\\Pages\\Index.cshtml.cs",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Index.cshtml.cs",
+              "RelativeToolTip": "CRM.Web\\Pages\\Index.cshtml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T07:33:19.421Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClientTasks.cshtml.cs",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\ClientTasks.cshtml.cs",
+              "RelativeDocumentMoniker": "CRM.Web\\Pages\\ClientTasks.cshtml.cs",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\ClientTasks.cshtml.cs",
+              "RelativeToolTip": "CRM.Web\\Pages\\ClientTasks.cshtml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T07:33:12.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Clients.cshtml.cs",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Clients.cshtml.cs",
+              "RelativeDocumentMoniker": "CRM.Web\\Pages\\Clients.cshtml.cs",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Clients.cshtml.cs",
+              "RelativeToolTip": "CRM.Web\\Pages\\Clients.cshtml.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABYAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T07:33:06.156Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Register.cshtml.cs",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeDocumentMoniker": "CRM.Web\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeToolTip": "CRM.Web\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ViewState": "AQIAAGsAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T07:32:26.806Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeToolTip": "CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "ViewState": "AQIAAHwAAAAAAAAAAAAcwJAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T07:22:55.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Logout.cshtml.cs",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
+              "RelativeDocumentMoniker": "CRM.Web\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
+              "RelativeToolTip": "CRM.Web\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T07:32:18.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CRM.UI.csproj",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\CRM.UI.csproj",
+              "RelativeDocumentMoniker": "CRM.Web\\CRM.UI.csproj",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\CRM.UI.csproj",
+              "RelativeToolTip": "CRM.Web\\CRM.UI.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAABaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-16T08:23:51.995Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 290,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:141:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:140:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:142:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:143:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:147:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:150:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:149:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:145:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:148:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:146:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:144:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:146:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:149:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:145:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 374,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:148:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:147:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:152:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:153:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:156:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:158:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:155:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:157:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:156:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:158:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:171:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:173:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:151:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

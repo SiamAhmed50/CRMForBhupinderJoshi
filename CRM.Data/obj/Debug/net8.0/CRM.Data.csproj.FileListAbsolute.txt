@@ -12,3 +12,31 @@ C:\Personal\CRM\CRM\CRM.Data\obj\Debug\net8.0\refint\CRM.Data.dll
 C:\Personal\CRM\CRM\CRM.Data\obj\Debug\net8.0\CRM.Data.pdb
 C:\Personal\CRM\CRM\CRM.Data\obj\Debug\net8.0\CRM.Data.genruntimeconfig.cache
 C:\Personal\CRM\CRM\CRM.Data\obj\Debug\net8.0\ref\CRM.Data.dll
+E:\CRMForBhupinderJoshi-main\CRM.Data\bin\Debug\net8.0\CRM.Data.deps.json
+E:\CRMForBhupinderJoshi-main\CRM.Data\bin\Debug\net8.0\CRM.Data.runtimeconfig.json
+E:\CRMForBhupinderJoshi-main\CRM.Data\bin\Debug\net8.0\CRM.Data.dll
+E:\CRMForBhupinderJoshi-main\CRM.Data\bin\Debug\net8.0\CRM.Data.pdb
+E:\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.csproj.AssemblyReference.cache
+E:\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.GeneratedMSBuildEditorConfig.editorconfig
+E:\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.AssemblyInfoInputs.cache
+E:\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.AssemblyInfo.cs
+E:\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.csproj.CoreCompileInputs.cache
+E:\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.dll
+E:\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\refint\CRM.Data.dll
+E:\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.pdb
+E:\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.genruntimeconfig.cache
+E:\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\ref\CRM.Data.dll
+D:\Upwork Project\CRMForBhupinderJoshi-main\CRM.Data\bin\Debug\net8.0\CRM.Data.deps.json
+D:\Upwork Project\CRMForBhupinderJoshi-main\CRM.Data\bin\Debug\net8.0\CRM.Data.runtimeconfig.json
+D:\Upwork Project\CRMForBhupinderJoshi-main\CRM.Data\bin\Debug\net8.0\CRM.Data.dll
+D:\Upwork Project\CRMForBhupinderJoshi-main\CRM.Data\bin\Debug\net8.0\CRM.Data.pdb
+D:\Upwork Project\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.csproj.AssemblyReference.cache
+D:\Upwork Project\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Upwork Project\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.AssemblyInfoInputs.cache
+D:\Upwork Project\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.AssemblyInfo.cs
+D:\Upwork Project\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.csproj.CoreCompileInputs.cache
+D:\Upwork Project\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.dll
+D:\Upwork Project\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\refint\CRM.Data.dll
+D:\Upwork Project\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.pdb
+D:\Upwork Project\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\CRM.Data.genruntimeconfig.cache
+D:\Upwork Project\CRMForBhupinderJoshi-main\CRM.Data\obj\Debug\net8.0\ref\CRM.Data.dll

@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using CRM.Data.Entities;
 using CRM.Service.Interfaces.UnitOfWork;
 using System.Linq.Expressions;
+using CRM.API.ViewModels;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace CRM.Controllers
 {
@@ -54,8 +56,48 @@ namespace CRM.Controllers
 
             return CreatedAtAction("GetClientTask", new { id = createdClientTask.Id }, createdClientTask);
         }
+        [HttpPost("CreateTask")]
+        public async Task<IActionResult> CreateClientTask(CreateTask task)
+        {
 
-       
+            var client =  _unitOfWork.ClientRepository.GetAllAsync(w => w.ClientId == task.ClientId).Result.FirstOrDefault();
+            if(client != null)
+            {
+                if (client.LicenseStatus && client.LicenseEndDate > DateTime.UtcNow)
+                {
+                    var newTasks = new List<Tasks>();
+                    foreach (var taskName in task.TaskNames)
+                    {
+                        var newTask = new Tasks();
+                        newTask.Name = taskName;
+                        newTasks.Add(newTask);
+                    }
+                    var clientbj = new Client()
+                    {
+                        Id = client.Id
+                    };
+                    var Task = new ClientTask()
+                    {
+                        Client = client,
+                        ClientId = task.ClientId,
+                        Tasks = newTasks
+                    };
+                    var createdClientTask = await _unitOfWork.ClientTaskRepository.AddAsync(Task);
+                    await _unitOfWork.SaveChangesAsync();
+
+                    return CreatedAtAction("GetClientTask", new { id = createdClientTask.Id }, createdClientTask);
+                }
+                else
+                {
+                    return BadRequest("Client Licesne got expired!");
+                }
+            }
+
+            return NotFound("Client Not found!");
+         
+        }
+
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateClient(int id, ClientTask clientTask)
         {

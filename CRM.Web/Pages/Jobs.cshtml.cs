@@ -6,12 +6,15 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System;
+using CRM.UI.Helpers;
+using Microsoft.Extensions.Options;
 
 namespace CRM.UI.Pages
 {
     public class JobsModel : PageModel
     {
-        private readonly string apiBaseUrl = "https://localhost:44300";
+        //private readonly string apiBaseUrl = "https://localhost:44300";
+        private readonly string apiBaseUrl;
         private readonly string apiEndpoint = "/api/Logs";
 
         [BindProperty]
@@ -26,6 +29,12 @@ namespace CRM.UI.Pages
 
         [TempData]
         public string ErrorMessage { get; set; }
+
+
+        public JobsModel(IOptions<ApiSettings> apiSettings)
+        {
+            apiBaseUrl = apiSettings.Value.ApiUrl;
+        }
 
         public async Task OnGetAsync()
         {
@@ -102,7 +111,7 @@ namespace CRM.UI.Pages
             try
             {
                 await LoadJobsAsync();
-                var res =  new JsonResult(JobLogsList);
+                var res = new JsonResult(JobLogsList);
                 return res;
             }
             catch (Exception ex)
@@ -160,7 +169,7 @@ namespace CRM.UI.Pages
                 try
                 {
                     httpClient.BaseAddress = new Uri(apiBaseUrl);
-                    var response = await httpClient.GetAsync(apiEndpoint+"/"+id);
+                    var response = await httpClient.GetAsync(apiEndpoint + "/" + id);
 
                     if (response.IsSuccessStatusCode)
                     {

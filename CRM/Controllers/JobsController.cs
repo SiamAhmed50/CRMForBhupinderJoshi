@@ -105,12 +105,7 @@ namespace CRM.Controllers
         {
             try
             {
-                var newJobId = GenerateUniqueId();
-                var jobs = await _unitOfWork.JobRepository.GetAllAsync();
-                while (jobs.Any(j => j.Id == newJobId))
-                {
-                    newJobId = GenerateUniqueId();
-                }
+                
 
                 var clients = await _unitOfWork.ClientRepository.GetAllAsync();
                 var client = clients.FirstOrDefault(f => f.ClientId == model.ClientId);
@@ -119,29 +114,36 @@ namespace CRM.Controllers
                 {
                     return BadRequest("Invalid ClientId");
                 }
-
-                var tasks = await _unitOfWork.TaskRepository.GetAllAsync();
-                var task = tasks.FirstOrDefault(f => f.Id == model.TaskId);
-
-                if (task == null)
+                else if(client.LicenseStatus && client.LicenseEndDate > DateTime.UtcNow)
                 {
-                    return BadRequest("Invalid TaskId");
+                    var tasks = await _unitOfWork.TaskRepository.GetAllAsync();
+                    var task = tasks.FirstOrDefault(f => f.TaskId == model.TaskId);
+
+                    if (task == null)
+                    {
+                        return BadRequest("Invalid TaskId");
+                    } 
+                    var job = new Job
+                    {
+                       
+                        ClientId = client.ClientId,
+                        TasksId = task.TaskId,
+                        Status = TaskStatus.Running,
+                        Started = DateTime.UtcNow,
+                        Client = client,
+                        Tasks = task
+
+                    };
+
+                    var createdJob = await _unitOfWork.JobRepository.AddAsync(job);
+                    await _unitOfWork.SaveChangesAsync();
+
+                    return CreatedAtAction("GetJob", new { id = createdJob.Id }, createdJob);
                 }
-
-                var job = new Job
+                else
                 {
-                    Id = newJobId,
-                    ClientId = client.Id,
-                    TasksId = task.Id,
-                    Status = model.Status,
-                    Started = model.Started,
-                    Ended = model.Ended
-                };
-
-                var createdJob = await _unitOfWork.JobRepository.AddAsync(job);
-                await _unitOfWork.SaveChangesAsync();
-
-                return CreatedAtAction("GetJob", new { id = createdJob.Id }, createdJob);
+                    return BadRequest("Client License expired!");
+                }
             }
             catch (Exception ex)
             {
@@ -149,6 +151,68 @@ namespace CRM.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
+
+        [HttpPost("UpdateJob")]
+        public async Task<IActionResult> UpdateJob(CRM.API.ViewModels.UpdateJob model)
+        {
+          
+            try
+            {
+                var jobs = await _unitOfWork.JobRepository.GetAllAsync(
+                includes: new Expression<Func<Job, object>>[]
+                    {
+                        ct => ct.Client,
+                        ct => ct.Tasks
+                    }); 
+                var job = jobs.FirstOrDefault(f => f.Id == model.JobId);
+                if (job == null)
+                {
+                    return BadRequest("Invalid JobId");
+                }
+                else
+                {
+                    var clients = await _unitOfWork.ClientRepository.GetAllAsync();
+                    var client = clients.FirstOrDefault(f => f.ClientId == job.Client.ClientId);
+
+                    if (client == null)
+                    {
+                        return BadRequest("Invalid ClientId");
+                    }
+                    else if (client.LicenseStatus && client.LicenseEndDate > DateTime.UtcNow)
+                    {
+                        var tasks = await _unitOfWork.TaskRepository.GetAllAsync();
+                        var task = tasks.FirstOrDefault(f => f.TaskId == job.Tasks.TaskId);
+
+                        if (task == null)
+                        {
+                            return BadRequest("Invalid TaskId");
+                        } 
+                        job.Ended = model.Ended;
+                        job.Status = model.Status;
+
+
+                        var updatedJob = await _unitOfWork.JobRepository.UpdateAsync(job);
+                        await _unitOfWork.SaveChangesAsync();
+
+                        return CreatedAtAction("UpdateJob", new { id = updatedJob.Id }, updatedJob);
+                    }
+                    else
+                    {
+                        return BadRequest("Client License expired!");
+                    }
+                }
+
+                
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error creating job");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateJob(int id, Job job)

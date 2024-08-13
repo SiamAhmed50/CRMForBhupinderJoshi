@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using CRM.Data.Entities;
 using CRM.Service.Interfaces.UnitOfWork;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CRM.Controllers
 {

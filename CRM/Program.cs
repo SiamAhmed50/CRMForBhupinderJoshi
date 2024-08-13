@@ -26,7 +26,7 @@ builder.Services.AddDbContext<ProjectDbContext>(options =>
 });
 
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
-builder.Services.AddScoped<IClientTaskRepository, IClientTaskService>();
+builder.Services.AddScoped<IClientTaskRepository, ClientTaskService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ProjectDbContext>()
@@ -116,9 +116,6 @@ app.UseEndpoints(endpoints =>
 });
 // Enable middleware to serve generated Swagger as a JSON endpoint
 app.UseSwagger();
-
-// Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-// specifying the Swagger JSON endpoint.
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");

@@ -4,6 +4,6 @@
     {
         public int ClientId { get; set; }
 
-        public string TaskName { get; set; }
+        public List<string> TaskNames { get; set; }
     }
 }

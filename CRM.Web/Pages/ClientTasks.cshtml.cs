@@ -1,6 +1,8 @@
 using CRM.Data.Entities;
+using CRM.UI.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,7 +14,8 @@ namespace CRM.Web.Pages
     
     public class ClientTasksModel : PageModel
     {
-        private readonly string apiBaseUrl = "https://localhost:44300";
+        //private readonly string apiBaseUrl = "https://localhost:44300";
+        private readonly string apiBaseUrl;
         private readonly string apiEndpoint = "/api/ClientTask";
 
         [BindProperty]
@@ -24,6 +27,11 @@ namespace CRM.Web.Pages
         public string SuccessMessage { get; set; }
         [TempData]
         public string ErrorMessage { get; set; }
+
+        public ClientTasksModel(IOptions<ApiSettings> apiSettings)
+        {
+            apiBaseUrl = apiSettings.Value.ApiUrl;
+        }
         public async Task OnGetAsync()
         {
            

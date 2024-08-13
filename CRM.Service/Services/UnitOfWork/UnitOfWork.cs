@@ -22,6 +22,7 @@ namespace CRM.Service.Services.UnitOfWork
             UserRepository = new Repository<ApplicationUser, string>(_dbContext);
             TaskRepository = new Repository<Tasks, string>(_dbContext);
             ClientRepository = new Repository<Client, string>(_dbContext); // Add this line for Client Repository
+            JobRepository = new Repository<Job, string>(_dbContext); // Add this line for Client Repository
             ClientTaskRepository = new Repository<ClientTask, string>(_dbContext); 
             JobLogsRepository = new Repository<JobLogs, string>(_dbContext); 
             LogsRepository = new Repository<Logs, string>(_dbContext); 
