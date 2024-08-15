@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Web\\CRM.UI.csproj": {}
+    "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\CRM.UI.csproj": {}
   },
   "projects": {
-    "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\CRM.Data.csproj": {
+    "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\CRM.Data.csproj",
+        "projectUniqueName": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj",
         "projectName": "CRM.Data",
-        "projectPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\CRM.Data.csproj",
+        "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj",
         "packagesPath": "C:\\Users\\Siam Ahmed\\.nuget\\packages\\",
-        "outputPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\obj\\",
+        "outputPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Siam Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -85,14 +85,14 @@
         }
       }
     },
-    "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Service\\CRM.Service.csproj": {
+    "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Service\\CRM.Service.csproj",
+        "projectUniqueName": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj",
         "projectName": "CRM.Service",
-        "projectPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Service\\CRM.Service.csproj",
+        "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj",
         "packagesPath": "C:\\Users\\Siam Ahmed\\.nuget\\packages\\",
-        "outputPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Service\\obj\\",
+        "outputPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Siam Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -110,8 +110,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\CRM.Data.csproj": {
-                "projectPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\CRM.Data.csproj"
+              "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {
+                "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj"
               }
             }
           }
@@ -156,14 +156,14 @@
         }
       }
     },
-    "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Web\\CRM.UI.csproj": {
+    "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\CRM.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Web\\CRM.UI.csproj",
+        "projectUniqueName": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\CRM.UI.csproj",
         "projectName": "CRM.UI",
-        "projectPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Web\\CRM.UI.csproj",
+        "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\CRM.UI.csproj",
         "packagesPath": "C:\\Users\\Siam Ahmed\\.nuget\\packages\\",
-        "outputPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Web\\obj\\",
+        "outputPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Siam Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -181,11 +181,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\CRM.Data.csproj": {
-                "projectPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\CRM.Data.csproj"
+              "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {
+                "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj"
               },
-              "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM\\CRM.API.csproj": {
-                "projectPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM\\CRM.API.csproj"
+              "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj": {
+                "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj"
               }
             }
           }
@@ -281,14 +281,14 @@
         }
       }
     },
-    "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM\\CRM.API.csproj": {
+    "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM\\CRM.API.csproj",
+        "projectUniqueName": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj",
         "projectName": "CRM.API",
-        "projectPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM\\CRM.API.csproj",
+        "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj",
         "packagesPath": "C:\\Users\\Siam Ahmed\\.nuget\\packages\\",
-        "outputPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM\\obj\\",
+        "outputPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Siam Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -306,11 +306,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\CRM.Data.csproj": {
-                "projectPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\CRM.Data.csproj"
+              "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {
+                "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj"
               },
-              "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Service\\CRM.Service.csproj": {
-                "projectPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Service\\CRM.Service.csproj"
+              "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj": {
+                "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj"
               }
             }
           }

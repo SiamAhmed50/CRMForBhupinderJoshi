@@ -7876,11 +7876,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\CRM.Data.csproj",
+      "projectUniqueName": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj",
       "projectName": "CRM.Data",
-      "projectPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\CRM.Data.csproj",
+      "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj",
       "packagesPath": "C:\\Users\\Siam Ahmed\\.nuget\\packages\\",
-      "outputPath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM.Data\\obj\\",
+      "outputPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Siam Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",

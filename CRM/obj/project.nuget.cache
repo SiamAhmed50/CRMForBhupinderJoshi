@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bY9F0NIhCG4=",
+  "dgSpecHash": "ko5coFQfYWE=",
   "success": true,
-  "projectFilePath": "C:\\Freelance Projects\\CRMForBhupinderJoshi-main\\CRM\\CRM.API.csproj",
+  "projectFilePath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Siam Ahmed\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Siam Ahmed\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
