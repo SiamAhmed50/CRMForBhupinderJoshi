@@ -18,8 +18,7 @@
         <thead>
             <tr>
                 <th hidden>Id</th>
-                <th>Client ID <span class="sort-indicator" id="sortClientId"></span></th>
-                <th>Task Id</th>
+                <th>Client Name</th>            
                 <th>Task Name</th>
                 <th>Status</th>
                 <th>Started</th>
@@ -72,24 +71,39 @@
                 },
                 "columns": [
                     { data: "id", visible: false },
-                    { data: "clientId" },
-                    { data: "task.id" },
+                    { data: "client.name" },                
                     { data: "task.name" },
-                    { data: "job.status" },
+                    {data: "job.status",
+                        render: function (data) {
+                             
+                            switch (data) {
+                                case 0:
+                                    return 'Male';
+                                case 1:
+                                    return 'Female';                                 
+                            }
+                        }
+                    },
                     {
                         data: "job.started",
                         render: function (data) {
                             var startDate = new Date(data);
-                            return (startDate.getMonth() + 1) + '/' + startDate.getDate() + '/' + startDate.getFullYear();
+                            return ('0' + (startDate.getMonth() + 1)).slice(-2) + '-' +
+                                ('0' + startDate.getDate()).slice(-2) + '-' +
+                                startDate.getFullYear();
                         }
                     },
                     {
                         data: "job.ended",
                         render: function (data) {
                             var endDate = new Date(data);
-                            return (endDate.getMonth() + 1) + '/' + endDate.getDate() + '/' + endDate.getFullYear();
+                            return ('0' + (endDate.getMonth() + 1)).slice(-2) + '-' +
+                                ('0' + endDate.getDate()).slice(-2) + '-' +
+                                endDate.getFullYear();
                         }
                     },
+
+
                     {
                         data: null,
                         render: function () {

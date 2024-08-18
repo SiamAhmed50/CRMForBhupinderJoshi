@@ -24,10 +24,8 @@
             <thead>
                 <tr>
                     <th hidden>Id</th>
-                    <th>Client Name</th>
-                    <th>Client ID <span class="sort-indicator" id="sortClientId"></span></th>
-                    <th>Task Name</th>
-                    <th>Task Id</th>
+                    <th>Client Name</th>                    
+                    <th>Task Name</th>                  
                     <th>Action</th>
                 </tr>
             </thead>
@@ -208,7 +206,6 @@
                         visible: false
                     },
                     { data: "client.name" },
-                    { data: "client.clientId" },
                     {
                         data: "tasks", render: function (data, type, row) {
                             return data && Array.isArray(data)
@@ -216,13 +213,7 @@
                                 : '';
                         }
                     },
-                    {
-                        data: "tasks", render: function (data, type, row) {
-                            return data && Array.isArray(data)
-                                ? data.map(task => `<span>${task.taskId}</span><br>`).join('')
-                                : '';
-                        }
-                    },
+                  
                     {
                         data: null, render: function (data, type, row) {
                             return `

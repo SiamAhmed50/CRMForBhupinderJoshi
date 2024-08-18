@@ -182,19 +182,23 @@
                     {
                         "data": "licenseStartDate",
                         "render": function (data, type, row) {
-                            // Format date as mm/dd/yyyy
                             var startDate = new Date(data);
-                            return startDate.getDate() + 1 + '-' + startDate.getMonth() + 1 +'-' + startDate.getFullYear();
+                            return ('0' + (startDate.getMonth() + 1)).slice(-2) + '-' +
+                                ('0' + startDate.getDate()).slice(-2) + '-' +
+                                startDate.getFullYear();
                         }
                     },
                     {
                         "data": "licenseEndDate",
                         "render": function (data, type, row) {
-                            // Format date as mm/dd/yyyy
                             var endDate = new Date(data);
-                            return endDate.getDate() + 1 + '-' + endDate.getMonth() + 1 +'-' + endDate.getFullYear();
+                            return ('0' + (endDate.getMonth() + 1)).slice(-2) + '-' +
+                                ('0' + endDate.getDate()).slice(-2) + '-' +
+                                endDate.getFullYear();
                         }
                     },
+
+
                     {
                         "data": "licenseStatus",
                         "render": function (data, type, row) {
