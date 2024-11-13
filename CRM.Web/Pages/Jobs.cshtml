@@ -71,35 +71,28 @@
                 },
                 "columns": [
                     { data: "id", visible: false },
-                    { data: "client.name" },                
-                    { data: "task.name" },
-                    {data: "job.status",
-                        render: function (data) {
-                             
-                            switch (data) {
-                                case 0:
-                                    return 'Male';
-                                case 1:
-                                    return 'Female';                                 
-                            }
-                        }
-                    },
+                    { data: "clientName" },                
+                    { data: "taskName" },
+                    { data: "taskStatus" }, 
                     {
-                        data: "job.started",
+                        data: "startDate",
                         render: function (data) {
                             var startDate = new Date(data);
                             return ('0' + (startDate.getMonth() + 1)).slice(-2) + '-' +
                                 ('0' + startDate.getDate()).slice(-2) + '-' +
-                                startDate.getFullYear();
+                                startDate.getFullYear(); 
                         }
                     },
                     {
-                        data: "job.ended",
-                        render: function (data) {
-                            var endDate = new Date(data);
-                            return ('0' + (endDate.getMonth() + 1)).slice(-2) + '-' +
-                                ('0' + endDate.getDate()).slice(-2) + '-' +
-                                endDate.getFullYear();
+                        data: "endDate",
+                        render: function (data) { 
+                            if(data != ''){
+                                var endDate = new Date(data);
+                                return ('0' + (endDate.getMonth() + 1)).slice(-2) + '-' +
+                                    ('0' + endDate.getDate()).slice(-2) + '-' +
+                                    endDate.getFullYear();
+                            }
+                            return '';
                         }
                     },
 
@@ -128,6 +121,7 @@
             var logTable;
 
             $('#jobsTable tbody').on('click', 'span.view-logs', function () {
+                debugger;
                 var row = $(this).closest('tr');
                 var data = table.row(row).data();
                 var id = data.id;
@@ -161,6 +155,7 @@
                 }
 
                 $('#logModal').modal('show');
+                logTable.ajax.reload();
             });
         });
     </script>

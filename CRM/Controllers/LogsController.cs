@@ -178,6 +178,52 @@ namespace CRM.Controllers
             }
         }
 
+        // New GetLogsById method
+        [HttpGet("job/{jobId}")]
+        public async Task<IActionResult> GetLogsById(int jobId)
+        {
+            try
+            {
+                var logs = await _unitOfWork.JobLogsRepository.GetAllAsync(
+                includes: new Expression<Func<JobLogs, object>>[]
+                {
+                    ct => ct.Job,
+                    ct => ct.Client,
+                    ct => ct.Task,
+                    ct => ct.Logs
+                }
+                );
+
+                if (logs == null || !logs.Any())
+                {
+                    return NotFound($"No logs found for JobId {jobId}");
+                }
+
+                var logsViewModel = logs.Where(w => w.JobId == jobId).Select(jobLog => new LogsViewModel
+                {
+                    Id = jobLog.Id,
+                    ClientId = jobLog.Client.ClientId,
+                    TaskId = jobLog.Task.Id,
+                    TaskName = jobLog.Task.Name,
+                    Logs = jobLog.Logs.Select(log => new Logs
+                    {
+                        Id = log.Id,
+                        Timestamp = log.Timestamp,
+                        LogMessage = log.LogMessage,
+                        LogLevel = log.LogLevel
+                    }).ToList()
+                }).ToList();
+
+                return Ok(logsViewModel.FirstOrDefault().Logs);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error loading logs: " + ex.Message);
+                return StatusCode(500, "Internal Server Error");
+            }
+        }
+
+
         private Logs CreateLogFromModel(CreateLog logModel)
         {
             return new Logs

@@ -1,4 +1,6 @@
-﻿namespace CRM.API.ViewModels
+﻿using CRM.Data.Enums;
+
+namespace CRM.API.ViewModels
 {
     public class UpdateJob
     {
@@ -6,6 +8,6 @@
 
         public DateTime Ended { get; set; }
 
-        public TaskStatus Status { get; set; }
+        public JobTaskStatus Status { get; set; }
     }
 }

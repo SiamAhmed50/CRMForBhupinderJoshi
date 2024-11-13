@@ -1,5 +1,6 @@
 ﻿using CRM.API.ViewModels;
 using CRM.Data.Entities;
+using CRM.Data.Enums;
 using CRM.Service.Helpers;
 using CRM.Service.Interfaces.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
@@ -17,13 +18,11 @@ namespace CRM.Controllers
     [ApiController]
     public class JobsController : ControllerBase
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger<JobsController> _logger;
+        private readonly IUnitOfWork _unitOfWork; 
 
-        public JobsController(IUnitOfWork unitOfWork, ILogger<JobsController> logger)
+        public JobsController(IUnitOfWork unitOfWork)
         {
-            _unitOfWork = unitOfWork;
-            _logger = logger;
+            _unitOfWork = unitOfWork; 
         }
 
         [HttpGet]
@@ -55,7 +54,7 @@ namespace CRM.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error retrieving jobs");
+             
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -76,7 +75,7 @@ namespace CRM.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error retrieving job");
+          
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -93,7 +92,7 @@ namespace CRM.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error creating job");
+                
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -105,8 +104,6 @@ namespace CRM.Controllers
         {
             try
             {
-                
-
                 var clients = await _unitOfWork.ClientRepository.GetAllAsync();
                 var client = clients.FirstOrDefault(f => f.ClientId == model.ClientId);
 
@@ -128,7 +125,7 @@ namespace CRM.Controllers
                        
                         ClientId = client.ClientId,
                         TasksId = task.TaskId,
-                        Status = TaskStatus.Running,
+                        Status = JobTaskStatus.Running,
                         Started = DateTime.UtcNow,
                         Client = client,
                         Tasks = task
@@ -147,7 +144,7 @@ namespace CRM.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error creating job");
+              
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -207,7 +204,7 @@ namespace CRM.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error creating job");
+             
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -231,7 +228,7 @@ namespace CRM.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error updating job");
+             
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -253,7 +250,7 @@ namespace CRM.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error deleting job");
+              
                 return StatusCode(500, "Internal server error");
             }
         }

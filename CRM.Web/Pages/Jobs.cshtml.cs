@@ -8,17 +8,20 @@ using System.Collections.Generic;
 using System;
 using CRM.UI.Helpers;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authorization;
+using CRM.API.ViewModels;
 
 namespace CRM.UI.Pages
 {
+    //[Authorize]
     public class JobsModel : PageModel
     {
         //private readonly string apiBaseUrl = "https://localhost:44300";
         private readonly string apiBaseUrl;
-        private readonly string apiEndpoint = "/api/Logs";
+        private readonly string apiEndpoint = "/api/Jobs";
 
         [BindProperty]
-        public List<JobLogs> JobLogsList { get; set; }
+        public List<JobsViewModel> JobLogsList { get; set; }
         public List<Logs> LogsList { get; set; }
 
         [BindProperty]
@@ -36,8 +39,15 @@ namespace CRM.UI.Pages
             apiBaseUrl = apiSettings.Value.ApiUrl;
         }
 
+
+        //public JobsModel()
+        //{
+
+        //}
+
         public async Task OnGetAsync()
         {
+
         }
 
         private int GenerateUniqueId()
@@ -133,18 +143,18 @@ namespace CRM.UI.Pages
                     if (response.IsSuccessStatusCode)
                     {
                         var content = await response.Content.ReadAsStringAsync();
-                        JobLogsList = JsonConvert.DeserializeObject<List<JobLogs>>(content);
+                        JobLogsList = JsonConvert.DeserializeObject<List<JobsViewModel>>(content);
                     }
                     else
                     {
                         Console.WriteLine($"Error loading job logs. Status code: {response.StatusCode}");
-                        JobLogsList = new List<JobLogs>();
+                        JobLogsList = new List<JobsViewModel>();
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error loading job logs: {ex.Message}");
-                    JobLogsList = new List<JobLogs>();
+                    JobLogsList = new List<JobsViewModel>();
                 }
             }
         }
@@ -169,7 +179,7 @@ namespace CRM.UI.Pages
                 try
                 {
                     httpClient.BaseAddress = new Uri(apiBaseUrl);
-                    var response = await httpClient.GetAsync(apiEndpoint + "/" + id);
+                    var response = await httpClient.GetAsync($"/api/Logs/Job/{id}");
 
                     if (response.IsSuccessStatusCode)
                     {

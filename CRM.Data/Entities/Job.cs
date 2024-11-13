@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRM.Data.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace CRM.Data.Entities
         public int TasksId { get; set; }
         public Tasks? Tasks { get; set; }
 
-        public TaskStatus Status { get; set; }
+        public JobTaskStatus Status { get; set; }
 
         public DateTime Started { get; set; }
 
