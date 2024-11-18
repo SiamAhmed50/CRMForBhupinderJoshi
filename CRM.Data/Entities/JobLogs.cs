@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace CRM.Data.Entities
         public Tasks? Task { get; set; }
         public int JobId { get; set; }
         public Job Job { get; set; }
+
+        [JsonIgnore] // Prevents circular reference during serialization
         public List<Logs> Logs { get; set; }
 
         public JobLogs()

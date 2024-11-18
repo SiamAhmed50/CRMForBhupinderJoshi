@@ -45,7 +45,7 @@ namespace CRM.Controllers
                     ClientName = j.Client.Name,
                     TaskId = j.Tasks.Id,
                     TaskName = j.Tasks.Name,
-                    TaskStatus = j.Status.ToString(),
+                    TaskStatus = Enum.GetName(typeof(JobTaskStatus), j.Status),
                     StartDate = j.Started.ToString(),
                     EndDate = j.Ended.ToString()
                 }).ToList();
@@ -209,6 +209,35 @@ namespace CRM.Controllers
             }
         }
 
+        [HttpDelete("DeleteJob/{id}")]
+        public async Task<IActionResult> DeleteJob(int id)
+        {
+            try
+            {
+                // Fetch the job first to perform custom checks
+                var job = await _unitOfWork.JobRepository.GetByIdAsync(id);
+                if (job == null)
+                {
+                    return NotFound("Job not found");
+                } 
+                // Perform deletion if checks pass
+                var deleted = await _unitOfWork.JobRepository.DeleteAsync(id);
+
+                if (!deleted)
+                {
+                    return NotFound("Failed to delete the job");
+                }
+
+                await _unitOfWork.SaveChangesAsync();
+                return NoContent(); // Successfully deleted
+            }
+            catch (Exception ex)
+            {
+                // Log the exception if needed (omitted here for brevity)
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
 
 
         [HttpPut("{id}")]
@@ -233,26 +262,26 @@ namespace CRM.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJob(int id)
-        {
-            try
-            {
-                var deleted = await _unitOfWork.JobRepository.DeleteAsync(id);
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> DeleteJob(int id)
+        //{
+        //    try
+        //    {
+        //        var deleted = await _unitOfWork.JobRepository.DeleteAsync(id);
 
-                if (!deleted)
-                {
-                    return NotFound();
-                }
+        //        if (!deleted)
+        //        {
+        //            return NotFound();
+        //        }
 
-                await _unitOfWork.SaveChangesAsync();
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
+        //        await _unitOfWork.SaveChangesAsync();
+        //        return NoContent();
+        //    }
+        //    catch (Exception ex)
+        //    {
               
-                return StatusCode(500, "Internal server error");
-            }
-        }
+        //        return StatusCode(500, "Internal server error");
+        //    }
+        //}
     }
 }

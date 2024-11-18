@@ -31,7 +31,7 @@
     </table>
 </div>
 <div class="modal fade" id="logModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <form method="post">
                 <div class="modal-header">
@@ -71,52 +71,70 @@
                 },
                 "columns": [
                     { data: "id", visible: false },
-                    { data: "clientName" },                
+                    { data: "clientName" },
                     { data: "taskName" },
-                    { data: "taskStatus" }, 
+                    { data: "taskStatus" },
                     {
                         data: "startDate",
                         render: function (data) {
                             var startDate = new Date(data);
                             return ('0' + (startDate.getMonth() + 1)).slice(-2) + '-' +
                                 ('0' + startDate.getDate()).slice(-2) + '-' +
-                                startDate.getFullYear(); 
+                                startDate.getFullYear() + ' ' +
+                                ('0' + startDate.getHours()).slice(-2) + ':' +
+                                ('0' + startDate.getMinutes()).slice(-2) + ':' +
+                                ('0' + startDate.getSeconds()).slice(-2);
                         }
                     },
                     {
                         data: "endDate",
-                        render: function (data) { 
-                            if(data != ''){
+                        render: function (data) {
+                            if (data != '') {
                                 var endDate = new Date(data);
                                 return ('0' + (endDate.getMonth() + 1)).slice(-2) + '-' +
                                     ('0' + endDate.getDate()).slice(-2) + '-' +
-                                    endDate.getFullYear();
+                                    endDate.getFullYear() + ' ' +
+                                    ('0' + endDate.getHours()).slice(-2) + ':' +
+                                    ('0' + endDate.getMinutes()).slice(-2) + ':' +
+                                    ('0' + endDate.getSeconds()).slice(-2);
                             }
                             return '';
                         }
                     },
 
-
                     {
                         data: null,
                         render: function () {
                             return `
-                                        <div class="dropdown ms-auto" style="cursor:pointer;">
-                                            <i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" data-bs-target="#logModal" aria-expanded="false"></i>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <span class="dropdown-item view-logs" style="cursor:pointer;">
-                                                        <i class="fas fa-pen mx-2"></i>View Logs
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    `;
+                            <div class="dropdown ms-auto" style="cursor:pointer;">
+                                <i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" data-bs-target="#logModal" aria-expanded="false"></i>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <span class="dropdown-item view-logs" style="cursor:pointer;">
+                                            <i class="fas fa-pen mx-2"></i>View Logs
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        `;
                         }
                     }
                 ],
-                order: [[2, 'asc']]
+                order: [[2, 'asc']],
+                dom: 'Bfrtip', // Add Buttons toolbar
+                buttons: [
+                    {
+                        extend: 'csvHtml5',
+                        text: 'Export CSV',
+                        title: 'JobsData',  // Name of the exported CSV file
+                        className: 'btn btn-primary', // Optional: Add custom class for styling
+                        exportOptions: {
+                            columns: ':not(:last-child)' // Exclude the last column
+                        }
+                    }
+                ]
             });
+
 
             var logTable;
 
@@ -146,17 +164,39 @@
                             }
                         },
                         columns: [
-                            { data: "timestamp" },
+                            {
+                                data: "timestamp",
+                                render: function (data) {
+                                    var date = new Date(data);
+                                    return ('0' + (date.getMonth() + 1)).slice(-2) + '-' +
+                                        ('0' + date.getDate()).slice(-2) + '-' +
+                                        date.getFullYear() + ' ' +
+                                        ('0' + date.getHours()).slice(-2) + ':' +
+                                        ('0' + date.getMinutes()).slice(-2) + ':' +
+                                        ('0' + date.getSeconds()).slice(-2);
+                                }
+                            },
                             { data: "logMessage" },
-                            { data: "logLevel" }
+                            { data: "logType" }
                         ],
-                        order: [[0, 'desc']]
+                        order: [[0, 'desc']],
+                        dom: 'Bfrtip', // Enable buttons extension
+                        buttons: [
+                            {
+                                extend: 'csvHtml5',
+                                text: 'Export CSV',
+                                title: 'LogData',
+                                className: 'btn btn-primary' // Optional: Custom styling
+                                 
+                            }
+                        ]
                     });
                 }
 
                 $('#logModal').modal('show');
                 logTable.ajax.reload();
             });
+
         });
     </script>
 }

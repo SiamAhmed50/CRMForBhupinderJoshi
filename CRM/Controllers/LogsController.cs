@@ -1,5 +1,6 @@
 ﻿using CRM.API.ViewModels;
 using CRM.Data.Entities;
+using CRM.Data.Enums;
 using CRM.Service.Helpers;
 using CRM.Service.Interfaces.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
@@ -44,16 +45,16 @@ namespace CRM.Controllers
                     ClientId = jobLog.Client.ClientId,
                     TaskId = jobLog.Task.Id,
                     TaskName = jobLog.Task.Name,
-                    Logs = jobLog.Logs.Select(log => new Logs
+                    Logs = jobLog.Logs.Select(log => new LogViewModel
                     {
                         Id = log.Id,
                         Timestamp = log.Timestamp,
                         LogMessage = log.LogMessage,
-                        LogLevel = log.LogLevel
+                        LogType = Enum.GetName(typeof(LogType), log.LogType)
                     }).ToList()
                 }).ToList();
 
-                return Ok(logs);
+                return Ok(logsViewModel);
             }
             catch (Exception ex)
             {
@@ -130,7 +131,7 @@ namespace CRM.Controllers
                     {
                         ct => ct.Client,
                         ct => ct.Task,
-                        ct => ct.Logs
+                        ct => ct.Job
                     }
                 );
                 var existingJobLog = jobLogs.FirstOrDefault();
@@ -156,12 +157,24 @@ namespace CRM.Controllers
                     {
                         JobId = logModel.JobId,
                         ClientId = job.ClientId,
-                        TaskId = job.TasksId,
+                        TaskId = job.TasksId, 
+                        Client = job.Client,
+                        Job = job,
+                        Task = job.Tasks,
                         Logs = new List<Logs>()
                     };
 
-                    newJobLog.Logs.Add(CreateLogFromModel(logModel));
-                    await _unitOfWork.JobLogsRepository.AddAsync(newJobLog);
+                    // Save the new JobLogs entity first to generate the Id
+                    var addedJobLog = await _unitOfWork.JobLogsRepository.AddAsync(newJobLog);
+                    await _unitOfWork.SaveChangesAsync();
+
+                    // Create a new log and set the JoblogId
+                    var log = CreateLogFromModel(logModel);
+                    log.JoblogId = addedJobLog.Id; // Set the JoblogId
+                    addedJobLog.Logs.Add(log);
+
+                    // Update the JobLogs with the new Log
+                    await _unitOfWork.JobLogsRepository.UpdateAsync(addedJobLog);
                 }
                 else
                 {
@@ -205,16 +218,18 @@ namespace CRM.Controllers
                     ClientId = jobLog.Client.ClientId,
                     TaskId = jobLog.Task.Id,
                     TaskName = jobLog.Task.Name,
-                    Logs = jobLog.Logs.Select(log => new Logs
+                    Logs = jobLog.Logs.Select(log => new LogViewModel
                     {
                         Id = log.Id,
                         Timestamp = log.Timestamp,
                         LogMessage = log.LogMessage,
-                        LogLevel = log.LogLevel
+                        LogType = Enum.GetName(typeof(LogType), log.LogType)
                     }).ToList()
                 }).ToList();
 
-                return Ok(logsViewModel.FirstOrDefault().Logs);
+                // Return empty list if no matching logs found, otherwise return the logs
+                return Ok(logsViewModel.FirstOrDefault()?.Logs ?? new List<LogViewModel>());
+
             }
             catch (Exception ex)
             {
@@ -230,7 +245,7 @@ namespace CRM.Controllers
             {
                 Timestamp = logModel.Timestamp,
                 LogMessage = logModel.LogMessage,
-                LogLevel = logModel.LogLevel
+                LogType = logModel.LogType
             };
         }
     }

@@ -1,4 +1,6 @@
-﻿namespace CRM.API.ViewModels
+﻿using CRM.Data.Enums;
+
+namespace CRM.API.ViewModels
 {
     public class CreateLog
     {
@@ -8,6 +10,6 @@
 
         public string LogMessage { get; set; }
 
-        public LogLevel LogLevel { get; set; }
+        public LogType LogType { get; set; }
     }
 }

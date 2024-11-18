@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRM.Data.Migrations
 {
     [DbContext(typeof(ProjectDbContext))]
-    [Migration("20240108113921_ClientTable")]
-    partial class ClientTable
+    [Migration("20241113131600_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace CRM.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CRM.Data.DbContext.ApplicationUser", b =>
+            modelBuilder.Entity("CRM.Data.Entities.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -94,15 +94,15 @@ namespace CRM.Data.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8968c0e9-6478-454c-b185-cdb1957cf8d2",
+                            ConcurrencyStamp = "489c0548-799a-41bd-8a02-fe48371d6747",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPA/CZosbODGX5QGpZAglztYVfDZSoLKA3tk4knCU2u3ZZe3cv+t9+hfVTVJWb9zAg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKYbpuQ452dVCuoZvY/Ql/yGvSzZVO1tG7X2oKEUTGd7yjJ5673sfTeJGKSLzFZ2YA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5b99fc52-0734-4ca2-929e-39c33088c460",
+                            SecurityStamp = "e5bb7b7b-1239-4b0e-a3bd-8293aabf2499",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -129,6 +129,9 @@ namespace CRM.Data.Migrations
                     b.Property<DateTime>("LicenseStartDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("LicenseStatus")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -136,6 +139,137 @@ namespace CRM.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clients");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.ClientTask", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.ToTable("ClientTasks");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.Job", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Ended")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Started")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TasksId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("TasksId");
+
+                    b.ToTable("Jobs");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.JobLogs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("JobId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TaskId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("JobId");
+
+                    b.HasIndex("TaskId");
+
+                    b.ToTable("JobLogs");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.Logs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("JoblogId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LogLevel")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LogMessage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("JoblogId");
+
+                    b.ToTable("Logs");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.Tasks", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ClientTaskId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TaskId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientTaskId");
+
+                    b.ToTable("Tasks");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -292,6 +426,83 @@ namespace CRM.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("CRM.Data.Entities.ClientTask", b =>
+                {
+                    b.HasOne("CRM.Data.Entities.Client", "Client")
+                        .WithMany("ClientTasks")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Client");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.Job", b =>
+                {
+                    b.HasOne("CRM.Data.Entities.Client", "Client")
+                        .WithMany("Jobs")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("CRM.Data.Entities.Tasks", "Tasks")
+                        .WithMany("Jobs")
+                        .HasForeignKey("TasksId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Client");
+
+                    b.Navigation("Tasks");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.JobLogs", b =>
+                {
+                    b.HasOne("CRM.Data.Entities.Client", "Client")
+                        .WithMany("JobLogs")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("CRM.Data.Entities.Job", "Job")
+                        .WithMany("JobLogs")
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("CRM.Data.Entities.Tasks", "Task")
+                        .WithMany("JobLogs")
+                        .HasForeignKey("TaskId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Client");
+
+                    b.Navigation("Job");
+
+                    b.Navigation("Task");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.Logs", b =>
+                {
+                    b.HasOne("CRM.Data.Entities.JobLogs", "Joblog")
+                        .WithMany("Logs")
+                        .HasForeignKey("JoblogId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Joblog");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.Tasks", b =>
+                {
+                    b.HasOne("CRM.Data.Entities.ClientTask", "ClientTask")
+                        .WithMany("Tasks")
+                        .HasForeignKey("ClientTaskId");
+
+                    b.Navigation("ClientTask");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -303,7 +514,7 @@ namespace CRM.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("CRM.Data.DbContext.ApplicationUser", null)
+                    b.HasOne("CRM.Data.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -312,7 +523,7 @@ namespace CRM.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("CRM.Data.DbContext.ApplicationUser", null)
+                    b.HasOne("CRM.Data.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -327,7 +538,7 @@ namespace CRM.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CRM.Data.DbContext.ApplicationUser", null)
+                    b.HasOne("CRM.Data.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -336,11 +547,42 @@ namespace CRM.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("CRM.Data.DbContext.ApplicationUser", null)
+                    b.HasOne("CRM.Data.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.Client", b =>
+                {
+                    b.Navigation("ClientTasks");
+
+                    b.Navigation("JobLogs");
+
+                    b.Navigation("Jobs");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.ClientTask", b =>
+                {
+                    b.Navigation("Tasks");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.Job", b =>
+                {
+                    b.Navigation("JobLogs");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.JobLogs", b =>
+                {
+                    b.Navigation("Logs");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.Tasks", b =>
+                {
+                    b.Navigation("JobLogs");
+
+                    b.Navigation("Jobs");
                 });
 #pragma warning restore 612, 618
         }

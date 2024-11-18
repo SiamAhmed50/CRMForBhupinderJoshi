@@ -91,15 +91,15 @@ namespace CRM.Data.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8f8a4b7f-5cd0-45cb-8e1f-40bedb839b9d",
+                            ConcurrencyStamp = "ac0a3682-fd21-4aec-b4d3-c9763d041de7",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAENi3/NzvC4jPJQZoVqcBvbXT9FSAEC90d2Dg3w4En6xkYCGiWtIcDJ1KECCG4KWjRg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEM3QOcZ1UXNHtPznExsffD1SyLkmxN1akOzsoo72oVU7Dr7T+WQC3xzOxH+G4+7Mmw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7bdd8149-0481-4e7c-9888-0b87bc8bb3f5",
+                            SecurityStamp = "847c82b4-596d-4b76-b9d3-fb957d22e49a",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -176,9 +176,6 @@ namespace CRM.Data.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("TaskId")
-                        .HasColumnType("int");
-
                     b.Property<int>("TasksId")
                         .HasColumnType("int");
 
@@ -212,6 +209,8 @@ namespace CRM.Data.Migrations
 
                     b.HasIndex("ClientId");
 
+                    b.HasIndex("JobId");
+
                     b.HasIndex("TaskId");
 
                     b.ToTable("JobLogs");
@@ -225,25 +224,22 @@ namespace CRM.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("JobLogsId")
-                        .HasColumnType("int");
-
                     b.Property<int>("JoblogId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("LogLevel")
                         .HasColumnType("int");
 
                     b.Property<string>("LogMessage")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("LogType")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("JobLogsId");
+                    b.HasIndex("JoblogId");
 
                     b.ToTable("Logs");
                 });
@@ -264,7 +260,6 @@ namespace CRM.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TaskId")
-                        .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -466,6 +461,12 @@ namespace CRM.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("CRM.Data.Entities.Job", "Job")
+                        .WithMany()
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("CRM.Data.Entities.Tasks", "Task")
                         .WithMany()
                         .HasForeignKey("TaskId")
@@ -474,18 +475,20 @@ namespace CRM.Data.Migrations
 
                     b.Navigation("Client");
 
+                    b.Navigation("Job");
+
                     b.Navigation("Task");
                 });
 
             modelBuilder.Entity("CRM.Data.Entities.Logs", b =>
                 {
-                    b.HasOne("CRM.Data.Entities.JobLogs", "JobLogs")
+                    b.HasOne("CRM.Data.Entities.JobLogs", "JobLog")
                         .WithMany("Logs")
-                        .HasForeignKey("JobLogsId")
+                        .HasForeignKey("JoblogId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("JobLogs");
+                    b.Navigation("JobLog");
                 });
 
             modelBuilder.Entity("CRM.Data.Entities.Tasks", b =>

@@ -167,7 +167,7 @@
         $(document).ready(function () {
             var table = $('#clientTable').DataTable({
                 "ajax": {
-                    "type" : "POST",
+                    "type": "POST",
                     "url": "/Clients?handler=List",
                     "dataSrc": "",
                     "beforeSend": function (xhr) {
@@ -175,7 +175,7 @@
                             $('input:hidden[name="__RequestVerificationToken"]').val());
                     }
                 },
-                "columns": [ 
+                "columns": [
                     { "data": "name" },
                     { "data": "clientId" },
                     { "data": "licenseNumber" },
@@ -197,8 +197,6 @@
                                 endDate.getFullYear();
                         }
                     },
-
-
                     {
                         "data": "licenseStatus",
                         "render": function (data, type, row) {
@@ -226,13 +224,22 @@
                                 '</ul>' +
                                 '</div>';
                         }
-
-
                     }
                 ],
-                "order": [[2, 'asc']]
+                "order": [[2, 'asc']],
+                "dom": 'Bfrtip', // Add Buttons toolbar
+                "buttons": [
+                    {
+                        extend: 'csvHtml5',
+                        text: 'Export CSV',
+                        title: 'ClientData',
+                        className: 'btn btn-primary', // Optional: Add custom class for styling
+                        exportOptions: {
+                            columns: ':not(:last-child)' // Exclude the last column
+                        }
+                    }
+                ]
             });
-
             $('#sortClientId').click(function () {
                 sortTable(2);
             });

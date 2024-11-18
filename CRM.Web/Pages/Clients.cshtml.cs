@@ -14,8 +14,8 @@ namespace CRM.Web.Pages
     
     public class ClientsModel : PageModel
     {
-        private readonly string apiBaseUrl = "https://localhost:44300";
-        //private readonly string apiBaseUrl;
+        //private readonly string apiBaseUrl = "https://localhost:44300";
+        private readonly string apiBaseUrl;
         private readonly string apiEndpoint = "/api/Clients";
 
         [BindProperty]
@@ -27,14 +27,14 @@ namespace CRM.Web.Pages
         [TempData]
         public string ErrorMessage { get; set; }
 
-        //public ClientsModel(IOptions<ApiSettings> apiSettings)
-        //{
-        //    apiBaseUrl = apiSettings.Value.ApiUrl;
-        //}
-        public ClientsModel()
+        public ClientsModel(IOptions<ApiSettings> apiSettings)
         {
-            
+            apiBaseUrl = apiSettings.Value.ApiUrl;
         }
+        //public ClientsModel()
+        //{
+            
+        //}
         public async Task OnGetAsync()
         {
             // Initialize ClientModel

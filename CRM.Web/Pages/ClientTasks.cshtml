@@ -189,54 +189,64 @@
     <script>
         $(document).ready(function () {
             console.log("ok");
-            table = $('#clientTable').DataTable({
-                
-                ajax: {
-                    "type": "POST",
-                    "url": "/ClientTasks?handler=List",
-                    "dataSrc": "",
-                    "beforeSend": function (xhr) {
-                        xhr.setRequestHeader("XSRF-TOKEN",
-                            $('input:hidden[name="__RequestVerificationToken"]').val());
+          var table = $('#clientTable').DataTable({
+            ajax: {
+                "type": "POST",
+                "url": "/ClientTasks?handler=List",
+                "dataSrc": "",
+                "beforeSend": function (xhr) {
+                    xhr.setRequestHeader("XSRF-TOKEN",
+                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                }
+            },
+            columns: [
+                {
+                    "data": "id",
+                    visible: false
+                },
+                { data: "client.name" },
+                {
+                    data: "tasks", render: function (data, type, row) {
+                        return data && Array.isArray(data)
+                            ? data.map(task => `<span>${task.name}</span><br>`).join('')
+                            : '';
                     }
                 },
-                columns: [
-                    {
-                        "data": "id",
-                        visible: false
-                    },
-                    { data: "client.name" },
-                    {
-                        data: "tasks", render: function (data, type, row) {
-                            return data && Array.isArray(data)
-                                ? data.map(task => `<span>${task.name}</span><br>`).join('')
-                                : '';
-                        }
-                    },
-                  
-                    {
-                        data: null, render: function (data, type, row) {
-                            return `
-                                        <div class="dropdown ms-auto" style="cursor:pointer;">
-                                            <i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <span class="dropdown-item edit-client" style="cursor:pointer;">
-                                                        <i class="fas fa-pen mx-2"></i> Update
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <span class="dropdown-item delete-client" style="cursor:pointer;">
-                                                        <i class="fas fa-trash mx-2"></i> Delete
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    `;
-                        }
+                {
+                    data: null, render: function (data, type, row) {
+                        return `
+                            <div class="dropdown ms-auto" style="cursor:pointer;">
+                                <i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <span class="dropdown-item edit-client" style="cursor:pointer;">
+                                            <i class="fas fa-pen mx-2"></i> Update
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="dropdown-item delete-client" style="cursor:pointer;">
+                                            <i class="fas fa-trash mx-2"></i> Delete
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        `;
                     }
-                ]
-            });
+                }
+            ],
+            dom: 'Bfrtip', // Add Buttons toolbar
+            buttons: [
+                {
+                    extend: 'csvHtml5',
+                    text: 'Export CSV',
+                    title: 'ClientTasksData',  // Name of the exported CSV file
+                    className: 'btn btn-primary', // Optional: Add custom class for styling
+                        exportOptions: {
+                            columns: ':not(:last-child)' // Exclude the last column
+                        }
+                }
+            ]
+        });
             var taskRowIndex = 0;
 
             function addTaskRow() {

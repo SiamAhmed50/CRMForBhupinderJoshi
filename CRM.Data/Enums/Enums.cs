@@ -8,8 +8,13 @@ namespace CRM.Data.Enums
 {
     public enum JobTaskStatus
     {
-        Running,
-        Stopped,
-        Faulted
+        Running = 1,
+        Exception = 2,
+        Completed = 3
+    }
+    public enum LogType
+    {
+        Info = 1,
+        Fetal = 2, 
     }
 }

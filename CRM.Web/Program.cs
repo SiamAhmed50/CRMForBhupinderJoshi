@@ -5,6 +5,7 @@ using CRM.UI.Helpers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,11 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
         builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
+builder.Services.AddDbContext<ProjectDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString"));
 });
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
@@ -30,6 +36,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Identity/Account/Login";
     options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+
 });
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
@@ -43,14 +50,13 @@ builder.Services.AddAuthorization(options =>
 });
 builder.Services.AddScoped<SignInManager<ApplicationUser>, SignInManager<ApplicationUser>>();
 //builder.Services.AddHostedService<LicenseExpirationService>();
-
-// Configure JWT settings (if needed)
+// Configure JWT settings
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));
 
 // Add Razor Pages services
 builder.Services.AddRazorPages();
 
-// Register ApiSettings (if needed)
+// Register ApiSettings
 builder.Services.Configure<ApiSettings>(builder.Configuration.GetSection("ApiSettings"));
 
 var app = builder.Build();
@@ -61,12 +67,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseStaticFiles(); // This serves static files, if needed
 
 app.UseRouting();
+app.UseCors("AllowAll"); // Configure CORS before authorization and endpoints
 
-// Configure CORS before adding authorization and endpoints
-app.UseCors("AllowAll");
+app.UseAuthentication();
+app.UseAuthorization();
 
 var cookiePolicyOptions = new CookiePolicyOptions
 {
@@ -76,14 +83,12 @@ var cookiePolicyOptions = new CookiePolicyOptions
 };
 app.UseCookiePolicy(cookiePolicyOptions);
 
-// UseAuthentication should come before UseAuthorization
-app.UseAuthentication();
-app.UseAuthorization();
-
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapRazorPages();
-    // Add other UI endpoints as needed
+
+    // This ensures any unmatched route falls back to /Index
+    endpoints.MapFallbackToPage("/Index");
 });
 
 app.Run();

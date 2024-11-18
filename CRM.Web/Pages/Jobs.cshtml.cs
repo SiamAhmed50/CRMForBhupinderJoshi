@@ -22,7 +22,7 @@ namespace CRM.UI.Pages
 
         [BindProperty]
         public List<JobsViewModel> JobLogsList { get; set; }
-        public List<Logs> LogsList { get; set; }
+        public List<LogViewModel> LogsList { get; set; }
 
         [BindProperty]
         public JobLogs JobLog { get; set; }
@@ -184,18 +184,18 @@ namespace CRM.UI.Pages
                     if (response.IsSuccessStatusCode)
                     {
                         var content = await response.Content.ReadAsStringAsync();
-                        LogsList = JsonConvert.DeserializeObject<List<Logs>>(content);
+                        LogsList = JsonConvert.DeserializeObject<List<LogViewModel>>(content);
                     }
                     else
                     {
                         Console.WriteLine($"Error loading job logs. Status code: {response.StatusCode}");
-                        LogsList = new List<Logs>();
+                        LogsList = new List<LogViewModel>();
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error loading job logs: {ex.Message}");
-                    LogsList = new List<Logs>();
+                    LogsList = new List<LogViewModel>();
                 }
             }
         }
