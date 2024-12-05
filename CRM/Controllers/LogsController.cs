@@ -108,7 +108,7 @@ namespace CRM.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteLog(int id)
         {
-            var deleted = await _unitOfWork.LogsRepository.DeleteAsync(id);
+            var deleted = await _unitOfWork.LogsRepository.DeleteAsync(id.ToString());
 
             if (!deleted)
             {
@@ -134,7 +134,7 @@ namespace CRM.Controllers
                         ct => ct.Job
                     }
                 );
-                var existingJobLog = jobLogs.FirstOrDefault();
+                var existingJobLog = jobLogs.FirstOrDefault(f => f.JobId == logModel.JobId);
 
                 var jobs = await _unitOfWork.JobRepository.GetAllAsync(
                     filter: j => j.Id == logModel.JobId,

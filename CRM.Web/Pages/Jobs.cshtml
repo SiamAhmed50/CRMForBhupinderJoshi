@@ -187,7 +187,14 @@
                                 text: 'Export CSV',
                                 title: 'LogData',
                                 className: 'btn btn-primary' // Optional: Custom styling
-                                 
+
+                            },
+                            {
+                                text: 'Refresh',
+                                className: 'btn btn-secondary', // Optional: Custom styling for the Refresh button
+                                action: function (e, dt, node, config) {
+                                    dt.ajax.reload(); // Reload the DataTable
+                                }
                             }
                         ]
                     });

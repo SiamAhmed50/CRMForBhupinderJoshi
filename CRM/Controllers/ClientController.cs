@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using CRM.Data.Entities;
 using CRM.Service.Interfaces.UnitOfWork;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace CRM.Controllers
 {
@@ -37,7 +38,8 @@ namespace CRM.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetClient(int id)
         {
-            var client = await _unitOfWork.ClientRepository.GetByIdAsync(id);
+            var client = await _unitOfWork.ClientRepository.GetByIdAsync(c => EF.Property<int>(c, "Id") == id);
+
 
             if (client == null)
             {
@@ -91,7 +93,7 @@ namespace CRM.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteClient(int id)
         {
-            var deleted = await _unitOfWork.ClientRepository.DeleteAsync(id);
+            var deleted = await _unitOfWork.ClientRepository.DeleteAsync(id.ToString());
 
             if (!deleted)
             {

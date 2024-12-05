@@ -19,10 +19,20 @@ namespace CRM.Service.Services.Repositories
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
-        public async Task<TEntity> GetByIdAsync(int id)
+        public async Task<TEntity> GetByIdAsync(Expression<Func<TEntity, bool>> keySelector, params Expression<Func<TEntity, object>>[] includes)
         {
-            return await _dbContext.Set<TEntity>().FindAsync(id);
+            IQueryable<TEntity> query = _dbContext.Set<TEntity>();
+
+            // Apply includes if provided
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return await query.FirstOrDefaultAsync(keySelector);
         }
+
+
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
@@ -61,9 +71,10 @@ namespace CRM.Service.Services.Repositories
             return entity;
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(TKey id)
         {
-            var entity = await GetByIdAsync(id);
+            // Assuming your entities have a property named "Id" that corresponds to the primary key
+            var entity = await GetByIdAsync(e => EF.Property<TKey>(e, "Id").Equals(id));
             if (entity == null)
                 return false;
 
@@ -71,5 +82,6 @@ namespace CRM.Service.Services.Repositories
             await _dbContext.SaveChangesAsync();
             return true;
         }
+
     }
 }

@@ -10,12 +10,12 @@ namespace CRM.Service.Interfaces.Repositories
 {
     public interface IRepository<TEntity, TKey> where TEntity : class
     {
-        Task<TEntity> GetByIdAsync(int id);
+        Task<TEntity> GetByIdAsync(Expression<Func<TEntity, bool>> keySelector, params Expression<Func<TEntity, object>>[] includes);
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> filter = null,params Expression<Func<TEntity, object>>[] includes);
         Task<TEntity> AddAsync(TEntity entity);
         Task<TEntity> UpdateAsync(TEntity entity);
-        Task<bool> DeleteAsync(int id);
+        Task<bool> DeleteAsync(TKey id);
     }
 
    

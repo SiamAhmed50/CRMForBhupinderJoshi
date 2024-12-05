@@ -5,6 +5,7 @@ using CRM.Service.Interfaces.UnitOfWork;
 using System.Linq.Expressions;
 using CRM.API.ViewModels;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
 
 namespace CRM.Controllers
 {
@@ -36,7 +37,8 @@ namespace CRM.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetClientTask(int id)
         {
-            var clientTask = await _unitOfWork.ClientTaskRepository.GetByIdAsync(id);
+            var clientTask = await _unitOfWork.ClientTaskRepository.GetByIdAsync(ct => EF.Property<int>(ct, "Id") == id);
+
 
             if (clientTask == null)
             {
@@ -119,9 +121,9 @@ namespace CRM.Controllers
             var data = await _unitOfWork.TaskRepository.GetAllAsync(filter:x=>x.ClientTaskId==id);
             foreach(var item in data)
             {
-                await _unitOfWork.TaskRepository.DeleteAsync(item.Id);
+                await _unitOfWork.TaskRepository.DeleteAsync(item.Id.ToString());
             }
-            var deleted = await _unitOfWork.ClientTaskRepository.DeleteAsync(id);
+            var deleted = await _unitOfWork.ClientTaskRepository.DeleteAsync(id.ToString());
 
             if (!deleted)
             {

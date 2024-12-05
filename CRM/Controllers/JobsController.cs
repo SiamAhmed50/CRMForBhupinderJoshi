@@ -64,21 +64,39 @@ namespace CRM.Controllers
         {
             try
             {
-                var job = await _unitOfWork.JobRepository.GetByIdAsync(id);
+                var job = await _unitOfWork.JobRepository.GetByIdAsync(j => j.Id == id,
+                 includes: new Expression<Func<Job, object>>[]
+                 {
+                    ct => ct.Client,
+                    ct => ct.Tasks
+                 });
 
                 if (job == null)
                 {
                     return NotFound();
                 }
 
-                return Ok(job);
+                var jobViewModel = new JobsViewModel
+                {
+                    Id = job.Id,
+                    JobId = job.Id,
+                    ClientId = job.Client.ClientId,
+                    ClientName = job.Client.Name,
+                    TaskId = job.Tasks.Id,
+                    TaskName = job.Tasks.Name,
+                    TaskStatus = Enum.GetName(typeof(JobTaskStatus), job.Status),
+                    StartDate = job.Started.ToString(),
+                    EndDate = job.Ended.ToString()
+                };
+
+                return Ok(jobViewModel);
             }
             catch (Exception ex)
             {
-          
                 return StatusCode(500, "Internal server error");
             }
         }
+
 
         [HttpPost]
         public async Task<IActionResult> Create(Job job)
@@ -215,13 +233,20 @@ namespace CRM.Controllers
             try
             {
                 // Fetch the job first to perform custom checks
-                var job = await _unitOfWork.JobRepository.GetByIdAsync(id);
+                var job = await _unitOfWork.JobRepository.GetByIdAsync(
+                   j => j.Id == id,
+                   includes: new Expression<Func<Job, object>>[]
+                   {
+                    ct => ct.Client,
+                    ct => ct.Tasks
+                   });
+
                 if (job == null)
                 {
                     return NotFound("Job not found");
                 } 
                 // Perform deletion if checks pass
-                var deleted = await _unitOfWork.JobRepository.DeleteAsync(id);
+                var deleted = await _unitOfWork.JobRepository.DeleteAsync(id.ToString());
 
                 if (!deleted)
                 {
