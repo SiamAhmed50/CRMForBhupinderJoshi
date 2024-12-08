@@ -10,8 +10,8 @@ namespace CRM.Data.DbContext
         {
             // Create the configuration object to read the connection string
             var configuration = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json") // The file should be in the root directory
-                .Build();
+				.AddJsonFile("appsettings.json") // The file should be in the root directory
+				.Build();
 
             // Build the DbContextOptions with the connection string
             var optionsBuilder = new DbContextOptionsBuilder<ProjectDbContext>();
