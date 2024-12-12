@@ -93,7 +93,7 @@ namespace CRM.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteClient(int id)
         {
-            var deleted = await _unitOfWork.ClientRepository.DeleteAsync(id.ToString());
+            var deleted = await _unitOfWork.ClientRepository.DeleteAsync(id);
 
             if (!deleted)
             {

@@ -1,0 +1,229 @@
+﻿@page
+@model MachinesModel
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@{
+    ViewData["Title"] = "Machines";
+}
+
+<div class="row">
+    <div class="col-sm-6 text-start">
+        <h2>Machines</h2>
+    </div>
+    <div class="col-sm-6 text-end">
+        <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#machineModal">
+            Add Machine
+        </button>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <table id="machineTable" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ClientId</th>
+                <th>MachineIp</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="machineModal" tabindex="-1" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form method="post">
+
+
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel1">Machine Details</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <div class="row g-2">
+                        <div class="col mb-2">
+                            <div class="form-floating form-floating-outline">
+                                <input type="text" asp-for="MachineModel.ClientId" class="form-control"  placeholder="Enter Client ID" >
+                                <label for="clientIdBasic">Client ID</label>
+                            </div>
+                        </div>
+                        <div class="col mb-2">
+                            <div class="form-floating form-floating-outline">
+                                <input type="text" asp-for="MachineModel.MachineIp" class="form-control"  placeholder="Enter Machine IP">
+                                <label for="MachineIPBasic">Machine IP</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-2">
+                        <div class="col mb-2">
+                            <div class="form-floating form-floating-outline">
+                                <input type="text" asp-for="MachineModel.Username" class="form-control" placeholder="Enter Username">
+                                <label for="UsernameBasic">Username</label>
+                            </div>
+                        </div>
+                        <div class="col mb-2">
+                            <div class="form-floating form-floating-outline">
+                                <input type="text" asp-for="MachineModel.Password" class="form-control" placeholder="Enter Username">
+                                <label for="PasswordBasic">Password</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary waves-effect" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            const csrfToken = $('input[name="__RequestVerificationToken"]').val();
+
+            // Initialize DataTable
+            const table = $('#machineTable').DataTable({
+                ajax: {
+                    url: '/Machines?handler=List',
+                    type: 'POST',
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('XSRF-TOKEN', csrfToken);
+                    },
+                    dataSrc: ''
+                },
+                columns: [
+                    { data: 'id' },
+                    { data: 'clientId' },
+                    { data: 'machineIp' },
+                    { data: 'username' },
+                    { data: 'password' },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            return `
+                                        <div class="dropdown">
+                                            <i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <span class="dropdown-item edit-machine" data-id="${row.id}">Update</span>
+                                                </li>
+                                                <li>
+                                                    <span class="dropdown-item delete-machine" data-id="${row.id}">Delete</span>
+                                                </li>
+                                            </ul>
+                                        </div>`;
+                        }
+                    }
+                ],
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'csvHtml5',
+                        text: 'Export CSV',
+                        title: 'MachinesData',
+                        className: 'btn btn-primary',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    }
+                ]
+            });
+
+            // Handle Edit Button Click
+            $('#machineTable tbody').on('click', 'span.edit-machine', function () {
+                const row = $(this).closest('tr');
+                const data = $('#machineTable').DataTable().row(row).data();
+
+                // Populate the modal fields
+                $('#MachineModel_Id').val(data.id);
+                $('#MachineModel_ClientId').val(data.clientId);
+                $('#MachineModel_MachineIp').val(data.machineIp);
+                $('#MachineModel_Username').val(data.username);
+                $('#MachineModel_Password').val(data.password);
+
+                $('#modalTitle').text('Edit Machine');
+                $('#machineModal').modal('show');
+            });
+
+            // Save Changes for Update
+            $('#saveMachine').on('click', function (e) {
+                e.preventDefault(); // Prevent form submission
+
+                const formData = {
+                    Id: $('#MachineModel_Id').val(),
+                    ClientId: $('#MachineModel_ClientId').val(),
+                    MachineIp: $('#MachineModel_MachineIp').val(),
+                    Username: $('#MachineModel_Username').val(),
+                    Password: $('#MachineModel_Password').val()
+                };
+
+                // Send POST request to update the machine
+                $.ajax({
+                    url: "/Machines?handler=Update",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify(formData),
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('XSRF-TOKEN', $('input[name="__RequestVerificationToken"]').val());
+                    },
+                    success: function () {
+                        $('#machineModal').modal('hide'); // Close the modal
+                        $('#machineTable').DataTable().ajax.reload(); // Reload DataTable
+                        Swal.fire("Success!", "The machine has been updated successfully.", "success");
+                    },
+                    error: function () {
+                        Swal.fire("Error!", "Failed to update the machine.", "error");
+                    }
+                });
+            });
+
+
+
+            // Delete Machine
+            $('#machineTable tbody').on('click', 'span.delete-machine', function () {
+                const id = $(this).data('id');
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "This action cannot be undone.",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Yes, delete it!",
+                    cancelButtonText: "Cancel",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: `/Machines?handler=Delete&id=${id}`,
+                            type: 'POST',
+                            beforeSend: function (xhr) {
+                                xhr.setRequestHeader('XSRF-TOKEN', csrfToken);
+                            },
+                            success: function () {
+                                table.ajax.reload();
+                                Swal.fire("Deleted!", "The machine has been deleted.", "success");
+                            },
+                            error: function () {
+                                Swal.fire("Error!", "An error occurred while deleting the machine.", "error");
+                            }
+                        });
+                    }
+                });
+            });
+
+
+
+           
+
+
+
+        });
+    </script>
+}

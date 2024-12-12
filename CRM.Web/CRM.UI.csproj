@@ -39,4 +39,18 @@
     <ProjectReference Include="..\CRM\CRM.API.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="F:\Work\Code_S Bd\CRMForBhupinderJoshi\CRMForBhupinderJoshi\CRM.Web\Pages\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="F:\Work\Code_S Bd\CRMForBhupinderJoshi\CRMForBhupinderJoshi\CRM.Web\Pages\.editorconfig" />
+  </ItemGroup>
+
 </Project>

@@ -91,15 +91,15 @@ namespace CRM.Data.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ac0a3682-fd21-4aec-b4d3-c9763d041de7",
+                            ConcurrencyStamp = "0a54c43c-3172-4786-b0a9-b0b2f52fdec4",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEM3QOcZ1UXNHtPznExsffD1SyLkmxN1akOzsoo72oVU7Dr7T+WQC3xzOxH+G4+7Mmw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEA+S+bR0F/X5ELxhaRP+1pOI4J6ulzQC8xYz9SQAYDsQ3s9Wt2nUIkz/YUjDPtMvmg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "847c82b4-596d-4b76-b9d3-fb957d22e49a",
+                            SecurityStamp = "fc1a870a-f3f3-4f62-a0b2-9c29b54da897",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -242,6 +242,36 @@ namespace CRM.Data.Migrations
                     b.HasIndex("JoblogId");
 
                     b.ToTable("Logs");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.Machine", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MachineIp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.ToTable("Machines");
                 });
 
             modelBuilder.Entity("CRM.Data.Entities.Tasks", b =>
@@ -489,6 +519,17 @@ namespace CRM.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("JobLog");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.Machine", b =>
+                {
+                    b.HasOne("CRM.Data.Entities.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Client");
                 });
 
             modelBuilder.Entity("CRM.Data.Entities.Tasks", b =>

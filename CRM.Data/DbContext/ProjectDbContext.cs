@@ -13,6 +13,8 @@ namespace CRM.Data.DbContext
         public DbSet<Job> Jobs { get; set; } // Add this DbSet for the Jobs entity
         public DbSet<JobLogs> JobLogs { get; set; } // Add this DbSet for the JobLogs entity
         public DbSet<Logs> Logs { get; set; } // Add this DbSet for the Logs entity
+        public DbSet<Machine> Machines { get; set; } // Add this DbSet for the Machine entity
+
         public ProjectDbContext(DbContextOptions<ProjectDbContext> options) : base(options)
         {
           
