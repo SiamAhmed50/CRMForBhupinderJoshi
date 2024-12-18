@@ -4,6 +4,7 @@ using CRM.Data.Entities;
 using CRM.Service.Interfaces.UnitOfWork;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace CRM.Controllers
 {
@@ -24,7 +25,11 @@ namespace CRM.Controllers
         {
             try
             {
-                var Machines = await _unitOfWork.MachineRepository.GetAllAsync();
+                var Machines = await _unitOfWork.MachineRepository.GetAllAsync(
+                    includes: new Expression<Func<Machine, object>>[]
+                    {
+                        ct => ct.Client
+                    });
                 return Ok(Machines);
             }
             catch (Exception ex)

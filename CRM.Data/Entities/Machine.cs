@@ -17,6 +17,6 @@ namespace CRM.Data.Entities
         public string Password { get; set; }
 
         // Navigation Property
-        public Client Client { get; set; }
+        public Client? Client { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace CRM.Web.Pages
         [BindProperty]
         public MachineModel MachineModel { get; set; }
         public List<MachineModel> Machines { get; set; }
-        public List<Client> Clients { get; set; }
+        public List<ClientModel> Clients { get; set; }
 
         [TempData]
         public string SuccessMessage { get; set; }
@@ -36,25 +36,32 @@ namespace CRM.Web.Pages
         {
 
         }
+        public async Task OnGetAsync()
+        {
 
+            MachineModel = new MachineModel();
+            // Get the list of clients from your service or repository
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = new Uri(apiBaseUrl);
+                var response = await httpClient.GetAsync("/api/Clients");
+              
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Clients = JsonConvert.DeserializeObject<List<ClientModel>>(content);
+                } 
+
+            }
+
+        }
         public async Task<IActionResult> OnPost()
         {
             using (var httpClient = new HttpClient())
             {
                 try
-                {
-                    // Example of setting the Client property
-                    MachineModel.Client = new Client
-                    {
-                                            // Populate other properties if needed
-                        Name = "Sample Client Name", // Optional
-                        ClientId = MachineModel.ClientId, // Set ClientId
-                        LicenseNumber = "12345",    // Optional
-                        LicenseStartDate = DateTime.UtcNow.AddDays(-30), // Optional
-                        LicenseEndDate = DateTime.UtcNow.AddDays(365),  // Optional
-                        LicenseStatus = true        // Optional
-                    };
-
+                { 
                     httpClient.BaseAddress = new Uri(apiBaseUrl);
                     var response = await httpClient.PostAsJsonAsync(apiEndpoint, MachineModel);
 

@@ -21,8 +21,8 @@
     <table id="machineTable" class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>ClientId</th>
+                
+                <th>Client</th>
                 <th>MachineIp</th>
                 <th>Username</th>
                 <th>Password</th>
@@ -46,31 +46,34 @@
                 <div class="modal-body">
                     
                     <div class="row g-2">
-                        <div class="col mb-2">
-                            <div class="form-floating form-floating-outline">
-                                <input type="text" asp-for="MachineModel.ClientId" class="form-control"  placeholder="Enter Client ID" >
-                                <label for="clientIdBasic">Client ID</label>
-                            </div>
+                        <div class="col mb-2"> 
+                            <select class="form-select" id="clientId" name="MachineModel.ClientId" required>
+                                    <option value="">Select Client</option>
+                                    @if (Model.Clients.Count > 0)
+                                    {
+                                        foreach (var client in Model.Clients)
+                                        {
+                                            <option value="@client.Id">@client.Name</option>
+                                        }
+                                    } 
+                                </select> 
                         </div>
                         <div class="col mb-2">
-                            <div class="form-floating form-floating-outline">
+                           
                                 <input type="text" asp-for="MachineModel.MachineIp" class="form-control"  placeholder="Enter Machine IP">
-                                <label for="MachineIPBasic">Machine IP</label>
-                            </div>
+                            
                         </div>
                     </div>
                     <div class="row g-2">
                         <div class="col mb-2">
-                            <div class="form-floating form-floating-outline">
+                  
                                 <input type="text" asp-for="MachineModel.Username" class="form-control" placeholder="Enter Username">
-                                <label for="UsernameBasic">Username</label>
-                            </div>
+                         
                         </div>
                         <div class="col mb-2">
-                            <div class="form-floating form-floating-outline">
+                            
                                 <input type="text" asp-for="MachineModel.Password" class="form-control" placeholder="Enter Username">
-                                <label for="PasswordBasic">Password</label>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -101,8 +104,8 @@
                     dataSrc: ''
                 },
                 columns: [
-                    { data: 'id' },
-                    { data: 'clientId' },
+                  
+                    { data: "client.name" },
                     { data: 'machineIp' },
                     { data: 'username' },
                     { data: 'password' },
