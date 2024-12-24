@@ -36,7 +36,6 @@ namespace CRM.Controllers
                 {
                     UserName = model.UserName,
                     Email = model.Email,
-                    // Add other properties as needed
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
@@ -55,24 +54,27 @@ namespace CRM.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new { Message = "Invalid login request" });
+            }
+
             var user = await _userManager.FindByEmailAsync(model.Email);
 
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
                 var token = GenerateJwtToken(user);
-                return Ok(new { Token = token, User = user });
+                return Ok(new { Token = token, User = new { user.UserName, user.Email } });
             }
 
             return Unauthorized(new { Message = "Invalid username or password" });
         }
 
-        
-
         [HttpPost("logout")]
-        [Authorize] // Requires authentication to access this endpoint
-        public async Task<IActionResult> Logout()
+        [Authorize]
+        public IActionResult Logout()
         {
-            // Implement logout logic if needed
+            // Logout logic is usually handled on the client by removing the JWT token
             return Ok(new { Message = "Logout successful" });
         }
 
@@ -80,14 +82,16 @@ namespace CRM.Controllers
         {
             var claims = new List<Claim>
             {
+                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(ClaimTypes.Name, user.UserName)
-                // Add other claims as needed
+                // Add additional claims (e.g., roles) if necessary
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var expires = DateTime.Now.AddDays(Convert.ToDouble(_configuration["Jwt:ExpireDays"]));
+            var expires = DateTime.Now.AddMinutes(Convert.ToDouble(_configuration["Jwt:ExpiryInMinutes"]));
 
             var token = new JwtSecurityToken(
                 _configuration["Jwt:Issuer"],

@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CRM.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ClientsController : ControllerBase

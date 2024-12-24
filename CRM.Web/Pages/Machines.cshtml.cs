@@ -15,7 +15,8 @@ namespace CRM.Web.Pages
 
     public class MachinesModel : PageModel
     {
-        private readonly string apiBaseUrl = "https://localhost:44300";
+        //private readonly string apiBaseUrl = "https://localhost:44300";
+        private readonly string apiBaseUrl;
         private readonly string apiEndpoint = "/api/Machine";
 
         [BindProperty]
@@ -28,14 +29,14 @@ namespace CRM.Web.Pages
         [TempData]
         public string ErrorMessage { get; set; }
 
-        /*public MachinesModel(IOptions<ApiSettings> apiSettings)
+        public MachinesModel(IOptions<ApiSettings> apiSettings)
         {
             apiBaseUrl = apiSettings.Value.ApiUrl;
-        }*/
-        public MachinesModel()
-        {
-
         }
+        //public MachinesModel()
+        //{
+
+        //}
         public async Task OnGetAsync()
         {
 

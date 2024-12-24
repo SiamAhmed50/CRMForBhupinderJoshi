@@ -129,21 +129,9 @@ namespace CRM.UI.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-
-
-
-                //var handler = new HttpClientHandler();
-                //handler.ClientCertificateOptions = ClientCertificateOption.Manual;
-                //handler.ServerCertificateCustomValidationCallback =
-                //    (httpRequestMessage, cert, cetChain, policyErrors) =>
-                //    {
-                //        return true;
-                //    };
-
-                //var httpClient = new HttpClient(handler);
-
+                 
                 var httpClient = _httpClientFactory.CreateClient();
-                //var apiBaseUrl = "https://localhost:44300"; // Replace this with the actual base URL of your API
+                var apiBaseUrl = "https://localhost:44300"; // Replace this with the actual base URL of your API
 
                 var loginRequest = new 
                 {
@@ -153,39 +141,27 @@ namespace CRM.UI.Areas.Identity.Pages.Account
                 };
 
 
-                var content = new StringContent(JsonConvert.SerializeObject(loginRequest), Encoding.UTF8, "application/json");
-                Console.WriteLine( "Start " +content);
-                var response = await httpClient.PostAsync($"{apiBaseUrl}/api/Account/login", content);
-                Console.WriteLine("Final " + response);
+                var content = new StringContent(JsonConvert.SerializeObject(loginRequest), Encoding.UTF8, "application/json"); 
+                var response = await httpClient.PostAsync($"{apiBaseUrl}/api/Account/login", content); 
                 if (response.IsSuccessStatusCode)
-                {
-
-                   await _signInManager.SignInAsync(await _userManager.FindByEmailAsync(Input.Email), false);
-                    var isAuthenticated = User.Identity.IsAuthenticated;
+                { 
                     // Extract the JWT token from the response
                     var userResponse = await response.Content.ReadAsStringAsync();
                     var tokenResponse = JsonConvert.DeserializeObject<TokenResponse>(userResponse);
-                    var token = tokenResponse.Token; //here I have the token now I want to sign in the user with the token so that he can access the index page which has authorize attribute
-                    //here using signIn manager just sing in the user authenticate the user
-                     // Sign in the user using the obtained token
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, Input.Email),
-                    // Add other claims if needed
-                };
+                    if (tokenResponse != null && !string.IsNullOrEmpty(tokenResponse.Token))
+                    {
+                        // Set the token in a secure cookie
+                        HttpContext.Response.Cookies.Append("jwt", tokenResponse.Token, new CookieOptions
+                        {
+                            HttpOnly = true,
+                            Secure = true, // Use only on HTTPS
+                            SameSite = SameSiteMode.Strict,
+                            Expires = DateTimeOffset.UtcNow.AddDays(30) // Adjust token expiration as needed
+                        });
 
-                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                var principal = new ClaimsPrincipal(identity);
-
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, new AuthenticationProperties
-                {
-                    IsPersistent = Input.RememberMe,
-                    ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
-                });
-
-                    _logger.LogInformation("User logged in.");
-
-                    return LocalRedirect(returnUrl);
+                        return LocalRedirect(returnUrl);
+                    }
+                   
                 }
 
                 if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
@@ -194,7 +170,7 @@ namespace CRM.UI.Areas.Identity.Pages.Account
                     return Page();
                 }
 
-                _logger.LogWarning($"User login failed with status code: {response.StatusCode}");
+              
                 ModelState.AddModelError(string.Empty, "Something went wrong. Please try again later.");
                 return Page();
             }

@@ -54,6 +54,7 @@ namespace CRM.Web.Pages
                     ClientTasks = JsonConvert.DeserializeObject<List<ClientTaskModel>>(content);
                 }
 
+
             }
              
         } 

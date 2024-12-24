@@ -3,6 +3,7 @@ using CRM.Data.Entities;
 using CRM.Data.Enums;
 using CRM.Service.Helpers;
 using CRM.Service.Interfaces.UnitOfWork;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -14,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace CRM.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class JobsController : ControllerBase

@@ -6,9 +6,11 @@ using System.Linq.Expressions;
 using CRM.API.ViewModels;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CRM.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ClientTaskController : ControllerBase

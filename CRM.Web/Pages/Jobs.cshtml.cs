@@ -11,7 +11,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authorization;
 using CRM.API.ViewModels;
 
-namespace CRM.UI.Pages
+namespace CRM.Web.Pages
 {
     //[Authorize]
     public class JobsModel : PageModel

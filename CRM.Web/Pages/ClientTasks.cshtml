@@ -90,7 +90,7 @@
                             <label for="clientId" class="form-label">Select Client</label>
                             <select class="form-select" id="clientId" name="ClientTaskModel.ClientId" required>
                                 <option value="">Select Client</option>
-                                @if (Model.Clients.Count > 0)
+                                @if (Model.Clients != null && Model.Clients.Count > 0)
                                 {
                                     foreach (var client in Model.Clients)
                                     {

@@ -1,3 +1,4 @@
+using CRM.UI.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -5,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace CRM.Web.Pages
 {
 
-    public class IndexModel : PageModel
+    public class IndexModel : SecurePageModel
     {
         private readonly ILogger<IndexModel> _logger;
 

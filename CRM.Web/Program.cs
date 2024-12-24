@@ -58,6 +58,14 @@ builder.Services.AddRazorPages();
 
 // Register ApiSettings
 builder.Services.Configure<ApiSettings>(builder.Configuration.GetSection("ApiSettings"));
+builder.Services.AddHttpContextAccessor(); // Allows accessing HTTP context (cookies, etc.)
+builder.Services.AddTransient<CustomAuthorizationHandler>();
+
+builder.Services.AddHttpClient("ApiClient", client =>
+{
+    client.BaseAddress = new Uri("https://localhost:44300"); // Replace with your API base URL
+    //client.BaseAddress = new Uri("https://api-monitor.robobotics.eu"); // Replace with your API base URL
+}).AddHttpMessageHandler<CustomAuthorizationHandler>();
 
 var app = builder.Build();
 
@@ -82,6 +90,7 @@ var cookiePolicyOptions = new CookiePolicyOptions
     Secure = CookieSecurePolicy.None,
 };
 app.UseCookiePolicy(cookiePolicyOptions);
+app.UseMiddleware<JwtAuthenticationMiddleware>();
 
 app.UseEndpoints(endpoints =>
 {

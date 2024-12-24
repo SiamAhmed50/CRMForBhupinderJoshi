@@ -8,6 +8,7 @@ using System.Linq.Expressions;
 
 namespace CRM.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class MachineController : ControllerBase
