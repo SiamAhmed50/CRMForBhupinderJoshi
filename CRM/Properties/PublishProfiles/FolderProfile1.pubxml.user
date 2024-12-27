@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\bin\Release\net8.0\publish\</_PublishTargetUrl>
+    <History>True|2024-11-19T11:42:12.1319385Z||;True|2024-11-17T20:17:33.6362915+06:00||;True|2024-11-16T18:58:15.2941116+06:00||;True|2024-11-14T15:49:02.6952996+06:00||;True|2024-11-14T14:47:05.2640227+06:00||;True|2024-11-14T13:28:55.2834358+06:00||;True|2024-09-12T14:03:04.8841103+06:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>
