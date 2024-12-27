@@ -11,12 +11,10 @@ using System.Threading.Tasks;
 
 namespace CRM.Web.Pages
 {
-    
     public class ClientTasksModel : PageModel
     {
-        //private readonly string apiBaseUrl = "https://localhost:44300";
-        private readonly string apiBaseUrl;
-        private readonly string apiEndpoint = "/api/ClientTask";
+        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly string _apiEndpoint = "/api/ClientTask";
 
         [BindProperty]
         public ClientTaskModel ClientTaskModel { get; set; }
@@ -28,140 +26,145 @@ namespace CRM.Web.Pages
         [TempData]
         public string ErrorMessage { get; set; }
 
-        public ClientTasksModel(IOptions<ApiSettings> apiSettings)
+        public ClientTasksModel(IHttpClientFactory httpClientFactory)
         {
-            apiBaseUrl = apiSettings.Value.ApiUrl;
+            _httpClientFactory = httpClientFactory;
         }
+
         public async Task OnGetAsync()
         {
-           
-            ClientTaskModel = new ClientTaskModel(); 
-            // Get the list of clients from your service or repository
-            using (var httpClient = new HttpClient())
-            {
-                httpClient.BaseAddress = new Uri(apiBaseUrl);
-                var response = await httpClient.GetAsync("/api/Clients");
-                var response1 = await httpClient.GetAsync("/api/ClientTask");
+            ClientTaskModel = new ClientTaskModel();
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var content = await response.Content.ReadAsStringAsync();
-                    Clients = JsonConvert.DeserializeObject<List<ClientModel>>(content);
-                }
-                if (response1.IsSuccessStatusCode)
-                {
-                    var content = await response1.Content.ReadAsStringAsync();
-                    ClientTasks = JsonConvert.DeserializeObject<List<ClientTaskModel>>(content);
-                }
-
-
-            }
-             
-        } 
-        public async Task<IActionResult> OnPost()
-        {
-            using (var httpClient = new HttpClient())
-            {
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
+            
                 try
                 {
-                    httpClient.BaseAddress = new Uri(apiBaseUrl);
-                    var response = await httpClient.PostAsJsonAsync(apiEndpoint, ClientTaskModel);
+                    AddAuthorizationToken(httpClient);
 
-                    if (!response.IsSuccessStatusCode)
+                    var clientResponse = await httpClient.GetAsync("/api/Clients");
+                    var taskResponse = await httpClient.GetAsync(_apiEndpoint);
+
+                    if (clientResponse.IsSuccessStatusCode)
                     {
-                        ErrorMessage = $"Error creating Tasks. Status code: {response.StatusCode}";
-                        return RedirectToPage();
+                        var content = await clientResponse.Content.ReadAsStringAsync();
+                        Clients = JsonConvert.DeserializeObject<List<ClientModel>>(content);
                     }
-
-                    SuccessMessage = "Tasks has been created successfully.";
+                    if (taskResponse.IsSuccessStatusCode)
+                    {
+                        var content = await taskResponse.Content.ReadAsStringAsync();
+                        ClientTasks = JsonConvert.DeserializeObject<List<ClientTaskModel>>(content);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error creating tasks: {ex.Message}");
-                    throw new Exception($"Error creating tasks: {ex.Message}");
+                    ErrorMessage = $"Error loading data: {ex.Message}";
+                    Clients = new List<ClientModel>();
+                    ClientTasks = new List<ClientTaskModel>();
                 }
-            }
-
-            return RedirectToPage();
+            
         }
 
-        public async Task<IActionResult> OnPostUpdate()
+        public async Task<IActionResult> OnPostAsync()
         {
-            using (var httpClient = new HttpClient())
-            {
-                try
-                {
-                    httpClient.BaseAddress = new Uri(apiBaseUrl);
-                    var response = await httpClient.PutAsJsonAsync($"{apiEndpoint}/{ClientTaskModel.Id}", ClientTaskModel);
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
 
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        ErrorMessage = $"Error updating tasks. Status code: {response.StatusCode}";
-                        return RedirectToPage();
-                    }
-                    SuccessMessage = "Tasks has been updated successfully.";
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error updating tasks: {ex.Message}");
-                    throw new Exception($"Error updating tasks: {ex.Message}");
-                }
-            }
-            return RedirectToPage();
-        }
-
-        public async Task<IActionResult> OnPostDelete(int id)
-        {
-            using (var httpClient = new HttpClient())
-            {
-                try
-                {
-                    httpClient.BaseAddress = new Uri(apiBaseUrl);
-                    var response = await httpClient.DeleteAsync($"{apiEndpoint}/{id}");
-
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        ErrorMessage = $"Error deleting tasks. Status code: {response.StatusCode}";
-                        return RedirectToPage();
-                    }
-                    SuccessMessage = "Tasks has been deleted successfully.";
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error deleting tasks with ID {id}: {ex.Message}");
-                    throw new Exception($"Error deleting tasks with ID {id}: {ex.Message}");
-                }
-            }
-
-            return RedirectToPage();
-        }
-   
-
-  
-        public async Task<IActionResult> OnPostList()
-        {
             try
             {
-                // Get all clients as JSON for DataTable via AJAX
-                await LoadClientsAsync();
-                var res =  new JsonResult(ClientTasks);
-                return res;
+                AddAuthorizationToken(httpClient);
+
+                var response = await httpClient.PostAsJsonAsync(_apiEndpoint, ClientTaskModel);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    ErrorMessage = $"Error creating tasks. Status code: {response.StatusCode}";
+                    return RedirectToPage();
+                }
+
+                SuccessMessage = "Tasks have been created successfully.";
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error loading clients: {ex.Message}");
+                ErrorMessage = $"Error creating tasks: {ex.Message}";
+            }
+
+            return RedirectToPage();
+        }
+
+        public async Task<IActionResult> OnPostUpdateAsync()
+        {
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
+
+            try
+            {
+                AddAuthorizationToken(httpClient);
+
+                var response = await httpClient.PutAsJsonAsync($"{_apiEndpoint}/{ClientTaskModel.Id}", ClientTaskModel);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    ErrorMessage = $"Error updating tasks. Status code: {response.StatusCode}";
+                    return RedirectToPage();
+                }
+
+                SuccessMessage = "Tasks have been updated successfully.";
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = $"Error updating tasks: {ex.Message}";
+            }
+
+            return RedirectToPage();
+        }
+
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
+        {
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
+
+            try
+            {
+                AddAuthorizationToken(httpClient);
+
+                var response = await httpClient.DeleteAsync($"{_apiEndpoint}/{id}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    ErrorMessage = $"Error deleting tasks. Status code: {response.StatusCode}";
+                    return RedirectToPage();
+                }
+
+                SuccessMessage = "Tasks have been deleted successfully.";
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = $"Error deleting tasks with ID {id}: {ex.Message}";
+            }
+
+            return RedirectToPage();
+        }
+
+        public async Task<IActionResult> OnPostListAsync()
+        {
+            try
+            {
+                await LoadTasksAsync();
+                return new JsonResult(ClientTasks);
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = $"Error loading tasks: {ex.Message}";
                 return new JsonResult(new List<ClientTaskModel>());
             }
         }
 
-        private async Task LoadClientsAsync()
+        private async Task LoadTasksAsync()
         {
-            using (var httpClient = new HttpClient())
-            {
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
+            
                 try
                 {
-                    httpClient.BaseAddress = new Uri(apiBaseUrl);
-                    var response = await httpClient.GetAsync(apiEndpoint);
+                    //AddAuthorizationToken(httpClient);
+
+                    var response = await httpClient.GetAsync(_apiEndpoint);
 
                     if (response.IsSuccessStatusCode)
                     {
@@ -170,15 +173,25 @@ namespace CRM.Web.Pages
                     }
                     else
                     {
-                        Console.WriteLine($"Error loading clients. Status code: {response.StatusCode}");
+                        ErrorMessage = $"Error loading tasks. Status code: {response.StatusCode}";
                         ClientTasks = new List<ClientTaskModel>();
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error loading clients: {ex.Message}");
+                    ErrorMessage = $"Error loading tasks: {ex.Message}";
                     ClientTasks = new List<ClientTaskModel>();
                 }
+            
+        }
+
+        private void AddAuthorizationToken(HttpClient httpClient)
+        {
+            var token = HttpContext.Request.Cookies["jwt"];
+            if (!string.IsNullOrEmpty(token))
+            {
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
             }
         }
     }
@@ -187,11 +200,7 @@ namespace CRM.Web.Pages
     {
         public int Id { get; set; }
         public Client Client { get; set; }
-
-        // Foreign key for Client
         public int ClientId { get; set; }
-
-        // Navigation property for Tasks
         public List<Tasks> Tasks { get; set; }
     }
 }

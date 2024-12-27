@@ -15,8 +15,8 @@ namespace CRM.Web.Pages
 
     public class MachinesModel : PageModel
     {
-        //private readonly string apiBaseUrl = "https://localhost:44300";
-        private readonly string apiBaseUrl;
+        private readonly string apiBaseUrl = "https://localhost:44300";
+        //private readonly string apiBaseUrl;
         private readonly string apiEndpoint = "/api/Machine";
 
         [BindProperty]
@@ -44,6 +44,7 @@ namespace CRM.Web.Pages
             // Get the list of clients from your service or repository
             using (var httpClient = new HttpClient())
             {
+                AddAuthorizationToken(httpClient);
                 httpClient.BaseAddress = new Uri(apiBaseUrl);
                 var response = await httpClient.GetAsync("/api/Clients");
               
@@ -62,7 +63,8 @@ namespace CRM.Web.Pages
             using (var httpClient = new HttpClient())
             {
                 try
-                { 
+                {
+                    AddAuthorizationToken(httpClient);
                     httpClient.BaseAddress = new Uri(apiBaseUrl);
                     var response = await httpClient.PostAsJsonAsync(apiEndpoint, MachineModel);
 
@@ -93,6 +95,7 @@ namespace CRM.Web.Pages
             {
                 try
                 {
+                    AddAuthorizationToken(httpClient);
                     httpClient.BaseAddress = new Uri(apiBaseUrl);
                     var response = await httpClient.PutAsJsonAsync($"{apiEndpoint}/{MachineModel.Id}", MachineModel);
 
@@ -118,6 +121,7 @@ namespace CRM.Web.Pages
             {
                 try
                 {
+                    AddAuthorizationToken(httpClient);
                     httpClient.BaseAddress = new Uri(apiBaseUrl);
                     var response = await httpClient.DeleteAsync($"{apiEndpoint}/{id}");
 
@@ -159,6 +163,7 @@ namespace CRM.Web.Pages
             {
                 try
                 {
+                    AddAuthorizationToken(httpClient);
                     httpClient.BaseAddress = new Uri(apiBaseUrl);
                     var response = await httpClient.GetAsync(apiEndpoint);
 
@@ -180,7 +185,15 @@ namespace CRM.Web.Pages
                 }
             }
         }
-
+        private void AddAuthorizationToken(HttpClient httpClient)
+        {
+            var token = HttpContext.Request.Cookies["jwt"];
+            if (!string.IsNullOrEmpty(token))
+            {
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            }
+        }
     }
 
 
