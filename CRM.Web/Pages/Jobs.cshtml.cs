@@ -2,26 +2,22 @@ using CRM.Data.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
-using System.Net.Http;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using System;
-using CRM.UI.Helpers;
-using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore.Authorization;
+using System.Threading.Tasks;
 using CRM.API.ViewModels;
+using Microsoft.Extensions.Options;
 
 namespace CRM.Web.Pages
 {
-    //[Authorize]
     public class JobsModel : PageModel
     {
-        //private readonly string apiBaseUrl = "https://localhost:44300";
-        private readonly string apiBaseUrl;
-        private readonly string apiEndpoint = "/api/Jobs";
+        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly string _apiEndpoint = "/api/Jobs";
 
         [BindProperty]
         public List<JobsViewModel> JobLogsList { get; set; }
+
         public List<LogViewModel> LogsList { get; set; }
 
         [BindProperty]
@@ -33,57 +29,32 @@ namespace CRM.Web.Pages
         [TempData]
         public string ErrorMessage { get; set; }
 
-
-        public JobsModel(IOptions<ApiSettings> apiSettings)
+        public JobsModel(IHttpClientFactory httpClientFactory)
         {
-            apiBaseUrl = apiSettings.Value.ApiUrl;
-        }
-
-
-        //public JobsModel()
-        //{
-
-        //}
-
-        public async Task OnGetAsync()
-        {
-
-        }
-
-        private int GenerateUniqueId()
-        {
-            Random random = new Random();
-            return random.Next(1000, 1000000);
-        }
-
-        private string GenerateLicenseNumber()
-        {
-            return $"LIC-{DateTime.Now.Year}-{Guid.NewGuid().ToString().Substring(0, 8)}";
+            _httpClientFactory = httpClientFactory;
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            using (var httpClient = new HttpClient())
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
+
+            try
             {
-                try
-                {
-                    httpClient.BaseAddress = new Uri(apiBaseUrl);
-                    var response = await httpClient.PostAsJsonAsync(apiEndpoint, JobLog);
+                AddAuthorizationToken(httpClient);
 
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        ErrorMessage = $"Error creating job log. Status code: {response.StatusCode}";
-                        return RedirectToPage();
-                    }
+                var response = await httpClient.PostAsJsonAsync(_apiEndpoint, JobLog);
 
-                    SuccessMessage = "Job log has been created successfully.";
-                }
-                catch (Exception ex)
+                if (!response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine($"Error creating job log: {ex.Message}");
-                    ErrorMessage = $"Error creating job log: {ex.Message}";
+                    ErrorMessage = $"Error creating job log. Status code: {response.StatusCode}";
                     return RedirectToPage();
                 }
+
+                SuccessMessage = "Job log has been created successfully.";
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = $"Error creating job log: {ex.Message}";
             }
 
             return RedirectToPage();
@@ -91,26 +62,25 @@ namespace CRM.Web.Pages
 
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
-            using (var httpClient = new HttpClient())
-            {
-                try
-                {
-                    httpClient.BaseAddress = new Uri(apiBaseUrl);
-                    var response = await httpClient.DeleteAsync($"{apiEndpoint}/{id}");
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
 
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        ErrorMessage = $"Error deleting job log. Status code: {response.StatusCode}";
-                        return RedirectToPage();
-                    }
-                    SuccessMessage = "Job log has been deleted successfully.";
-                }
-                catch (Exception ex)
+            try
+            {
+                AddAuthorizationToken(httpClient);
+
+                var response = await httpClient.DeleteAsync($"{_apiEndpoint}/{id}");
+
+                if (!response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine($"Error deleting job log with ID {id}: {ex.Message}");
-                    ErrorMessage = $"Error deleting job log with ID {id}: {ex.Message}";
+                    ErrorMessage = $"Error deleting job log. Status code: {response.StatusCode}";
                     return RedirectToPage();
                 }
+
+                SuccessMessage = "Job log has been deleted successfully.";
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = $"Error deleting job log with ID {id}: {ex.Message}";
             }
 
             return RedirectToPage();
@@ -121,82 +91,92 @@ namespace CRM.Web.Pages
             try
             {
                 await LoadJobsAsync();
-                var res = new JsonResult(JobLogsList);
-                return res;
+                return new JsonResult(JobLogsList);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error loading job logs: {ex.Message}");
+                ErrorMessage = $"Error loading job logs: {ex.Message}";
                 return new JsonResult(new List<JobLogs>());
             }
         }
 
         private async Task LoadJobsAsync()
         {
-            using (var httpClient = new HttpClient())
-            {
-                try
-                {
-                    httpClient.BaseAddress = new Uri(apiBaseUrl);
-                    var response = await httpClient.GetAsync(apiEndpoint);
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
 
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var content = await response.Content.ReadAsStringAsync();
-                        JobLogsList = JsonConvert.DeserializeObject<List<JobsViewModel>>(content);
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Error loading job logs. Status code: {response.StatusCode}");
-                        JobLogsList = new List<JobsViewModel>();
-                    }
-                }
-                catch (Exception ex)
+            try
+            {
+                AddAuthorizationToken(httpClient);
+
+                var response = await httpClient.GetAsync(_apiEndpoint);
+
+                if (response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine($"Error loading job logs: {ex.Message}");
+                    var content = await response.Content.ReadAsStringAsync();
+                    JobLogsList = JsonConvert.DeserializeObject<List<JobsViewModel>>(content);
+                }
+                else
+                {
+                    ErrorMessage = $"Error loading job logs. Status code: {response.StatusCode}";
                     JobLogsList = new List<JobsViewModel>();
                 }
             }
+            catch (Exception ex)
+            {
+                ErrorMessage = $"Error loading job logs: {ex.Message}";
+                JobLogsList = new List<JobsViewModel>();
+            }
         }
+
         public async Task<IActionResult> OnPostLogList(int id)
         {
             try
             {
                 await LoadLogsAsync(id);
-                var res = new JsonResult(LogsList);
-                return res;
+                return new JsonResult(LogsList);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error loading job logs: {ex.Message}");
-                return new JsonResult(new List<JobLogs>());
+                ErrorMessage = $"Error loading logs for job ID {id}: {ex.Message}";
+                return new JsonResult(new List<LogViewModel>());
             }
         }
+
         private async Task LoadLogsAsync(int id)
         {
-            using (var httpClient = new HttpClient())
-            {
-                try
-                {
-                    httpClient.BaseAddress = new Uri(apiBaseUrl);
-                    var response = await httpClient.GetAsync($"/api/Logs/Job/{id}");
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
 
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var content = await response.Content.ReadAsStringAsync();
-                        LogsList = JsonConvert.DeserializeObject<List<LogViewModel>>(content);
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Error loading job logs. Status code: {response.StatusCode}");
-                        LogsList = new List<LogViewModel>();
-                    }
-                }
-                catch (Exception ex)
+            try
+            {
+                AddAuthorizationToken(httpClient);
+
+                var response = await httpClient.GetAsync($"/api/Logs/Job/{id}");
+
+                if (response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine($"Error loading job logs: {ex.Message}");
+                    var content = await response.Content.ReadAsStringAsync();
+                    LogsList = JsonConvert.DeserializeObject<List<LogViewModel>>(content);
+                }
+                else
+                {
+                    ErrorMessage = $"Error loading logs for job ID {id}. Status code: {response.StatusCode}";
                     LogsList = new List<LogViewModel>();
                 }
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = $"Error loading logs for job ID {id}: {ex.Message}";
+                LogsList = new List<LogViewModel>();
+            }
+        }
+
+        private void AddAuthorizationToken(HttpClient httpClient)
+        {
+            var token = HttpContext.Request.Cookies["jwt"];
+            if (!string.IsNullOrEmpty(token))
+            {
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
             }
         }
     }

@@ -66,6 +66,13 @@ namespace CRM.Web.Pages
 
             try
             {
+                var token = HttpContext.Request.Cookies["jwt"];
+                if (!string.IsNullOrEmpty(token))
+                {
+                    httpClient.DefaultRequestHeaders.Authorization =
+                        new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                }
+
                 var response = await httpClient.PostAsJsonAsync(_apiEndpoint, ClientModel);
 
                 if (!response.IsSuccessStatusCode)
@@ -91,6 +98,14 @@ namespace CRM.Web.Pages
 
             try
             {
+                // Add Authorization token
+                var token = HttpContext.Request.Cookies["jwt"];
+                if (!string.IsNullOrEmpty(token))
+                {
+                    httpClient.DefaultRequestHeaders.Authorization =
+                        new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                }
+
                 var response = await httpClient.PutAsJsonAsync($"{_apiEndpoint}/{ClientModel.Id}", ClientModel);
 
                 if (!response.IsSuccessStatusCode)
@@ -115,6 +130,14 @@ namespace CRM.Web.Pages
 
             try
             {
+                // Add Authorization token
+                var token = HttpContext.Request.Cookies["jwt"];
+                if (!string.IsNullOrEmpty(token))
+                {
+                    httpClient.DefaultRequestHeaders.Authorization =
+                        new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                }
+
                 var response = await httpClient.DeleteAsync($"{_apiEndpoint}/{id}");
 
                 if (!response.IsSuccessStatusCode)
