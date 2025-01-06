@@ -52,6 +52,7 @@ namespace CRM.Controllers
 
         // GET: api/Clients/ClientId/{clientId}
         [HttpGet("ClientId/{clientId}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetClientByClientId(int clientId)
         {
             var client = await _unitOfWork.ClientRepository.GetAllAsync(filter: x => x.ClientId == clientId);

@@ -54,20 +54,27 @@ namespace CRM.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(new { Message = "Invalid login request" });
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(new { Message = "Invalid login request" });
+                }
+
+                var user = await _userManager.FindByEmailAsync(model.Email);
+
+                if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
+                {
+                    var token = GenerateJwtToken(user);
+                    return Ok(new { Token = token, User = new { user.UserName, user.Email } });
+                }
+
+                return Unauthorized(new { Message = "Invalid username or password" });
             }
-
-            var user = await _userManager.FindByEmailAsync(model.Email);
-
-            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
+            catch(Exception ex)
             {
-                var token = GenerateJwtToken(user);
-                return Ok(new { Token = token, User = new { user.UserName, user.Email } });
+                return BadRequest(ex.Message);
             }
-
-            return Unauthorized(new { Message = "Invalid username or password" });
         }
 
         [HttpPost("logout")]

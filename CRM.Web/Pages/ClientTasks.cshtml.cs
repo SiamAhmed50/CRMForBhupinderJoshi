@@ -1,4 +1,5 @@
 using CRM.Data.Entities;
+using CRM.Data.Enums;
 using CRM.UI.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -185,6 +186,46 @@ namespace CRM.Web.Pages
             
         }
 
+        public async Task<IActionResult> OnGetToggleTaskStatusAsync(int id)
+        {
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
+
+            try
+            {
+                // Add the authorization token to the HTTP client
+                AddAuthorizationToken(httpClient);
+
+                // Call the API to toggle the task status
+                var response = await httpClient.GetAsync($"{_apiEndpoint}/ToggleTaskStatus/{id}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new JsonResult(new
+                    {
+                        success = false,
+                        message = $"Failed to toggle task status. Status code: {response.StatusCode}"
+                    });
+                }
+
+                // Parse the response and return the updated status
+                var content = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<dynamic>(content);
+
+                return new JsonResult(new
+                {
+                    success = true,
+                    status = result?.status
+                });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new
+                {
+                    success = false,
+                    message = $"An error occurred: {ex.Message}"
+                });
+            }
+        } 
         private void AddAuthorizationToken(HttpClient httpClient)
         {
             var token = HttpContext.Request.Cookies["jwt"];
@@ -201,6 +242,7 @@ namespace CRM.Web.Pages
         public int Id { get; set; }
         public Client Client { get; set; }
         public int ClientId { get; set; }
+        public ClientTaskStatus Status { get; set; }
         public List<Tasks> Tasks { get; set; }
     }
 }

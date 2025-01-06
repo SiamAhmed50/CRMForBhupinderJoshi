@@ -46,7 +46,7 @@ builder.Services.AddAuthentication(options =>
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
         ValidIssuer = "CRMWebApp",
-        ValidAudience = "https://localhost:44332/",
+        ValidAudience = "https://monitor.robobotics.eu/",
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("a7b4cf1a-b3e2-4d87-8f9a-82c6a7b5f6d2"))
     };
 });

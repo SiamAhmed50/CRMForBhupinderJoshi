@@ -123,6 +123,7 @@ namespace CRM.Controllers
 
         // POST: api/Logs/CreateLogs
         [HttpPost("CreateLogs")]
+        [AllowAnonymous]
         public async Task<IActionResult> CreateLogs(CreateLog logModel)
         {
             try
@@ -195,6 +196,7 @@ namespace CRM.Controllers
 
         // New GetLogsById method
         [HttpGet("job/{jobId}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetLogsById(int jobId)
         {
             try

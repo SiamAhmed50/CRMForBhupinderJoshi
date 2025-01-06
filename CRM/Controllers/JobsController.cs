@@ -120,6 +120,7 @@ namespace CRM.Controllers
         private int GenerateUniqueId() => new Random().Next(1000, 1000000);
 
         [HttpPost("CreateJob")]
+        [AllowAnonymous]
         public async Task<IActionResult> CreateJob(CRM.API.ViewModels.CreateJob model)
         {
             try
@@ -171,6 +172,7 @@ namespace CRM.Controllers
 
 
         [HttpPost("UpdateJob")]
+        [AllowAnonymous]
         public async Task<IActionResult> UpdateJob(CRM.API.ViewModels.UpdateJob model)
         {
           
@@ -230,6 +232,7 @@ namespace CRM.Controllers
         }
 
         [HttpDelete("DeleteJob/{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> DeleteJob(int id)
         {
             try

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRM.Data.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace CRM.Data.Entities
 
         // Foreign key for Clienta
         public int ClientId { get; set; }
+        public ClientTaskStatus Status { get; set; }
 
         // Navigation property for Tasks
         public List<Tasks> Tasks { get; set; }

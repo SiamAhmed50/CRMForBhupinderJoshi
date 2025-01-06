@@ -17,4 +17,9 @@ namespace CRM.Data.Enums
         Info = 1,
         Fetal = 2, 
     }
+    public enum ClientTaskStatus
+    {
+        Idle = 0,
+        Running = 1
+    }
 }

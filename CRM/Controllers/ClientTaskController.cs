@@ -7,6 +7,7 @@ using CRM.API.ViewModels;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using CRM.Data.Enums;
 
 namespace CRM.Controllers
 {
@@ -61,6 +62,7 @@ namespace CRM.Controllers
             return CreatedAtAction("GetClientTask", new { id = createdClientTask.Id }, createdClientTask);
         }
         [HttpPost("CreateTask")]
+        [AllowAnonymous]
         public async Task<IActionResult> CreateClientTask(CreateTask task)
         {
 
@@ -135,5 +137,68 @@ namespace CRM.Controllers
             await _unitOfWork.SaveChangesAsync();
             return NoContent();
         }
+
+        [HttpGet("ToggleTaskStatus/{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> ToggleTaskStatus(int id)
+        {
+            // Retrieve the client task by ID
+            var clientTask = await _unitOfWork.ClientTaskRepository.GetByIdAsync(ct => EF.Property<int>(ct, "Id") == id);
+
+            if (clientTask == null)
+            {
+                return NotFound(new { success = false, message = "Client task not found." });
+            }
+
+            // Toggle the task status (assuming 0 = Idle, 1 = Running)
+            if (clientTask.Status == ClientTaskStatus.Idle)
+            {
+                clientTask.Status = ClientTaskStatus.Running;
+            }
+            else if (clientTask.Status == ClientTaskStatus.Running)
+            {
+                clientTask.Status = ClientTaskStatus.Idle;
+            }
+            else
+            {
+                return BadRequest(new { success = false, message = "Invalid task status." });
+            }
+
+            // Update the task in the repository
+            var updatedClientTask = await _unitOfWork.ClientTaskRepository.UpdateAsync(clientTask);
+            await _unitOfWork.SaveChangesAsync();
+
+            // Return the updated status
+            return Ok(new { success = true, status = clientTask.Status });
+        }
+
+        [HttpGet("RunningTasks")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetRunningTasks()
+        {
+            try
+            {
+                // Fetch all client tasks with status `Running`
+                var runningTasks = await _unitOfWork.ClientTaskRepository.GetAllAsync(
+                    filter: ct => ct.Status == ClientTaskStatus.Running,
+                    includes: new Expression<Func<ClientTask, object>>[]
+                    {
+                ct => ct.Client,
+                ct => ct.Tasks
+                    });
+
+                if (runningTasks == null || !runningTasks.Any())
+                {
+                    return NotFound(new { success = false, message = "No running tasks found." });
+                }
+
+                return Ok(new { success = true, data = runningTasks.FirstOrDefault() });
+            }
+            catch (Exception ex)
+            { 
+                return StatusCode(500, new { success = false, message = "An error occurred while processing the request." });
+            }
+        }
+
     }
 }

@@ -15,7 +15,7 @@ namespace CRM.Web.Pages
 
     public class MachinesModel : PageModel
     {
-        private readonly string apiBaseUrl = "https://localhost:44300";
+        private readonly IHttpClientFactory _httpClientFactory;
         //private readonly string apiBaseUrl;
         private readonly string apiEndpoint = "/api/Machine";
 
@@ -29,9 +29,9 @@ namespace CRM.Web.Pages
         [TempData]
         public string ErrorMessage { get; set; }
 
-        public MachinesModel(IOptions<ApiSettings> apiSettings)
+        public MachinesModel(IHttpClientFactory httpClientFactory)
         {
-            apiBaseUrl = apiSettings.Value.ApiUrl;
+            _httpClientFactory = httpClientFactory;
         }
         //public MachinesModel()
         //{
@@ -42,10 +42,9 @@ namespace CRM.Web.Pages
 
             MachineModel = new MachineModel();
             // Get the list of clients from your service or repository
-            using (var httpClient = new HttpClient())
-            {
-                AddAuthorizationToken(httpClient);
-                httpClient.BaseAddress = new Uri(apiBaseUrl);
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
+            
+                AddAuthorizationToken(httpClient); 
                 var response = await httpClient.GetAsync("/api/Clients");
               
 
@@ -54,18 +53,17 @@ namespace CRM.Web.Pages
                     var content = await response.Content.ReadAsStringAsync();
                     Clients = JsonConvert.DeserializeObject<List<ClientModel>>(content);
                 } 
-
-            }
+                 
+            Clients = new List<ClientModel>();
 
         }
         public async Task<IActionResult> OnPost()
         {
-            using (var httpClient = new HttpClient())
-            {
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
+            
                 try
                 {
-                    AddAuthorizationToken(httpClient);
-                    httpClient.BaseAddress = new Uri(apiBaseUrl);
+                    AddAuthorizationToken(httpClient); 
                     var response = await httpClient.PostAsJsonAsync(apiEndpoint, MachineModel);
 
                     if (!response.IsSuccessStatusCode)
@@ -80,8 +78,7 @@ namespace CRM.Web.Pages
                 {
                     Console.WriteLine($"Error creating Machine: {ex.Message}");
                     throw new Exception($"Error creating Machine: {ex.Message}");
-                }
-            }
+                } 
 
             return RedirectToPage();
         }
@@ -91,12 +88,11 @@ namespace CRM.Web.Pages
 
         public async Task<IActionResult> OnPostUpdate()
         {
-            using (var httpClient = new HttpClient())
-            {
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
+             
                 try
                 {
-                    AddAuthorizationToken(httpClient);
-                    httpClient.BaseAddress = new Uri(apiBaseUrl);
+                    AddAuthorizationToken(httpClient); 
                     var response = await httpClient.PutAsJsonAsync($"{apiEndpoint}/{MachineModel.Id}", MachineModel);
 
                     if (!response.IsSuccessStatusCode)
@@ -110,19 +106,17 @@ namespace CRM.Web.Pages
                 {
                     Console.WriteLine($"Error updating Machine: {ex.Message}");
                     throw new Exception($"Error updating Machine: {ex.Message}");
-                }
-            }
+                } 
             return RedirectToPage();
         }
 
         public async Task<IActionResult> OnPostDelete(int id)
         {
-            using (var httpClient = new HttpClient())
-            {
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
+            
                 try
                 {
-                    AddAuthorizationToken(httpClient);
-                    httpClient.BaseAddress = new Uri(apiBaseUrl);
+                    AddAuthorizationToken(httpClient); 
                     var response = await httpClient.DeleteAsync($"{apiEndpoint}/{id}");
 
                     if (!response.IsSuccessStatusCode)
@@ -136,8 +130,7 @@ namespace CRM.Web.Pages
                 {
                     Console.WriteLine($"Error deleting Machine with ID {id}: {ex.Message}");
                     throw new Exception($"Error deleting Machine with ID {id}: {ex.Message}");
-                }
-            }
+                } 
 
             return RedirectToPage();
         }
@@ -159,12 +152,11 @@ namespace CRM.Web.Pages
 
         private async Task LoadMachinesAsync()
         {
-            using (var httpClient = new HttpClient())
-            {
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
+            
                 try
                 {
-                    AddAuthorizationToken(httpClient);
-                    httpClient.BaseAddress = new Uri(apiBaseUrl);
+                    AddAuthorizationToken(httpClient); 
                     var response = await httpClient.GetAsync(apiEndpoint);
 
                     if (response.IsSuccessStatusCode)
@@ -182,8 +174,7 @@ namespace CRM.Web.Pages
                 {
                     Console.WriteLine($"Error loading clients: {ex.Message}");
                     Machines = new List<MachineModel>();
-                }
-            }
+                } 
         }
         private void AddAuthorizationToken(HttpClient httpClient)
         {
