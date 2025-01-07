@@ -116,5 +116,34 @@ namespace CRM.Controllers
             await _unitOfWork.SaveChangesAsync();
             return NoContent();
         }
+
+        // GET: api/Machines/ByClientId/1
+        [HttpGet("ByClientId/{clientId}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetMachinesByClientId(int clientId)
+        {
+            try
+            {
+                var machines = await _unitOfWork.MachineRepository.GetAllAsync(
+                    filter: m => m.ClientId == clientId,
+                    includes: new Expression<Func<Machine, object>>[]
+                    {
+                m => m.Client
+                    });
+
+                if (machines == null || !machines.Any())
+                {
+                    return NotFound();
+                }
+
+                return Ok(machines);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception details if needed
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
     }
 }
