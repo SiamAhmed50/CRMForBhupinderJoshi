@@ -559,6 +559,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CRM.Controllers.MachineController",
+    "Method": "GetMachinesByClientId",
+    "RelativePath": "api/Machine/ByClientId/{clientId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clientId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CRM.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
