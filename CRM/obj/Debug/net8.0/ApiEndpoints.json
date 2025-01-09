@@ -232,6 +232,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CRM.Controllers.ClientTaskController",
+    "Method": "GetRunningTasks",
+    "RelativePath": "api/ClientTask/RunningTasks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CRM.Controllers.ClientTaskController",
+    "Method": "ToggleTaskStatus",
+    "RelativePath": "api/ClientTask/ToggleTaskStatus/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CRM.Controllers.JobsController",
     "Method": "GetJobs",
     "RelativePath": "api/Jobs",

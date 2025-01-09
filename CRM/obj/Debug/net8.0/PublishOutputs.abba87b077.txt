@@ -1,6 +1,4 @@
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Release\net8.0\PubTmp\Out\CRM.API.exe
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Release\net8.0\PubTmp\Out\appsettings.json
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Release\net8.0\PubTmp\Out\CRM.API.dll
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Release\net8.0\PubTmp\Out\CRM.API.runtimeconfig.json
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Release\net8.0\PubTmp\Out\CRM.API.pdb
