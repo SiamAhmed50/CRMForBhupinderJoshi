@@ -85,3 +85,18 @@ C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Data\obj\Deb
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Data\obj\Debug\net8.0\CRM.Data.pdb
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Data\obj\Debug\net8.0\CRM.Data.genruntimeconfig.cache
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Data\obj\Debug\net8.0\ref\CRM.Data.dll
+F:\Work\CRMForBhupinderJoshi\CRM.Data\bin\Debug\net8.0\CRM.Data.deps.json
+F:\Work\CRMForBhupinderJoshi\CRM.Data\bin\Debug\net8.0\CRM.Data.runtimeconfig.json
+F:\Work\CRMForBhupinderJoshi\CRM.Data\bin\Debug\net8.0\CRM.Data.dll
+F:\Work\CRMForBhupinderJoshi\CRM.Data\bin\Debug\net8.0\CRM.Data.pdb
+F:\Work\CRMForBhupinderJoshi\CRM.Data\obj\Debug\net8.0\CRM.Data.csproj.AssemblyReference.cache
+F:\Work\CRMForBhupinderJoshi\CRM.Data\obj\Debug\net8.0\CRM.Data.GeneratedMSBuildEditorConfig.editorconfig
+F:\Work\CRMForBhupinderJoshi\CRM.Data\obj\Debug\net8.0\CRM.Data.AssemblyInfoInputs.cache
+F:\Work\CRMForBhupinderJoshi\CRM.Data\obj\Debug\net8.0\CRM.Data.AssemblyInfo.cs
+F:\Work\CRMForBhupinderJoshi\CRM.Data\obj\Debug\net8.0\CRM.Data.csproj.CoreCompileInputs.cache
+F:\Work\CRMForBhupinderJoshi\CRM.Data\obj\Debug\net8.0\CRM.Data.sourcelink.json
+F:\Work\CRMForBhupinderJoshi\CRM.Data\obj\Debug\net8.0\CRM.Data.dll
+F:\Work\CRMForBhupinderJoshi\CRM.Data\obj\Debug\net8.0\refint\CRM.Data.dll
+F:\Work\CRMForBhupinderJoshi\CRM.Data\obj\Debug\net8.0\CRM.Data.pdb
+F:\Work\CRMForBhupinderJoshi\CRM.Data\obj\Debug\net8.0\CRM.Data.genruntimeconfig.cache
+F:\Work\CRMForBhupinderJoshi\CRM.Data\obj\Debug\net8.0\ref\CRM.Data.dll

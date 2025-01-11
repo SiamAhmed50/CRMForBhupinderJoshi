@@ -91,3 +91,19 @@ C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\refint\CRM.Service.dll
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.pdb
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\ref\CRM.Service.dll
+F:\Work\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Service.deps.json
+F:\Work\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Service.dll
+F:\Work\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Service.pdb
+F:\Work\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Data.dll
+F:\Work\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Data.pdb
+F:\Work\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.csproj.AssemblyReference.cache
+F:\Work\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.GeneratedMSBuildEditorConfig.editorconfig
+F:\Work\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.AssemblyInfoInputs.cache
+F:\Work\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.AssemblyInfo.cs
+F:\Work\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.csproj.CoreCompileInputs.cache
+F:\Work\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.sourcelink.json
+F:\Work\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Serv.B1B0CCB5.Up2Date
+F:\Work\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.dll
+F:\Work\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\refint\CRM.Service.dll
+F:\Work\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.pdb
+F:\Work\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\ref\CRM.Service.dll

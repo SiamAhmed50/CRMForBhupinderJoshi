@@ -54,7 +54,7 @@ namespace CRM.Web.Pages
                     Clients = JsonConvert.DeserializeObject<List<ClientModel>>(content);
                 } 
                  
-            Clients = new List<ClientModel>();
+            //Clients = new List<ClientModel>();
 
         }
         public async Task<IActionResult> OnPost()
