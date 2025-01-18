@@ -22,4 +22,10 @@ namespace CRM.Data.Enums
         Idle = 0,
         Running = 1
     }
+    public enum ScheduleType
+    {
+        Daily,
+        Weekly,
+        Custom
+    }
 }

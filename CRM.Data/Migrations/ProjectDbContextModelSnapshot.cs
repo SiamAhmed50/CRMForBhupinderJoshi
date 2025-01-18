@@ -91,15 +91,15 @@ namespace CRM.Data.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "09f05d58-8efa-49e0-8b5a-2d9dd445258e",
+                            ConcurrencyStamp = "afaff5d5-cced-4fa2-a0f8-a3fb787076d8",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO3mm3phYz1RhanJ4wTllHH+OZXFbU1y8z9C14Mpxw7LMyTiZYXEpyuuY32kLXVMVw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE8GvaPczck1iH38wo5jcMJ7IfPzjEWxH1ja8s/ttcqIJdW8yivutHbCBntZTcQGJQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d5293336-ffab-44d2-8ddb-9d86e8f49f32",
+                            SecurityStamp = "d80a3825-0182-44e2-87aa-5840d8d2beab",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -277,6 +277,46 @@ namespace CRM.Data.Migrations
                     b.ToTable("Machines");
                 });
 
+            modelBuilder.Entity("CRM.Data.Entities.Schedule", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ClientTaskId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CronExpression")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DailyHour")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DailyMinute")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ScheduleType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TimeZone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("ClientTaskId");
+
+                    b.ToTable("Schedules");
+                });
+
             modelBuilder.Entity("CRM.Data.Entities.Tasks", b =>
                 {
                     b.Property<int>("Id")
@@ -300,6 +340,33 @@ namespace CRM.Data.Migrations
                     b.HasIndex("ClientTaskId");
 
                     b.ToTable("Tasks");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.WeeklySchedule", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Day")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Hour")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Minute")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ScheduleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ScheduleId");
+
+                    b.ToTable("WeeklySchedules");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -535,6 +602,23 @@ namespace CRM.Data.Migrations
                     b.Navigation("Client");
                 });
 
+            modelBuilder.Entity("CRM.Data.Entities.Schedule", b =>
+                {
+                    b.HasOne("CRM.Data.Entities.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CRM.Data.Entities.ClientTask", "ClientTask")
+                        .WithMany()
+                        .HasForeignKey("ClientTaskId");
+
+                    b.Navigation("Client");
+
+                    b.Navigation("ClientTask");
+                });
+
             modelBuilder.Entity("CRM.Data.Entities.Tasks", b =>
                 {
                     b.HasOne("CRM.Data.Entities.ClientTask", "ClientTask")
@@ -542,6 +626,17 @@ namespace CRM.Data.Migrations
                         .HasForeignKey("ClientTaskId");
 
                     b.Navigation("ClientTask");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.WeeklySchedule", b =>
+                {
+                    b.HasOne("CRM.Data.Entities.Schedule", "Schedule")
+                        .WithMany("WeeklySchedules")
+                        .HasForeignKey("ScheduleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Schedule");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -603,6 +698,11 @@ namespace CRM.Data.Migrations
             modelBuilder.Entity("CRM.Data.Entities.JobLogs", b =>
                 {
                     b.Navigation("Logs");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.Schedule", b =>
+                {
+                    b.Navigation("WeeklySchedules");
                 });
 #pragma warning restore 612, 618
         }

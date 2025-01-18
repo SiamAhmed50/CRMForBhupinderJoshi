@@ -1,0 +1,181 @@
+﻿@page
+@model CRM.Web.Pages.ScheduleModel
+
+@{
+    ViewData["Title"] = "Create Schedule";
+}
+
+<h2>Create Schedule</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="clientId" class="form-label">Select Client</label>
+        <select class="form-select" id="clientId" name="ClientTaskModel.ClientId" required>
+            <option value="">Select Client</option>
+            @if (Model.Clients != null && Model.Clients.Count > 0)
+            {
+                foreach (var client in Model.Clients)
+                {
+                    <option value="@client.Id">@client.Name</option>
+                }
+            }
+
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="clientTaskId" class="form-label">Select Task</label>
+        <select class="form-select" id="clientTaskId" name="Schedule.ClientTaskId" required>
+            <option value="">Select Task</option>
+            @if (Model.ClientTasks != null && Model.ClientTasks.Count > 0)
+            {
+                foreach (var task in Model.ClientTasks)
+                {
+                    <option value="@task.Id">@task.Tasks.FirstOrDefault().Name</option>
+
+                }
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="timeZone" class="form-label">Select Time Zone</label>
+        <select asp-for=Schedule.TimeZone class="form-select" id="timeZone" name="Schedule.TimeZone" required>
+            <option value="">Select Time Zone</option>
+            @if (Model.TimeZones != null && Model.TimeZones.Count > 0)
+            {
+                foreach (var timeZone in Model.TimeZones)
+                {
+
+                    <option value="@timeZone">@timeZone</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Schedule Type</label>
+        <div>
+            <input type="radio" asp-for="Schedule.ScheduleType" value="Daily" /> Daily
+            <input type="radio" asp-for="Schedule.ScheduleType" value="Weekly" /> Weekly
+            <input type="radio" asp-for="Schedule.ScheduleType" value="Custom" /> Custom
+        </div>
+    </div>
+
+    <div id="dailyOptions" class="mb-3" style="display: none;">
+        <label class="form-label">Daily Schedule</label>
+        <div>
+            <label for="Schedule.DailyHour">Hour</label>
+            <select asp-for="Schedule.DailyHour" class="form-select">
+                @for (int i = 0; i < 24; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+        <div>
+            <label for="Schedule.DailyMinute">Minute</label>
+            <select asp-for="Schedule.DailyMinute" class="form-select">
+                @for (int i = 0; i < 60; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div id="weeklyOptions" class="mb-3" style="display: none;">
+        <label class="form-label">Weekly Schedule</label>
+        <div>
+            @foreach (var day in Enum.GetValues(typeof(DayOfWeek)))
+            {
+                <input type="checkbox" name="WeeklySchedules" value="@day" /> @day
+            }
+        </div>
+    </div>
+
+    <div id="customOptions" class="mb-3" style="display: none;">
+        <label class="form-label">Custom Cron Expression</label>
+        <input asp-for="Schedule.CronExpression" class="form-control" placeholder="e.g., 0 0 * * *" />
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Create Schedule</button>
+</form>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const scheduleTypeRadios = document.querySelectorAll("input[name='Schedule.ScheduleType']");
+            const dailyOptions = document.getElementById("dailyOptions");
+            const weeklyOptions = document.getElementById("weeklyOptions");
+            const customOptions = document.getElementById("customOptions");
+            const cronInput = document.querySelector("input[name='Schedule.CronExpression']");
+
+            scheduleTypeRadios.forEach(function (radio) {
+                radio.addEventListener("change", function () {
+                    if (radio.value === "Daily") {
+                        dailyOptions.style.display = "block";
+                        weeklyOptions.style.display = "none";
+                        customOptions.style.display = "none";
+                    } else if (radio.value === "Weekly") {
+                        dailyOptions.style.display = "block";
+                        weeklyOptions.style.display = "block";
+                        customOptions.style.display = "none";
+                    } else if (radio.value === "Custom") {
+                        dailyOptions.style.display = "none";
+                        weeklyOptions.style.display = "none";
+                        customOptions.style.display = "block";
+                    }
+                });
+            });
+            // Cron expression validation
+            cronInput.addEventListener("blur", function () {
+                const cronPattern = /^(\*|([0-5]?\d))( (\*|([0-2]?\d|3[0-1]))){4}( (\*|(19[7-9]\d|20\d\d)))?$/;
+                if (!cronPattern.test(cronInput.value.trim())) {
+                    alert("Invalid cron expression. Please follow the format: minute hour day-of-month month day-of-week [year]");
+                }
+            });
+
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const formData = new FormData(form);
+                const scheduleData = {
+                    ClientId: formData.get("ClientTaskModel.ClientId"),
+                    ClientTaskId: formData.get("Schedule.ClientTaskId"),
+                    TimeZone: formData.get("Schedule.TimeZone"),
+                    ScheduleType: formData.get("Schedule.ScheduleType"),
+                    DailyHour: formData.get("Schedule.DailyHour"),
+                    DailyMinute: formData.get("Schedule.DailyMinute"),
+                    WeeklySchedules: [],
+                    CronExpression: formData.get("Schedule.CronExpression")
+                };
+
+                if (scheduleData.ScheduleType === "Weekly") {
+                    const weeklyDays = document.querySelectorAll("input[name='WeeklySchedules']:checked");
+                    weeklyDays.forEach(day => scheduleData.WeeklySchedules.push(day.value));
+                }
+
+                fetch("/Schedule/Create", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "XSRF-TOKEN": document.querySelector('input[name="__RequestVerificationToken"]').value
+                    },
+                    body: JSON.stringify(scheduleData)
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            alert("Schedule created successfully!");
+                            form.reset();
+                        } else {
+                            alert("Failed to create schedule.");
+                        }
+                    })
+                    .catch(error => console.error("Error:", error));
+            });
+        });
+
+    </script>
+}
