@@ -95,6 +95,7 @@ namespace CRM.Web.Pages
 
         private void AddAuthorizationToken(HttpClient httpClient)
         {
+
             var token = HttpContext.Request.Cookies["jwt"];
             if (!string.IsNullOrEmpty(token))
             {

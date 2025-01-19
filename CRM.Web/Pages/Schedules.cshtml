@@ -10,7 +10,7 @@
 <form method="post">
     <div class="mb-3">
         <label for="clientId" class="form-label">Select Client</label>
-        <select class="form-select" id="clientId" name="ClientTaskModel.ClientId" required>
+        <select class="form-select" id="clientId" name="Schedule.ClientId">
             <option value="">Select Client</option>
             @if (Model.Clients != null && Model.Clients.Count > 0)
             {
@@ -24,22 +24,23 @@
     </div>
     <div class="mb-3">
         <label for="clientTaskId" class="form-label">Select Task</label>
-        <select class="form-select" id="clientTaskId" name="Schedule.ClientTaskId" required>
+        <select class="form-select" id="clientTaskId" name="Schedule.ClientTaskId" >
             <option value="">Select Task</option>
-            @if (Model.ClientTasks != null && Model.ClientTasks.Count > 0)
+            <option value="19">PB_OrderBot</option>
+          @*   @if (Model.ClientTasks != null && Model.ClientTasks.Count > 0)
             {
                 foreach (var task in Model.ClientTasks)
                 {
                     <option value="@task.Id">@task.Tasks.FirstOrDefault().Name</option>
 
                 }
-            }
+            } *@
         </select>
     </div>
 
     <div class="mb-3">
         <label for="timeZone" class="form-label">Select Time Zone</label>
-        <select asp-for=Schedule.TimeZone class="form-select" id="timeZone" name="Schedule.TimeZone" required>
+        <select asp-for=Schedule.TimeZone class="form-select" id="timeZone" name="Schedule.TimeZone" >
             <option value="">Select Time Zone</option>
             @if (Model.TimeZones != null && Model.TimeZones.Count > 0)
             {
@@ -134,47 +135,7 @@
                 if (!cronPattern.test(cronInput.value.trim())) {
                     alert("Invalid cron expression. Please follow the format: minute hour day-of-month month day-of-week [year]");
                 }
-            });
-
-            const form = document.querySelector("form");
-            form.addEventListener("submit", function (event) {
-                event.preventDefault();
-
-                const formData = new FormData(form);
-                const scheduleData = {
-                    ClientId: formData.get("ClientTaskModel.ClientId"),
-                    ClientTaskId: formData.get("Schedule.ClientTaskId"),
-                    TimeZone: formData.get("Schedule.TimeZone"),
-                    ScheduleType: formData.get("Schedule.ScheduleType"),
-                    DailyHour: formData.get("Schedule.DailyHour"),
-                    DailyMinute: formData.get("Schedule.DailyMinute"),
-                    WeeklySchedules: [],
-                    CronExpression: formData.get("Schedule.CronExpression")
-                };
-
-                if (scheduleData.ScheduleType === "Weekly") {
-                    const weeklyDays = document.querySelectorAll("input[name='WeeklySchedules']:checked");
-                    weeklyDays.forEach(day => scheduleData.WeeklySchedules.push(day.value));
-                }
-
-                fetch("/Schedule/Create", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "XSRF-TOKEN": document.querySelector('input[name="__RequestVerificationToken"]').value
-                    },
-                    body: JSON.stringify(scheduleData)
-                })
-                    .then(response => {
-                        if (response.ok) {
-                            alert("Schedule created successfully!");
-                            form.reset();
-                        } else {
-                            alert("Failed to create schedule.");
-                        }
-                    })
-                    .catch(error => console.error("Error:", error));
-            });
+            }); 
         });
 
     </script>

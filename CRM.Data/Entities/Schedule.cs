@@ -16,25 +16,20 @@ namespace CRM.Data.Entities
 
         [ForeignKey(nameof(Client))]
         public int ClientId { get; set; }
-        public Client Client { get; set; }
+        public Client? Client { get; set; }
 
         [ForeignKey(nameof(ClientTask))]
-        public int? ClientTaskId { get; set; }
+        public int ClientTaskId { get; set; }
         public ClientTask? ClientTask { get; set; }
-
         public string TimeZone { get; set; }
-
         public ScheduleType ScheduleType { get; set; }
 
         // Daily schedule specific properties
         public int? DailyHour { get; set; }
         public int? DailyMinute { get; set; }
-
-        // Weekly schedule specific properties
-        public List<WeeklySchedule> WeeklySchedules { get; set; }
-
+        public DayOfWeek? DayOfWeek { get; set; }
         // Custom cron expression
-        public string CronExpression { get; set; }
+        public string? CronExpression { get; set; }
 
         
     }
