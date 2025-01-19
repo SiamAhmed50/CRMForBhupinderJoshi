@@ -20,6 +20,9 @@ namespace CRM.Service.Interfaces.UnitOfWork
         IRepository<JobLogs, string> JobLogsRepository { get; }  
         IRepository<Tasks, string> TaskRepository { get; }
         IRepository<Machine, int> MachineRepository { get; }
+        IRepository<Schedule, int> ScheduleRepository { get; }
+        IRepository<WeeklySchedule, int> WeeklyScheduleRepository { get; }
+
         // Add other repositories here
 
         Task<int> SaveChangesAsync();
