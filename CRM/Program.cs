@@ -28,6 +28,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ProjectDbContext>()
     .AddDefaultTokenProviders();
 builder.Services.AddHostedService<LicenseStatusUpdaterService>();
+builder.Services.AddHostedService<ScheduleWorker>();
+
 
 builder.Services.AddControllers();
 
