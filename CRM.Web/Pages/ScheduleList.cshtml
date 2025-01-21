@@ -1,0 +1,153 @@
+﻿@page
+@model CRM.Web.Pages.ScheduleListModel
+
+@{
+    ViewData["Title"] = "ScheduleList";
+}
+
+<div class="row">
+    <div class="col-sm-6 text-start">
+        <h2>Schedules</h2>
+    </div>
+    <div class="col-sm-6 text-end">
+        <button type="button" class="btn btn-primary waves-effect waves-light" onclick="window.location.href='/Schedules'">
+            Add Schedule
+        </button>
+    </div>
+</div>
+<div class="container mt-4">
+    <table id="scheduleTable" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Client</th>
+                <th>Task</th>
+                <th>Schedule Type</th>
+                <th>Daily Hour</th>
+                <th>Daily Minute</th>
+                <th>Cron Expression</th>
+                <th>Day of Week</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<form method="post">
+  
+</form>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            const csrfToken = $('input[name="__RequestVerificationToken"]').val();
+
+            // Initialize DataTable
+            const table = $('#scheduleTable').DataTable({
+                ajax: {
+                    url: '/ScheduleList?handler=List',
+                    type: 'POST',
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('XSRF-TOKEN', csrfToken);
+                    },
+                    dataSrc: ''
+                },
+                columns: [
+                    {
+                        data: 'client.name',
+                        render: function (data) {
+                            return data ? data : 'NULL';
+                        }
+                    },
+                    {
+                        data: 'clientTask.tasks.name',
+                        render: function (data) {
+                            return data ? data : 'NULL';
+                        }
+                    },
+                    {
+                        data: 'scheduleType',
+                        render: function (data) {
+                            if (data === null) return 'NULL';
+                            switch (data) {
+                                case 0: return 'Daily';
+                                case 1: return 'Weekly';
+                                case 2: return 'Custom';
+                                default: return 'NULL';
+                            }
+                        }
+                    },
+                    {
+                        data: 'dailyHour',
+                        render: function (data) {
+                            return data !== null ? data : 'NULL';
+                        }
+                    },
+                    {
+                        data: 'dailyMinute',
+                        render: function (data) {
+                            return data !== null ? data : 'NULL';
+                        }
+                    },
+                    {
+                        data: 'cronExpression',
+                        render: function (data) {
+                            return data ? data : 'NULL';
+                        }
+                    },
+                    {
+                        data: 'dayOfWeek',
+                        render: function (data) {
+                            if (!data || data.length === 0) {
+                                return 'NULL';
+                            }
+                            return data.map(day => {
+                                switch (day) {
+                                    case 0: return 'Sunday';
+                                    case 1: return 'Monday';
+                                    case 2: return 'Tuesday';
+                                    case 3: return 'Wednesday';
+                                    case 4: return 'Thursday';
+                                    case 5: return 'Friday';
+                                    case 6: return 'Saturday';
+                                    default: return 'Unknown';
+                                }
+                            }).join(', ');
+                        }
+                    },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            return `
+                                        <div class="dropdown">
+                                            <i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <span class="dropdown-item edit-machine" data-id="${row.id}">Update</span>
+                                                </li>
+                                                <li>
+                                                    <span class="dropdown-item delete-machine" data-id="${row.id}">Delete</span>
+                                                </li>
+                                            </ul>
+                                        </div>`;
+                        }
+                    }
+                ],
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'csvHtml5',
+                        text: 'Export CSV',
+                        title: 'SchedulesData',
+                        className: 'btn btn-primary',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+}
+
+

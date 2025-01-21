@@ -31,8 +31,7 @@ namespace CRM.Controllers
                     includes: new Expression<Func<Schedule, object>>[]
                     {
                         s => s.Client,
-                        s => s.ClientTask,
-                        s => s.WeeklySchedules
+                        s => s.ClientTask  
                     });
                 return Ok(schedules);
             }
@@ -44,7 +43,7 @@ namespace CRM.Controllers
 
         // GET: api/Schedules/1
         [HttpGet("{id}")]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public async Task<IActionResult> GetSchedule(int id)
         {
             var schedule = await _unitOfWork.ScheduleRepository.GetByIdAsync(
@@ -52,8 +51,7 @@ namespace CRM.Controllers
                 includes: new Expression<Func<Schedule, object>>[]
                 {
                     s => s.Client,
-                    s => s.ClientTask,
-                    s => s.WeeklySchedules
+                    s => s.ClientTask
                 });
 
             if (schedule == null)
@@ -78,9 +76,9 @@ namespace CRM.Controllers
                 }
             }
 
-            if (schedule.ClientTaskId.HasValue)
+            if (schedule.ClientTaskId !=0)
             {
-                var clientTask = await _unitOfWork.ClientTaskRepository.GetByIdAsync(ct => EF.Property<int>(ct, "Id") == schedule.ClientTaskId.Value);
+                var clientTask = await _unitOfWork.ClientTaskRepository.GetByIdAsync(ct => EF.Property<int>(ct, "Id") == schedule.ClientTaskId);
                 if (clientTask != null)
                 {
                     schedule.ClientTask = clientTask;
@@ -95,7 +93,7 @@ namespace CRM.Controllers
 
         // PUT: api/Schedules/5
         [HttpPut("{id}")]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public async Task<IActionResult> UpdateSchedule(int id, Schedule schedule)
         {
             if (id != schedule.Id)
@@ -111,7 +109,7 @@ namespace CRM.Controllers
 
         // DELETE: api/Schedules/5
         [HttpDelete("{id}")]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public async Task<IActionResult> DeleteSchedule(int id)
         {
             var deleted = await _unitOfWork.ScheduleRepository.DeleteAsync(id);

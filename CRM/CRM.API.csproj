@@ -8,8 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="appsettings.Development.json" />
-    <Content Remove="appsettings.json" />
+    <!--<Content Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.Development.json" />!-->
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +36,12 @@
 
   <ItemGroup>
     <Folder Include="PublicViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
