@@ -4,6 +4,7 @@ using CRM.Data.DbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRM.Data.Migrations
 {
     [DbContext(typeof(ProjectDbContext))]
-    partial class ProjectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250119171125_ScheduleTblDayOfWeekNull")]
+    partial class ScheduleTblDayOfWeekNull
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,15 +94,15 @@ namespace CRM.Data.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4b45084e-2c2c-4d94-81d0-184b0bd4f950",
+                            ConcurrencyStamp = "acf18f07-56bf-4986-9833-4040c2fd6221",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHEFCVPJTgI8zAjmPToLyRgSV/i9XvfRvFKx3RR3asGTnClrdPNZqDMW60y3qiqoug==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPFN40Mue9kqFg+vm1pKbcl7X9dOQjBh6Ikjb/YFUSQvvnH9me/9tUreRC6NW1V+zA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "061cfa93-3d53-454f-b897-9cfe555b6af0",
+                            SecurityStamp = "8c8be76c-193b-4729-a591-4f89fc80d16c",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -300,8 +303,8 @@ namespace CRM.Data.Migrations
                     b.Property<int?>("DailyMinute")
                         .HasColumnType("int");
 
-                    b.Property<string>("DayOfWeek")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("DayOfWeek")
+                        .HasColumnType("int");
 
                     b.Property<int>("ScheduleType")
                         .HasColumnType("int");

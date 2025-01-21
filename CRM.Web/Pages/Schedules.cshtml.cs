@@ -28,6 +28,8 @@ namespace CRM.Web.Pages
         [TempData]
         public string ErrorMessage { get; set; }
 
+        public List<Schedule> ScheduleList { get; set; }
+
         public ScheduleModel(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
@@ -92,6 +94,7 @@ namespace CRM.Web.Pages
 
             return RedirectToPage();
         }
+
 
         private void AddAuthorizationToken(HttpClient httpClient)
         {

@@ -1510,8 +1510,6 @@ C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Debu
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Debug\net8.0\CRM.UI.pdb
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Debug\net8.0\CRM.UI.genruntimeconfig.cache
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Debug\net8.0\ref\CRM.UI.dll
-F:\Work\CRMForBhupinderJoshi\CRM.Web\bin\Debug\net8.0\appsettings.Development.json
-F:\Work\CRMForBhupinderJoshi\CRM.Web\bin\Debug\net8.0\appsettings.json
 F:\Work\CRMForBhupinderJoshi\CRM.Web\bin\Debug\net8.0\CRM.API.deps.json
 F:\Work\CRMForBhupinderJoshi\CRM.Web\bin\Debug\net8.0\CRM.API.runtimeconfig.json
 F:\Work\CRMForBhupinderJoshi\CRM.Web\bin\Debug\net8.0\CRM.API.staticwebassets.endpoints.json
@@ -1817,3 +1815,5 @@ F:\Work\CRMForBhupinderJoshi\CRM.Web\obj\Debug\net8.0\refint\CRM.UI.dll
 F:\Work\CRMForBhupinderJoshi\CRM.Web\obj\Debug\net8.0\CRM.UI.pdb
 F:\Work\CRMForBhupinderJoshi\CRM.Web\obj\Debug\net8.0\CRM.UI.genruntimeconfig.cache
 F:\Work\CRMForBhupinderJoshi\CRM.Web\obj\Debug\net8.0\ref\CRM.UI.dll
+F:\Work\CRMForBhupinderJoshi\CRM.Web\bin\Debug\net8.0\appsettings.Development.json
+F:\Work\CRMForBhupinderJoshi\CRM.Web\bin\Debug\net8.0\appsettings.json

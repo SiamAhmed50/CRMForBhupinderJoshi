@@ -7,6 +7,7 @@
 
 <h2>Create Schedule</h2>
 
+
 <form method="post">
     <div class="mb-3">
         <label for="clientId" class="form-label">Select Client</label>
@@ -22,19 +23,19 @@
 
         </select>
     </div>
+   
     <div class="mb-3">
         <label for="clientTaskId" class="form-label">Select Task</label>
-        <select class="form-select" id="clientTaskId" name="Schedule.ClientTaskId" >
+        <select class="form-select" id="clientTaskId" name="Schedule.ClientTaskId" required>
             <option value="">Select Task</option>
-            <option value="19">PB_OrderBot</option>
-          @*   @if (Model.ClientTasks != null && Model.ClientTasks.Count > 0)
+            @if (Model.ClientTasks != null && Model.ClientTasks.Count > 0)
             {
                 foreach (var task in Model.ClientTasks)
                 {
                     <option value="@task.Id">@task.Tasks.FirstOrDefault().Name</option>
 
                 }
-            } *@
+            }
         </select>
     </div>
 
@@ -53,7 +54,7 @@
         </select>
     </div>
 
-    <div class="mb-3">
+    @* <div class="mb-3">
         <label class="form-label">Schedule Type</label>
         <div>
             <input type="radio" asp-for="Schedule.ScheduleType" value="Daily" /> Daily
@@ -84,15 +85,70 @@
         </div>
     </div>
 
+    
+
     <div id="weeklyOptions" class="mb-3" style="display: none;">
         <label class="form-label">Weekly Schedule</label>
         <div>
             @foreach (var day in Enum.GetValues(typeof(DayOfWeek)))
             {
-                <input type="checkbox" name="WeeklySchedules" value="@day" /> @day
+                var isChecked = Model.Schedule?.DayOfWeek?.Contains((DayOfWeek)day) ?? false;
+                <input type="checkbox" name="Schedule.DayOfWeek" value="@day" @(isChecked ? "checked" : "") /> @day
+            }
+        </div>
+    </div> *@
+
+    <div class="mb-3">
+        <label class="form-label">Schedule Type</label>
+        <div>
+            <label>
+                <input type="radio" asp-for="Schedule.ScheduleType" value="Daily" checked /> Daily
+            </label>
+            <label>
+                <input type="radio" asp-for="Schedule.ScheduleType" value="Weekly" /> Weekly
+            </label>
+            <label>
+                <input type="radio" asp-for="Schedule.ScheduleType" value="Custom" /> Custom
+            </label>
+        </div>
+    </div>
+
+    <div id="dailyOptions" class="mb-3">
+        <label class="form-label">Daily Schedule</label>
+        <div>
+            <label for="Schedule.DailyHour">Hour</label>
+            <select asp-for="Schedule.DailyHour" class="form-select">
+                @for (int i = 0; i < 24; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+        <div>
+            <label for="Schedule.DailyMinute">Minute</label>
+            <select asp-for="Schedule.DailyMinute" class="form-select">
+                @for (int i = 0; i < 60; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div id="weeklyOptions" class="mb-3" style="display: none;">
+        <label class="form-label">Weekly Schedule</label>
+        <div>
+            @foreach (var day in Enum.GetValues(typeof(DayOfWeek)))
+            {
+                var isChecked = Model.Schedule?.DayOfWeek?.Contains((DayOfWeek)day) ?? false;
+                <label>
+                    <input type="checkbox" name="Schedule.DayOfWeek" value="@day" @(isChecked ? "checked" : "") /> @day
+                </label>
             }
         </div>
     </div>
+
+
 
     <div id="customOptions" class="mb-3" style="display: none;">
         <label class="form-label">Custom Cron Expression</label>
@@ -112,6 +168,13 @@
             const customOptions = document.getElementById("customOptions");
             const cronInput = document.querySelector("input[name='Schedule.CronExpression']");
 
+            // Show dailyOptions by default
+            const defaultRadio = document.querySelector("input[value='Daily']");
+            if (defaultRadio) {
+                defaultRadio.checked = true;
+                dailyOptions.style.display = "block";
+            }
+
             scheduleTypeRadios.forEach(function (radio) {
                 radio.addEventListener("change", function () {
                     if (radio.value === "Daily") {
@@ -129,14 +192,17 @@
                     }
                 });
             });
+
             // Cron expression validation
             cronInput.addEventListener("blur", function () {
                 const cronPattern = /^(\*|([0-5]?\d))( (\*|([0-2]?\d|3[0-1]))){4}( (\*|(19[7-9]\d|20\d\d)))?$/;
                 if (!cronPattern.test(cronInput.value.trim())) {
                     alert("Invalid cron expression. Please follow the format: minute hour day-of-month month day-of-week [year]");
                 }
-            }); 
+            });
         });
 
+
     </script>
+
 }
