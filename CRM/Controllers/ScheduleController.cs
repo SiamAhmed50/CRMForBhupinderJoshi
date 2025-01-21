@@ -31,7 +31,8 @@ namespace CRM.Controllers
                     includes: new Expression<Func<Schedule, object>>[]
                     {
                         s => s.Client,
-                        s => s.ClientTask  
+                        s => s.ClientTask,
+                         s => s.ClientTask.Tasks
                     });
                 return Ok(schedules);
             }
