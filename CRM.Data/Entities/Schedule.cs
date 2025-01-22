@@ -33,7 +33,7 @@ namespace CRM.Data.Entities
         public List<DayOfWeek>? DayOfWeek { get; set; }
         // Custom cron expression
         public string? CronExpression { get; set; }
-
+   
         
     }
 }

@@ -7,16 +7,24 @@
       "RelativeMoniker": "D:0:0:{DED8F4B9-86D2-47FF-A49B-5DA84C76361B}|CRM.Service\\CRM.Service.csproj|solutionrelative:crm.service\\services\\scheduleworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|f:\\work\\crmforbhupinderjoshi\\crm.data\\entities\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|solutionrelative:crm.data\\entities\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\crmforbhupinderjoshi\\crm.web\\pages\\schedules.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\schedules.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|f:\\work\\crmforbhupinderjoshi\\crm\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|solutionrelative:crm\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\crmforbhupinderjoshi\\crm.web\\pages\\schedules.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\schedules.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\crmforbhupinderjoshi\\crm.web\\pages\\schedulelist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\schedulelist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|f:\\work\\crmforbhupinderjoshi\\crm\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|solutionrelative:crm\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|f:\\work\\crmforbhupinderjoshi\\crm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,10 +47,6 @@
       "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\machines.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\crmforbhupinderjoshi\\crm.web\\pages\\schedules.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\schedules.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\crmforbhupinderjoshi\\crm.web\\pages\\schedulelist.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\schedulelist.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -53,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\crmforbhupinderjoshi\\crm.web\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|f:\\work\\crmforbhupinderjoshi\\crm.data\\entities\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|solutionrelative:crm.data\\entities\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|f:\\work\\crmforbhupinderjoshi\\crm\\controllers\\clienttaskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -86,13 +86,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ScheduleList.cshtml",
               "DocumentMoniker": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\ScheduleList.cshtml",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\ScheduleList.cshtml",
               "ToolTip": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\ScheduleList.cshtml",
               "RelativeToolTip": "CRM.Web\\Pages\\ScheduleList.cshtml",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAADoAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAIBJwDoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-20T16:02:40.912Z",
               "IsPinned": true,
@@ -100,13 +100,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\Work\\CRMForBhupinderJoshi\\CRM\\Program.cs",
               "RelativeDocumentMoniker": "CRM\\Program.cs",
               "ToolTip": "F:\\Work\\CRMForBhupinderJoshi\\CRM\\Program.cs",
               "RelativeToolTip": "CRM\\Program.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAIBJwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-21T06:51:50.47Z",
               "EditorCaption": ""
@@ -117,9 +117,9 @@
               "Title": "ScheduleWorker.cs",
               "DocumentMoniker": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Service\\Services\\ScheduleWorker.cs",
               "RelativeDocumentMoniker": "CRM.Service\\Services\\ScheduleWorker.cs",
-              "ToolTip": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Service\\Services\\ScheduleWorker.cs*",
-              "RelativeToolTip": "CRM.Service\\Services\\ScheduleWorker.cs*",
-              "ViewState": "AgIAANQAAAAAAAAAAAAAAN4AAAAAAAAAAAAAAA==",
+              "ToolTip": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Service\\Services\\ScheduleWorker.cs",
+              "RelativeToolTip": "CRM.Service\\Services\\ScheduleWorker.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAwwF4AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-21T06:46:09.58Z",
               "EditorCaption": ""
@@ -134,11 +134,12 @@
               "RelativeToolTip": "CRM\\Controllers\\ClientTaskController.cs",
               "ViewState": "AgIAAK4AAAAAAAAAAAAqwAsAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T19:45:05.384Z"
+              "WhenOpened": "2025-01-20T19:45:05.384Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Tasks.cs",
               "DocumentMoniker": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\Tasks.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\Tasks.cs",
@@ -151,20 +152,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 1,
               "Title": "Schedule.cs",
               "DocumentMoniker": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\Schedule.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\Schedule.cs",
               "ToolTip": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\Schedule.cs",
               "RelativeToolTip": "CRM.Data\\Entities\\Schedule.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAA4wCAAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAwwCAAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-20T19:44:17.982Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "ScheduleList.cshtml.cs",
               "DocumentMoniker": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\ScheduleList.cshtml.cs",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\ScheduleList.cshtml.cs",
@@ -177,13 +178,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Machines.cshtml.cs",
               "DocumentMoniker": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Machines.cshtml.cs",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Machines.cshtml.cs",
               "ToolTip": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Machines.cshtml.cs",
               "RelativeToolTip": "CRM.Web\\Pages\\Machines.cshtml.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAAAFIAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAE0AAAAAAAAAAIBJwFIAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-15T11:00:13.069Z",
               "EditorCaption": ""
@@ -203,20 +204,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
               "Title": "Schedules.cshtml",
               "DocumentMoniker": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Schedules.cshtml",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Schedules.cshtml",
               "ToolTip": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Schedules.cshtml",
               "RelativeToolTip": "CRM.Web\\Pages\\Schedules.cshtml",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAAACQAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAL0AAAAAAAAAAAAAAMAAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-15T10:46:09.909Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Schedules.cshtml.cs",
               "DocumentMoniker": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Schedules.cshtml.cs",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Schedules.cshtml.cs",
@@ -229,13 +230,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Machines.cshtml",
               "DocumentMoniker": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Machines.cshtml",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Machines.cshtml",
               "ToolTip": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Machines.cshtml",
               "RelativeToolTip": "CRM.Web\\Pages\\Machines.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-11T05:19:39.552Z",
               "EditorCaption": ""
@@ -248,13 +249,14 @@
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\ClientTask.cs",
               "ToolTip": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\ClientTask.cs",
               "RelativeToolTip": "CRM.Data\\Entities\\ClientTask.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAIBJwBUAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-11T05:04:46.893Z"
+              "WhenOpened": "2025-01-11T05:04:46.893Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "ClientTasks.cshtml.cs",
               "DocumentMoniker": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\ClientTasks.cshtml.cs",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\ClientTasks.cshtml.cs",
@@ -267,13 +269,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "ClientTasks.cshtml",
               "DocumentMoniker": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\ClientTasks.cshtml",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\ClientTasks.cshtml",
               "ToolTip": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\ClientTasks.cshtml",
               "RelativeToolTip": "CRM.Web\\Pages\\ClientTasks.cshtml",
-              "ViewState": "AgIAAMkAAAAAAAAAAAAAAFgAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAMYAAAAAAAAAAIBJwFgAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-11T05:04:46.804Z",
               "EditorCaption": ""
@@ -286,19 +288,20 @@
               "RelativeDocumentMoniker": "CRM\\Controllers\\MachineController.cs",
               "ToolTip": "F:\\Work\\CRMForBhupinderJoshi\\CRM\\Controllers\\MachineController.cs",
               "RelativeToolTip": "CRM\\Controllers\\MachineController.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAqwHkAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAA6wHkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-11T05:04:46.843Z"
+              "WhenOpened": "2025-01-11T05:04:46.843Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Shared\\_Layout.cshtml",
               "ToolTip": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "CRM.Web\\Pages\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAAAG4AAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAGUAAAAAAAAAAIBJwG4AAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-11T05:04:46.866Z",
               "EditorCaption": ""
@@ -311,9 +314,10 @@
               "RelativeDocumentMoniker": "CRM.Web\\appsettings.json",
               "ToolTip": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Web\\appsettings.json",
               "RelativeToolTip": "CRM.Web\\appsettings.json",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAAwAAAB+AAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAIBJwAwAAAB+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-11T05:04:46.857Z"
+              "WhenOpened": "2025-01-11T05:04:46.857Z",
+              "EditorCaption": ""
             }
           ]
         }
