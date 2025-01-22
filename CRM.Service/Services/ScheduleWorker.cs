@@ -25,7 +25,7 @@ public class ScheduleWorker : IHostedService, IDisposable
     public Task StartAsync(CancellationToken cancellationToken)
     {
         _logger.LogInformation("Schedule Worker started.");
-        _timer = new Timer(ExecuteTask, null, TimeSpan.Zero, TimeSpan.FromSeconds(30));
+        _timer = new Timer(ExecuteTask, null, TimeSpan.Zero, TimeSpan.FromSeconds(10));
         return Task.CompletedTask;
     }
     private async void ExecuteTask(object? state)
@@ -84,13 +84,16 @@ public class ScheduleWorker : IHostedService, IDisposable
                         0
                     );
                 }
-                else if (schedule.ScheduleType == ScheduleType.Custom && !string.IsNullOrEmpty(schedule.CronExpression))
+                /*else if (schedule.ScheduleType == ScheduleType.Custom && !string.IsNullOrEmpty(schedule.CronExpression))
                 {
                     try
                     {
                         // Parse and evaluate Cron expression
                         var cronSchedule = CrontabSchedule.Parse(schedule.CronExpression);
-                        var nextOccurrenceInScheduleTimeZone = cronSchedule.GetNextOccurrence(serverTime.AddMinutes(-5), serverTime.AddMinutes(5));
+                        var nextOccurrenceInScheduleTimeZone = cronSchedule.GetNextOccurrence(scheduleCurrentTime);
+                        scheduleTime = nextOccurrenceInScheduleTimeZone;
+
+                        //var nextOccurrenceInScheduleTimeZone = cronSchedule.GetNextOccurrence(serverTime.AddSeconds(-30) AddMinutes(-5), serverTime.AddMinutes(5));
 
                         if (nextOccurrenceInScheduleTimeZone != DateTime.MinValue)
                         {
@@ -108,10 +111,6 @@ public class ScheduleWorker : IHostedService, IDisposable
                             continue;
                         }
                         // Get the next occurrence directly from the Cron expression
-                        //var nextOccurrenceInScheduleTimeZone = cronSchedule.GetNextOccurrence(scheduleCurrentTime);
-
-                        // Assign the next occurrence to scheduleTime
-                        //scheduleTime = TimeZoneInfo.ConvertTime(nextOccurrenceInScheduleTimeZone, scheduleTimeZone, serverTimeZone);
 
 
                     }
@@ -120,6 +119,46 @@ public class ScheduleWorker : IHostedService, IDisposable
                         _logger.LogError(ex, $"Invalid Cron expression for schedule ID: {schedule.Id}");
                         continue;
                     }
+                }*/
+
+                else if (schedule.ScheduleType == ScheduleType.Custom && !string.IsNullOrEmpty(schedule.CronExpression))
+                {
+                    /*try
+                    {*/
+                        // Parse and evaluate Cron expression
+                        var cronSchedule = CrontabSchedule.Parse(schedule.CronExpression);
+
+                        // Get the next occurrence from the Cron expression
+                        var nextOccurrenceInScheduleTimeZone = cronSchedule.GetNextOccurrence(scheduleCurrentTime);
+
+                    // Check if day of month, month, and day of week match
+                    /*if (nextOccurrenceInScheduleTimeZone.Day != scheduleCurrentTime.Day ||
+                        nextOccurrenceInScheduleTimeZone.Month != scheduleCurrentTime.Month ||
+                        nextOccurrenceInScheduleTimeZone.DayOfWeek != scheduleCurrentTime.DayOfWeek)
+                        continue;*/
+                        
+
+                        scheduleTime = new DateTime(
+                        nextOccurrenceInScheduleTimeZone.Year,
+                        nextOccurrenceInScheduleTimeZone.Month,
+                        nextOccurrenceInScheduleTimeZone.Day,
+                        nextOccurrenceInScheduleTimeZone.Hour,
+                        nextOccurrenceInScheduleTimeZone.Minute,
+                        0
+    
+                        );
+
+                        // Assign the next occurrence to scheduleTime
+                        //scheduleTime = nextOccurrenceInScheduleTimeZone;
+
+
+                    //}
+                    /*catch (Exception ex)
+                    {
+                        _logger.LogError(ex, $"Invalid Cron expression for schedule ID: {schedule.Id}");
+                        //scheduleTime = DateTime.MinValue; // Ensure no invalid schedule time is used
+                        continue;
+                    }*/
                 }
 
                 else
@@ -130,8 +169,11 @@ public class ScheduleWorker : IHostedService, IDisposable
                 // Convert schedule time to server time
                 var convertedScheduleTime = TimeZoneInfo.ConvertTime(scheduleTime, scheduleTimeZone, serverTimeZone);
 
-                if (convertedScheduleTime.Hour == serverTime.Hour && convertedScheduleTime.Minute == serverTime.Minute)
+                if (convertedScheduleTime.Hour == serverTime.Hour && convertedScheduleTime.Minute == serverTime.Minute
+                     && convertedScheduleTime.DayOfWeek == serverTime.DayOfWeek && convertedScheduleTime.DayOfYear == serverTime.DayOfYear
+                     &&  convertedScheduleTime.Month == serverTime.Month)
                 {
+                    var a = 10;
                     // Mark the associated ClientTask as Running
                     if (schedule.ClientTask != null)
                     {
@@ -139,6 +181,38 @@ public class ScheduleWorker : IHostedService, IDisposable
                         _logger.LogInformation($"ClientTask {schedule.ClientTaskId} is set to Running.");
                     }
                 }
+                /* if (convertedScheduleTime.Hour == serverTime.Hour && convertedScheduleTime.Minute == serverTime.Minute)
+                 {
+                     if (schedule.ScheduleType == ScheduleType.Custom)
+                     {
+                         // Check day, month, and day of week for custom schedules
+                         if (convertedScheduleTime.Day == serverTime.Day &&
+                             convertedScheduleTime.Month == serverTime.Month &&
+                             convertedScheduleTime.DayOfWeek == serverTime.DayOfWeek)
+                         {
+                             // Mark the associated ClientTask as Running
+                             if (schedule.ClientTask != null)
+                             {
+                                 schedule.ClientTask.Status = ClientTaskStatus.Running;
+                                 _logger.LogInformation($"Custom schedule ClientTask {schedule.ClientTaskId} is set to Running.");
+                             }
+                         }
+                         else
+                         {
+                             _logger.LogInformation($"Custom schedule for ClientTask {schedule.ClientTaskId} does not match the server's day, month, or day of week.");
+                         }
+                     }
+                     else
+                     {
+                         // For non-custom schedules, directly mark the status
+                         if (schedule.ClientTask != null)
+                         {
+                             schedule.ClientTask.Status = ClientTaskStatus.Running;
+                             _logger.LogInformation($"ClientTask {schedule.ClientTaskId} is set to Running.");
+                         }
+                     }
+                 }*/
+
 
             }
 

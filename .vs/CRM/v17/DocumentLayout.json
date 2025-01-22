@@ -95,8 +95,7 @@
               "ViewState": "AgIAADMAAAAAAAAAAIBJwDoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-20T16:02:40.912Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -108,8 +107,7 @@
               "RelativeToolTip": "CRM\\Program.cs",
               "ViewState": "AgIAABIAAAAAAAAAAIBJwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T06:51:50.47Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-21T06:51:50.47Z"
             },
             {
               "$type": "Document",
@@ -117,9 +115,9 @@
               "Title": "ScheduleWorker.cs",
               "DocumentMoniker": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Service\\Services\\ScheduleWorker.cs",
               "RelativeDocumentMoniker": "CRM.Service\\Services\\ScheduleWorker.cs",
-              "ToolTip": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Service\\Services\\ScheduleWorker.cs",
-              "RelativeToolTip": "CRM.Service\\Services\\ScheduleWorker.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAwwF4AAAAYAAAAAAAAAA==",
+              "ToolTip": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Service\\Services\\ScheduleWorker.cs*",
+              "RelativeToolTip": "CRM.Service\\Services\\ScheduleWorker.cs*",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAALUAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-21T06:46:09.58Z",
               "EditorCaption": ""
@@ -134,8 +132,7 @@
               "RelativeToolTip": "CRM\\Controllers\\ClientTaskController.cs",
               "ViewState": "AgIAAK4AAAAAAAAAAAAqwAsAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T19:45:05.384Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-20T19:45:05.384Z"
             },
             {
               "$type": "Document",
@@ -147,8 +144,7 @@
               "RelativeToolTip": "CRM.Data\\Entities\\Tasks.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAApwAsAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T19:43:34.129Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-20T19:43:34.129Z"
             },
             {
               "$type": "Document",
@@ -160,8 +156,7 @@
               "RelativeToolTip": "CRM.Data\\Entities\\Schedule.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAwwCAAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T19:44:17.982Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-20T19:44:17.982Z"
             },
             {
               "$type": "Document",
@@ -173,8 +168,7 @@
               "RelativeToolTip": "CRM.Web\\Pages\\ScheduleList.cshtml.cs",
               "ViewState": "AgIAAFIAAAAAAAAAAAAqwIQAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T16:02:54.578Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-20T16:02:54.578Z"
             },
             {
               "$type": "Document",
@@ -186,8 +180,7 @@
               "RelativeToolTip": "CRM.Web\\Pages\\Machines.cshtml.cs",
               "ViewState": "AgIAAE0AAAAAAAAAAIBJwFIAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T11:00:13.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-15T11:00:13.069Z"
             },
             {
               "$type": "Document",
@@ -199,8 +192,7 @@
               "RelativeToolTip": "CRM\\Controllers\\ScheduleController.cs",
               "ViewState": "AgIAAGUAAAAAAAAAAAAQwEcAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T08:43:04.563Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-15T08:43:04.563Z"
             },
             {
               "$type": "Document",
@@ -212,8 +204,7 @@
               "RelativeToolTip": "CRM.Web\\Pages\\Schedules.cshtml",
               "ViewState": "AgIAAL0AAAAAAAAAAAAAAMAAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-15T10:46:09.909Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-15T10:46:09.909Z"
             },
             {
               "$type": "Document",
@@ -225,8 +216,7 @@
               "RelativeToolTip": "CRM.Web\\Pages\\Schedules.cshtml.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAqwF4AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T10:46:52.98Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-15T10:46:52.98Z"
             },
             {
               "$type": "Document",
@@ -238,8 +228,7 @@
               "RelativeToolTip": "CRM.Web\\Pages\\Machines.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-11T05:19:39.552Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-11T05:19:39.552Z"
             },
             {
               "$type": "Document",
@@ -251,8 +240,7 @@
               "RelativeToolTip": "CRM.Data\\Entities\\ClientTask.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAIBJwBUAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-11T05:04:46.893Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-11T05:04:46.893Z"
             },
             {
               "$type": "Document",
@@ -264,8 +252,7 @@
               "RelativeToolTip": "CRM.Web\\Pages\\ClientTasks.cshtml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAPAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-11T05:04:46.813Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-11T05:04:46.813Z"
             },
             {
               "$type": "Document",
@@ -277,8 +264,7 @@
               "RelativeToolTip": "CRM.Web\\Pages\\ClientTasks.cshtml",
               "ViewState": "AgIAAMYAAAAAAAAAAIBJwFgAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-11T05:04:46.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-11T05:04:46.804Z"
             },
             {
               "$type": "Document",
@@ -290,8 +276,7 @@
               "RelativeToolTip": "CRM\\Controllers\\MachineController.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAA6wHkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-11T05:04:46.843Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-11T05:04:46.843Z"
             },
             {
               "$type": "Document",
@@ -303,8 +288,7 @@
               "RelativeToolTip": "CRM.Web\\Pages\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAGUAAAAAAAAAAIBJwG4AAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-11T05:04:46.866Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-11T05:04:46.866Z"
             },
             {
               "$type": "Document",
@@ -316,8 +300,7 @@
               "RelativeToolTip": "CRM.Web\\appsettings.json",
               "ViewState": "AgIAAA8AAAAAAAAAAIBJwAwAAAB+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-11T05:04:46.857Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-11T05:04:46.857Z"
             }
           ]
         }
