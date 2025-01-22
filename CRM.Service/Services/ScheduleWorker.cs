@@ -199,9 +199,9 @@ public class ScheduleWorker : IHostedService, IDisposable
                         );
 
                         // Check if current time already matches the Cron expression
-                        var lastOccurrence = cronSchedule.GetNextOccurrence(normalizedScheduleCurrentTime.AddSeconds(-30), normalizedScheduleCurrentTime.AddSeconds(30));
+                        var cronOccurrence = cronSchedule.GetNextOccurrence(normalizedScheduleCurrentTime.AddSeconds(-30), normalizedScheduleCurrentTime.AddSeconds(30));
 
-                        if (lastOccurrence == normalizedScheduleCurrentTime)
+                        if (cronOccurrence == normalizedScheduleCurrentTime)
                         {
                             // If the current time matches, use it directly as scheduleTime
                             scheduleTime = normalizedScheduleCurrentTime;
