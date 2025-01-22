@@ -25,7 +25,7 @@ public class ScheduleWorker : IHostedService, IDisposable
     public Task StartAsync(CancellationToken cancellationToken)
     {
         _logger.LogInformation("Schedule Worker started.");
-        _timer = new Timer(ExecuteTask, null, TimeSpan.Zero, TimeSpan.FromSeconds(10));
+        _timer = new Timer(ExecuteTask, null, TimeSpan.Zero, TimeSpan.FromSeconds(30));
         return Task.CompletedTask;
     }
     private async void ExecuteTask(object? state)
@@ -121,22 +121,39 @@ public class ScheduleWorker : IHostedService, IDisposable
                     }
                 }*/
 
-                else if (schedule.ScheduleType == ScheduleType.Custom && !string.IsNullOrEmpty(schedule.CronExpression))
+                /*else if (schedule.ScheduleType == ScheduleType.Custom && !string.IsNullOrEmpty(schedule.CronExpression))
                 {
-                    /*try
-                    {*/
+                    try
+                    {
+                        var normalizedScheduleCurrentTime = new DateTime(
+                        scheduleCurrentTime.Year,
+                        scheduleCurrentTime.Month,
+                        scheduleCurrentTime.Day,
+                        scheduleCurrentTime.Hour,
+                        scheduleCurrentTime.Minute,
+                        0, // Seconds set to 0
+                        scheduleCurrentTime.Kind
+);
                         // Parse and evaluate Cron expression
                         var cronSchedule = CrontabSchedule.Parse(schedule.CronExpression);
 
                         // Get the next occurrence from the Cron expression
-                        var nextOccurrenceInScheduleTimeZone = cronSchedule.GetNextOccurrence(scheduleCurrentTime);
+                        var nextOccurrenceInScheduleTimeZone = cronSchedule.GetNextOccurrence(normalizedScheduleCurrentTime);
+                        // Log for debugging
+                        _logger.LogWarning($"Evaluating Cron expression for schedule ID {schedule.Id}");
+                        _logger.LogWarning($"Next occurrence in schedule time zone: {nextOccurrenceInScheduleTimeZone}");
+                        _logger.LogWarning($"Current schedule time: {scheduleCurrentTime}");
+                        // Check if day of month, month, and day of week match
+                        if (nextOccurrenceInScheduleTimeZone.Day != scheduleCurrentTime.Day ||
+                            nextOccurrenceInScheduleTimeZone.Month != scheduleCurrentTime.Month ||
+                            nextOccurrenceInScheduleTimeZone.DayOfWeek != scheduleCurrentTime.DayOfWeek)
 
-                    // Check if day of month, month, and day of week match
-                    /*if (nextOccurrenceInScheduleTimeZone.Day != scheduleCurrentTime.Day ||
-                        nextOccurrenceInScheduleTimeZone.Month != scheduleCurrentTime.Month ||
-                        nextOccurrenceInScheduleTimeZone.DayOfWeek != scheduleCurrentTime.DayOfWeek)
-                        continue;*/
-                        
+                        {
+                            // Log for debugging
+                            _logger.LogWarning($"Schedule ID {schedule.Id} does not match current day, month, or day of week.");
+                            continue;
+                        } 
+
 
                         scheduleTime = new DateTime(
                         nextOccurrenceInScheduleTimeZone.Year,
@@ -145,20 +162,62 @@ public class ScheduleWorker : IHostedService, IDisposable
                         nextOccurrenceInScheduleTimeZone.Hour,
                         nextOccurrenceInScheduleTimeZone.Minute,
                         0
-    
-                        );
 
-                        // Assign the next occurrence to scheduleTime
-                        //scheduleTime = nextOccurrenceInScheduleTimeZone;
+                        );
+                        _logger.LogWarning($"Schedule ID {schedule.Id}: scheduleTime assigned as {scheduleTime}");
+                    }
+                    
+                    // Assign the next occurrence to scheduleTime
+                    //scheduleTime = nextOccurrenceInScheduleTimeZone;
 
 
                     //}
-                    /*catch (Exception ex)
+                    catch (Exception ex)
                     {
                         _logger.LogError(ex, $"Invalid Cron expression for schedule ID: {schedule.Id}");
                         //scheduleTime = DateTime.MinValue; // Ensure no invalid schedule time is used
                         continue;
-                    }*/
+                    }
+                }
+*/
+                else if (schedule.ScheduleType == ScheduleType.Custom && !string.IsNullOrEmpty(schedule.CronExpression))
+                {
+                    try
+                    {
+                        // Parse the Cron expression
+                        var cronSchedule = CrontabSchedule.Parse(schedule.CronExpression);
+
+                        // Normalize scheduleCurrentTime to match Cron's expected format (zero seconds)
+                        var normalizedScheduleCurrentTime = new DateTime(
+                            scheduleCurrentTime.Year,
+                            scheduleCurrentTime.Month,
+                            scheduleCurrentTime.Day,
+                            scheduleCurrentTime.Hour,
+                            scheduleCurrentTime.Minute,
+                            0,
+                            scheduleCurrentTime.Kind // Retain the DateTimeKind
+                        );
+
+                        // Check if current time already matches the Cron expression
+                        var lastOccurrence = cronSchedule.GetNextOccurrence(normalizedScheduleCurrentTime.AddSeconds(-30), normalizedScheduleCurrentTime.AddSeconds(30));
+
+                        if (lastOccurrence == normalizedScheduleCurrentTime)
+                        {
+                            // If the current time matches, use it directly as scheduleTime
+                            scheduleTime = normalizedScheduleCurrentTime;
+                            _logger.LogInformation($"Exact match found for schedule ID {schedule.Id} at {scheduleTime}");
+                        }
+                        else
+                        {
+                            _logger.LogInformation($"Current time does not match the Cron schedule for schedule ID {schedule.Id}. Skipping.");
+                            continue;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, $"Invalid Cron expression for schedule ID: {schedule.Id}");
+                        continue;
+                    }
                 }
 
                 else
@@ -169,11 +228,8 @@ public class ScheduleWorker : IHostedService, IDisposable
                 // Convert schedule time to server time
                 var convertedScheduleTime = TimeZoneInfo.ConvertTime(scheduleTime, scheduleTimeZone, serverTimeZone);
 
-                if (convertedScheduleTime.Hour == serverTime.Hour && convertedScheduleTime.Minute == serverTime.Minute
-                     && convertedScheduleTime.DayOfWeek == serverTime.DayOfWeek && convertedScheduleTime.DayOfYear == serverTime.DayOfYear
-                     &&  convertedScheduleTime.Month == serverTime.Month)
-                {
-                    var a = 10;
+                if (convertedScheduleTime.Hour == serverTime.Hour && convertedScheduleTime.Minute == serverTime.Minute)
+                { 
                     // Mark the associated ClientTask as Running
                     if (schedule.ClientTask != null)
                     {
