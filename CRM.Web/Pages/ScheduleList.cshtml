@@ -21,6 +21,7 @@
             <tr>
                 <th>Client</th>
                 <th>Task</th>
+                <th>TimeZone</th>
                 <th>Schedule Type</th>
                 <th>Daily Hour</th>
                 <th>Daily Minute</th>
@@ -53,66 +54,43 @@
                     dataSrc: ''
                 },
                 columns: [
-                    {
-                        data: 'client.name',
-                        render: function (data) {
-                            return data ? data : 'NULL';
-                        }
-                    },
-                    {
-                        data: 'clientTask.tasks[0].name',
-                        render: function (data) {
-                            return data ? data : 'NULL';
-                        }
-                    },
+                    { data: 'client.name' },
+                    { data: 'clientTask.tasks[0].name' },
+                    { data: 'timeZone' },
                     {
                         data: 'scheduleType',
                         render: function (data) {
-                            if (data === null) return 'NULL';
+                            // Convert enum numeric value to string
                             switch (data) {
                                 case 0: return 'Daily';
                                 case 1: return 'Weekly';
                                 case 2: return 'Custom';
-                                default: return 'NULL';
+                                default: return 'Unknown';
                             }
                         }
                     },
-                    {
-                        data: 'dailyHour',
-                        render: function (data) {
-                            return data !== null ? data : 'NULL';
-                        }
-                    },
-                    {
-                        data: 'dailyMinute',
-                        render: function (data) {
-                            return data !== null ? data : 'NULL';
-                        }
-                    },
-                    {
-                        data: 'cronExpression',
-                        render: function (data) {
-                            return data ? data : 'NULL';
-                        }
-                    },
+                    { data: 'dailyHour' },
+                    { data: 'dailyMinute' },
+                    { data: 'cronExpression' },
                     {
                         data: 'dayOfWeek',
                         render: function (data) {
-                            if (!data || data.length === 0) {
-                                return 'NULL';
+                            if (data && data.length > 0) {
+                                // Convert DayOfWeek list to string (e.g., "Monday, Tuesday")
+                                return data.map(day => {
+                                    switch (day) {
+                                        case 0: return 'Sunday';
+                                        case 1: return 'Monday';
+                                        case 2: return 'Tuesday';
+                                        case 3: return 'Wednesday';
+                                        case 4: return 'Thursday';
+                                        case 5: return 'Friday';
+                                        case 6: return 'Saturday';
+                                        default: return 'Unknown';
+                                    }
+                                }).join(', ');
                             }
-                            return data.map(day => {
-                                switch (day) {
-                                    case 0: return 'Sunday';
-                                    case 1: return 'Monday';
-                                    case 2: return 'Tuesday';
-                                    case 3: return 'Wednesday';
-                                    case 4: return 'Thursday';
-                                    case 5: return 'Friday';
-                                    case 6: return 'Saturday';
-                                    default: return 'Unknown';
-                                }
-                            }).join(', ');
+                            return '';
                         }
                     },
                     {
@@ -149,5 +127,6 @@
         });
     </script>
 }
+
 
 

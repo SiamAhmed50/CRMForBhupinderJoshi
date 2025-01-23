@@ -194,12 +194,12 @@
             });
 
             // Cron expression validation
-            cronInput.addEventListener("blur", function () {
-                const cronPattern = /^(\*|([0-5]?\d))( (\*|([0-2]?\d|3[0-1]))){4}( (\*|(19[7-9]\d|20\d\d)))?$/;
-                if (!cronPattern.test(cronInput.value.trim())) {
-                    alert("Invalid cron expression. Please follow the format: minute hour day-of-month month day-of-week [year]");
-                }
-            });
+            //cronInput.addEventListener("blur", function () {
+                //const cronPattern = /^(\*|([0-5]?\d))( (\*|([0-2]?\d|3[0-1]))){4}( (\*|(19[7-9]\d|20\d\d)))?$/;
+                //if (!cronPattern.test(cronInput.value.trim())) {
+                    //alert("Invalid cron expression. Please follow the format: minute hour day-of-month month day-of-week [year]");
+                //}
+            //});
         });
 
 

@@ -92,7 +92,7 @@ namespace CRM.Web.Pages
                 ErrorMessage = $"Error creating schedule: {ex.Message}";
             }
 
-            return RedirectToPage();
+            return RedirectToPage("/ScheduleList");
         }
 
 
