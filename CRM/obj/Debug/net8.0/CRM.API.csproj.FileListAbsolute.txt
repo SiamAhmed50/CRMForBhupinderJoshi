@@ -1569,3 +1569,4 @@ C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\bin\Debug\ne
 =======
 F:\Work\CRMForBhupinderJoshi\CRM\bin\Debug\net8.0\NCrontab.dll
 >>>>>>> c438e5d960b47a14d0aa65256c26508171ba8ebc
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\bin\Debug\net8.0\NCrontab.dll
