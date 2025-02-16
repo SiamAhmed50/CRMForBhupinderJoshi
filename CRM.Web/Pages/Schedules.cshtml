@@ -54,50 +54,6 @@
         </select>
     </div>
 
-    @* <div class="mb-3">
-        <label class="form-label">Schedule Type</label>
-        <div>
-            <input type="radio" asp-for="Schedule.ScheduleType" value="Daily" /> Daily
-            <input type="radio" asp-for="Schedule.ScheduleType" value="Weekly" /> Weekly
-            <input type="radio" asp-for="Schedule.ScheduleType" value="Custom" /> Custom
-        </div>
-    </div>
-
-    <div id="dailyOptions" class="mb-3" style="display: none;">
-        <label class="form-label">Daily Schedule</label>
-        <div>
-            <label for="Schedule.DailyHour">Hour</label>
-            <select asp-for="Schedule.DailyHour" class="form-select">
-                @for (int i = 0; i < 24; i++)
-                {
-                    <option value="@i">@i</option>
-                }
-            </select>
-        </div>
-        <div>
-            <label for="Schedule.DailyMinute">Minute</label>
-            <select asp-for="Schedule.DailyMinute" class="form-select">
-                @for (int i = 0; i < 60; i++)
-                {
-                    <option value="@i">@i</option>
-                }
-            </select>
-        </div>
-    </div>
-
-    
-
-    <div id="weeklyOptions" class="mb-3" style="display: none;">
-        <label class="form-label">Weekly Schedule</label>
-        <div>
-            @foreach (var day in Enum.GetValues(typeof(DayOfWeek)))
-            {
-                var isChecked = Model.Schedule?.DayOfWeek?.Contains((DayOfWeek)day) ?? false;
-                <input type="checkbox" name="Schedule.DayOfWeek" value="@day" @(isChecked ? "checked" : "") /> @day
-            }
-        </div>
-    </div> *@
-
     <div class="mb-3">
         <label class="form-label">Schedule Type</label>
         <div>
@@ -205,4 +161,6 @@
 
     </script>
 
-}
+} 
+
+

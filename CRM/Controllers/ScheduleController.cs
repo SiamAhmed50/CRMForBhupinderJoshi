@@ -32,7 +32,7 @@ namespace CRM.Controllers
                     {
                         s => s.Client,
                         s => s.ClientTask,
-                         s => s.ClientTask.Tasks
+                        s => s.ClientTask.Tasks
                     });
                 return Ok(schedules);
             }

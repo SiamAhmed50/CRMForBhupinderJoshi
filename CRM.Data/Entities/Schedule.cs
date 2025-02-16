@@ -27,8 +27,6 @@ namespace CRM.Data.Entities
         // Daily schedule specific properties
         public int? DailyHour { get; set; }
         public int? DailyMinute { get; set; }
-        //public DayOfWeek? DayOfWeek { get; set; }
-
         // Weekly schedule specific properties
         public List<DayOfWeek>? DayOfWeek { get; set; }
         // Custom cron expression

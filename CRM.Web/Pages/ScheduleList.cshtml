@@ -60,7 +60,6 @@
                     {
                         data: 'scheduleType',
                         render: function (data) {
-                            // Convert enum numeric value to string
                             switch (data) {
                                 case 0: return 'Daily';
                                 case 1: return 'Weekly';
@@ -76,7 +75,6 @@
                         data: 'dayOfWeek',
                         render: function (data) {
                             if (data && data.length > 0) {
-                                // Convert DayOfWeek list to string (e.g., "Monday, Tuesday")
                                 return data.map(day => {
                                     switch (day) {
                                         case 0: return 'Sunday';
@@ -97,17 +95,17 @@
                         data: null,
                         render: function (data, type, row) {
                             return `
-                                        <div class="dropdown">
-                                            <i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <span class="dropdown-item edit-machine" data-id="${row.id}">Update</span>
-                                                </li>
-                                                <li>
-                                                    <span class="dropdown-item delete-machine" data-id="${row.id}">Delete</span>
-                                                </li>
-                                            </ul>
-                                        </div>`;
+                                                <div class="dropdown">
+                                                    <i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                                    <ul class="dropdown-menu">
+                                                        <li>
+                                                            <span class="dropdown-item edit-machine" data-id="${row.id}">Update</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="dropdown-item delete-machine" data-id="${row.id}">Delete</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>`;
                         }
                     }
                 ],
@@ -124,9 +122,27 @@
                     }
                 ]
             });
+
+            // Ensure delete click event is bound dynamically
+            $('#scheduleTable tbody').on('click', '.delete-machine', function () {
+                const scheduleId = $(this).data('id');
+                if (confirm("Are you sure you want to delete this schedule?")) {
+                    $.ajax({
+                        url: '/ScheduleList?handler=Delete',
+                        type: 'POST',
+                        data: { id: scheduleId },
+                        headers: { 'XSRF-TOKEN': csrfToken },
+                        success: function (response) {
+                            alert("Schedule deleted successfully.");
+                            table.ajax.reload(); // Reload DataTable after deletion
+                        },
+                        error: function () {
+                            alert("Error deleting schedule.");
+                        }
+                    });
+                }
+            });
         });
     </script>
 }
-
-
 

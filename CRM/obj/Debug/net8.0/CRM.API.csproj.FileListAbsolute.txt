@@ -1561,8 +1561,6 @@ F:\Work\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\refint\CRM.API.dll
 F:\Work\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\CRM.API.pdb
 F:\Work\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\CRM.API.genruntimeconfig.cache
 F:\Work\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\ref\CRM.API.dll
-F:\Work\CRMForBhupinderJoshi\CRM\bin\Debug\net8.0\appsettings.Development.json
-F:\Work\CRMForBhupinderJoshi\CRM\bin\Debug\net8.0\appsettings.json
 F:\Work\CRMForBhupinderJoshi\CRM\bin\Debug\net8.0\NCrontab.dll
 C:\Users\Siam Ahmed\Downloads\CRMForBhupinderJoshi-c438e5d960b47a14d0aa65256c26508171ba8ebc\CRMForBhupinderJoshi-c438e5d960b47a14d0aa65256c26508171ba8ebc\CRM\bin\Debug\net8.0\CRM.API.exe
 C:\Users\Siam Ahmed\Downloads\CRMForBhupinderJoshi-c438e5d960b47a14d0aa65256c26508171ba8ebc\CRMForBhupinderJoshi-c438e5d960b47a14d0aa65256c26508171ba8ebc\CRM\bin\Debug\net8.0\CRM.API.deps.json
