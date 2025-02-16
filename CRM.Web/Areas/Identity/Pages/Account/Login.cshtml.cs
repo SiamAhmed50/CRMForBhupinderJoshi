@@ -131,8 +131,8 @@ namespace CRM.UI.Areas.Identity.Pages.Account
             {
                  
                 var httpClient = _httpClientFactory.CreateClient();
-                //var apiBaseUrl = "https://api-monitor.robobotics.eu"; // Replace this with the actual base URL of your API
-                var apiBaseUrl = "https://localhost:44300"; // Replace this with the actual base URL of your API
+                var apiBaseUrl = "https://api-monitor.robobotics.eu"; // Replace this with the actual base URL of your API
+                //var apiBaseUrl = "https://localhost:44300"; // Replace this with the actual base URL of your API
 
                 var loginRequest = new 
                 {

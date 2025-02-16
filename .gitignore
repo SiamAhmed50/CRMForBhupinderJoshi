@@ -4,4 +4,3 @@
 
 /CRM/bin/Release/net8.0/CRM.API.dll
 *.vsidx
-/CRM/obj/Debug/net8.0/CRM.API.csproj.CoreCompileInputs.cache
