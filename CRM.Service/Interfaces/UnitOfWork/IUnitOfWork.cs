@@ -17,7 +17,10 @@ namespace CRM.Service.Interfaces.UnitOfWork
         IRepository<Job, string> JobRepository { get; } 
         IRepository<JobLogs, string> GenericJobLogsRepository { get; } 
         IRepository<Logs, string> LogsRepository { get; } 
-        IRepository<JobLogs, string> JobLogsRepository { get; }  
+        IRepository<JobLogs, string> JobLogsRepository { get; }
+
+        IRepository<JobTransactions, string> JobTransactionsRepository { get; } 
+
         IRepository<Tasks, string> TaskRepository { get; }
         IRepository<Machine, int> MachineRepository { get; }
         IRepository<Schedule, int> ScheduleRepository { get; }
