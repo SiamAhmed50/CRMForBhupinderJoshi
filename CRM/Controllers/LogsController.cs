@@ -154,6 +154,9 @@ namespace CRM.Controllers
                     return BadRequest("Invalid Job Id.");
                 }
 
+
+
+
                 if (existingJobLog == null)
                 {
                     var newJobLog = new JobLogs
@@ -162,6 +165,7 @@ namespace CRM.Controllers
                         ClientId = job.ClientId,
                         TaskId = job.TasksId, 
                         Client = job.Client,
+
                         Job = job,
                         Task = job.Tasks,
                         Logs = new List<Logs>()

@@ -17,11 +17,11 @@ namespace CRM.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class TransactionsController : ControllerBase
+    public class JobTransactionsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public TransactionsController(IUnitOfWork unitOfWork)
+        public JobTransactionsController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
@@ -40,7 +40,7 @@ namespace CRM.Controllers
                     return NotFound("No transactions found.");
                 }
 
-                var transactionsViewModel = transactions.Select(transaction => new TransactionViewModel
+                var transactionsViewModel = transactions.Select(transaction => new JobTransactionsViewModel
                 {
                     Id = transaction.Id,
                     JobId = transaction.JobId,
@@ -70,7 +70,7 @@ namespace CRM.Controllers
                 return NotFound($"Transaction with ID {id} not found.");
             }
 
-            var transactionViewModel = new TransactionViewModel
+            var transactionViewModel = new JobTransactionsViewModel
             {
                 Id = transaction.Id,
                 JobId = transaction.JobId,
@@ -99,7 +99,7 @@ namespace CRM.Controllers
                 }
 
 
-                var transactionsViewModel = transactions.Select(transaction => new TransactionViewModel
+                var transactionsViewModel = transactions.Select(transaction => new JobTransactionsViewModel
                 {
                     Id = transaction.Id,
                     JobId = transaction.JobId,
@@ -121,7 +121,7 @@ namespace CRM.Controllers
 
         // POST: api/Transaction
         [HttpPost]
-        public async Task<IActionResult> CreateTransaction(TransactionViewModel transactionModel)
+        public async Task<IActionResult> CreateTransaction(JobTransactionsViewModel transactionModel)
         {
             try
             {
@@ -149,7 +149,7 @@ namespace CRM.Controllers
 
         // PUT: api/Transaction/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateTransaction(int id, TransactionViewModel transactionModel)
+        public async Task<IActionResult> UpdateTransaction(int id, JobTransactionsViewModel transactionModel)
         {
             if (!ModelState.IsValid)
             {
@@ -210,5 +210,53 @@ namespace CRM.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
+
+
+
+        // POST: api/Transaction/CreateJobTransactions
+        [HttpPost("CreateJobTransactions")]
+        [AllowAnonymous]
+        public async Task<IActionResult> CreateJobTransactions(CreateJobTransaction jobTransactionModel)  
+        {
+            try
+            {
+                var jobTransactions = await _unitOfWork.JobTransactionsRepository.GetAllAsync();
+
+                var existingJobTransactions = jobTransactions.FirstOrDefault(f => f.JobId == jobTransactionModel.JobId);
+
+                if (existingJobTransactions == null)
+                {
+                    var objJobTransaction = new JobTransactions
+                    {
+                        JobId = jobTransactionModel.JobId,
+                        Description = jobTransactionModel.TransactionDescription,
+                        Number = jobTransactionModel.TransactionNumber,
+                        Command = jobTransactionModel.TransactionCommand,
+                    };
+
+                    await _unitOfWork.JobTransactionsRepository.AddAsync(objJobTransaction);
+                    await _unitOfWork.SaveChangesAsync();
+                    return Ok("Job transaction created successfully");
+                }
+
+                else
+                {
+                    existingJobTransactions.Description = jobTransactionModel.TransactionDescription;
+                    existingJobTransactions.Number = jobTransactionModel.TransactionNumber;
+                    existingJobTransactions.Command = jobTransactionModel.TransactionCommand;
+                    await _unitOfWork.JobTransactionsRepository.UpdateAsync(existingJobTransactions);
+                    await _unitOfWork.SaveChangesAsync();
+
+                    return Ok("Job Transaction updated successfully");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal Server Error");
+            }
+        }
+
+
     }
 }
