@@ -114,3 +114,18 @@ C:\Users\Siam Ahmed\Downloads\CRMForBhupinderJoshi-c438e5d960b47a14d0aa65256c265
 C:\Users\Siam Ahmed\Downloads\CRMForBhupinderJoshi-c438e5d960b47a14d0aa65256c26508171ba8ebc\CRMForBhupinderJoshi-c438e5d960b47a14d0aa65256c26508171ba8ebc\CRM.Data\obj\Debug\net8.0\CRM.Data.pdb
 C:\Users\Siam Ahmed\Downloads\CRMForBhupinderJoshi-c438e5d960b47a14d0aa65256c26508171ba8ebc\CRMForBhupinderJoshi-c438e5d960b47a14d0aa65256c26508171ba8ebc\CRM.Data\obj\Debug\net8.0\CRM.Data.genruntimeconfig.cache
 C:\Users\Siam Ahmed\Downloads\CRMForBhupinderJoshi-c438e5d960b47a14d0aa65256c26508171ba8ebc\CRMForBhupinderJoshi-c438e5d960b47a14d0aa65256c26508171ba8ebc\CRM.Data\obj\Debug\net8.0\ref\CRM.Data.dll
+D:\GitProject\CRM.Data\bin\Debug\net8.0\CRM.Data.deps.json
+D:\GitProject\CRM.Data\bin\Debug\net8.0\CRM.Data.runtimeconfig.json
+D:\GitProject\CRM.Data\bin\Debug\net8.0\CRM.Data.dll
+D:\GitProject\CRM.Data\bin\Debug\net8.0\CRM.Data.pdb
+D:\GitProject\CRM.Data\obj\Debug\net8.0\CRM.Data.csproj.AssemblyReference.cache
+D:\GitProject\CRM.Data\obj\Debug\net8.0\CRM.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitProject\CRM.Data\obj\Debug\net8.0\CRM.Data.AssemblyInfoInputs.cache
+D:\GitProject\CRM.Data\obj\Debug\net8.0\CRM.Data.AssemblyInfo.cs
+D:\GitProject\CRM.Data\obj\Debug\net8.0\CRM.Data.csproj.CoreCompileInputs.cache
+D:\GitProject\CRM.Data\obj\Debug\net8.0\CRM.Data.sourcelink.json
+D:\GitProject\CRM.Data\obj\Debug\net8.0\CRM.Data.dll
+D:\GitProject\CRM.Data\obj\Debug\net8.0\refint\CRM.Data.dll
+D:\GitProject\CRM.Data\obj\Debug\net8.0\CRM.Data.pdb
+D:\GitProject\CRM.Data\obj\Debug\net8.0\CRM.Data.genruntimeconfig.cache
+D:\GitProject\CRM.Data\obj\Debug\net8.0\ref\CRM.Data.dll

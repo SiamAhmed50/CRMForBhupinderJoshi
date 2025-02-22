@@ -14,11 +14,14 @@ namespace CRM.Web.Pages
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly string _apiEndpoint = "/api/Jobs";
+        private readonly string _apitransactionsEndpoint = "/api/Transactions/Job";
 
         [BindProperty]
         public List<JobsViewModel> JobLogsList { get; set; }
 
         public List<LogViewModel> LogsList { get; set; }
+
+        public List<TransactionViewModel> TransactionsList { get; set; }
 
         [BindProperty]
         public JobLogs JobLog { get; set; }
@@ -179,5 +182,50 @@ namespace CRM.Web.Pages
                     new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
             }
         }
+
+        // Method to fetch transactions for a specific job
+        public async Task<IActionResult> OnPostTransactionList(int id)
+        {
+            try
+            {
+                await LoadTransactionsAsync(id);
+                return new JsonResult(TransactionsList);
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = $"Error loading transactions for job ID {id}: {ex.Message}";
+                return new JsonResult(new List<TransactionViewModel>());
+            }
+        }
+
+        private async Task LoadTransactionsAsync(int id)
+        {
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
+
+            try
+            {
+                AddAuthorizationToken(httpClient);
+
+                var response = await httpClient.GetAsync($"/api/Transactions/Job/{id}");
+                //var response = await httpClient.GetAsync($"{_apitransactionsEndpoint}/{id}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    TransactionsList = JsonConvert.DeserializeObject<List<TransactionViewModel>>(content);
+                }
+                else
+                {
+                    ErrorMessage = $"Error loading transactions for job ID {id}. Status code: {response.StatusCode}";
+                    TransactionsList = new List<TransactionViewModel>();
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = $"Error loading transactions for job ID {id}: {ex.Message}";
+                TransactionsList = new List<TransactionViewModel>();
+            }
+        }
+
     }
 }

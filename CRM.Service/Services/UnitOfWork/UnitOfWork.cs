@@ -26,6 +26,7 @@ namespace CRM.Service.Services.UnitOfWork
             ClientTaskRepository = new Repository<ClientTask, string>(_dbContext); 
             JobLogsRepository = new Repository<JobLogs, string>(_dbContext); 
             LogsRepository = new Repository<Logs, string>(_dbContext);
+            JobTransactionsRepository = new Repository<JobTransactions, string>(_dbContext);
             MachineRepository = new Repository<Machine, int>(_dbContext);
             ScheduleRepository = new Repository<Schedule, int>(_dbContext);
             WeeklyScheduleRepository = new Repository<WeeklySchedule, int>(_dbContext);
@@ -38,6 +39,7 @@ namespace CRM.Service.Services.UnitOfWork
         public IRepository<JobLogs, string> GenericJobLogsRepository { get; }
         public IRepository<Logs, string> LogsRepository { get; }
         public IRepository<JobLogs, string> JobLogsRepository { get; }
+        public IRepository<JobTransactions, string> JobTransactionsRepository { get; } 
         public IRepository<Tasks, string> TaskRepository { get; }
         public IRepository<Machine, int> MachineRepository { get; }
         public IRepository<Schedule, int> ScheduleRepository { get; }
