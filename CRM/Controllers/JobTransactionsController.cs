@@ -232,6 +232,7 @@ namespace CRM.Controllers
                         Description = jobTransactionModel.TransactionDescription,
                         Number = jobTransactionModel.TransactionNumber,
                         Command = jobTransactionModel.TransactionCommand,
+                        Timestamp = jobTransactionModel.Timestamp
                     };
 
                     await _unitOfWork.JobTransactionsRepository.AddAsync(objJobTransaction);
