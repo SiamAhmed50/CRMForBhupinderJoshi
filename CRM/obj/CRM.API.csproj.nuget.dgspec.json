@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj": {}
+  },
+  "projects": {
+    "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj",
+        "projectName": "CRM.Data",
+        "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj",
+        "packagesPath": "C:\\Users\\Siam Ahmed\\.nuget\\packages\\",
+        "outputPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\obj\\",
+=======
     "D:\\GitProject\\CRM\\CRM.API.csproj": {}
   },
   "projects": {
@@ -12,13 +25,15 @@
         "projectPath": "D:\\GitProject\\CRM.Data\\CRM.Data.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
         "outputPath": "D:\\GitProject\\CRM.Data\\obj\\",
+>>>>>>> a6687b330fb88ee9255275c626f99bbccbe56c83
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\Siam Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> a6687b330fb88ee9255275c626f99bbccbe56c83
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,6 +108,20 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj",
+        "projectName": "CRM.Service",
+        "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj",
+        "packagesPath": "C:\\Users\\Siam Ahmed\\.nuget\\packages\\",
+        "outputPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\obj\\",
+=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
@@ -105,13 +134,15 @@
         "projectPath": "D:\\GitProject\\CRM.Service\\CRM.Service.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
         "outputPath": "D:\\GitProject\\CRM.Service\\obj\\",
+>>>>>>> a6687b330fb88ee9255275c626f99bbccbe56c83
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\Siam Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> a6687b330fb88ee9255275c626f99bbccbe56c83
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -126,8 +157,13 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+<<<<<<< HEAD
+              "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {
+                "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj"
+=======
               "D:\\GitProject\\CRM.Data\\CRM.Data.csproj": {
                 "projectPath": "D:\\GitProject\\CRM.Data\\CRM.Data.csproj"
+>>>>>>> a6687b330fb88ee9255275c626f99bbccbe56c83
               }
             }
           }
@@ -172,6 +208,20 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj",
+        "projectName": "CRM.API",
+        "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj",
+        "packagesPath": "C:\\Users\\Siam Ahmed\\.nuget\\packages\\",
+        "outputPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\obj\\",
+=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
@@ -184,13 +234,15 @@
         "projectPath": "D:\\GitProject\\CRM\\CRM.API.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
         "outputPath": "D:\\GitProject\\CRM\\obj\\",
+>>>>>>> a6687b330fb88ee9255275c626f99bbccbe56c83
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\Siam Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> a6687b330fb88ee9255275c626f99bbccbe56c83
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -205,11 +257,19 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+<<<<<<< HEAD
+              "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {
+                "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj"
+              },
+              "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj": {
+                "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj"
+=======
               "D:\\GitProject\\CRM.Data\\CRM.Data.csproj": {
                 "projectPath": "D:\\GitProject\\CRM.Data\\CRM.Data.csproj"
               },
               "D:\\GitProject\\CRM.Service\\CRM.Service.csproj": {
                 "projectPath": "D:\\GitProject\\CRM.Service\\CRM.Service.csproj"
+>>>>>>> a6687b330fb88ee9255275c626f99bbccbe56c83
               }
             }
           }
@@ -287,7 +347,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+>>>>>>> a6687b330fb88ee9255275c626f99bbccbe56c83
         }
       }
     }
