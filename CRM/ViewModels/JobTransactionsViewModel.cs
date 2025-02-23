@@ -1,6 +1,6 @@
 ﻿namespace CRM.API.ViewModels
 {
-    public class TransactionViewModel
+    public class JobTransactionsViewModel
     {
        
         public int JobId { get; set; }

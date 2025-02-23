@@ -21,7 +21,7 @@ namespace CRM.Web.Pages
 
         public List<LogViewModel> LogsList { get; set; }
 
-        public List<TransactionViewModel> TransactionsList { get; set; }
+        public List<JobTransactionsViewModel> TransactionsList { get; set; }
 
         [BindProperty]
         public JobLogs JobLog { get; set; }
@@ -194,7 +194,7 @@ namespace CRM.Web.Pages
             catch (Exception ex)
             {
                 ErrorMessage = $"Error loading transactions for job ID {id}: {ex.Message}";
-                return new JsonResult(new List<TransactionViewModel>());
+                return new JsonResult(new List<JobTransactionsViewModel>());
             }
         }
 
@@ -212,18 +212,18 @@ namespace CRM.Web.Pages
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    TransactionsList = JsonConvert.DeserializeObject<List<TransactionViewModel>>(content);
+                    TransactionsList = JsonConvert.DeserializeObject<List<JobTransactionsViewModel>>(content);
                 }
                 else
                 {
                     ErrorMessage = $"Error loading transactions for job ID {id}. Status code: {response.StatusCode}";
-                    TransactionsList = new List<TransactionViewModel>();
+                    TransactionsList = new List<JobTransactionsViewModel>();
                 }
             }
             catch (Exception ex)
             {
                 ErrorMessage = $"Error loading transactions for job ID {id}: {ex.Message}";
-                TransactionsList = new List<TransactionViewModel>();
+                TransactionsList = new List<JobTransactionsViewModel>();
             }
         }
 

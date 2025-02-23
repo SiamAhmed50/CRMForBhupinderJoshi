@@ -1,9 +1,29 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\",
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+=======
+  "WorkspaceRootPath": "D:\\GitProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|d:\\gitproject\\crm\\controllers\\jobtransactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|solutionrelative:crm\\controllers\\jobtransactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|d:\\gitproject\\crm\\viewmodels\\jobtransactionsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|solutionrelative:crm\\viewmodels\\jobtransactionsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|d:\\gitproject\\crm.web\\pages\\jobs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\jobs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|d:\\gitproject\\crm.web\\pages\\jobs.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\jobs.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 1cbaf8b0ca80e232546ff7467de235c509125c99
     }
   ],
   "DocumentGroupContainers": [
@@ -13,6 +33,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 16,
+<<<<<<< HEAD
           "SelectedChildIndex": 20,
           "Children": [
             {
@@ -113,6 +134,9 @@
         {
           "DockedHeight": 290,
           "SelectedChildIndex": -1,
+=======
+          "SelectedChildIndex": 5,
+>>>>>>> 1cbaf8b0ca80e232546ff7467de235c509125c99
           "Children": [
             {
               "$type": "Bookmark",
@@ -120,6 +144,7 @@
             },
             {
               "$type": "Bookmark",
+<<<<<<< HEAD
               "Name": "ST:141:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
@@ -251,6 +276,58 @@
             {
               "$type": "Bookmark",
               "Name": "ST:151:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+=======
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Jobs.cshtml",
+              "DocumentMoniker": "D:\\GitProject\\CRM.Web\\Pages\\Jobs.cshtml",
+              "RelativeDocumentMoniker": "CRM.Web\\Pages\\Jobs.cshtml",
+              "ToolTip": "D:\\GitProject\\CRM.Web\\Pages\\Jobs.cshtml",
+              "RelativeToolTip": "CRM.Web\\Pages\\Jobs.cshtml",
+              "ViewState": "AQIAAAYBAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-22T08:47:57.877Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Jobs.cshtml.cs",
+              "DocumentMoniker": "D:\\GitProject\\CRM.Web\\Pages\\Jobs.cshtml.cs",
+              "RelativeDocumentMoniker": "CRM.Web\\Pages\\Jobs.cshtml.cs",
+              "ToolTip": "D:\\GitProject\\CRM.Web\\Pages\\Jobs.cshtml.cs",
+              "RelativeToolTip": "CRM.Web\\Pages\\Jobs.cshtml.cs",
+              "ViewState": "AQIAAMIAAAAAAAAAAAAuwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T08:47:15.813Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "JobTransactionsViewModel.cs",
+              "DocumentMoniker": "D:\\GitProject\\CRM\\ViewModels\\JobTransactionsViewModel.cs",
+              "RelativeDocumentMoniker": "CRM\\ViewModels\\JobTransactionsViewModel.cs",
+              "ToolTip": "D:\\GitProject\\CRM\\ViewModels\\JobTransactionsViewModel.cs",
+              "RelativeToolTip": "CRM\\ViewModels\\JobTransactionsViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T07:54:33.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "JobTransactionsController.cs",
+              "DocumentMoniker": "D:\\GitProject\\CRM\\Controllers\\JobTransactionsController.cs",
+              "RelativeDocumentMoniker": "CRM\\Controllers\\JobTransactionsController.cs",
+              "ToolTip": "D:\\GitProject\\CRM\\Controllers\\JobTransactionsController.cs",
+              "RelativeToolTip": "CRM\\Controllers\\JobTransactionsController.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAYwDMAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T07:48:24.587Z",
+              "EditorCaption": ""
+>>>>>>> 1cbaf8b0ca80e232546ff7467de235c509125c99
             }
           ]
         }
