@@ -10,7 +10,8 @@ namespace CRM.Data.Enums
     {
         Running = 1,
         Exception = 2,
-        Completed = 3
+        Completed = 3,
+        Stopped = 4 
     }
     public enum LogType
     {
