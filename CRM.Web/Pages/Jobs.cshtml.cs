@@ -7,6 +7,7 @@ using System;
 using System.Threading.Tasks;
 using CRM.API.ViewModels;
 using Microsoft.Extensions.Options;
+using System.Net.Http;
 
 namespace CRM.Web.Pages
 {
@@ -14,7 +15,7 @@ namespace CRM.Web.Pages
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly string _apiEndpoint = "/api/Jobs";
-        private readonly string _apitransactionsEndpoint = "/api/Transactions/Job";
+        private readonly string _apiTransactionsEndpoint = "/api/JobTransactions/Job";
 
         [BindProperty]
         public List<JobsViewModel> JobLogsList { get; set; }
@@ -154,7 +155,7 @@ namespace CRM.Web.Pages
                 AddAuthorizationToken(httpClient);
 
                 var response = await httpClient.GetAsync($"/api/Logs/Job/{id}");
-
+          
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -206,8 +207,8 @@ namespace CRM.Web.Pages
             {
                 AddAuthorizationToken(httpClient);
 
-                var response = await httpClient.GetAsync($"/api/Transactions/Job/{id}");
-                //var response = await httpClient.GetAsync($"{_apitransactionsEndpoint}/{id}");
+                //var response = await httpClient.GetAsync($"/api/JobTransactions/Job/{id}");
+                var response = await httpClient.GetAsync($"{_apiTransactionsEndpoint}/{id}");
 
                 if (response.IsSuccessStatusCode)
                 {
