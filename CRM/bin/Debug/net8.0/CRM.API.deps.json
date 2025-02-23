@@ -2150,7 +2150,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.0"
         },
         "runtime": {
-          "CRM.Data.dll": {}
+          "CRM.Data.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "CRM.Service/1.0.0": {
@@ -2160,7 +2163,10 @@
           "NCrontab": "3.3.3"
         },
         "runtime": {
-          "CRM.Service.dll": {}
+          "CRM.Service.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
