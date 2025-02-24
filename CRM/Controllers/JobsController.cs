@@ -20,11 +20,11 @@ namespace CRM.Controllers
     [ApiController]
     public class JobsController : ControllerBase
     {
-        private readonly IUnitOfWork _unitOfWork; 
+        private readonly IUnitOfWork _unitOfWork;
 
         public JobsController(IUnitOfWork unitOfWork)
         {
-            _unitOfWork = unitOfWork; 
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
@@ -56,7 +56,7 @@ namespace CRM.Controllers
             }
             catch (Exception ex)
             {
-             
+
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -112,7 +112,7 @@ namespace CRM.Controllers
             }
             catch (Exception ex)
             {
-                
+
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -132,7 +132,7 @@ namespace CRM.Controllers
                 {
                     return BadRequest("Invalid ClientId");
                 }
-                else if(client.LicenseStatus && client.LicenseEndDate > DateTime.UtcNow)
+                else if (client.LicenseStatus && client.LicenseEndDate > DateTime.UtcNow)
                 {
                     var tasks = await _unitOfWork.TaskRepository.GetAllAsync();
                     var task = tasks.FirstOrDefault(f => f.TaskId == model.TaskId);
@@ -140,10 +140,10 @@ namespace CRM.Controllers
                     if (task == null)
                     {
                         return BadRequest("Invalid TaskId");
-                    } 
+                    }
                     var job = new Job
                     {
-                       
+
                         ClientId = client.ClientId,
                         TasksId = task.TaskId,
                         Status = JobTaskStatus.Running,
@@ -165,7 +165,7 @@ namespace CRM.Controllers
             }
             catch (Exception ex)
             {
-              
+
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -175,7 +175,7 @@ namespace CRM.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> UpdateJob(CRM.API.ViewModels.UpdateJob model)
         {
-          
+
             try
             {
                 var jobs = await _unitOfWork.JobRepository.GetAllAsync(
@@ -183,7 +183,7 @@ namespace CRM.Controllers
                     {
                         ct => ct.Client,
                         ct => ct.Tasks
-                    }); 
+                    });
                 var job = jobs.FirstOrDefault(f => f.Id == model.JobId);
                 if (job == null)
                 {
@@ -206,7 +206,7 @@ namespace CRM.Controllers
                         if (task == null)
                         {
                             return BadRequest("Invalid TaskId");
-                        } 
+                        }
                         job.Ended = model.Ended;
                         job.Status = model.Status;
 
@@ -222,11 +222,11 @@ namespace CRM.Controllers
                     }
                 }
 
-                
+
             }
             catch (Exception ex)
             {
-             
+
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -249,7 +249,7 @@ namespace CRM.Controllers
                 if (job == null)
                 {
                     return NotFound("Job not found");
-                } 
+                }
                 // Perform deletion if checks pass
                 var deleted = await _unitOfWork.JobRepository.DeleteAsync(id.ToString());
 
@@ -268,8 +268,6 @@ namespace CRM.Controllers
             }
         }
 
-
-
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateJob(int id, Job job)
         {
@@ -287,8 +285,34 @@ namespace CRM.Controllers
             }
             catch (Exception ex)
             {
-             
+
                 return StatusCode(500, "Internal server error");
+            }
+        }
+
+       
+        [HttpPost("StopJob/{id}")]
+        public async Task<IActionResult> StoppedJob(int id) 
+        {
+            try
+            {
+                var existingJob = await _unitOfWork.JobRepository.GetByIdAsync(c => EF.Property<int>(c, "Id") == id);
+                if (existingJob == null)
+                {
+                    return NotFound();
+                }
+
+                existingJob.Status = JobTaskStatus.Stopped;
+
+                var updatedJob = await _unitOfWork.JobRepository.UpdateAsync(existingJob);
+                await _unitOfWork.SaveChangesAsync();
+
+                return Ok(updatedJob);
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error:'" + ex.Message + "' ");
             }
         }
 
@@ -309,7 +333,7 @@ namespace CRM.Controllers
         //    }
         //    catch (Exception ex)
         //    {
-              
+
         //        return StatusCode(500, "Internal server error");
         //    }
         //}

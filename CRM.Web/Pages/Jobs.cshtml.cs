@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CRM.API.ViewModels;
 using Microsoft.Extensions.Options;
 using System.Net.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace CRM.Web.Pages
 {
@@ -16,6 +17,8 @@ namespace CRM.Web.Pages
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly string _apiEndpoint = "/api/Jobs";
         private readonly string _apiTransactionsEndpoint = "/api/JobTransactions/Job";
+        private readonly string _apiLogsEndpoint = "/api/Logs/Job";
+
 
         [BindProperty]
         public List<JobsViewModel> JobLogsList { get; set; }
@@ -90,6 +93,8 @@ namespace CRM.Web.Pages
             return RedirectToPage();
         }
 
+
+
         public async Task<IActionResult> OnPostList()
         {
             try
@@ -154,8 +159,9 @@ namespace CRM.Web.Pages
             {
                 AddAuthorizationToken(httpClient);
 
-                var response = await httpClient.GetAsync($"/api/Logs/Job/{id}");
-          
+                //var response = await httpClient.GetAsync($"/api/Logs/Job/{id}");
+                var response = await httpClient.GetAsync($"{_apiLogsEndpoint}/{id}");
+
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -207,7 +213,6 @@ namespace CRM.Web.Pages
             {
                 AddAuthorizationToken(httpClient);
 
-                //var response = await httpClient.GetAsync($"/api/JobTransactions/Job/{id}");
                 var response = await httpClient.GetAsync($"{_apiTransactionsEndpoint}/{id}");
 
                 if (response.IsSuccessStatusCode)
@@ -228,5 +233,36 @@ namespace CRM.Web.Pages
             }
         }
 
+
+        public async Task<IActionResult> OnPostStopJob(int id) 
+        {
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
+
+            try
+            {
+                AddAuthorizationToken(httpClient);
+
+                var response = await httpClient.PostAsync($"{_apiEndpoint}/StopJob/{id}", null);
+
+                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    return new JsonResult(new { status = "error", message = "Job not found." });
+                }
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new JsonResult(new { status = "error", message = $"Error stopping job. Status code: {response.StatusCode}" });
+                }
+
+                return new JsonResult(new { status = "success", message = "Job has been stopped successfully." });
+
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { status = "error", message = $"Error stopping job with ID {id}: {ex.Message}" });
+            }
+
+
+        }
     }
 }

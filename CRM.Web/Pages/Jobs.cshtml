@@ -18,7 +18,7 @@
         <thead>
             <tr>
                 <th hidden>Id</th>
-                <th>Client Name</th>            
+                <th>Client Name</th>
                 <th>Task Name</th>
                 <th>Status</th>
                 <th>Started</th>
@@ -135,24 +135,35 @@
 
                     {
                         data: null,
-                        render: function () {
+                        render: function (data, type, row) {
+                            let isRunning = row.taskStatus === "Running";
+                            let stopTabClass = isRunning ? "" : "text-muted";
+                            let stopTabStyle = isRunning ? "cursor:pointer;" : "cursor:not-allowed;";
+
                             return `
-                            <div class="dropdown ms-auto" style="cursor:pointer;">
-                                <i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" data-bs-target="#logModal" aria-expanded="false"></i>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <span class="dropdown-item view-logs" style="cursor:pointer;">
-                                            <i class="fas fa-pen mx-2"></i>View Logs
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="dropdown-item view-transactions" style="cursor:pointer;">
-                                               <i class="fas fa-exchange-alt mx-2"></i>Transactions
-                                        </span>
-                                     </li>
-                                </ul>
-                            </div>
-                        `;
+                                            <div class="dropdown ms-auto" style="cursor:pointer;">
+                                                <i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" data-bs-target="#logModal" aria-expanded="false"></i>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <span class="dropdown-item view-logs" style="cursor:pointer;">
+                                                            <i class="fas fa-pen mx-2"></i>View Logs
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="dropdown-item view-transactions" style="cursor:pointer;">
+                                                               <i class="fas fa-exchange-alt mx-2"></i>Transactions
+                                                        </span>
+                                                     </li>
+
+                                                     <li>
+                                                        <span class="dropdown-item view-stopbybot ${stopTabClass}" data-id="${row.id}" style="${stopTabStyle}">
+                                                                        <i class="fas fa-stop mx-2"></i>Stop Job
+                                                        </span>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        `;
                         }
                     }
                 ],
@@ -267,7 +278,8 @@
                             { data: "transactionDescription" },
                             { data: "transactionStatus" },
                             { data: "transactionCommand" },
-                            { data: "timestamp",
+                            {
+                                data: "timestamp",
                                 render: function (data) {
                                     var date = new Date(data);
                                     return ('0' + (date.getMonth() + 1)).slice(-2) + '-' +
@@ -305,7 +317,60 @@
                 transactionTable.ajax.reload();
             });
 
+         
+            // Handle Stop By Bot Click Event
 
+            $('#jobsTable tbody').on('click', '.view-stopbybot', function () {
+                let stopTab = $(this);
+                if (stopTab.hasClass('text-muted')) return; // Prevent clicking when disabled
+
+                let jobId = stopTab.data("id");
+
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "Do you want to stop the job?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, stop it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: "POST",
+                            url: "/Jobs?handler=StopJob",
+                            data: { id: jobId },
+                            beforeSend: function (xhr) {
+                                var token = $('input:hidden[name="__RequestVerificationToken"]').val();
+                                xhr.setRequestHeader("XSRF-TOKEN", token);
+                            },
+                            success: function (response) {
+                                if (response.status === "success") {
+                                    Swal.fire({
+                                        title: "Stopped!",
+                                        text: response.message,//"Job stopped successfully.",
+                                        icon: "success"
+                                    });
+                                    table.ajax.reload();
+                                } else {
+                                    Swal.fire({
+                                        title: "Failed!",
+                                        text: response.message, //"Failed to stop the job.",
+                                        icon: "error"
+                                    });
+                                }
+                            },
+                            error: function () {
+                                Swal.fire({
+                                    title: "Error!",
+                                    text: "An error occurred while stopping the job.",
+                                    icon: "error"
+                                });
+                            }
+                        });
+                    }
+                });
+            });
 
         });
     </script>
