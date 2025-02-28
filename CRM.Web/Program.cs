@@ -27,8 +27,11 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     // Configure identity options as needed
     options.SignIn.RequireConfirmedAccount = true;
+    options.User.RequireUniqueEmail = true;
 })
-.AddEntityFrameworkStores<ProjectDbContext>();
+.AddEntityFrameworkStores<ProjectDbContext>()
+.AddDefaultTokenProviders();
+
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.AddHttpClient();
 // Configure Identity options
