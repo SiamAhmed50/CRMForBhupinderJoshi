@@ -31,12 +31,13 @@ namespace CRM.UI.Pages
 
             foreach (var user in users)
             {
-                var role = (await _userManager.GetRolesAsync(user)).FirstOrDefault() ?? "User"; 
+                var role = (await _userManager.GetRolesAsync(user)).FirstOrDefault() ?? "Visitor"; 
                 userModels.Add(new UserModel
                 {
                     Id = user.Id,
                     Email = user.Email,
                     UserName = user.UserName,
+                    PhoneNumber=user.PhoneNumber,
                     Role = role
                 });
             }
@@ -53,12 +54,13 @@ namespace CRM.UI.Pages
 
             foreach (var user in users)
             {
-                var role = (await _userManager.GetRolesAsync(user)).FirstOrDefault() ?? "User"; 
+                var role = (await _userManager.GetRolesAsync(user)).FirstOrDefault() ?? "Visitor"; 
                 userModels.Add(new UserModel
                 {
                     Id = user.Id,
                     Email = user.Email,
                     UserName = user.UserName,
+                    PhoneNumber=user.PhoneNumber,
                     Role = role
                 });
             }
@@ -71,9 +73,9 @@ namespace CRM.UI.Pages
             
             var user = new ApplicationUser
             {
-                NormalizedUserName=UserModel.FullName,
                 UserName = UserModel.UserName,
-                Email = UserModel.Email
+                Email = UserModel.Email,
+                PhoneNumber = UserModel.PhoneNumber,
             };
 
             var result = await _userManager.CreateAsync(user, UserModel.Password);
@@ -142,6 +144,7 @@ namespace CRM.UI.Pages
 
             existingUser.UserName = UserModel.UserName;
             existingUser.Email = UserModel.Email;
+            existingUser.PhoneNumber = UserModel.PhoneNumber;
 
 
             if (!string.IsNullOrEmpty(UserModel.Password))
@@ -185,18 +188,17 @@ namespace CRM.UI.Pages
     public class UserModel
     {
         public string Id { get; set; }
-        public string FullName { get; set; }
         public string Email { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
-
+        public string PhoneNumber { get; set; }
         public List<string> AvailableRoles { get; set; }
     }
 }
 
 
-
+#region @@@ This is for Normal Alert @@@
 //public async Task<IActionResult> OnPostDelete(string id)
 //{
 
@@ -248,3 +250,4 @@ namespace CRM.UI.Pages
 //         }
 //     });
 // });
+#endregion

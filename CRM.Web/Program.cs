@@ -44,12 +44,16 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/Identity/Account/Login"; // Set the login URL
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(30); // Set your desired expiration time
+        options.LoginPath = "/Identity/Account/Login"; 
+        options.LogoutPath = "/Identity/Account/Logout"; //Added
+        options.AccessDeniedPath = "/Identity/Account/AccessDenied";//Added
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30); 
     });
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+
+    
 });
 builder.Services.AddScoped<SignInManager<ApplicationUser>, SignInManager<ApplicationUser>>();
 //builder.Services.AddHostedService<LicenseExpirationService>();

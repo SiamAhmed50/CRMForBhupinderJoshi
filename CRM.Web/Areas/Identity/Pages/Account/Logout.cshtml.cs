@@ -4,6 +4,8 @@
 
 using System;
 using System.Threading.Tasks;
+using CRM.Data.DbContext;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -14,29 +16,31 @@ namespace CRM.UI.Areas.Identity.Pages.Account
 {
     public class LogoutModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LogoutModel> _logger;
 
-        public LogoutModel(SignInManager<IdentityUser> signInManager, ILogger<LogoutModel> logger)
+        public LogoutModel(SignInManager<ApplicationUser> signInManager, ILogger<LogoutModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;
         }
 
+        public IActionResult OnGet()
+        {
+            return Page(); // Show the logout page if accessed via GET
+        }
+
         public async Task<IActionResult> OnPost(string returnUrl = null)
         {
-            await _signInManager.SignOutAsync();
+            //await _signInManager.SignOutAsync();
+            await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);
             _logger.LogInformation("User logged out.");
-            if (returnUrl != null)
-            {
-                return LocalRedirect(returnUrl);
-            }
-            else
-            {
-                // This needs to be a redirect so that the browser performs a new
-                // request and the identity for the user gets updated.
-                return RedirectToPage();
-            }
+            HttpContext.Response.Cookies.Delete("jwt");
+            HttpContext.Response.Cookies.Delete("UserName");
+            HttpContext.Response.Cookies.Delete("UserEmail");
+            HttpContext.Response.Cookies.Delete("UserRole");
+            return returnUrl != null ? LocalRedirect(returnUrl) : RedirectToPage("/Account/Login");
+
         }
     }
 }
