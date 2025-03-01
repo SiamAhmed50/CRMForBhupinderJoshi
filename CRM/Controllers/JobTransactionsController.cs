@@ -47,7 +47,7 @@ namespace CRM.Controllers
                     TransactionNumber = transaction.Number,
                     TransactionDescription = transaction.Description,
                     TransactionStatus = transaction.Status,
-                    TransactionCommand = transaction.Command,
+                    TransactionComment = transaction.Comment,
                     Timestamp = transaction.Timestamp
                 }).ToList();
 
@@ -77,7 +77,7 @@ namespace CRM.Controllers
                 TransactionNumber = transaction.Number,
                 TransactionDescription = transaction.Description,
                 TransactionStatus = transaction.Status,
-                TransactionCommand = transaction.Command,
+                TransactionComment = transaction.Comment,
                 Timestamp = transaction.Timestamp
             };
 
@@ -106,7 +106,7 @@ namespace CRM.Controllers
                     TransactionNumber = transaction.Number,
                     TransactionDescription = transaction.Description,
                     TransactionStatus = transaction.Status,
-                    TransactionCommand = transaction.Command,
+                    TransactionComment = transaction.Comment,
                     Timestamp = transaction.Timestamp
                 }).ToList();
 
@@ -131,7 +131,7 @@ namespace CRM.Controllers
                     Number = transactionModel.TransactionNumber,
                     Description = transactionModel.TransactionDescription,
                     Status = transactionModel.TransactionStatus,
-                    Command = transactionModel.TransactionCommand,
+                    Comment = transactionModel.TransactionComment,
                     Timestamp = transactionModel.Timestamp
                 };
 
@@ -172,7 +172,7 @@ namespace CRM.Controllers
                 existingTransaction.Number = transactionModel.TransactionNumber;
                 existingTransaction.Description = transactionModel.TransactionDescription;
                 existingTransaction.Status = transactionModel.TransactionStatus;
-                existingTransaction.Command = transactionModel.TransactionCommand;
+                existingTransaction.Comment = transactionModel.TransactionComment;
                 existingTransaction.Timestamp = transactionModel.Timestamp;
 
                 var updatedTransaction = await _unitOfWork.JobTransactionsRepository.UpdateAsync(existingTransaction);
@@ -231,8 +231,9 @@ namespace CRM.Controllers
                         JobId = jobTransactionModel.JobId,
                         Description = jobTransactionModel.TransactionDescription,
                         Number = jobTransactionModel.TransactionNumber,
-                        Command = jobTransactionModel.TransactionCommand,
-                        Timestamp = jobTransactionModel.Timestamp
+                        Comment = jobTransactionModel.TransactionCommand,
+                        Timestamp = jobTransactionModel.Timestamp,
+                        Status = jobTransactionModel.TransactionStatus
                     };
 
                     await _unitOfWork.JobTransactionsRepository.AddAsync(objJobTransaction);
@@ -244,7 +245,8 @@ namespace CRM.Controllers
                 {
                     existingJobTransactions.Description = jobTransactionModel.TransactionDescription;
                     existingJobTransactions.Number = jobTransactionModel.TransactionNumber;
-                    existingJobTransactions.Command = jobTransactionModel.TransactionCommand;
+                    existingJobTransactions.Comment = jobTransactionModel.TransactionCommand;
+                    existingJobTransactions.Status = jobTransactionModel.TransactionStatus;
                     await _unitOfWork.JobTransactionsRepository.UpdateAsync(existingJobTransactions);
                     await _unitOfWork.SaveChangesAsync();
 

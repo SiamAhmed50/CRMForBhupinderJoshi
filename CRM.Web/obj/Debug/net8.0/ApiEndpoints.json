@@ -26,22 +26,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CRM.Controllers.AccountController",
-    "Method": "Register",
-    "RelativePath": "api/Account/register",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "CRM.Data.Models.RegisterModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "CRM.Controllers.ClientsController",
     "Method": "GetClients",
     "RelativePath": "api/Clients",

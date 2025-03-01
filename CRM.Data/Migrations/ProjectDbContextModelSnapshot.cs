@@ -91,15 +91,15 @@ namespace CRM.Data.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4b45084e-2c2c-4d94-81d0-184b0bd4f950",
+                            ConcurrencyStamp = "0f8873fc-88d0-4f3d-8f63-906198e88489",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHEFCVPJTgI8zAjmPToLyRgSV/i9XvfRvFKx3RR3asGTnClrdPNZqDMW60y3qiqoug==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEI9jXUpPeS0P+EOdfY3poNpyMc++etCGDEJgyvuLqAWcJnN7L4YwXW0G9PNttQ4urg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "061cfa93-3d53-454f-b897-9cfe555b6af0",
+                            SecurityStamp = "58f2188b-5095-46f1-afce-dad7f0751131",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -217,6 +217,40 @@ namespace CRM.Data.Migrations
                     b.HasIndex("TaskId");
 
                     b.ToTable("JobLogs");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.JobTransactions", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("JobId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("JobTransactions");
                 });
 
             modelBuilder.Entity("CRM.Data.Entities.Logs", b =>

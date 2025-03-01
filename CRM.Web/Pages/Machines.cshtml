@@ -108,7 +108,15 @@
                     { data: "client.name" },
                     { data: 'machineIp' },
                     { data: 'username' },
-                    { data: 'password' },
+                    {
+                        data: 'password',
+                        render: function (data, type, row) {
+                            // Render the password masked with a toggle icon.
+                            // The actual password is stored as a data attribute.
+                            return `<span class="password-mask" data-password="${data}">*******</span>
+                                <i class="fas fa-eye toggle-password" style="cursor: pointer; margin-left: 5px;"></i>`;
+                        }
+                    },
                     {
                         data: null,
                         render: function (data, type, row) {
@@ -220,7 +228,19 @@
                     }
                 });
             });
-
+            // Event delegation to toggle password visibility
+            $('#machineTable').on('click', '.toggle-password', function () {
+                var $icon = $(this);
+                var $passwordSpan = $icon.siblings('.password-mask');
+                // Check current state: if it's masked, show plain text; otherwise, mask it.
+                if ($passwordSpan.text() === '*******') {
+                    $passwordSpan.text($passwordSpan.data('password'));
+                    $icon.removeClass('fa-eye').addClass('fa-eye-slash');
+                } else {
+                    $passwordSpan.text('*******');
+                    $icon.removeClass('fa-eye-slash').addClass('fa-eye');
+                }
+            });
 
 
            
