@@ -1,17 +1,17 @@
-﻿ <!DOCTYPE html>
+﻿
 
-<html
-  lang="en"
-  class="light-style layout-menu-fixed layout-compact"
-  dir="ltr"
-  data-theme="theme-default"
-  data-assets-path="~/assets/"
-  data-template="vertical-menu-template-free">
-  <head>
+<!DOCTYPE html>
+
+<html lang="en"
+      class="light-style layout-menu-fixed layout-compact"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="~/assets/"
+      data-template="vertical-menu-template-free">
+<head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <title>Dashboard - RB Monitor</title>
 
@@ -23,9 +23,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
-      rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
+          rel="stylesheet" />
 
     <link rel="stylesheet" href="~/assets/vendor/fonts/materialdesignicons.css" />
 
@@ -44,8 +43,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Page CSS -->
     <style>
-        .swal2-container{
-            z-index:9000!important;
+        .swal2-container {
+            z-index: 9000 !important;
         }
     </style>
     <!-- Helpers -->
@@ -53,195 +52,212 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="~/assets/js/config.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
+    @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+    @{
+        var userName = HttpContextAccessor.HttpContext?.Request.Cookies["UserName"];
+        var userEmail = HttpContextAccessor.HttpContext?.Request.Cookies["UserEmail"];
+        var userRole = HttpContextAccessor.HttpContext?.Request.Cookies["UserRole"];
+
+        var defaultUserName = "Guest User";
+        var defaultUserRole = "Visitor";
+    }
+
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
-      <div class="layout-container">
-        <!-- Menu -->
+        <div class="layout-container">
+            <!-- Menu -->
 
-        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-          <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
-              <span class="app-brand-logo demo me-1">
-                <span style="color: var(--bs-primary)">
-                  
-                </span>
-              </span>
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                <div class="app-brand demo">
+                    <a href="index.html" class="app-brand-link">
+                        <span class="app-brand-logo demo me-1">
+                            <span style="color: var(--bs-primary)">
+
+                            </span>
+                        </span>
                         <span class="app-brand-text demo menu-text fw-semibold ms-2">RB Monitor</span>
-            </a>
+                    </a>
 
-            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
-              <i class="mdi menu-toggle-icon d-xl-block align-middle mdi-20px"></i>
-            </a>
-          </div>
+                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+                        <i class="mdi menu-toggle-icon d-xl-block align-middle mdi-20px"></i>
+                    </a>
+                </div>
 
-          <div class="menu-inner-shadow"></div> 
+                <div class="menu-inner-shadow"></div>
                 <ul class="menu-inner py-1 ps ps--active-y">
-                    
-                   
-                    <!-- Cards -->
-                    <li class="menu-item" id="clientsmenu">
-                        <a href="/Clients" class="menu-link">
-                            <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-                            <div data-i18n="Basic">Clients</div>
-                        </a>
-                    </li>
-                    <li class="menu-item" id="clienttasksmenu">
-                        <a href="/ClientTasks" class="menu-link">
-                            <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-                            <div data-i18n="Basic">Tasks</div>
-                        </a>
-                    </li>
-                    <li class="menu-item" id="clienttasksmenu">
-                        <a href="/Jobs" class="menu-link">
-                            <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-                            <div data-i18n="Basic">Jobs</div>
-                        </a>
-                    </li>
+                    @if (userRole != null)
+                    {
+                        <!-- Cards -->
+                        @if (userRole == "Admin")
+                        {
+                            <li class="menu-item" id="usersmenu">
+                                <a href="/Users" class="menu-link">
+                                    <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+                                    <div data-i18n="Basic">Users</div>
+                                </a>
+                            </li>
+                        }
 
-                    <li class="menu-item" id="machinesmenu">
-                        <a href="/Machines" class="menu-link">
-                            <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-                            <div data-i18n="Basic">Machines</div>
-                        </a>
-                    </li>
-
-                    <li class="menu-item" id="schedulesmenu">
-                        <a href="/ScheduleList" class="menu-link">
-                            <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-                            <div data-i18n="Basic">Schedules</div>
-                        </a>
-                    </li>
-                     
+                        <li class="menu-item" id="clientsmenu">
+                            <a href="/Clients" class="menu-link">
+                                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+                                <div data-i18n="Basic">Clients</div>
+                            </a>
+                        </li>
+                        <li class="menu-item" id="clienttasksmenu">
+                            <a href="/ClientTasks" class="menu-link">
+                                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+                                <div data-i18n="Basic">Tasks</div>
+                            </a>
+                        </li>
+                        <li class="menu-item" id="clienttasksmenu">
+                            <a href="/Jobs" class="menu-link">
+                                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+                                <div data-i18n="Basic">Jobs</div>
+                            </a>
+                        </li>
+                        <li class="menu-item" id="machinesmenu">
+                            <a href="/Machines" class="menu-link">
+                                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+                                <div data-i18n="Basic">Machines</div>
+                            </a>
+                        </li>
+                        <li class="menu-item" id="schedulesmenu">
+                            <a href="/ScheduleList" class="menu-link">
+                                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+                                <div data-i18n="Basic">Schedules</div>
+                            </a>
+                        </li>
+                    }
                     <div class="ps__rail-x" style="left: 0px; bottom: -78px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div>
                     <div class="ps__rail-y" style="top: 78px; height: 266px; right: 4px;"><div class="ps__thumb-y" tabindex="0" style="top: 14px; height: 47px;"></div></div>
                 </ul>
-        </aside>
-        <!-- / Menu -->
+            </aside>
+            <!-- / Menu -->
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Navbar -->
 
-        <!-- Layout container -->
-        <div class="layout-page">
-          <!-- Navbar -->
-
-          <nav
-            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-            id="layout-navbar">
-            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
-              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-                <i class="mdi mdi-menu mdi-24px"></i>
-              </a>
-            </div>
-
-            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-              <!-- Search -->
-              <div class="navbar-nav align-items-center">
-                <div class="nav-item d-flex align-items-center">
-                  <i class="mdi mdi-magnify mdi-24px lh-0"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none bg-body"
-                    placeholder="Search..."
-                    aria-label="Search..." />
-                </div>
-              </div>
-              <!-- /Search -->
-
-              <ul class="navbar-nav flex-row align-items-center ms-auto">
-                <!-- Place this tag where you want the button to render. -->
-                <li class="nav-item lh-1 me-3">
-                  <a
-                    class="github-button"
-                    href="https://github.com/themeselection/materio-bootstrap-html-admin-template-free"
-                    data-icon="octicon-star"
-                    data-size="large"
-                    data-show-count="true"
-                    aria-label="Star themeselection/materio-bootstrap-html-admin-template-free on GitHub"
-                    >Star</a
-                  >
-                </li>
-
-                <!-- User -->
-                <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                  <a
-                    class="nav-link dropdown-toggle hide-arrow p-0"
-                    href="javascript:void(0);"
-                    data-bs-toggle="dropdown">
-                    <div class="avatar avatar-online">
-                      <img src="~/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+                     id="layout-navbar">
+                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+                        <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                            <i class="mdi mdi-menu mdi-24px"></i>
+                        </a>
                     </div>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-end mt-3 py-2">
-                    <li>
-                      <a class="dropdown-item pb-2 mb-1" href="#">
-                        <div class="d-flex align-items-center">
-                          <div class="flex-shrink-0 me-2 pe-1">
-                            <div class="avatar avatar-online">
-                              <img src="~/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+
+                    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                        <!-- Search -->
+                        <div class="navbar-nav align-items-center">
+                            <div class="nav-item d-flex align-items-center">
+                                <i class="mdi mdi-magnify mdi-24px lh-0"></i>
+                                <input type="text"
+                                       class="form-control border-0 shadow-none bg-body"
+                                       placeholder="Search..."
+                                       aria-label="Search..." />
                             </div>
-                          </div>
-                          <div class="flex-grow-1">
-                            <h6 class="mb-0">John Doe</h6>
-                            <small class="text-muted">Admin</small>
-                          </div>
                         </div>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="dropdown-divider my-1"></div>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="mdi mdi-account-outline me-1 mdi-20px"></i>
-                        <span class="align-middle">My Profile</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="mdi mdi-cog-outline me-1 mdi-20px"></i>
-                        <span class="align-middle">Settings</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <span class="d-flex align-items-center align-middle">
-                          <i class="flex-shrink-0 mdi mdi-credit-card-outline me-1 mdi-20px"></i>
-                          <span class="flex-grow-1 align-middle ms-1">Billing</span>
-                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="dropdown-divider my-1"></div>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="javascript:void(0);">
-                        <i class="mdi mdi-power me-1 mdi-20px"></i>
-                        <span class="align-middle">Log Out</span>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <!--/ User -->
-              </ul>
-            </div>
-          </nav>
+                        <!-- /Search -->
+
+                        <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            <!-- Place this tag where you want the button to render. -->
+                            <li class="nav-item lh-1 me-3">
+                                <a class="github-button"
+                                   href="https://github.com/themeselection/materio-bootstrap-html-admin-template-free"
+                                   data-icon="octicon-star"
+                                   data-size="large"
+                                   data-show-count="true"
+                                   aria-label="Star themeselection/materio-bootstrap-html-admin-template-free on GitHub">Star</a>
+                            </li>
+
+                            <!-- User -->
+
+
+                            <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                                <a class="nav-link dropdown-toggle hide-arrow p-0"
+                                   href="javascript:void(0);"
+                                   data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-online">
+                                        <img src="~/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end mt-3 py-2">
+                                    <li>
+                                        <a class="dropdown-item pb-2 mb-1" href="#">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 me-2 pe-1">
+                                                    <div class="avatar avatar-online">
+                                                        <img src="~/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                                                    </div>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="mb-0">@(!string.IsNullOrEmpty(userName) ? userName : defaultUserName)</h6>
+                                                    <small class="text-muted">@(!string.IsNullOrEmpty(userRole) ? userRole : defaultUserRole)</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-divider my-1"></div>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="mdi mdi-account-outline me-1 mdi-20px"></i>
+                                            <span class="align-middle">My Profile</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="mdi mdi-cog-outline me-1 mdi-20px"></i>
+                                            <span class="align-middle">Settings</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <span class="d-flex align-items-center align-middle">
+                                                <i class="flex-shrink-0 mdi mdi-credit-card-outline me-1 mdi-20px"></i>
+                                                <span class="flex-grow-1 align-middle ms-1">Billing</span>
+                                                <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-divider my-1"></div>
+                                    </li>
+
+                                    <li>
+                                        <form method="post" asp-area="Identity" asp-page="/Account/Logout" class="d-inline">
+                                            <button type="submit" class="dropdown-item">
+                                                <i class="mdi mdi-power me-1 mdi-20px"></i>
+                                                <span class="align-middle">Log Out</span>
+                                            </button>
+                                        </form>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <!--/ User -->
+                        </ul>
+                    </div>
+                </nav>
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
-                         @RenderBody()
+                        @RenderBody()
                     </div>
-             </div>
+                </div>
+            </div>
+            <!-- / Layout page -->
         </div>
-        <!-- / Layout page -->
-      </div>
 
-      <!-- Overlay -->
-      <div class="layout-overlay layout-menu-toggle"></div>
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
- 
-
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="~/assets/vendor/libs/jquery/jquery.js"></script>
@@ -276,7 +292,7 @@
     @await RenderSectionAsync("Scripts", required: false)
     <script type="text/javascript">
         $(document).ready(function () {
-            
+
             if ("@TempData["SuccessMessage"]" != "") {
                 Swal.fire({
                     position: "top-end",
@@ -296,7 +312,7 @@
                 });
             }
 
-            
+
             // Extract the current page from the URL
             var currentPage = window.location.pathname.toLowerCase().replace('/', '');
 
@@ -305,8 +321,15 @@
 
             // Add "active" class to the current page's menu item
             $('#' + currentPage + 'menu').addClass('active');
+
+
         });
 
+
+
     </script>
-  </body>
+
+
+
+</body>
 </html>

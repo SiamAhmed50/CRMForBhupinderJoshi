@@ -1,607 +1,607 @@
 {
   "Files": [
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CRM.UI.bundle.scp.css",
+      "Id": "D:\\GitProject\\CRM.Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CRM.UI.bundle.scp.css",
       "PackagePath": "staticwebassets\\CRM.UI.bundle.scp.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\css\\demo.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\css\\demo.css",
       "PackagePath": "staticwebassets\\assets\\css\\demo.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\avatars\\1.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\avatars\\1.png",
       "PackagePath": "staticwebassets\\assets\\img\\avatars\\1.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\avatars\\2.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\avatars\\2.png",
       "PackagePath": "staticwebassets\\assets\\img\\avatars\\2.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\avatars\\3.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\avatars\\3.png",
       "PackagePath": "staticwebassets\\assets\\img\\avatars\\3.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\avatars\\4.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\avatars\\4.png",
       "PackagePath": "staticwebassets\\assets\\img\\avatars\\4.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\avatars\\5.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\avatars\\5.png",
       "PackagePath": "staticwebassets\\assets\\img\\avatars\\5.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\avatars\\6.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\avatars\\6.png",
       "PackagePath": "staticwebassets\\assets\\img\\avatars\\6.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\avatars\\7.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\avatars\\7.png",
       "PackagePath": "staticwebassets\\assets\\img\\avatars\\7.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\backgrounds\\18.jpg",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\backgrounds\\18.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\backgrounds\\18.jpg"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\elements\\1.jpg",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\elements\\1.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\elements\\1.jpg"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\elements\\11.jpg",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\elements\\11.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\elements\\11.jpg"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\elements\\12.jpg",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\elements\\12.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\elements\\12.jpg"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\elements\\13.jpg",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\elements\\13.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\elements\\13.jpg"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\elements\\17.jpg",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\elements\\17.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\elements\\17.jpg"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\elements\\18.jpg",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\elements\\18.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\elements\\18.jpg"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\elements\\19.jpg",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\elements\\19.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\elements\\19.jpg"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\elements\\2.jpg",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\elements\\2.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\elements\\2.jpg"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\elements\\20.jpg",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\elements\\20.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\elements\\20.jpg"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\elements\\3.jpg",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\elements\\3.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\elements\\3.jpg"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\elements\\4.jpg",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\elements\\4.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\elements\\4.jpg"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\elements\\5.jpg",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\elements\\5.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\elements\\5.jpg"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\elements\\7.jpg",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\elements\\7.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\elements\\7.jpg"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\favicon\\favicon.ico",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\favicon\\favicon.ico",
       "PackagePath": "staticwebassets\\assets\\img\\favicon\\favicon.ico"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\asana.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\asana.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\brands\\asana.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\aws.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\aws.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\brands\\aws.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\behance.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\behance.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\brands\\behance.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\dribbble.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\dribbble.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\brands\\dribbble.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\facebook.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\facebook.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\brands\\facebook.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\github.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\github.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\brands\\github.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\google.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\google.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\brands\\google.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\instagram.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\instagram.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\brands\\instagram.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\mailchimp.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\mailchimp.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\brands\\mailchimp.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\slack.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\slack.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\brands\\slack.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\twitter.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\brands\\twitter.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\brands\\twitter.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\misc\\aviato.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\misc\\aviato.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\misc\\aviato.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\misc\\bitbank.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\misc\\bitbank.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\misc\\bitbank.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\misc\\triangle-light.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\misc\\triangle-light.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\misc\\triangle-light.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\misc\\zipcar.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\misc\\zipcar.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\misc\\zipcar.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\payments\\american-bank.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\payments\\american-bank.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\payments\\american-bank.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\payments\\citi.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\payments\\citi.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\payments\\citi.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\payments\\digital-ocean.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\payments\\digital-ocean.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\payments\\digital-ocean.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\payments\\gumroad.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\payments\\gumroad.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\payments\\gumroad.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\payments\\mastercard-2.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\payments\\mastercard-2.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\payments\\mastercard-2.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\icons\\payments\\stripes.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\icons\\payments\\stripes.png",
       "PackagePath": "staticwebassets\\assets\\img\\icons\\payments\\stripes.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\illustrations\\404.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\illustrations\\404.png",
       "PackagePath": "staticwebassets\\assets\\img\\illustrations\\404.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\illustrations\\auth-basic-mask-light.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\illustrations\\auth-basic-mask-light.png",
       "PackagePath": "staticwebassets\\assets\\img\\illustrations\\auth-basic-mask-light.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\illustrations\\misc-mask-light.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\illustrations\\misc-mask-light.png",
       "PackagePath": "staticwebassets\\assets\\img\\illustrations\\misc-mask-light.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\illustrations\\misc-under-maintenance.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\illustrations\\misc-under-maintenance.png",
       "PackagePath": "staticwebassets\\assets\\img\\illustrations\\misc-under-maintenance.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\illustrations\\tree-3.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\illustrations\\tree-3.png",
       "PackagePath": "staticwebassets\\assets\\img\\illustrations\\tree-3.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\illustrations\\tree.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\illustrations\\tree.png",
       "PackagePath": "staticwebassets\\assets\\img\\illustrations\\tree.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\illustrations\\trophy.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\illustrations\\trophy.png",
       "PackagePath": "staticwebassets\\assets\\img\\illustrations\\trophy.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\layouts\\layout-container-light.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\layouts\\layout-container-light.png",
       "PackagePath": "staticwebassets\\assets\\img\\layouts\\layout-container-light.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\layouts\\layout-fluid-light.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\layouts\\layout-fluid-light.png",
       "PackagePath": "staticwebassets\\assets\\img\\layouts\\layout-fluid-light.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\layouts\\layout-without-menu-light.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\layouts\\layout-without-menu-light.png",
       "PackagePath": "staticwebassets\\assets\\img\\layouts\\layout-without-menu-light.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\img\\layouts\\layout-without-navbar-light.png",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\img\\layouts\\layout-without-navbar-light.png",
       "PackagePath": "staticwebassets\\assets\\img\\layouts\\layout-without-navbar-light.png"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\js\\config.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\js\\config.js",
       "PackagePath": "staticwebassets\\assets\\js\\config.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\js\\dashboards-analytics.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\js\\dashboards-analytics.js",
       "PackagePath": "staticwebassets\\assets\\js\\dashboards-analytics.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\js\\extended-ui-perfect-scrollbar.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\js\\extended-ui-perfect-scrollbar.js",
       "PackagePath": "staticwebassets\\assets\\js\\extended-ui-perfect-scrollbar.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\js\\form-basic-inputs.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\js\\form-basic-inputs.js",
       "PackagePath": "staticwebassets\\assets\\js\\form-basic-inputs.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\js\\main.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\js\\main.js",
       "PackagePath": "staticwebassets\\assets\\js\\main.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\js\\pages-account-settings-account.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\js\\pages-account-settings-account.js",
       "PackagePath": "staticwebassets\\assets\\js\\pages-account-settings-account.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\js\\ui-modals.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\js\\ui-modals.js",
       "PackagePath": "staticwebassets\\assets\\js\\ui-modals.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\js\\ui-popover.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\js\\ui-popover.js",
       "PackagePath": "staticwebassets\\assets\\js\\ui-popover.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\js\\ui-toasts.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\js\\ui-toasts.js",
       "PackagePath": "staticwebassets\\assets\\js\\ui-toasts.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\css\\core.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\css\\core.css",
       "PackagePath": "staticwebassets\\assets\\vendor\\css\\core.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\css\\pages\\page-account-settings.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\css\\pages\\page-account-settings.css",
       "PackagePath": "staticwebassets\\assets\\vendor\\css\\pages\\page-account-settings.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\css\\pages\\page-auth.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\css\\pages\\page-auth.css",
       "PackagePath": "staticwebassets\\assets\\vendor\\css\\pages\\page-auth.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\css\\pages\\page-icons.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\css\\pages\\page-icons.css",
       "PackagePath": "staticwebassets\\assets\\vendor\\css\\pages\\page-icons.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\css\\pages\\page-misc.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\css\\pages\\page-misc.css",
       "PackagePath": "staticwebassets\\assets\\vendor\\css\\pages\\page-misc.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\css\\theme-default.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\css\\theme-default.css",
       "PackagePath": "staticwebassets\\assets\\vendor\\css\\theme-default.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\fonts\\materialdesignicons.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\fonts\\materialdesignicons.css",
       "PackagePath": "staticwebassets\\assets\\vendor\\fonts\\materialdesignicons.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\fonts\\materialdesignicons\\materialdesignicons-webfont.eot",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\fonts\\materialdesignicons\\materialdesignicons-webfont.eot",
       "PackagePath": "staticwebassets\\assets\\vendor\\fonts\\materialdesignicons\\materialdesignicons-webfont.eot"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\fonts\\materialdesignicons\\materialdesignicons-webfont.ttf",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\fonts\\materialdesignicons\\materialdesignicons-webfont.ttf",
       "PackagePath": "staticwebassets\\assets\\vendor\\fonts\\materialdesignicons\\materialdesignicons-webfont.ttf"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\fonts\\materialdesignicons\\materialdesignicons-webfont.woff",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\fonts\\materialdesignicons\\materialdesignicons-webfont.woff",
       "PackagePath": "staticwebassets\\assets\\vendor\\fonts\\materialdesignicons\\materialdesignicons-webfont.woff"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\fonts\\materialdesignicons\\materialdesignicons-webfont.woff2",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\fonts\\materialdesignicons\\materialdesignicons-webfont.woff2",
       "PackagePath": "staticwebassets\\assets\\vendor\\fonts\\materialdesignicons\\materialdesignicons-webfont.woff2"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\js\\bootstrap.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\assets\\vendor\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\js\\helpers.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\js\\helpers.js",
       "PackagePath": "staticwebassets\\assets\\vendor\\js\\helpers.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\js\\menu.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\js\\menu.js",
       "PackagePath": "staticwebassets\\assets\\vendor\\js\\menu.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\apex-charts\\apex-charts.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\apex-charts\\apex-charts.css",
       "PackagePath": "staticwebassets\\assets\\vendor\\libs\\apex-charts\\apex-charts.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\apex-charts\\apexcharts.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\apex-charts\\apexcharts.js",
       "PackagePath": "staticwebassets\\assets\\vendor\\libs\\apex-charts\\apexcharts.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\highlight\\highlight-github.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\highlight\\highlight-github.css",
       "PackagePath": "staticwebassets\\assets\\vendor\\libs\\highlight\\highlight-github.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\highlight\\highlight.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\highlight\\highlight.css",
       "PackagePath": "staticwebassets\\assets\\vendor\\libs\\highlight\\highlight.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\highlight\\highlight.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\highlight\\highlight.js",
       "PackagePath": "staticwebassets\\assets\\vendor\\libs\\highlight\\highlight.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\jquery\\jquery.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\jquery\\jquery.js",
       "PackagePath": "staticwebassets\\assets\\vendor\\libs\\jquery\\jquery.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\masonry\\masonry.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\masonry\\masonry.js",
       "PackagePath": "staticwebassets\\assets\\vendor\\libs\\masonry\\masonry.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\node-waves\\node-waves.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\node-waves\\node-waves.css",
       "PackagePath": "staticwebassets\\assets\\vendor\\libs\\node-waves\\node-waves.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\node-waves\\node-waves.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\node-waves\\node-waves.js",
       "PackagePath": "staticwebassets\\assets\\vendor\\libs\\node-waves\\node-waves.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\perfect-scrollbar\\perfect-scrollbar.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\perfect-scrollbar\\perfect-scrollbar.css",
       "PackagePath": "staticwebassets\\assets\\vendor\\libs\\perfect-scrollbar\\perfect-scrollbar.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\perfect-scrollbar\\perfect-scrollbar.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\perfect-scrollbar\\perfect-scrollbar.js",
       "PackagePath": "staticwebassets\\assets\\vendor\\libs\\perfect-scrollbar\\perfect-scrollbar.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\popper\\popper.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\assets\\vendor\\libs\\popper\\popper.js",
       "PackagePath": "staticwebassets\\assets\\vendor\\libs\\popper\\popper.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\css\\site.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\favicon.ico",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\js\\site.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\GitProject\\CRM.Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

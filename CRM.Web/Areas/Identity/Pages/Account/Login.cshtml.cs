@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using CRM.UI.Helpers;
 using Microsoft.Extensions.Options;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace CRM.UI.Areas.Identity.Pages.Account
 {
@@ -116,7 +117,7 @@ namespace CRM.UI.Areas.Identity.Pages.Account
             returnUrl ??= Url.Content("~/");
 
             // Clear the existing external cookie to ensure a clean login process
-            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme); 
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
             ReturnUrl = returnUrl;
         }
 
@@ -129,12 +130,12 @@ namespace CRM.UI.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                 
-                var httpClient = _httpClientFactory.CreateClient();
-                var apiBaseUrl = "https://api-monitor.robobotics.eu"; // Replace this with the actual base URL of your API
-                //var apiBaseUrl = "https://localhost:44300"; // Replace this with the actual base URL of your API
 
-                var loginRequest = new 
+                var httpClient = _httpClientFactory.CreateClient();
+                //var apiBaseUrl = "https://api-monitor.robobotics.eu"; // Replace this with the actual base URL of your API
+                var apiBaseUrl = "https://localhost:44300";
+
+                var loginRequest = new
                 {
                     Email = Input.Email,
                     Password = Input.Password,
@@ -142,27 +143,38 @@ namespace CRM.UI.Areas.Identity.Pages.Account
                 };
 
 
-                var content = new StringContent(JsonConvert.SerializeObject(loginRequest), Encoding.UTF8, "application/json"); 
-                var response = await httpClient.PostAsync($"{apiBaseUrl}/api/Account/login", content); 
+                var content = new StringContent(JsonConvert.SerializeObject(loginRequest), Encoding.UTF8, "application/json");
+                var response = await httpClient.PostAsync($"{apiBaseUrl}/api/Account/login", content);
                 if (response.IsSuccessStatusCode)
-                { 
-                    // Extract the JWT token from the response
+                {
                     var userResponse = await response.Content.ReadAsStringAsync();
                     var tokenResponse = JsonConvert.DeserializeObject<TokenResponse>(userResponse);
                     if (tokenResponse != null && !string.IsNullOrEmpty(tokenResponse.Token))
                     {
-                        // Set the token in a secure cookie
-                        HttpContext.Response.Cookies.Append("jwt", tokenResponse.Token, new CookieOptions
+
+                        #region @@@@ Set Login User To Cookie @@@
+
+                        var userInfo = await _userManager.FindByEmailAsync(Input.Email);
+                        var userRole = (await _userManager.GetRolesAsync(userInfo)).FirstOrDefault() ;
+                        var cookieOptions = new CookieOptions
                         {
+                            //HttpOnly = false,
                             HttpOnly = true,
-                            Secure = true, // Use only on HTTPS
+                            Secure = true,
                             SameSite = SameSiteMode.Strict,
-                            Expires = DateTimeOffset.UtcNow.AddDays(30) // Adjust token expiration as needed
-                        });
+                            Expires = DateTimeOffset.UtcNow.AddDays(30)
+                        };
+
+                        HttpContext.Response.Cookies.Append("jwt", tokenResponse.Token ?? "", cookieOptions);
+                        HttpContext.Response.Cookies.Append("UserName", userInfo.UserName ?? "", cookieOptions);
+                        HttpContext.Response.Cookies.Append("UserEmail", userInfo.Email ?? "", cookieOptions);
+                        HttpContext.Response.Cookies.Append("UserRole", userRole ?? "", cookieOptions);
+
+                        #endregion
 
                         return LocalRedirect(returnUrl);
                     }
-                   
+
                 }
 
                 if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
@@ -171,7 +183,7 @@ namespace CRM.UI.Areas.Identity.Pages.Account
                     return Page();
                 }
 
-              
+
                 ModelState.AddModelError(string.Empty, "Something went wrong. Please try again later.");
                 return Page();
             }
@@ -179,7 +191,9 @@ namespace CRM.UI.Areas.Identity.Pages.Account
             return Page();
         }
 
-       
+
+
+
 
     }
 

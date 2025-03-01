@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using CRM.Data.DbContext;
 using CRM.Data.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 namespace CRM.Controllers
 {
@@ -83,7 +84,11 @@ namespace CRM.Controllers
         [Authorize]
         public IActionResult Logout()
         {
-            // Logout logic is usually handled on the client by removing the JWT token
+            HttpContext.Response.Cookies.Delete("jwt");
+            HttpContext.Response.Cookies.Delete("UserName");
+            HttpContext.Response.Cookies.Delete("UserEmail");
+            HttpContext.Response.Cookies.Delete("UserRole");
+            HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);
             return Ok(new { Message = "Logout successful" });
         }
 
