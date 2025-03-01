@@ -1,7 +1,6 @@
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Release\net8.0\PubTmp\Out\CRM.API.exe
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Release\net8.0\PubTmp\Out\CRM.UI.exe
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Release\net8.0\PubTmp\Out\CRM.API.runtimeconfig.json
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Release\net8.0\PubTmp\Out\appsettings.json
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Release\net8.0\PubTmp\Out\CRM.UI.dll
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Release\net8.0\PubTmp\Out\CRM.UI.runtimeconfig.json
@@ -61,6 +60,7 @@ C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Rele
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Release\net8.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Release\net8.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Release\net8.0\PubTmp\Out\Mono.TextTemplating.dll
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Release\net8.0\PubTmp\Out\NCrontab.dll
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Release\net8.0\PubTmp\Out\Newtonsoft.Json.dll
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Release\net8.0\PubTmp\Out\NuGet.Common.dll
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\obj\Release\net8.0\PubTmp\Out\NuGet.Configuration.dll

@@ -28,6 +28,8 @@ namespace CRM.Controllers
         }
 
         [HttpPost("register")]
+
+        [ApiExplorerSettings(IgnoreApi = true)]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
             if (ModelState.IsValid)
