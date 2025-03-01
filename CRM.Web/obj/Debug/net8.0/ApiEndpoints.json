@@ -354,6 +354,22 @@
   },
   {
     "ContainingType": "CRM.Controllers.JobsController",
+    "Method": "StoppedJob",
+    "RelativePath": "api/Jobs/StopJob/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CRM.Controllers.JobsController",
     "Method": "UpdateJob",
     "RelativePath": "api/Jobs/UpdateJob",
     "HttpMethod": "POST",
