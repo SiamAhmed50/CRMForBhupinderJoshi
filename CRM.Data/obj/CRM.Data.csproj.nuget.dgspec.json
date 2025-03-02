@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "F:\\Work\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {}
+  },
+  "projects": {
+    "F:\\Work\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj",
+        "projectName": "CRM.Data",
+        "projectPath": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj",
+        "packagesPath": "C:\\Users\\Rokon\\.nuget\\packages\\",
+        "outputPath": "F:\\Work\\CRMForBhupinderJoshi\\CRM.Data\\obj\\",
+=======
     "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {}
   },
   "projects": {
@@ -12,9 +25,15 @@
         "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj",
         "packagesPath": "C:\\Users\\Siam Ahmed\\.nuget\\packages\\",
         "outputPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\obj\\",
+>>>>>>> aef131fc235113bb2a2d7d4edc54c4379611a72f
         "projectStyle": "PackageReference",
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\Rokon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
           "C:\\Users\\Siam Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> aef131fc235113bb2a2d7d4edc54c4379611a72f
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,7 +58,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
         }
       },
       "frameworks": {
@@ -84,12 +103,22 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.100-rc.2.24474.11, 9.0.100-rc.2.24474.11]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.2.24474.11/PortableRuntimeIdentifierGraph.json"
+=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+>>>>>>> aef131fc235113bb2a2d7d4edc54c4379611a72f
         }
       }
     }
