@@ -2082,3 +2082,4 @@ D:\GitProject\CRM\obj\Debug\net8.0\refint\CRM.API.dll
 D:\GitProject\CRM\obj\Debug\net8.0\CRM.API.pdb
 D:\GitProject\CRM\obj\Debug\net8.0\CRM.API.genruntimeconfig.cache
 D:\GitProject\CRM\obj\Debug\net8.0\ref\CRM.API.dll
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\bin\Debug\net8.0\appsettings.json

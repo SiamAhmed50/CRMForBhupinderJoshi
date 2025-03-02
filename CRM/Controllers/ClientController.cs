@@ -55,7 +55,7 @@ namespace CRM.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> GetClientByClientId(int clientId)
         {
-            var client = await _unitOfWork.ClientRepository.GetAllAsync(filter: x => x.ClientId == clientId);
+            var client = await _unitOfWork.ClientRepository.GetAllAsync(filter: x => x.ClientCode == clientId);
 
             if (client == null)
             {

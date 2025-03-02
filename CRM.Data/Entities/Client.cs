@@ -12,7 +12,7 @@ namespace CRM.Data.Entities
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public int ClientId { get; set; }
+        public int ClientCode { get; set; }
         public string LicenseNumber { get; set; }
         public DateTime LicenseStartDate { get; set; }
         public DateTime LicenseEndDate { get; set; }

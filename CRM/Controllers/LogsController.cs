@@ -44,7 +44,7 @@ namespace CRM.Controllers
                 var logsViewModel = logs.Select(jobLog => new LogsViewModel
                 {
                     Id = jobLog.Id,
-                    ClientId = jobLog.Client.ClientId,
+                    ClientId = jobLog.Client.ClientCode,
                     TaskId = jobLog.Task.Id,
                     TaskName = jobLog.Task.Name,
                     Logs = jobLog.Logs.Select(log => new LogViewModel
@@ -223,7 +223,7 @@ namespace CRM.Controllers
                 var logsViewModel = logs.Where(w => w.JobId == jobId).Select(jobLog => new LogsViewModel
                 {
                     Id = jobLog.Id,
-                    ClientId = jobLog.Client.ClientId,
+                    ClientId = jobLog.Client.ClientCode,
                     TaskId = jobLog.Task.Id,
                     TaskName = jobLog.Task.Name,
                     Logs = jobLog.Logs.Select(log => new LogViewModel

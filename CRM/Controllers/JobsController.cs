@@ -43,7 +43,7 @@ namespace CRM.Controllers
                 {
                     Id = j.Id,
                     JobId = j.Id,
-                    ClientId = j.Client.ClientId,
+                    ClientId = j.Client.ClientCode,
                     ClientName = j.Client.Name,
                     TaskId = j.Tasks.Id,
                     TaskName = j.Tasks.Name,
@@ -82,7 +82,7 @@ namespace CRM.Controllers
                 {
                     Id = job.Id,
                     JobId = job.Id,
-                    ClientId = job.Client.ClientId,
+                    ClientId = job.Client.ClientCode,
                     ClientName = job.Client.Name,
                     TaskId = job.Tasks.Id,
                     TaskName = job.Tasks.Name,
@@ -126,7 +126,7 @@ namespace CRM.Controllers
             try
             {
                 var clients = await _unitOfWork.ClientRepository.GetAllAsync();
-                var client = clients.FirstOrDefault(f => f.ClientId == model.ClientId);
+                var client = clients.FirstOrDefault(f => f.ClientCode == model.ClientId);
 
                 if (client == null)
                 {
@@ -144,7 +144,7 @@ namespace CRM.Controllers
                     var job = new Job
                     {
 
-                        ClientId = client.ClientId,
+                        ClientId = client.ClientCode,
                         TasksId = task.TaskId,
                         Status = JobTaskStatus.Running,
                         Started = DateTime.UtcNow,
@@ -192,7 +192,7 @@ namespace CRM.Controllers
                 else
                 {
                     var clients = await _unitOfWork.ClientRepository.GetAllAsync();
-                    var client = clients.FirstOrDefault(f => f.ClientId == job.Client.ClientId);
+                    var client = clients.FirstOrDefault(f => f.ClientCode == job.Client.ClientCode);
 
                     if (client == null)
                     {

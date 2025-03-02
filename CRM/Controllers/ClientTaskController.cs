@@ -66,7 +66,7 @@ namespace CRM.Controllers
         public async Task<IActionResult> CreateClientTask(CreateTask task)
         {
 
-            var client =  _unitOfWork.ClientRepository.GetAllAsync(w => w.ClientId == task.ClientId).Result.FirstOrDefault();
+            var client =  _unitOfWork.ClientRepository.GetAllAsync(w => w.ClientCode == task.ClientId).Result.FirstOrDefault();
             if(client != null)
             {
                 if (client.LicenseStatus && client.LicenseEndDate > DateTime.UtcNow)
