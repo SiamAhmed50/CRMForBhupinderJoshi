@@ -131,9 +131,9 @@ namespace CRM.UI.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
 
-                var httpClient = _httpClientFactory.CreateClient();
+                var httpClient = _httpClientFactory.CreateClient("ApiClient");
                 //var apiBaseUrl = "https://api-monitor.robobotics.eu"; // Replace this with the actual base URL of your API
-                var apiBaseUrl = "https://localhost:44300";
+                //var apiBaseUrl = "https://localhost:44300";
 
                 var loginRequest = new
                 {
@@ -144,7 +144,7 @@ namespace CRM.UI.Areas.Identity.Pages.Account
 
 
                 var content = new StringContent(JsonConvert.SerializeObject(loginRequest), Encoding.UTF8, "application/json");
-                var response = await httpClient.PostAsync($"{apiBaseUrl}/api/Account/login", content);
+                var response = await httpClient.PostAsync($"/api/Account/login", content);
                 if (response.IsSuccessStatusCode)
                 {
                     var userResponse = await response.Content.ReadAsStringAsync();

@@ -63,7 +63,7 @@
                             <div class="row g-2">
                                 <div class="col mb-2">
                                     <div class="form-floating form-floating-outline">
-                                    <input type="text" asp-for="ClientModel.ClientId" class="form-control" value="@Model.ClientModel.ClientId" placeholder="Enter Client ID" readonly>
+                                    <input type="text" asp-for="ClientModel.ClientCode" class="form-control" value="@Model.ClientModel.ClientCode" placeholder="Enter Client ID" readonly>
                                         <label for="clientIdBasic">Client ID</label>
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@
                         <div class="row g-2">
                             <div class="col mb-2">
                                 <div class="form-floating form-floating-outline">
-                                    <input type="text" asp-for="ClientModel.ClientId" class="form-control" placeholder="Enter Client ID" readonly>
+                                    <input type="text" asp-for="ClientModel.ClientCode" class="form-control" placeholder="Enter Client ID" readonly>
                                     <label for="clientIdBasic">Client ID</label>
                                 </div>
                             </div>
@@ -177,7 +177,7 @@
                 },
                 "columns": [
                     { "data": "name" },
-                    { "data": "clientId" },
+                    { "data": "clientCode" },
                     { "data": "licenseNumber" },
                     {
                         "data": "licenseStartDate",
@@ -302,13 +302,23 @@
                                 xhr.setRequestHeader('XSRF-TOKEN', $('input:hidden[name="__RequestVerificationToken"]').val());
                             },
                             success: function (response) {
+                                debugger;
                                 // Handle success, e.g., show a success message
-                                table.ajax.reload();
-                                Swal.fire({
-                                    title: 'Deleted!',
-                                    text: 'The client has been deleted.',
-                                    icon: 'success'
-                                });
+                               if(response.success){
+                                    table.ajax.reload();
+                                    Swal.fire({
+                                        title: 'Deleted!',
+                                        text: response.message,
+                                        icon: 'success'
+                                    });
+                               }
+                               else{
+                                    Swal.fire({
+                                        title: 'Error!',
+                                        text: response.message,
+                                        icon: 'error'
+                                    });
+                               }
                             },
                             error: function (error) {
                                 // Handle error, e.g., show an error message

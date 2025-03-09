@@ -39,7 +39,7 @@ namespace CRM.Web.Pages
             // Initialize ClientModel
             ClientModel = new ClientModel();
             // Generate unique ClientId
-            ClientModel.ClientId = GenerateUniqueId();
+            ClientModel.ClientCode = GenerateUniqueId();
 
             // Generate standard format LicenseNumber
             ClientModel.LicenseNumber = GenerateLicenseNumber();
@@ -142,18 +142,28 @@ namespace CRM.Web.Pages
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    ErrorMessage = $"Error deleting client. Status code: {response.StatusCode}";
-                    return RedirectToPage();
+                    return new JsonResult(new
+                    {
+                        success = false,
+                        message = $"Error deleting client. Status code: {response.StatusCode}"
+                    });
                 }
-                SuccessMessage = "Client has been deleted successfully.";
+
+                return new JsonResult(new
+                {
+                    success = true,
+                    message = "Client has been deleted successfully."
+                });
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error deleting client with ID {id}: {ex.Message}");
-                throw new Exception($"Error deleting client with ID {id}: {ex.Message}");
+                return new JsonResult(new
+                {
+                    success = false,
+                    message = $"Error deleting client with ID {id}: {ex.Message}"
+                });
             }
-
-            return RedirectToPage();
         }
 
         public async Task<IActionResult> OnPostList()
@@ -218,7 +228,7 @@ namespace CRM.Web.Pages
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int ClientId { get; set; }
+        public int ClientCode { get; set; }
         public string LicenseNumber { get; set; }
         public DateTime LicenseStartDate { get; set; }
         public DateTime LicenseEndDate { get; set; }

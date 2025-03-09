@@ -75,22 +75,6 @@ C:\Users\Siam Ahmed\Downloads\CRMForBhupinderJoshi\CRMForBhupinderJoshi\CRM.Serv
 C:\Users\Siam Ahmed\Downloads\CRMForBhupinderJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\refint\CRM.Service.dll
 C:\Users\Siam Ahmed\Downloads\CRMForBhupinderJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.pdb
 C:\Users\Siam Ahmed\Downloads\CRMForBhupinderJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\ref\CRM.Service.dll
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Service.deps.json
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Service.dll
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Service.pdb
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Data.dll
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Data.pdb
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.csproj.AssemblyReference.cache
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.GeneratedMSBuildEditorConfig.editorconfig
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.AssemblyInfoInputs.cache
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.AssemblyInfo.cs
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.csproj.CoreCompileInputs.cache
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.sourcelink.json
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Serv.B1B0CCB5.Up2Date
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.dll
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\refint\CRM.Service.dll
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.pdb
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\ref\CRM.Service.dll
 F:\Work\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Service.deps.json
 F:\Work\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Service.dll
 F:\Work\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Service.pdb
@@ -138,3 +122,19 @@ D:\GitProject\CRM.Service\obj\Debug\net8.0\CRM.Service.dll
 D:\GitProject\CRM.Service\obj\Debug\net8.0\refint\CRM.Service.dll
 D:\GitProject\CRM.Service\obj\Debug\net8.0\CRM.Service.pdb
 D:\GitProject\CRM.Service\obj\Debug\net8.0\ref\CRM.Service.dll
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Service.deps.json
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Service.dll
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Service.pdb
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Data.dll
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Data.pdb
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.csproj.AssemblyReference.cache
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.AssemblyInfoInputs.cache
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.AssemblyInfo.cs
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.csproj.CoreCompileInputs.cache
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.sourcelink.json
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Serv.B1B0CCB5.Up2Date
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.dll
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\refint\CRM.Service.dll
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.pdb
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\ref\CRM.Service.dll
