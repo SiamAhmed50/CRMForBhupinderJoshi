@@ -18,6 +18,7 @@ namespace CRM.Data.DbContext
         public DbSet<WeeklySchedule> WeeklySchedules { get; set; }
 
         public DbSet<JobTransactions> JobTransactions { get; set; } 
+        public DbSet<Menus> Menus { get; set; } 
 
 
         public ProjectDbContext(DbContextOptions<ProjectDbContext> options) : base(options)
