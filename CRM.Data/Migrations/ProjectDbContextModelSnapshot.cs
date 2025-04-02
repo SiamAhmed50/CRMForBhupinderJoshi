@@ -91,15 +91,15 @@ namespace CRM.Data.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d4c0f026-839a-4e88-b42b-a9986eeb1690",
+                            ConcurrencyStamp = "308f01e9-ba3a-4fc7-92b0-06b25a22d292",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAECMY8WdATwLSfLpgk3dph1SsJziNIqjxsjw6isVzoxY5pjJPP/V9bGxwwyvUI+S72w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBAF/QKMOReBEYkI6IunLJ6PSeBXC0Ss27FELwZa5YbHN3pwM+9av/2M6Cs2zAtuNw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b901d045-d611-4eed-8c69-7cf8a0b8c5e6",
+                            SecurityStamp = "54327c90-80f0-4571-b66d-2b01ba3067ae",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -250,6 +250,8 @@ namespace CRM.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("JobId");
+
                     b.ToTable("JobTransactions");
                 });
 
@@ -309,6 +311,27 @@ namespace CRM.Data.Migrations
                     b.HasIndex("ClientId");
 
                     b.ToTable("Machines");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.Menus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Menus");
                 });
 
             modelBuilder.Entity("CRM.Data.Entities.Schedule", b =>
@@ -616,6 +639,15 @@ namespace CRM.Data.Migrations
                     b.Navigation("Task");
                 });
 
+            modelBuilder.Entity("CRM.Data.Entities.JobTransactions", b =>
+                {
+                    b.HasOne("CRM.Data.Entities.Job", null)
+                        .WithMany()
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("CRM.Data.Entities.Logs", b =>
                 {
                     b.HasOne("CRM.Data.Entities.JobLogs", "JobLog")
@@ -661,7 +693,8 @@ namespace CRM.Data.Migrations
                 {
                     b.HasOne("CRM.Data.Entities.ClientTask", "ClientTask")
                         .WithMany("Tasks")
-                        .HasForeignKey("ClientTaskId");
+                        .HasForeignKey("ClientTaskId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("ClientTask");
                 });
