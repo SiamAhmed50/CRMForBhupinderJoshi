@@ -1,6 +1,9 @@
 using CRM.Data.DbContext;
+using CRM.Data.Entities;
 using CRM.Service.Helpers;
+using CRM.Service.Interfaces.Repositories;
 using CRM.Service.Services;
+using CRM.Service.Services.Repositories;
 using CRM.UI.Helpers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
@@ -33,6 +36,10 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 .AddDefaultTokenProviders();
 
 builder.Services.AddTransient<IEmailSender, EmailSender>();
+
+
+
+
 builder.Services.AddHttpClient();
 // Configure Identity options
 builder.Services.ConfigureApplicationCookie(options =>

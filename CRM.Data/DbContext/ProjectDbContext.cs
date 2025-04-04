@@ -17,8 +17,10 @@ namespace CRM.Data.DbContext
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<WeeklySchedule> WeeklySchedules { get; set; }
 
-        public DbSet<JobTransactions> JobTransactions { get; set; } 
-        public DbSet<Menus> Menus { get; set; } 
+        public DbSet<JobTransactions> JobTransactions { get; set; }
+        public DbSet<Menus> Menus { get; set; }
+        public DbSet<UserMenus> UserMenus { get; set; }
+
 
 
         public ProjectDbContext(DbContextOptions<ProjectDbContext> options) : base(options)
@@ -29,6 +31,18 @@ namespace CRM.Data.DbContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+
+            modelBuilder.Entity<UserMenus>()
+       .HasOne(um => um.User)
+       .WithMany(u => u.UserMenus)
+       .HasForeignKey(um => um.UserId);
+
+            modelBuilder.Entity<UserMenus>()
+                .HasOne(um => um.Menu)
+                .WithMany()
+                .HasForeignKey(um => um.MenuId);
+
             //--------------------------------------------------------------------
             // 1) CLIENT -> CLIENTTASK
             //--------------------------------------------------------------------
@@ -183,8 +197,5 @@ namespace CRM.Data.DbContext
 
     }
 
-    public class ApplicationUser : IdentityUser
-    {
-        // You can add additional properties for your user model here
-    }
+   
 }

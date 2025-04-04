@@ -12,6 +12,8 @@ namespace CRM.Service.Interfaces.UnitOfWork
     public interface IUnitOfWork : IDisposable
     {
         IRepository<ApplicationUser, string> UserRepository { get; }
+        IUserMenuRepository UserMenuRepository { get; }
+
         IRepository<Client, int> ClientRepository { get; } 
         IRepository<ClientTask, string> ClientTaskRepository { get; } 
         IRepository<Job, string> JobRepository { get; } 

@@ -1,45 +1,41 @@
 using CRM.Data.DbContext;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using CRM.Service.Helpers;
 using CRM.Data.Entities;
-using AutoMapper;
+using CRM.Service.Helpers;
 using CRM.Service.Interfaces.Repositories;
 using CRM.Service.Interfaces.UnitOfWork;
 using CRM.Service.Services.Repositories;
 using CRM.Service.Services.UnitOfWork;
-using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// 1. DB Context
 builder.Services.AddDbContext<ProjectDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString"));
 });
 
+// 2. Repositories and Services
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<IClientTaskRepository, ClientTaskService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-    .AddEntityFrameworkStores<ProjectDbContext>()
-    .AddDefaultTokenProviders();
+builder.Services.AddScoped<IUserMenuRepository, UserMenuService>();
+builder.Services.AddScoped<IMenuService, MenuService>();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddHostedService<LicenseStatusUpdaterService>();
 builder.Services.AddHostedService<ScheduleWorker>();
 
+// 3. Identity
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ProjectDbContext>()
+    .AddDefaultTokenProviders();
 
-builder.Services.AddControllers();
-
-// Configure JWT Authentication
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = "JwtBearer";
-    options.DefaultChallengeScheme = "JwtBearer";
-})
-.AddJwtBearer("JwtBearer", options =>
+// 4. JWT Authentication
+builder.Services.AddAuthentication("JwtBearer").AddJwtBearer("JwtBearer", options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
     {
@@ -47,20 +43,26 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = "CRMWebApp",
-        ValidAudience = "https://monitor.robobotics.eu/",
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("a7b4cf1a-b3e2-4d87-8f9a-82c6a7b5f6d2"))
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 });
 
-builder.Services.AddAuthorization();
+// 5. CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
+});
 
-// Add Swagger services with security definitions
+// 6. Swagger Setup
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "CRM API", Version = "v1" });
 
-    // Add Security Definition for Bearer Token
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
@@ -68,39 +70,27 @@ builder.Services.AddSwaggerGen(c =>
         Scheme = "Bearer",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "Enter 'Bearer' [space] followed by your token."
+        Description = "Enter 'Bearer' [space] followed by your token"
     });
 
-    // Add Security Requirement
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
             new OpenApiSecurityScheme
             {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
+                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
             },
-            new string[] { }
+            new string[] {}
         }
     });
 });
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll", builder =>
-    {
-        builder.AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader();
-    });
-});
+// 7. Controllers
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Middleware
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
@@ -112,22 +102,19 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// Add the authentication and authorization middleware
+app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
+app.MapControllers();
 
-// Enable middleware to serve generated Swagger as a JSON endpoint
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
-    c.RoutePrefix = string.Empty; // Serve the Swagger UI at the root URL
-
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "CRM API V1");
+    c.RoutePrefix = ""; // So Swagger loads on root
 });
 
 app.Run();
+
+

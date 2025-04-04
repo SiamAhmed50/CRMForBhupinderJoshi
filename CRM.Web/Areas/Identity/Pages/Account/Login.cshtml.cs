@@ -23,6 +23,7 @@ using System.Security.Claims;
 using CRM.UI.Helpers;
 using Microsoft.Extensions.Options;
 using System.IdentityModel.Tokens.Jwt;
+using CRM.Data.Entities;
 
 namespace CRM.UI.Areas.Identity.Pages.Account
 {

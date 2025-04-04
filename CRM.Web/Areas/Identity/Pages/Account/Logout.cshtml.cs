@@ -5,6 +5,7 @@
 using System;
 using System.Threading.Tasks;
 using CRM.Data.DbContext;
+using CRM.Data.Entities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
