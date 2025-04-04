@@ -1,5 +1,6 @@
 ﻿
 
+
 <!DOCTYPE html>
 
 <html lang="en"
@@ -41,6 +42,11 @@
     <link rel="stylesheet" href="~/assets/vendor/libs/apex-charts/apex-charts.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Add this in <head> -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
+
     <!-- Page CSS -->
     <style>
         .swal2-container {
@@ -88,7 +94,11 @@
                 </div>
 
                 <div class="menu-inner-shadow"></div>
-                <ul class="menu-inner py-1 ps ps--active-y">
+                <ul class="menu-inner py-1 ps ps--active-y" id="sidebarMenuContainer">
+                    <!-- Menu will be loaded via JS -->
+                </ul>
+
+              @*   <ul class="menu-inner py-1 ps ps--active-y">
                     @if (userRole != null)
                     {
                         <!-- Cards -->
@@ -106,6 +116,12 @@
                             <a href="/Clients" class="menu-link">
                                 <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
                                 <div data-i18n="Basic">Clients</div>
+                            </a>
+                        </li>
+                        <li class="menu-item" id="clientsmenu">
+                            <a href="/Users" class="menu-link">
+                                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+                                <div data-i18n="Basic">Users</div>
                             </a>
                         </li>
                         <li class="menu-item" id="clienttasksmenu">
@@ -135,7 +151,7 @@
                     }
                     <div class="ps__rail-x" style="left: 0px; bottom: -78px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div>
                     <div class="ps__rail-y" style="top: 78px; height: 266px; right: 4px;"><div class="ps__thumb-y" tabindex="0" style="top: 14px; height: 47px;"></div></div>
-                </ul>
+                </ul> *@
             </aside>
             <!-- / Menu -->
             <!-- Layout container -->
@@ -287,7 +303,8 @@
     <script src="~/assets/js/ui-modals.js"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-
+    <!-- Add before </body> -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
     <script type="text/javascript">
@@ -325,6 +342,7 @@
 
         });
 
+        
 
 
     </script>

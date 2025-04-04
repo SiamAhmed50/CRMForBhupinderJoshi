@@ -30,9 +30,12 @@ namespace CRM.Service.Services.UnitOfWork
             MachineRepository = new Repository<Machine, int>(_dbContext);
             ScheduleRepository = new Repository<Schedule, int>(_dbContext);
             WeeklyScheduleRepository = new Repository<WeeklySchedule, int>(_dbContext);
+            UserMenuRepository = new UserMenuService(_dbContext);
         }
 
         public IRepository<ApplicationUser, string> UserRepository { get; }
+        public IUserMenuRepository UserMenuRepository { get; }
+
         public IRepository<Client, int> ClientRepository { get; } // Add this property for Client Repository
         public IRepository<ClientTask, string> ClientTaskRepository { get; } // Add this property for Client Repository
         public IRepository<Job, string> JobRepository { get; }

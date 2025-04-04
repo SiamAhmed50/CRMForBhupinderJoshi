@@ -22,7 +22,7 @@ namespace CRM.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CRM.Data.DbContext.ApplicationUser", b =>
+            modelBuilder.Entity("CRM.Data.Entities.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -91,15 +91,15 @@ namespace CRM.Data.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "308f01e9-ba3a-4fc7-92b0-06b25a22d292",
+                            ConcurrencyStamp = "8a00fc5a-8fd1-4bd8-abdf-699cbc60dbdc",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBAF/QKMOReBEYkI6IunLJ6PSeBXC0Ss27FELwZa5YbHN3pwM+9av/2M6Cs2zAtuNw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGYlrb+07n8W4xnLCVMwKucfEiv0uWbhjq99ueKR3N7yU+Hzpwwq99t4wTur80ehXQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "54327c90-80f0-4571-b66d-2b01ba3067ae",
+                            SecurityStamp = "80b1482b-bf04-4c33-bd74-af6e32adc692",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -325,7 +325,14 @@ namespace CRM.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Url")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -399,6 +406,30 @@ namespace CRM.Data.Migrations
                     b.HasIndex("ClientTaskId");
 
                     b.ToTable("Tasks");
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.UserMenus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("MenuId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MenuId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserMenus");
                 });
 
             modelBuilder.Entity("CRM.Data.Entities.WeeklySchedule", b =>
@@ -699,6 +730,25 @@ namespace CRM.Data.Migrations
                     b.Navigation("ClientTask");
                 });
 
+            modelBuilder.Entity("CRM.Data.Entities.UserMenus", b =>
+                {
+                    b.HasOne("CRM.Data.Entities.Menus", "Menu")
+                        .WithMany()
+                        .HasForeignKey("MenuId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CRM.Data.Entities.ApplicationUser", "User")
+                        .WithMany("UserMenus")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Menu");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("CRM.Data.Entities.WeeklySchedule", b =>
                 {
                     b.HasOne("CRM.Data.Entities.Schedule", "Schedule")
@@ -721,7 +771,7 @@ namespace CRM.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("CRM.Data.DbContext.ApplicationUser", null)
+                    b.HasOne("CRM.Data.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -730,7 +780,7 @@ namespace CRM.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("CRM.Data.DbContext.ApplicationUser", null)
+                    b.HasOne("CRM.Data.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -745,7 +795,7 @@ namespace CRM.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CRM.Data.DbContext.ApplicationUser", null)
+                    b.HasOne("CRM.Data.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -754,11 +804,16 @@ namespace CRM.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("CRM.Data.DbContext.ApplicationUser", null)
+                    b.HasOne("CRM.Data.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CRM.Data.Entities.ApplicationUser", b =>
+                {
+                    b.Navigation("UserMenus");
                 });
 
             modelBuilder.Entity("CRM.Data.Entities.ClientTask", b =>

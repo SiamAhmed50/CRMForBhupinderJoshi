@@ -11,7 +11,13 @@ namespace CRM.Data.Entities
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Status { get; set; }
+
+        public string Name { get; set; }           // e.g., Dashboard, Users, Settings
+        public string Status { get; set; }         // e.g., Active, Inactive
+
+        // Optional (for hierarchy or navigation)
+        public string Url { get; set; }            // e.g., "/dashboard"
+        public int? ParentId { get; set; }
     }
+
 }

@@ -12,6 +12,9 @@ using CRM.Data.DbContext;
 using CRM.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
+using CRM.Data.Entities;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using CRM.Service.Interfaces.UnitOfWork;
 
 namespace CRM.Controllers
 {
@@ -21,38 +24,49 @@ namespace CRM.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IConfiguration _configuration;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public AccountController(UserManager<ApplicationUser> userManager, IConfiguration configuration)
+
+        public AccountController(UserManager<ApplicationUser> userManager, IConfiguration configuration,  IUnitOfWork unitOfWork)
         {
             _userManager = userManager;
             _configuration = configuration;
+            _unitOfWork = unitOfWork;
+
+
         }
+
 
         [HttpPost("register")]
 
         [ApiExplorerSettings(IgnoreApi = true)]
+
+       
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+                return BadRequest(new { Message = "Invalid model state" });
+
+            var user = new ApplicationUser
             {
-                var user = new ApplicationUser
-                {
-                    UserName = model.UserName,
-                    Email = model.Email,
-                };
+                UserName = model.UserName,
+                Email = model.Email,
+            };
 
-                var result = await _userManager.CreateAsync(user, model.Password);
+            var result = await _userManager.CreateAsync(user, model.Password);
 
-                if (result.Succeeded)
-                {
-                    return Ok(new { Message = "User registered successfully" });
-                }
-
+            if (!result.Succeeded)
                 return BadRequest(new { Message = "User registration failed", Errors = result.Errors });
+
+            if (model.MenuIds != null && model.MenuIds.Any())
+            {
+                await _unitOfWork.UserMenuRepository.AddUserMenusAsync(user.Id, model.MenuIds);
             }
 
-            return BadRequest(new { Message = "Invalid model state" });
+            return Ok(new { Message = "User registered successfully with menu access" });
         }
+
+
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
@@ -99,6 +113,8 @@ namespace CRM.Controllers
                 new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
+            
+
                 new Claim(ClaimTypes.Name, user.UserName)
                 // Add additional claims (e.g., roles) if necessary
             };

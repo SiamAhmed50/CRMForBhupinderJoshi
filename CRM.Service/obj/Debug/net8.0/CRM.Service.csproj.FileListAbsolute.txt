@@ -138,3 +138,19 @@ C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\refint\CRM.Service.dll
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.pdb
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\ref\CRM.Service.dll
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Service.deps.json
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Service.dll
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Service.pdb
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Data.dll
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\bin\Debug\net8.0\CRM.Data.pdb
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.csproj.AssemblyReference.cache
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.AssemblyInfoInputs.cache
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.AssemblyInfo.cs
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.csproj.CoreCompileInputs.cache
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.sourcelink.json
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Serv.B1B0CCB5.Up2Date
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.dll
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\refint\CRM.Service.dll
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\CRM.Service.pdb
+C:\Users\ARIFIN\Source\Repos\CRMForBhupinderJoshi\CRM.Service\obj\Debug\net8.0\ref\CRM.Service.dll
