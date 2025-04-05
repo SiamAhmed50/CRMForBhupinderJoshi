@@ -63,6 +63,7 @@ builder.Services.AddAuthorization(options =>
     
 });
 builder.Services.AddScoped<SignInManager<ApplicationUser>, SignInManager<ApplicationUser>>();
+
 //builder.Services.AddHostedService<LicenseExpirationService>();
 // Configure JWT settings
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));

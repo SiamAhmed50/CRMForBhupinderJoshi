@@ -10,5 +10,6 @@ namespace CRM.Service.Interfaces.Repositories
     public interface IMenuService
     {
         Task<List<Menus>> GetMenusForCurrentUserAsync(string userId);
+        Task<List<Menus>> GetAllMenusAsync();
     }
 }

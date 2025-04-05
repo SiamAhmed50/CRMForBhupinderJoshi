@@ -10,6 +10,7 @@ namespace CRM.Service.Interfaces.Repositories
     public interface IUserMenuRepository
     {
         Task<IEnumerable<Menus>> GetMenusByUserIdAsync(string userId);
+        Task<IEnumerable<Menus>> GetMenusAsync();
         Task AddUserMenusAsync(string userId, List<int> menuIds);
         Task RemoveUserMenusAsync(string userId);
     }
