@@ -138,8 +138,7 @@
               "RelativeToolTip": "CRM\\ViewModels\\UserListDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T07:13:09.976Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T07:13:09.976Z"
             },
             {
               "$type": "Document",
@@ -151,8 +150,7 @@
               "RelativeToolTip": "CRM\\ViewModels\\RegisterUserDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T07:05:27.396Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T07:05:27.396Z"
             },
             {
               "$type": "Document",
@@ -164,8 +162,7 @@
               "RelativeToolTip": "CRM.Data\\Entities\\UserMenus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T06:44:08.257Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T06:44:08.257Z"
             },
             {
               "$type": "Document",
@@ -177,8 +174,7 @@
               "RelativeToolTip": "CRM\\Controllers\\AccountController.cs",
               "ViewState": "AgIAAIMAAAAAAAAAAAAIwKoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T06:39:55.562Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T06:39:55.562Z"
             },
             {
               "$type": "Document",
@@ -190,8 +186,7 @@
               "RelativeToolTip": "CRM\\Controllers\\MenuController.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAgwC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T06:31:46.329Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T06:31:46.329Z"
             },
             {
               "$type": "Document",
@@ -203,8 +198,7 @@
               "RelativeToolTip": "CRM.Web\\Program.cs",
               "ViewState": "AgIAAE8AAAAAAAAAAAAmwHYAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T06:26:53.534Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T06:26:53.534Z"
             },
             {
               "$type": "Document",
@@ -216,8 +210,7 @@
               "RelativeToolTip": "CRM.Web\\Pages\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAA4AAAAAAAAAAAAmwEkBAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-05T06:21:50.254Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T06:21:50.254Z"
             },
             {
               "$type": "Document",
@@ -229,8 +222,7 @@
               "RelativeToolTip": "CRM.Web\\Pages\\Users.cshtml.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAcwCgAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T06:19:59.404Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T06:19:59.404Z"
             },
             {
               "$type": "Document",
@@ -240,7 +232,7 @@
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Users.cshtml",
               "ToolTip": "C:\\Users\\ARIFIN\\source\\repos\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Users.cshtml",
               "RelativeToolTip": "CRM.Web\\Pages\\Users.cshtml",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAUwIsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAUwGcAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-05T06:19:35.765Z",
               "EditorCaption": ""
