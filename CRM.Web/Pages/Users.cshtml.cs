@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using CRM.UI.ViewModel;
 
@@ -16,42 +16,48 @@ public class UsersModel : PageModel
 
     public async Task OnGetAsync()
     {
-        var client = _httpClientFactory.CreateClient("ApiClient");
-        var response = await client.GetAsync("/api/Menu");
+        AllMenus = new List<MenuModel>();
 
-        if (response.IsSuccessStatusCode)
+        try
         {
-            var json = await response.Content.ReadAsStringAsync();
-            AllMenus = JsonConvert.DeserializeObject<List<MenuModel>>(json);
+            var client = _httpClientFactory.CreateClient("ApiClient");
+            var response = await client.GetAsync("/api/Menu/menus");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                AllMenus = JsonConvert.DeserializeObject<List<MenuModel>>(json);
+            }
         }
-        else
+        catch
         {
-            AllMenus = new List<MenuModel>(); // Make sure it's not null
+            // Handle or log error
         }
     }
 
+    public async Task<IActionResult> OnGetListAsync()
+    {
+        var client = _httpClientFactory.CreateClient("ApiClient");
+        var response = await client.GetAsync("/api/Account/users");
+
+        if (!response.IsSuccessStatusCode)
+            return new JsonResult(new { data = new List<UserListDto>() });
+
+        var content = await response.Content.ReadAsStringAsync();
+        var users = JsonConvert.DeserializeObject<List<UserListDto>>(content);
+
+        // Return wrapped for DataTables
+        return new JsonResult(new { data = users });
+    }
 
     public async Task<IActionResult> OnPostRegisterAsync([FromBody] RegisterUserDto model)
     {
         var client = _httpClientFactory.CreateClient("ApiClient");
-        var response = await client.PostAsJsonAsync("/api/User/Register", model);
+        var response = await client.PostAsJsonAsync("/api/Account/register", model);
 
         if (!response.IsSuccessStatusCode)
             return BadRequest();
 
         return new JsonResult(true);
-    }
-
-    public async Task<IActionResult> OnPostListAsync()
-    {
-        var client = _httpClientFactory.CreateClient("ApiClient");
-        var response = await client.GetAsync("/api/User");
-
-        if (!response.IsSuccessStatusCode)
-            return new JsonResult(new List<UserListDto>());
-
-        var content = await response.Content.ReadAsStringAsync();
-        var users = JsonConvert.DeserializeObject<List<UserListDto>>(content);
-        return new JsonResult(users);
     }
 }

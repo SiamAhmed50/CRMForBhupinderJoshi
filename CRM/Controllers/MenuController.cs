@@ -33,10 +33,11 @@ public class MenuController : ControllerBase
 
 
 
-   
+    [Authorize]
     [HttpGet("usermenus")]
     public async Task<IActionResult> GetUserMenus()
     {
+       
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         if (string.IsNullOrEmpty(userId))
             return Unauthorized();
@@ -44,5 +45,14 @@ public class MenuController : ControllerBase
         var menus = await _menuService.GetMenusForCurrentUserAsync(userId);
         return Ok(menus);
     }
+
+    [HttpGet]
+    [HttpGet("menus")]
+    public async Task<IActionResult> GetAllMenus()
+    {
+        var menus = await _menuService.GetAllMenusAsync(); // Your method that returns all menus
+        return Ok(menus);
+    }
+
 
 }

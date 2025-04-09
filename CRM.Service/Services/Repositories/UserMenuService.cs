@@ -26,6 +26,11 @@ namespace CRM.Service.Services.Repositories
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Menus>> GetMenusAsync()
+        {
+            return await _context.Menus.ToListAsync();
+        }
+
         public async Task AddUserMenusAsync(string userId, List<int> menuIds)
         {
             var userMenus = menuIds.Select(menuId => new UserMenus

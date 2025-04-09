@@ -1,9 +1,13 @@
 ﻿@page
 @model UsersModel
 @{
+    ViewData["Title"] = "User Management";
 }
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+
 <div class="row">
-    <div class="col-sm-6 text-start">
+    <div class="col-sm-6">
         <h2>Users</h2>
     </div>
     <div class="col-sm-6 text-end">
@@ -28,6 +32,7 @@
 <div class="modal fade" id="addUserModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <form id="userForm" method="post">
+            @Html.AntiForgeryToken()
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Register User</h5>
@@ -40,7 +45,7 @@
                     <input type="password" class="form-control mb-2" id="confirmPassword" placeholder="Confirm Password" required />
 
                     <label>Select Menus</label>
-                    <select class="form-select" id="menus" multiple="multiple" required>
+                    <select class="form-select mb-2" id="menus" multiple="multiple" required>
                         @if (Model.AllMenus != null)
                         {
                             foreach (var menu in Model.AllMenus)
@@ -49,7 +54,6 @@
                             }
                         }
                     </select>
-
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Register</button>
@@ -59,15 +63,51 @@
         </form>
     </div>
 </div>
+
 @section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
         $(document).ready(function () {
-            $('#menus').select2({
-                width: '100%',
-                placeholder: "Select menus",
-                allowClear: true
+            // Initialize DataTable
+            const userTable = $('#userTable').DataTable({
+                ajax: {
+                    url: '/Users?handler=List',
+                    type: 'GET',
+                    dataSrc: 'data'
+                },
+                columns: [
+                    { data: 'name' },
+                    { data: 'email' },
+                    {
+                        data: 'menuIds',
+                        render: function (data) {
+                            return Array.isArray(data) ? data.join(', ') : '';
+                        }
+                    },
+                    {
+                        data: null,
+                        render: function () {
+                            return '<button class="btn btn-sm btn-secondary">Edit</button>';
+                        }
+                    }
+                ]
             });
 
+            // Register modal select2
+            $('#addUserModal').on('shown.bs.modal', function () {
+                $('#menus').select2({
+                    dropdownParent: $('#addUserModal'),
+                    width: '100%',
+                    placeholder: "Select menus",
+                    allowClear: true
+                });
+            });
+
+            // Submit form
             $('#userForm').on('submit', function (e) {
                 e.preventDefault();
 
@@ -86,7 +126,7 @@
                     data: JSON.stringify(userData),
                     success: function () {
                         $('#addUserModal').modal('hide');
-                        $('#userTable').DataTable().ajax.reload();
+                        userTable.ajax.reload();
                         Swal.fire("Success", "User registered", "success");
                     },
                     error: function () {

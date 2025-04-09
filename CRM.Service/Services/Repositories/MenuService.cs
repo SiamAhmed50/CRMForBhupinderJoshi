@@ -26,5 +26,17 @@ public class MenuService : IMenuService
         }).ToList();
     }
 
- 
+
+    public async Task<List<Menus>> GetAllMenusAsync()
+    {
+        var userMenus = await _userMenuRepo.GetMenusAsync();
+        return userMenus.Select(m => new Menus
+        {
+            Id = m.Id,
+            Name = m.Name,
+            Url = m.Url
+        }).ToList();
+    }
+
+
 }

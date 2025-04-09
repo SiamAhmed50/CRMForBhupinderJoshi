@@ -1,0 +1,11 @@
+﻿@model List<CRM.Data.Entities.Menus>
+
+@foreach (var menu in Model)
+{
+    <li class="menu-item" id="@menu.Name.ToLower()menu">
+        <a href="@menu.Url" class="menu-link">
+            <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+            <div data-i18n="Basic">@menu.Name</div>
+        </a>
+    </li>
+}
