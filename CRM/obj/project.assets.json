@@ -9300,9 +9300,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ARIFIN\\source\\repos\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj",
+      "projectUniqueName": "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj",
       "projectName": "CRM.API",
-      "projectPath": "C:\\Users\\ARIFIN\\source\\repos\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj",
+      "projectPath": "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj",
       "packagesPath": "C:\\Users\\ARIFIN\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM\\obj\\",
       "projectStyle": "PackageReference",
@@ -9322,11 +9322,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\ARIFIN\\source\\repos\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {
-              "projectPath": "C:\\Users\\ARIFIN\\source\\repos\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj"
+            "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {
+              "projectPath": "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj"
             },
-            "C:\\Users\\ARIFIN\\source\\repos\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj": {
-              "projectPath": "C:\\Users\\ARIFIN\\source\\repos\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj"
+            "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj": {
+              "projectPath": "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj"
             }
           }
         }
