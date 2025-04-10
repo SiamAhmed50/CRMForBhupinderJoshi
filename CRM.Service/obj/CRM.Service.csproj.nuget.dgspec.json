@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj": {}
   },
   "projects": {
@@ -12,9 +13,22 @@
         "projectPath": "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj",
         "packagesPath": "C:\\Users\\ARIFIN\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Data\\obj\\",
+=======
+    "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj": {}
+  },
+  "projects": {
+    "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj",
+        "projectName": "CRM.Data",
+        "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj",
+        "packagesPath": "C:\\Users\\Siam Ahmed\\.nuget\\packages\\",
+        "outputPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\obj\\",
+>>>>>>> ecac2bac25e4a321ac31b6db34e3ad96846658a4
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ARIFIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Siam Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,6 +107,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -101,9 +116,19 @@
         "projectPath": "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj",
         "packagesPath": "C:\\Users\\ARIFIN\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Service\\obj\\",
+=======
+    "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj",
+        "projectName": "CRM.Service",
+        "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\CRM.Service.csproj",
+        "packagesPath": "C:\\Users\\Siam Ahmed\\.nuget\\packages\\",
+        "outputPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\obj\\",
+>>>>>>> ecac2bac25e4a321ac31b6db34e3ad96846658a4
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ARIFIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Siam Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -118,8 +143,13 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {
                 "projectPath": "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj"
+=======
+              "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {
+                "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj"
+>>>>>>> ecac2bac25e4a321ac31b6db34e3ad96846658a4
               }
             }
           }

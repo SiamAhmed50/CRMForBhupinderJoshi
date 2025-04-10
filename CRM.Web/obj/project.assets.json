@@ -10530,19 +10530,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ARIFIN\\.nuget\\packages\\": {}
+    "C:\\Users\\Siam Ahmed\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Web\\CRM.UI.csproj",
       "projectName": "CRM.UI",
       "projectPath": "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Web\\CRM.UI.csproj",
       "packagesPath": "C:\\Users\\ARIFIN\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Web\\obj\\",
+=======
+      "projectUniqueName": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\CRM.UI.csproj",
+      "projectName": "CRM.UI",
+      "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\CRM.UI.csproj",
+      "packagesPath": "C:\\Users\\Siam Ahmed\\.nuget\\packages\\",
+      "outputPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\obj\\",
+>>>>>>> ecac2bac25e4a321ac31b6db34e3ad96846658a4
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ARIFIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Siam Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10557,11 +10565,19 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {
               "projectPath": "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj"
             },
             "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj": {
               "projectPath": "C:\\Users\\ARIFIN\\Source\\Repos\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj"
+=======
+            "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj": {
+              "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\CRM.Data.csproj"
+            },
+            "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj": {
+              "projectPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj"
+>>>>>>> ecac2bac25e4a321ac31b6db34e3ad96846658a4
             }
           }
         }
