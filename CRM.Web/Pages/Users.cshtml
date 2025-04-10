@@ -1,5 +1,8 @@
 ﻿@page
+@using CRM.UI.Helpers
 @model UsersModel
+
+
 @{
     ViewData["Title"] = "User Management";
 }
@@ -31,7 +34,9 @@
 
 <div class="modal fade" id="addUserModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
-        <form id="userForm" method="post">
+        <form id="userForm" method="post" asp-page-handler="Register">
+            <input type="hidden" id="isEdit" name="IsEdit" />
+
             @Html.AntiForgeryToken()
             <div class="modal-content">
                 <div class="modal-header">
@@ -39,19 +44,16 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" class="form-control mb-2" id="name" placeholder="Full Name" required />
-                    <input type="email" class="form-control mb-2" id="email" placeholder="Email" required />
-                    <input type="password" class="form-control mb-2" id="password" placeholder="Password" required />
-                    <input type="password" class="form-control mb-2" id="confirmPassword" placeholder="Confirm Password" required />
+                    <input type="text" class="form-control mb-2" name="Name" id="name" placeholder="Full Name" required />
+                    <input type="email" class="form-control mb-2" name="Email" id="email" placeholder="Email" required />
+                    <input type="password" class="form-control mb-2" name="Password" id="password" placeholder="Password" required />
+                    <input type="password" class="form-control mb-2" name="ConfirmPassword" id="confirmPassword" placeholder="Confirm Password" required />
 
                     <label>Select Menus</label>
-                    <select class="form-select mb-2" id="menus" multiple="multiple" required>
-                        @if (Model.AllMenus != null)
+                    <select class="form-select mb-2" name="MenuIds" multiple="multiple" id="menus" required>
+                        @foreach (var menu in Model.AllMenus)
                         {
-                            foreach (var menu in Model.AllMenus)
-                            {
-                                <option value="@menu.Id">@menu.Name</option>
-                            }
+                            <option value="@menu.Id">@menu.Name</option>
                         }
                     </select>
                 </div>
@@ -61,6 +63,7 @@
                 </div>
             </div>
         </form>
+
     </div>
 </div>
 
@@ -83,15 +86,21 @@
                     { data: 'name' },
                     { data: 'email' },
                     {
-                        data: 'menuIds',
+                        data: 'menuNames',
                         render: function (data) {
                             return Array.isArray(data) ? data.join(', ') : '';
                         }
                     },
+
                     {
                         data: null,
-                        render: function () {
-                            return '<button class="btn btn-sm btn-secondary">Edit</button>';
+                        render: function (data, type, row) {
+                            return `<button class="btn btn-sm btn-secondary edit-btn"
+                            data-name="${row.name}"
+                            data-email="${row.email}"
+                            data-menuids='${JSON.stringify(row.menuIds)}'>
+                            Edit
+                        </button>`;
                         }
                     }
                 ]
@@ -107,33 +116,139 @@
                 });
             });
 
-            // Submit form
+
+
+
+
+
             $('#userForm').on('submit', function (e) {
                 e.preventDefault();
 
-                const userData = {
-                    userName: $('#name').val(),
-                    email: $('#email').val(),
-                    password: $('#password').val(),
-                    confirmPassword: $('#confirmPassword').val(),
-                    menuIds: $('#menus').val().map(Number)
-                };
+                const formData = new FormData(this);
 
                 $.ajax({
                     url: '/Users?handler=Register',
                     type: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify(userData),
+                    processData: false,
+                    contentType: false,
+                    data: formData,
                     success: function () {
                         $('#addUserModal').modal('hide');
                         userTable.ajax.reload();
                         Swal.fire("Success", "User registered", "success");
                     },
-                    error: function () {
-                        Swal.fire("Error", "Failed to register user", "error");
+                    error: function (xhr) {
+                        let msg = "Failed to register user";
+                        if (xhr.responseJSON && xhr.responseJSON.message) {
+                            msg = xhr.responseJSON.message;
+                        }
+                        Swal.fire("Error", msg, "error");
                     }
                 });
             });
+
+
+
+
+
+
+
+
+            $('#userTable').on('click', '.edit-btn', function () {
+                const name = $(this).data('name');
+                const email = $(this).data('email');
+                const menuIds = $(this).data('menuids');
+
+                $('#name').val(name);
+                $('#email').val(email).prop('readonly', true); // make email readonly if it's identifier
+                $('#password').val('');
+                $('#confirmPassword').val('');
+                $('#menus').val(menuIds).trigger('change');
+
+                $('#isEdit').val('true');
+
+                // Open the modal
+                $('#addUserModal').modal('show');
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // Submit form
+            // $('#userForm').on('submit', function (e) {
+            //     e.preventDefault();
+
+
+
+
+            //     debugger
+
+
+            //     const name = $('#name').val();
+            //     const email = $('#email').val();
+            //     const password = $('#password').val();
+            //     const confirmPassword = $('#confirmPassword').val();
+            //     const menuIds = $('#menus').val()?.map(Number) ?? [];
+
+            //     console.log(name, email, password, confirmPassword, menuIds); // Debug
+
+            //     const userData = {
+            //         userName: $('#name').val(),
+            //         email: $('#email').val(),
+            //         password: $('#password').val(),
+            //         confirmPassword: $('#confirmPassword').val(),
+            //         menuIds: $('#menus').val().map(Number)
+            //     };
+                
+
+            //     $.ajax({
+            //         url: '/Users?handler=Register',
+            //         type: 'POST',
+            //         contentType: 'application/json',
+            //         data: JSON.stringify(userData),
+            //         success: function () {
+            //             $('#addUserModal').modal('hide');
+            //             userTable.ajax.reload();
+            //             Swal.fire("Success", "User registered", "success");
+            //         },
+            //         error: function (xhr) {
+            //             let msg = "Failed to register user";
+            //             if (xhr.responseJSON && xhr.responseJSON.message) {
+            //                 msg = xhr.responseJSON.message;
+            //             } else if (xhr.responseText) {
+            //                 msg = xhr.responseText;
+            //             }
+            //             console.log("Error:", msg);
+            //             Swal.fire("Error", msg, "error");
+            //         }
+
+            //     });
+            // });
         });
     </script>
 }
