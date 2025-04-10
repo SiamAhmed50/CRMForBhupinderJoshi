@@ -40,6 +40,7 @@ builder.Services.AddTransient<IEmailSender, EmailSender>();
 
 
 
+
 builder.Services.AddHttpClient();
 // Configure Identity options
 builder.Services.ConfigureApplicationCookie(options =>
