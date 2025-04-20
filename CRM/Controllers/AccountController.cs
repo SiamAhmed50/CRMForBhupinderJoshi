@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿// ---------------------------
+// UPDATED: AccountController.cs
+// ---------------------------
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -8,14 +11,13 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using CRM.Data.DbContext;
-using CRM.Data.Models;
+using CRM.Data.Entities;
+using CRM.Service.Interfaces.UnitOfWork;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
-using CRM.Data.Entities;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using CRM.Service.Interfaces.UnitOfWork;
+using System.Linq;
 using CRM.API.ViewModels;
+using CRM.Data.Models;
 
 namespace CRM.Controllers
 {
@@ -27,24 +29,19 @@ namespace CRM.Controllers
         private readonly IConfiguration _configuration;
         private readonly IUnitOfWork _unitOfWork;
 
-
-        public AccountController(UserManager<ApplicationUser> userManager, IConfiguration configuration,  IUnitOfWork unitOfWork)
+        public AccountController(UserManager<ApplicationUser> userManager, IConfiguration configuration, IUnitOfWork unitOfWork)
         {
             _userManager = userManager;
             _configuration = configuration;
             _unitOfWork = unitOfWork;
-
-
         }
 
         [HttpPost("register")]
-        //[ApiExplorerSettings(IgnoreApi = true)]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(new { Message = "Invalid model state" });
 
-            // Create new user
             var user = new ApplicationUser
             {
                 UserName = model.UserName,
@@ -56,7 +53,6 @@ namespace CRM.Controllers
             if (!result.Succeeded)
                 return BadRequest(new { Message = "User registration failed", Errors = result.Errors });
 
-            // Save MenuIds into UserMenus table using repo method
             if (model.MenuIds != null && model.MenuIds.Any())
             {
                 await _unitOfWork.UserMenuRepository.AddUserMenusAsync(user.Id, model.MenuIds);
@@ -66,11 +62,7 @@ namespace CRM.Controllers
             return Ok(new { Message = "User registered successfully with menu access" });
         }
 
-
-
-
         [HttpPost("login")]
- 
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             if (!ModelState.IsValid)
@@ -82,11 +74,10 @@ namespace CRM.Controllers
             {
                 var token = GenerateJwtToken(user);
 
-                // Set cookie (secure in production)
                 Response.Cookies.Append("jwt", token, new CookieOptions
                 {
                     HttpOnly = true,
-                    Secure = true, // set to true in production
+                    Secure = true,
                     SameSite = SameSiteMode.Lax,
                     Expires = DateTimeOffset.UtcNow.AddDays(30)
                 });
@@ -100,7 +91,6 @@ namespace CRM.Controllers
             return Unauthorized(new { Message = "Invalid username or password" });
         }
 
-
         [HttpPost("logout")]
         [Authorize]
         public IActionResult Logout()
@@ -113,40 +103,10 @@ namespace CRM.Controllers
             return Ok(new { Message = "Logout successful" });
         }
 
-        private string GenerateJwtToken(ApplicationUser user)
-        {
-            var claims = new List<Claim>
-{
-new Claim(ClaimTypes.NameIdentifier, user.Id),
-new Claim(ClaimTypes.Name, user.UserName)
-
-};
-
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var expires = DateTime.Now.AddMinutes(Convert.ToDouble(_configuration["Jwt:ExpiryInMinutes"]));
-
-            var token = new JwtSecurityToken(
-                _configuration["Jwt:Issuer"],
-                _configuration["Jwt:Audience"],
-                claims,
-                expires: expires,
-                signingCredentials: creds
-            );
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
-
-        
         [HttpGet("users")]
         public async Task<IActionResult> GetAllUsers()
         {
-            // Get all users
-            var users = _userManager.Users.ToList();
-
-            
-
+            var users = _userManager.Users.Where(u => u.Email.ToLower() != "admin@crm.com").ToList();
             var userList = new List<UserListDto>();
 
             foreach (var user in users)
@@ -162,9 +122,44 @@ new Claim(ClaimTypes.Name, user.UserName)
                 });
             }
 
-
             return Ok(userList);
         }
 
+        [HttpDelete("delete/{email}")]
+        public async Task<IActionResult> DeleteUser(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+                return NotFound();
+
+            var result = await _userManager.DeleteAsync(user);
+            if (!result.Succeeded)
+                return BadRequest(new { Message = "Failed to delete user", Errors = result.Errors });
+
+            return Ok(new { Message = "User deleted successfully" });
+        }
+
+        private string GenerateJwtToken(ApplicationUser user)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
+                new Claim(ClaimTypes.Name, user.UserName)
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var expires = DateTime.Now.AddMinutes(Convert.ToDouble(_configuration["Jwt:ExpiryInMinutes"]));
+
+            var token = new JwtSecurityToken(
+                _configuration["Jwt:Issuer"],
+                _configuration["Jwt:Audience"],
+                claims,
+                expires: expires,
+                signingCredentials: creds
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
     }
 }

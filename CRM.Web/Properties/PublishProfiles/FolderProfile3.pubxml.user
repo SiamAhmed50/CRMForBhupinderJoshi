@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM.Web\bin\Release\net8.0\publish\</_PublishTargetUrl>
-    <History>True|2025-03-03T11:45:33.0566951Z||;True|2025-03-03T17:19:06.3581941+06:00||;True|2025-03-03T16:52:37.6162428+06:00||;False|2025-03-03T16:52:05.7200465+06:00||;True|2025-02-26T13:27:03.2266729+06:00||;True|2025-02-25T10:37:09.2293252+06:00||;</History>
+    <History>True|2025-04-18T10:51:11.4820982Z||;True|2025-04-18T15:57:26.3681804+06:00||;True|2025-04-10T20:02:27.5817294+06:00||;True|2025-04-10T19:52:13.5400232+06:00||;True|2025-04-10T12:31:34.9455845+06:00||;True|2025-04-10T12:21:10.9582551+06:00||;True|2025-03-03T17:45:33.0566951+06:00||;True|2025-03-03T17:19:06.3581941+06:00||;True|2025-03-03T16:52:37.6162428+06:00||;False|2025-03-03T16:52:05.7200465+06:00||;True|2025-02-26T13:27:03.2266729+06:00||;True|2025-02-25T10:37:09.2293252+06:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

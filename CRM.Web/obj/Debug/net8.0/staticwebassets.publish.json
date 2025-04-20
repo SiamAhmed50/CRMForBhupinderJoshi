@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ETUYB/igUnFDKkoJzqAVTp2SIqwZKBx/yc7UcpIk15Y=",
+  "Hash": "AzCu3JmJhq9xjRjgyc3337Ov0I8RTIHRniTCdYSgQL0=",
   "Source": "CRM.UI",
   "BasePath": "_content/CRM.UI",
   "Mode": "Default",
@@ -1813,6 +1813,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\js\\script.js",
+      "SourceId": "CRM.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\",
+      "BasePath": "_content/CRM.UI",
+      "RelativePath": "js/script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\script.js"
     },
     {
       "Identity": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\js\\site.js",

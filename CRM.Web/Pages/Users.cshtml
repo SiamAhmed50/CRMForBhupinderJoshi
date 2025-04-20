@@ -1,8 +1,6 @@
 ﻿@page
 @using CRM.UI.Helpers
 @model UsersModel
-
-
 @{
     ViewData["Title"] = "User Management";
 }
@@ -14,7 +12,7 @@
         <h2>Users</h2>
     </div>
     <div class="col-sm-6 text-end">
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUserModal">Add User</button>
+        <button id="addUserBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUserModal">Add User</button>
     </div>
 </div>
 
@@ -36,7 +34,6 @@
     <div class="modal-dialog">
         <form id="userForm" method="post" asp-page-handler="Register">
             <input type="hidden" id="isEdit" name="IsEdit" />
-
             @Html.AntiForgeryToken()
             <div class="modal-content">
                 <div class="modal-header">
@@ -63,19 +60,13 @@
                 </div>
             </div>
         </form>
-
     </div>
 </div>
 
-@section Scripts {
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@section Scripts { 
 
     <script>
         $(document).ready(function () {
-            // Initialize DataTable
             const userTable = $('#userTable').DataTable({
                 ajax: {
                     url: '/Users?handler=List',
@@ -91,22 +82,25 @@
                             return Array.isArray(data) ? data.join(', ') : '';
                         }
                     },
-
                     {
                         data: null,
                         render: function (data, type, row) {
-                            return `<button class="btn btn-sm btn-secondary edit-btn"
-                            data-name="${row.name}"
-                            data-email="${row.email}"
-                            data-menuids='${JSON.stringify(row.menuIds)}'>
-                            Edit
-                        </button>`;
+                            return ` 
+                                <button class="btn btn-sm btn-danger ms-1 delete-btn" 
+                                        data-email="${row.email}">Delete</button>`;
                         }
                     }
                 ]
             });
 
-            // Register modal select2
+            // Reset form on opening modal
+            $('#addUserBtn').click(function () {
+                $('#userForm')[0].reset();
+                $('#menus').val(null).trigger('change');
+                $('#email').prop('readonly', false);
+                $('#isEdit').val('');
+            });
+
             $('#addUserModal').on('shown.bs.modal', function () {
                 $('#menus').select2({
                     dropdownParent: $('#addUserModal'),
@@ -115,11 +109,6 @@
                     allowClear: true
                 });
             });
-
-
-
-
-
 
             $('#userForm').on('submit', function (e) {
                 e.preventDefault();
@@ -147,108 +136,61 @@
                 });
             });
 
-
-
-
-
-
-
-
             $('#userTable').on('click', '.edit-btn', function () {
                 const name = $(this).data('name');
                 const email = $(this).data('email');
                 const menuIds = $(this).data('menuids');
 
                 $('#name').val(name);
-                $('#email').val(email).prop('readonly', true); // make email readonly if it's identifier
+                $('#email').val(email).prop('readonly', true);
                 $('#password').val('');
                 $('#confirmPassword').val('');
                 $('#menus').val(menuIds).trigger('change');
-
                 $('#isEdit').val('true');
 
-                // Open the modal
                 $('#addUserModal').modal('show');
             });
 
+            $('#userTable').on('click', '.delete-btn', function () {
+                debugger;
+                const email = $(this).data('email');
+                debugger;
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        debugger;
+                        const formData = new FormData();
+                        formData.append("email", email);
 
+                        $.ajax({
+                            url: `/Users?handler=Delete`,
+                            type: 'POST',
+                            data: formData,
+                            beforeSend: function (xhr) {
+                                // Set the XSRF token
+                                xhr.setRequestHeader('XSRF-TOKEN', $('input:hidden[name="__RequestVerificationToken"]').val());
+                            },
+                            processData: false,
+                            contentType: false,
+                            success: function () {
+                                userTable.ajax.reload();
+                                Swal.fire("Deleted!", "User has been deleted.", "success");
+                            },
+                            error: function () {
+                                Swal.fire("Error!", "Failed to delete user.", "error");
+                            }
+                        });
+                    }
+                });
+            });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // Submit form
-            // $('#userForm').on('submit', function (e) {
-            //     e.preventDefault();
-
-
-
-
-            //     debugger
-
-
-            //     const name = $('#name').val();
-            //     const email = $('#email').val();
-            //     const password = $('#password').val();
-            //     const confirmPassword = $('#confirmPassword').val();
-            //     const menuIds = $('#menus').val()?.map(Number) ?? [];
-
-            //     console.log(name, email, password, confirmPassword, menuIds); // Debug
-
-            //     const userData = {
-            //         userName: $('#name').val(),
-            //         email: $('#email').val(),
-            //         password: $('#password').val(),
-            //         confirmPassword: $('#confirmPassword').val(),
-            //         menuIds: $('#menus').val().map(Number)
-            //     };
-                
-
-            //     $.ajax({
-            //         url: '/Users?handler=Register',
-            //         type: 'POST',
-            //         contentType: 'application/json',
-            //         data: JSON.stringify(userData),
-            //         success: function () {
-            //             $('#addUserModal').modal('hide');
-            //             userTable.ajax.reload();
-            //             Swal.fire("Success", "User registered", "success");
-            //         },
-            //         error: function (xhr) {
-            //             let msg = "Failed to register user";
-            //             if (xhr.responseJSON && xhr.responseJSON.message) {
-            //                 msg = xhr.responseJSON.message;
-            //             } else if (xhr.responseText) {
-            //                 msg = xhr.responseText;
-            //             }
-            //             console.log("Error:", msg);
-            //             Swal.fire("Error", msg, "error");
-            //         }
-
-            //     });
-            // });
         });
     </script>
 }

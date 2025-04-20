@@ -1,5 +1,5 @@
 ﻿@page
-@using CRM.UI.Helpers
+@model CRM.Web.Pages.JobsModel
 
 @{
     ViewData["Title"] = "Jobs";
@@ -73,7 +73,7 @@
                             <th>Trnx No</th>
                             <th>Trnx Remarks</th>
                             <th>Trnx Status</th>
-                            <th>Trnx Comment</th>
+                            <th>Trnx Command</th>
                             <th>Timestamp</th>
                         </tr>
                     </thead>
@@ -277,7 +277,7 @@
                             { data: "transactionNumber" },
                             { data: "transactionDescription" },
                             { data: "transactionStatus" },
-                            { data: "transactionComment" },
+                            { data: "transactionCommand" },
                             {
                                 data: "timestamp",
                                 render: function (data) {
