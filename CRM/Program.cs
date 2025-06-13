@@ -32,7 +32,11 @@ builder.Services.AddHostedService<LicenseStatusUpdaterService>();
 builder.Services.AddHostedService<ScheduleWorker>();
 
 // 3. Identity
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+{
+    // tell Identity which claim type to use for roles
+    options.ClaimsIdentity.RoleClaimType = ClaimTypes.Role;
+})
     .AddEntityFrameworkStores<ProjectDbContext>()
     .AddDefaultTokenProviders();
 

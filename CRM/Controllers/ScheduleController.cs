@@ -5,6 +5,8 @@ using CRM.Service.Interfaces.UnitOfWork;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace CRM.Controllers
 {
@@ -14,26 +16,65 @@ namespace CRM.Controllers
     public class ScheduleController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ScheduleController(IUnitOfWork unitOfWork)
+        public ScheduleController(
+            IUnitOfWork unitOfWork,
+            UserManager<ApplicationUser> userManager)
         {
             _unitOfWork = unitOfWork;
+            _userManager = userManager;
         }
 
         // GET: api/Schedules
         [HttpGet]
         [AllowAnonymous]
+        [HttpGet]
         public async Task<IActionResult> GetSchedules()
         {
             try
             {
-                var schedules = await _unitOfWork.ScheduleRepository.GetAllAsync(
-                    includes: new Expression<Func<Schedule, object>>[]
-                    {
-                        s => s.Client,
-                        s => s.ClientTask,
-                        s => s.ClientTask.Tasks
-                    });
+                // 1) Load the current user (including their assigned clients)
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var currentUser = await _userManager.Users
+                    .Include(u => u.UserClients)
+                    .FirstOrDefaultAsync(u => u.Id == userId);
+
+                if (currentUser == null)
+                    return Unauthorized();
+
+                // 2) Check if they’re in the Admin role
+                var isAdmin = await _userManager.IsInRoleAsync(currentUser, "Admin");
+
+                // 3) Define your Includes
+                Expression<Func<Schedule, object>>[] includes = {
+            s => s.Client,
+            s => s.ClientTask,
+            s => s.ClientTask.Tasks
+        };
+
+                IEnumerable<Schedule> schedules;
+
+                if (isAdmin)
+                {
+                    // Admins see all schedules
+                    schedules = await _unitOfWork.ScheduleRepository
+                        .GetAllAsync(filter: null, includes: includes);
+                }
+                else
+                {
+                    // Non-admins see only schedules for their clients
+                    var allowedClientIds = currentUser.UserClients
+                        .Select(uc => uc.ClientId)
+                        .ToList();
+
+                    schedules = await _unitOfWork.ScheduleRepository
+                        .GetAllAsync(
+                            filter: s => allowedClientIds.Contains(s.ClientId),
+                            includes: includes
+                        );
+                }
+
                 return Ok(schedules);
             }
             catch (Exception ex)
@@ -41,6 +82,7 @@ namespace CRM.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
 
         // GET: api/Schedules/1
         [HttpGet("{id}")]

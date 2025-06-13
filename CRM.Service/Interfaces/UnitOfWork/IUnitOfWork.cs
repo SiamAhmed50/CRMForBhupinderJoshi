@@ -13,6 +13,7 @@ namespace CRM.Service.Interfaces.UnitOfWork
     {
         IRepository<ApplicationUser, string> UserRepository { get; }
         IUserMenuRepository UserMenuRepository { get; }
+        IUserClientRepository UserClientRepository { get; }
 
         IRepository<Client, int> ClientRepository { get; } 
         IRepository<ClientTask, string> ClientTaskRepository { get; } 
@@ -26,7 +27,7 @@ namespace CRM.Service.Interfaces.UnitOfWork
         IRepository<Tasks, string> TaskRepository { get; }
         IRepository<Machine, int> MachineRepository { get; }
         IRepository<Schedule, int> ScheduleRepository { get; }
-        IRepository<WeeklySchedule, int> WeeklyScheduleRepository { get; }
+        IRepository<WeeklySchedule, int> WeeklyScheduleRepository { get; } 
 
         // Add other repositories here
 

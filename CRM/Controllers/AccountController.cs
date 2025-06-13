@@ -53,11 +53,11 @@ namespace CRM.Controllers
             if (!result.Succeeded)
                 return BadRequest(new { Message = "User registration failed", Errors = result.Errors });
 
-            if (model.MenuIds != null && model.MenuIds.Any())
-            {
+            if (model.MenuIds?.Any() == true)
                 await _unitOfWork.UserMenuRepository.AddUserMenusAsync(user.Id, model.MenuIds);
-                await _unitOfWork.SaveChangesAsync();
-            }
+
+            if (model.ClientIds?.Any() == true)
+                await _unitOfWork.UserClientRepository.AddUserClientsAsync(user.Id, model.ClientIds);
 
             return Ok(new { Message = "User registered successfully with menu access" });
         }
@@ -103,27 +103,41 @@ namespace CRM.Controllers
             return Ok(new { Message = "Logout successful" });
         }
 
-        [HttpGet("users")]
+        [HttpGet("users")] 
         public async Task<IActionResult> GetAllUsers()
         {
-            var users = _userManager.Users.Where(u => u.Email.ToLower() != "admin@crm.com").ToList();
+            // 1. Load all non-admin users
+            var users = _userManager.Users
+                .Where(u => u.Email.ToLower() != "admin@crm.com")
+                .ToList();
+
             var userList = new List<UserListDto>();
 
             foreach (var user in users)
             {
-                var menuEntities = await _unitOfWork.UserMenuRepository.GetMenusByUserIdAsync(user.Id);
+                // 2. Get menus for this user
+                var menuEntities = await _unitOfWork.UserMenuRepository
+                    .GetMenusByUserIdAsync(user.Id);
                 var menuIds = menuEntities.Select(m => m.Id).ToList();
 
+                // 3. Get clients for this user (you need a similar repo method)
+                var clientEntities = await _unitOfWork.UserClientRepository
+                    .GetClientsByUserIdAsync(user.Id);
+                var clientIds = clientEntities.Select(c => c.Id).ToList();
+
+                // 4. Add both sets of IDs into the DTO
                 userList.Add(new UserListDto
                 {
                     Name = user.UserName,
                     Email = user.Email,
-                    MenuIds = menuIds
+                    MenuIds = menuIds,
+                    ClientIds = clientIds
                 });
             }
 
             return Ok(userList);
         }
+
 
         [HttpDelete("delete/{email}")]
         public async Task<IActionResult> DeleteUser(string email)

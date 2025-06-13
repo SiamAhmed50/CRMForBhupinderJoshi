@@ -23,6 +23,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Menus</th>
+                <th>Clients</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -41,19 +42,75 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" class="form-control mb-2" name="Name" id="name" placeholder="Full Name" required />
-                    <input type="email" class="form-control mb-2" name="Email" id="email" placeholder="Email" required />
-                    <input type="password" class="form-control mb-2" name="Password" id="password" placeholder="Password" required />
-                    <input type="password" class="form-control mb-2" name="ConfirmPassword" id="confirmPassword" placeholder="Confirm Password" required />
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text"
+                               class="form-control"
+                               name="Name"
+                               id="name"
+                               placeholder="Full Name"
+                               required />
+                    </div>
 
-                    <label>Select Menus</label>
-                    <select class="form-select mb-2" name="MenuIds" multiple="multiple" id="menus" required>
-                        @foreach (var menu in Model.AllMenus)
-                        {
-                            <option value="@menu.Id">@menu.Name</option>
-                        }
-                    </select>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email"
+                               class="form-control"
+                               name="Email"
+                               id="email"
+                               placeholder="Email"
+                               required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password"
+                               class="form-control"
+                               name="Password"
+                               id="password"
+                               placeholder="Password"
+                               required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password"
+                               class="form-control"
+                               name="ConfirmPassword"
+                               id="confirmPassword"
+                               placeholder="Confirm Password"
+                               required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="menus" class="form-label">Select Menus</label>
+                        <select class="form-select"
+                                name="MenuIds"
+                                id="menus"
+                                multiple="multiple"
+                                required>
+                            @foreach (var menu in Model.AllMenus)
+                            {
+                                <option value="@menu.Id">@menu.Name</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="clients" class="form-label">Select Client(s)</label>
+                        <select class="form-select"
+                                name="ClientIds"
+                                id="clients"
+                                multiple="multiple"
+                                required>
+                            @foreach (var client in Model.AllClients)
+                            {
+                                <option value="@client.Id">@client.Name</option>
+                            }
+                        </select>
+                    </div>
                 </div>
+
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Register</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -83,6 +140,12 @@
                         }
                     },
                     {
+                        data: 'clientNames',
+                        render: function (data) {
+                            return Array.isArray(data) ? data.join(', ') : '';
+                        }
+                    },
+                    {
                         data: null,
                         render: function (data, type, row) {
                             return ` 
@@ -97,12 +160,19 @@
             $('#addUserBtn').click(function () {
                 $('#userForm')[0].reset();
                 $('#menus').val(null).trigger('change');
+                $('#clients').val(null).trigger('change');
                 $('#email').prop('readonly', false);
                 $('#isEdit').val('');
             });
 
             $('#addUserModal').on('shown.bs.modal', function () {
                 $('#menus').select2({
+                    dropdownParent: $('#addUserModal'),
+                    width: '100%',
+                    placeholder: "Select menus",
+                    allowClear: true
+                });
+                $('#clients').select2({
                     dropdownParent: $('#addUserModal'),
                     width: '100%',
                     placeholder: "Select menus",

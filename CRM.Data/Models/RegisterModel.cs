@@ -22,6 +22,8 @@ namespace CRM.Data.Models
         public string Password { get; set; }
 
         public List<int> MenuIds { get; set; } = new();
+
+        public List<int> ClientIds { get; set; }    // ← new
     }
 
 }

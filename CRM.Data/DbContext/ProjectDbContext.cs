@@ -20,6 +20,7 @@ namespace CRM.Data.DbContext
         public DbSet<JobTransactions> JobTransactions { get; set; }
         public DbSet<Menus> Menus { get; set; }
         public DbSet<UserMenus> UserMenus { get; set; }
+        public DbSet<UserClients> UserClients { get; set; }
 
 
 

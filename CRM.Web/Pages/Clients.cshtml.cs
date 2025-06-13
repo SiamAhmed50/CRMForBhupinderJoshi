@@ -130,7 +130,7 @@ namespace CRM.Web.Pages
 
             try
             {
-                // Add Authorization token
+                // 1) Attach the JWT from cookie
                 var token = HttpContext.Request.Cookies["jwt"];
                 if (!string.IsNullOrEmpty(token))
                 {
@@ -138,8 +138,11 @@ namespace CRM.Web.Pages
                         new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
                 }
 
-                var response = await httpClient.DeleteAsync($"{_apiEndpoint}/{id}");
+                // 2) POST to the new "delete" route (no body needed)
+                var url = $"{_apiEndpoint}/{id}/delete";
+                var response = await httpClient.PostAsync(url, content: null);
 
+                // 3) Check status
                 if (!response.IsSuccessStatusCode)
                 {
                     return new JsonResult(new
@@ -165,6 +168,7 @@ namespace CRM.Web.Pages
                 });
             }
         }
+
 
         public async Task<IActionResult> OnPostList()
         {

@@ -5,6 +5,8 @@ using CRM.Service.Interfaces.UnitOfWork;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace CRM.Controllers
 {
@@ -14,10 +16,14 @@ namespace CRM.Controllers
     public class MachineController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public MachineController(IUnitOfWork unitOfWork)
+        public MachineController(
+            IUnitOfWork unitOfWork,
+            UserManager<ApplicationUser> userManager)
         {
             _unitOfWork = unitOfWork;
+            _userManager = userManager;
         }
 
         // GET: api/Machines
@@ -26,21 +32,52 @@ namespace CRM.Controllers
         {
             try
             {
-                var Machines = await _unitOfWork.MachineRepository.GetAllAsync(
-                    includes: new Expression<Func<Machine, object>>[]
-                    {
-                        ct => ct.Client
-                    });
-                return Ok(Machines);
+                // 1) Load current user with their assigned clients
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var currentUser = await _userManager.Users
+                    .Include(u => u.UserClients)
+                    .FirstOrDefaultAsync(u => u.Id == userId);
+
+                if (currentUser == null)
+                    return Unauthorized();
+
+                // 2) Check Admin role
+                var isAdmin = await _userManager.IsInRoleAsync(currentUser, "Admin");
+
+                // 3) Define includes
+                Expression<Func<Machine, object>>[] includes = {
+                m => m.Client
+            };
+
+                IEnumerable<Machine> machines;
+
+                if (isAdmin)
+                {
+                    // Admins see all machines
+                    machines = await _unitOfWork.MachineRepository
+                        .GetAllAsync(filter: null, includes: includes);
+                }
+                else
+                {
+                    // Non-admins see only machines for their clients
+                    var allowedClientIds = currentUser.UserClients
+                        .Select(uc => uc.ClientId)
+                        .ToList();
+
+                    machines = await _unitOfWork.MachineRepository
+                        .GetAllAsync(
+                            filter: m => allowedClientIds.Contains(m.ClientId),
+                            includes: includes
+                        );
+                }
+
+                return Ok(machines);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                var message = ex.Message;
+                return StatusCode(500, "Internal server error");
             }
-
-            return Ok();
         }
-
         // GET: api/Machines/1
         [HttpGet("{id}")]
         public async Task<IActionResult> GetMachine(int id)

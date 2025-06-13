@@ -4,6 +4,8 @@ using CRM.Data.Entities;
 using CRM.Service.Interfaces.UnitOfWork;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace CRM.Controllers
 {
@@ -13,10 +15,14 @@ namespace CRM.Controllers
     public class ClientsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ClientsController(IUnitOfWork unitOfWork)
+        public ClientsController(
+            IUnitOfWork unitOfWork,
+            UserManager<ApplicationUser> userManager)
         {
             _unitOfWork = unitOfWork;
+            _userManager = userManager;
         }
 
         // GET: api/Clients
@@ -25,14 +31,43 @@ namespace CRM.Controllers
         {
             try
             {
-                var clients = await _unitOfWork.ClientRepository.GetAllAsync();
+                // 1) Load the current user from the store, including their UserClients
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var currentUser = await _userManager.Users
+                    .Include(u => u.UserClients)
+                    .FirstOrDefaultAsync(u => u.Id == userId);
+
+                if (currentUser == null)
+                    return Unauthorized();
+
+                // 2) Check if they're in the Admin role
+                var isAdmin = await _userManager.IsInRoleAsync(currentUser, "Admin");
+
+                IEnumerable<Client> clients;
+
+                if (isAdmin)
+                {
+                    // Admins see every client
+                    clients = await _unitOfWork.ClientRepository.GetAllAsync();
+                }
+                else
+                {
+                    // Non-admins only see their assigned client(s)
+                    var allowedClientIds = currentUser.UserClients
+                                                    .Select(uc => uc.ClientId)
+                                                    .ToList();
+
+                    clients = await _unitOfWork.ClientRepository
+                        .GetAllAsync(filter: c => allowedClientIds.Contains(c.Id));
+                }
+
                 return Ok(clients);
             }
-            catch (Exception ex) { 
-            var message = ex.Message;
+            catch (Exception ex)
+            {
+                // log ex.Message if you have a logger
+                return StatusCode(500, "Internal server error");
             }
-           
-            return Ok();
         }
 
         // GET: api/Clients/5
@@ -106,5 +141,19 @@ namespace CRM.Controllers
             await _unitOfWork.SaveChangesAsync();
             return NoContent();
         }
+
+        // POST: api/Clients/5/delete
+        [HttpPost("{id}/delete")]
+        [AllowAnonymous]    // if you still want anonymous access
+        public async Task<IActionResult> DeleteClientViaPost(int id)
+        {
+            var deleted = await _unitOfWork.ClientRepository.DeleteAsync(id);
+            if (!deleted)
+                return NotFound();
+
+            await _unitOfWork.SaveChangesAsync();
+            return NoContent();   // 204
+        }
+
     }
 }

@@ -8,6 +8,8 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using CRM.Data.Enums;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace CRM.Controllers
 {
@@ -17,26 +19,67 @@ namespace CRM.Controllers
     public class ClientTaskController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ClientTaskController(IUnitOfWork unitOfWork)
+        public ClientTaskController(
+            IUnitOfWork unitOfWork,
+            UserManager<ApplicationUser> userManager)
         {
             _unitOfWork = unitOfWork;
+            _userManager = userManager;
         }
 
-       
+
         [HttpGet]
         public async Task<IActionResult> GetClientTasks()
         {
-            var clientTasks = await _unitOfWork.ClientTaskRepository.GetAllAsync(
-                includes: new Expression<Func<ClientTask, object>>[]
-                    {
-                        ct => ct.Client,
-                        ct => ct.Tasks
-                    });
+            // 1. Load the current user (with their UserClients)
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var currentUser = await _userManager.Users
+                .Include(u => u.UserClients)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (currentUser == null)
+                return Unauthorized();
+
+                    // 2. Check Admin role
+                    var isAdmin = await _userManager.IsInRoleAsync(currentUser, "Admin");
+
+                    // 3. Common includes
+                    Expression<Func<ClientTask, object>>[] includes = {
+                ct => ct.Client,
+                ct => ct.Tasks
+            };
+
+            IEnumerable<ClientTask> clientTasks;
+
+            if (isAdmin)
+            {
+                // Admins see all client-tasks
+                clientTasks = await _unitOfWork.ClientTaskRepository
+                    .GetAllAsync(
+                        filter: null,
+                        includes: includes
+                    );
+            }
+            else
+            {
+                // Non-admins see only their allowed clients
+                var allowedClientIds = currentUser.UserClients
+                                                  .Select(uc => uc.ClientId)
+                                                  .ToList();
+
+                clientTasks = await _unitOfWork.ClientTaskRepository
+                    .GetAllAsync(
+                        filter: ct => allowedClientIds.Contains(ct.ClientId),
+                        includes: includes
+                    );
+            }
+
             return Ok(clientTasks);
         }
 
-     
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetClientTask(int id)
         {

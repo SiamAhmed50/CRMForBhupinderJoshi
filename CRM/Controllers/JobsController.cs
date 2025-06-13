@@ -4,6 +4,7 @@ using CRM.Data.Enums;
 using CRM.Service.Helpers;
 using CRM.Service.Interfaces.UnitOfWork;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -11,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace CRM.Controllers
@@ -21,25 +23,60 @@ namespace CRM.Controllers
     public class JobsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public JobsController(IUnitOfWork unitOfWork)
+        public JobsController(
+            IUnitOfWork unitOfWork,
+            UserManager<ApplicationUser> userManager)
         {
             _unitOfWork = unitOfWork;
+            _userManager = userManager;
         }
-
+        [HttpGet]
         [HttpGet]
         public async Task<IActionResult> GetJobs()
         {
             try
             {
-                var jobs = await _unitOfWork.JobRepository.GetAllAsync(
-                    includes: new Expression<Func<Job, object>>[]
-                    {
-                        ct => ct.Client,
-                        ct => ct.Tasks
-                    });
+                var includes = new Expression<Func<Job, object>>[]
+                {
+            j => j.Client,
+            j => j.Tasks
+                };
 
-                var jobsViewModels = jobs.Select(j => new JobsViewModel
+                // load the current user
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var currentUser = await _userManager.Users
+                .Include(u => u.UserClients)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+                if (currentUser == null)
+                    return Unauthorized();
+
+                // check role via UserManager
+                var isAdmin = await _userManager.IsInRoleAsync(currentUser, "Admin");
+
+                IEnumerable<Job> jobs;
+
+                if (isAdmin)
+                {
+                    // no filter for admins
+                    jobs = await _unitOfWork.JobRepository.GetAllAsync(
+                        filter: null,
+                        includes: includes);
+                }
+                else
+                {
+                    // build the allowed client list
+                    var allowedClientIds = currentUser.UserClients
+                        .Select(uc => uc.ClientId)
+                        .ToList();
+
+                    jobs = await _unitOfWork.JobRepository.GetAllAsync(
+                        filter: j => allowedClientIds.Contains(j.ClientId),
+                        includes: includes);
+                }
+
+                var result = jobs.Select(j => new JobsViewModel
                 {
                     Id = j.Id,
                     JobId = j.Id,
@@ -50,16 +87,16 @@ namespace CRM.Controllers
                     TaskStatus = Enum.GetName(typeof(JobTaskStatus), j.Status),
                     StartDate = j.Started.ToString(),
                     EndDate = j.Ended.ToString()
-                }).ToList();
+                });
 
-                return Ok(jobsViewModels);
+                return Ok(result);
             }
-            catch (Exception ex)
+            catch
             {
-
                 return StatusCode(500, "Internal server error");
             }
         }
+
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetJob(int id)

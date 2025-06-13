@@ -31,10 +31,12 @@ namespace CRM.Service.Services.UnitOfWork
             ScheduleRepository = new Repository<Schedule, int>(_dbContext);
             WeeklyScheduleRepository = new Repository<WeeklySchedule, int>(_dbContext);
             UserMenuRepository = new UserMenuService(_dbContext);
+            UserClientRepository = new UserClientService(_dbContext);
         }
 
         public IRepository<ApplicationUser, string> UserRepository { get; }
         public IUserMenuRepository UserMenuRepository { get; }
+        public IUserClientRepository UserClientRepository { get; }
 
         public IRepository<Client, int> ClientRepository { get; } // Add this property for Client Repository
         public IRepository<ClientTask, string> ClientTaskRepository { get; } // Add this property for Client Repository

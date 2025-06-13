@@ -5,6 +5,7 @@
         public string Name { get; set; }
         public string Email { get; set; }
         public List<int> MenuIds { get; set; }
+        public List<int> ClientIds { get; set; }
     }
 
 }

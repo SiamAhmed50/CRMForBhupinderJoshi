@@ -7,6 +7,7 @@
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
         public List<int> MenuIds { get; set; }
+        public List<int> ClientIds { get; set; }    // ← new
     }
 
 
