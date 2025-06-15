@@ -23,7 +23,7 @@ namespace CRM.Service.Services.UnitOfWork
             TaskRepository = new Repository<Tasks, string>(_dbContext);
             ClientRepository = new Repository<Client, int>(_dbContext); // Add this line for Client Repository
             JobRepository = new Repository<Job, string>(_dbContext); // Add this line for Client Repository
-            ClientTaskRepository = new Repository<ClientTask, string>(_dbContext); 
+            ClientTaskRepository = new Repository<ClientTask, int>(_dbContext); 
             JobLogsRepository = new Repository<JobLogs, string>(_dbContext); 
             LogsRepository = new Repository<Logs, string>(_dbContext);
             JobTransactionsRepository = new Repository<JobTransactions, string>(_dbContext);
@@ -39,7 +39,7 @@ namespace CRM.Service.Services.UnitOfWork
         public IUserClientRepository UserClientRepository { get; }
 
         public IRepository<Client, int> ClientRepository { get; } // Add this property for Client Repository
-        public IRepository<ClientTask, string> ClientTaskRepository { get; } // Add this property for Client Repository
+        public IRepository<ClientTask, int> ClientTaskRepository { get; } // Add this property for Client Repository
         public IRepository<Job, string> JobRepository { get; }
         public IRepository<JobLogs, string> GenericJobLogsRepository { get; }
         public IRepository<Logs, string> LogsRepository { get; }

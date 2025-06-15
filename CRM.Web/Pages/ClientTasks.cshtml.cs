@@ -117,7 +117,7 @@ namespace CRM.Web.Pages
             return RedirectToPage();
         }
 
-        public async Task<IActionResult> OnPostDeleteAsync(int id)
+        /*public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
             var httpClient = _httpClientFactory.CreateClient("ApiClient");
 
@@ -141,7 +141,53 @@ namespace CRM.Web.Pages
             }
 
             return RedirectToPage();
+        }*/
+
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
+        {
+            var httpClient = _httpClientFactory.CreateClient("ApiClient");
+
+            try
+            {
+                // 1) Attach the JWT from cookie
+                var token = HttpContext.Request.Cookies["jwt"];
+                if (!string.IsNullOrEmpty(token))
+                {
+                    httpClient.DefaultRequestHeaders.Authorization =
+                        new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                }
+
+                // 2) POST to the delete route (instead of DELETE verb)
+                var url = $"{_apiEndpoint}/{id}/delete";
+                var response = await httpClient.PostAsync(url, content: null);
+
+                // 3) Check status
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new JsonResult(new
+                    {
+                        success = false,
+                        message = $"Error deleting tasks. Status code: {response.StatusCode}"
+                    });
+                }
+
+                return new JsonResult(new
+                {
+                    success = true,
+                    message = "Tasks have been deleted successfully."
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error deleting tasks with ID {id}: {ex.Message}");
+                return new JsonResult(new
+                {
+                    success = false,
+                    message = $"Error deleting tasks with ID {id}: {ex.Message}"
+                });
+            }
         }
+
 
         public async Task<IActionResult> OnPostListAsync()
         {

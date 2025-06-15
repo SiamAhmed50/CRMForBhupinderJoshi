@@ -130,7 +130,7 @@ public class UsersModel : PageModel
 
         return new JsonResult(new { success = true });
     }
-    public async Task<IActionResult> OnPostDeleteAsync([FromForm] string email)
+    /*public async Task<IActionResult> OnPostDeleteAsync([FromForm] string email)
     {
         var client = _httpClientFactory.CreateClient("ApiClient");
         var response = await client.DeleteAsync($"/api/Account/delete/{email}");
@@ -142,5 +142,50 @@ public class UsersModel : PageModel
         }
 
         return new JsonResult(new { success = true });
+    }*/
+
+    public async Task<IActionResult> OnPostDeleteAsync([FromForm] string email)
+    {
+        var httpClient = _httpClientFactory.CreateClient("ApiClient");
+
+        try
+        {
+            // 1) Attach the JWT from cookie
+            var token = HttpContext.Request.Cookies["jwt"];
+            if (!string.IsNullOrEmpty(token))
+            {
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            }
+
+            // 2) POST to the new "delete" route (no body needed)
+            var url = $"/api/Account/delete/{email}";
+            var response = await httpClient.PostAsync(url, content: null);
+
+            // 3) Check status
+            if (!response.IsSuccessStatusCode)
+            {
+                return new JsonResult(new
+                {
+                    success = false,
+                    message = $"Error deleting client. Status code: {response.StatusCode}"
+                });
+            }
+
+            return new JsonResult(new
+            {
+                success = true,
+                message = "Client has been deleted successfully."
+            });
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error deleting client with Email {email}: {ex.Message}");
+            return new JsonResult(new
+            {
+                success = false,
+                message = $"Error deleting client with Email {email}: {ex.Message}"
+            });
+        }
     }
 }

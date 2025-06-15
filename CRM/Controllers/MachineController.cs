@@ -139,7 +139,7 @@ namespace CRM.Controllers
             return Ok(updatedMachine);
         }
 
-        // DELETE: api/Machines/5
+        /*// DELETE: api/Machines/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMachine(int id)
         {
@@ -152,6 +152,19 @@ namespace CRM.Controllers
 
             await _unitOfWork.SaveChangesAsync();
             return NoContent();
+        }*/
+
+        // POST: api/Machines/5/delete
+        [HttpPost("{id}/delete")]
+        [AllowAnonymous]    // if you still want anonymous access
+        public async Task<IActionResult> DeleteMachineViaPost(int id)
+        {
+            var deleted = await _unitOfWork.MachineRepository.DeleteAsync(id);
+            if (!deleted)
+                return NotFound();
+
+            await _unitOfWork.SaveChangesAsync();
+            return NoContent();   // 204
         }
 
         // GET: api/Machines/ByClientId/1
