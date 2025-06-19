@@ -258,3 +258,4 @@ C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\ne
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\CRM.API.pdb
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\CRM.API.genruntimeconfig.cache
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\ref\CRM.API.dll
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\bin\Debug\net8.0\appsettings.json
