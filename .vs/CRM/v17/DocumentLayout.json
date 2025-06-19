@@ -1,11 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\",
+  "WorkspaceRootPath": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\",
   "Documents": [
     {
-<<<<<<< HEAD
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CRM\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\wwwroot\\assets\\vendor\\css\\core.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\wwwroot\\assets\\vendor\\css\\core.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\wwwroot\\assets\\vendor\\css\\theme-default.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\wwwroot\\assets\\vendor\\css\\theme-default.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|solutionrelative:crm\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|solutionrelative:crm\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -14,6 +25,9 @@
     {
       "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,10 +56,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|solutionrelative:crm\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|solutionrelative:crm\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -86,69 +96,12 @@
     {
       "AbsoluteMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.data\\entities\\logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|solutionrelative:crm.data\\entities\\logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-=======
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.web\\pages\\users.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\users.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.web\\pages\\clienttasks.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\clienttasks.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|solutionrelative:crm\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm\\controllers\\clientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|solutionrelative:crm\\controllers\\clientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.web\\pages\\clients.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\clients.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.web\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.web\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.web\\viewcomponents\\menuviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\viewcomponents\\menuviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.web\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm\\controllers\\clienttaskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|solutionrelative:crm\\controllers\\clienttaskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.web\\pages\\machines.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\machines.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm\\controllers\\machinecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|solutionrelative:crm\\controllers\\machinecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
->>>>>>> 17243a1dae93d0443a767c6d4c796e13b15de264
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.web\\pages\\clients.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\clients.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.data\\entities\\clienttask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.data\\entities\\clienttask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|solutionrelative:crm.data\\entities\\clienttask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|solutionrelative:crm\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -227,25 +180,16 @@
     {
       "AbsoluteMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.data\\entities\\menus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|solutionrelative:crm.data\\entities\\menus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-=======
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.web\\pages\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
->>>>>>> 17243a1dae93d0443a767c6d4c796e13b15de264
+      "AbsoluteMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.data\\entities\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|solutionrelative:crm.data\\entities\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\appsettings.Development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CRM.Web\\appsettings.Development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.data\\entities\\machine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|solutionrelative:crm.data\\entities\\machine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.web\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -295,41 +239,13 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm\\crm.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-=======
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.web\\viewmodel\\userlistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\viewmodel\\userlistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CRM\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm\\crm.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
->>>>>>> 17243a1dae93d0443a767c6d4c796e13b15de264
       "RelativeMoniker": "D:0:0:{0A8D269E-7341-493B-BD81-4A3548EADAAC}|CRM\\CRM.API.csproj|solutionrelative:crm\\crm.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.data\\dbcontext\\projectdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|solutionrelative:crm.data\\dbcontext\\projectdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.data\\entities\\joblogs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|solutionrelative:crm.data\\entities\\joblogs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.data\\entities\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|solutionrelative:crm.data\\entities\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.data\\entities\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|solutionrelative:crm.data\\entities\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|f:\\work\\code_s bd\\crmforbhupinderjoshi\\crm.web\\areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.web\\areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAD65D40-0A9A-4204-BDCD-EE9A497F6549}|CRM.Web\\CRM.UI.csproj|solutionrelative:crm.web\\areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.data\\migrations\\20250311073828_seedadminuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|solutionrelative:crm.data\\migrations\\20250311073828_seedadminuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -344,9 +260,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|c:\\freelance projects\\crmforbhupindarjoshi\\crmforbhupinderjoshi\\crm.data\\migrations\\20250427060313_userclients.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6E3078A5-1D8A-440C-B1F7-21FEF4E33DAC}|CRM.Data\\CRM.Data.csproj|solutionrelative:crm.data\\migrations\\20250427060313_userclients.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-=======
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Users.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
->>>>>>> 17243a1dae93d0443a767c6d4c796e13b15de264
     }
   ],
   "DocumentGroupContainers": [
@@ -356,12 +269,11 @@
       "DocumentGroups": [
         {
           "DockedHeight": 16,
-<<<<<<< HEAD
-          "SelectedChildIndex": 29,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "Clients.cshtml",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Clients.cshtml",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Clients.cshtml",
@@ -371,6 +283,32 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-15T09:24:50.36Z",
               "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "core.css",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\css\\core.css",
+              "RelativeDocumentMoniker": "CRM.Web\\wwwroot\\assets\\vendor\\css\\core.css",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\css\\core.css",
+              "RelativeToolTip": "CRM.Web\\wwwroot\\assets\\vendor\\css\\core.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAYwBQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-06-19T07:00:29.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "theme-default.css",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\css\\theme-default.css",
+              "RelativeDocumentMoniker": "CRM.Web\\wwwroot\\assets\\vendor\\css\\theme-default.css",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\wwwroot\\assets\\vendor\\css\\theme-default.css",
+              "RelativeToolTip": "CRM.Web\\wwwroot\\assets\\vendor\\css\\theme-default.css",
+              "ViewState": "AgIAAJ0CAAAAAAAAAAAAAJ0CAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-06-19T06:58:39.664Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -454,58 +392,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DashboardController.cs",
-              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\DashboardController.cs",
-              "RelativeDocumentMoniker": "CRM\\Controllers\\DashboardController.cs",
-              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\DashboardController.cs",
-              "RelativeToolTip": "CRM\\Controllers\\DashboardController.cs",
-              "ViewState": "AgIAAMYAAAAAAAAAAAAgwNoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T09:02:05.605Z",
+              "DocumentIndex": 6,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeToolTip": "..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AgIAAKQWAAAAAAAAAAAIwK4WAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-06-19T06:10:04.883Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Program.cs",
               "RelativeDocumentMoniker": "CRM.Web\\Program.cs",
               "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Program.cs",
               "RelativeToolTip": "CRM.Web\\Program.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAAAFIAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAFIAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-03T10:47:28.789Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\appsettings.json",
               "RelativeDocumentMoniker": "CRM.Web\\appsettings.json",
               "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\appsettings.json",
               "RelativeToolTip": "CRM.Web\\appsettings.json",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-03-03T11:41:05.333Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Jobs.cshtml",
-              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Jobs.cshtml",
-              "RelativeDocumentMoniker": "CRM.Web\\Pages\\Jobs.cshtml",
-              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Jobs.cshtml",
-              "RelativeToolTip": "CRM.Web\\Pages\\Jobs.cshtml",
-              "ViewState": "AgIAAAgBAAAAAAAAAAASwBgBAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-12T16:09:31.36Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "Job.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\Job.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\Job.cs",
@@ -517,7 +443,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "JobTransactions.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\JobTransactions.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\JobTransactions.cs",
@@ -529,7 +455,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "Index.cshtml.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Index.cshtml.cs",
@@ -542,7 +468,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Index.cshtml",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Index.cshtml",
@@ -554,20 +480,58 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\appsettings.json",
               "RelativeDocumentMoniker": "CRM\\appsettings.json",
               "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\appsettings.json",
               "RelativeToolTip": "CRM\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-03-08T10:32:52.275Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "CRM\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "CRM\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAArwFsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T11:42:42.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Jobs.cshtml",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Jobs.cshtml",
+              "RelativeDocumentMoniker": "CRM.Web\\Pages\\Jobs.cshtml",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Jobs.cshtml",
+              "RelativeToolTip": "CRM.Web\\Pages\\Jobs.cshtml",
+              "ViewState": "AgIAAAgBAAAAAAAAAAASwBgBAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-12T16:09:31.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "CRM\\Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "CRM\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAgwNoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T09:02:05.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "JobTransactionsController.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\JobTransactionsController.cs",
               "RelativeDocumentMoniker": "CRM\\Controllers\\JobTransactionsController.cs",
@@ -579,7 +543,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "ScheduleController.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\ScheduleController.cs",
               "RelativeDocumentMoniker": "CRM\\Controllers\\ScheduleController.cs",
@@ -591,19 +555,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "CRM\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "CRM\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIUAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T11:42:42.735Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Shared\\_Layout.cshtml",
@@ -612,144 +564,22 @@
               "ViewState": "AgIAAEgAAAAAAAAAAAAAAFMAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-07T06:33:19.855Z"
-=======
-          "SelectedChildIndex": 8,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "RelativeToolTip": "CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-14T08:47:26.1Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MenuViewComponent.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\ViewComponents\\MenuViewComponent.cs",
-              "RelativeDocumentMoniker": "CRM.Web\\ViewComponents\\MenuViewComponent.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\ViewComponents\\MenuViewComponent.cs",
-              "RelativeToolTip": "CRM.Web\\ViewComponents\\MenuViewComponent.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAqwBgAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T08:43:40.883Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\appsettings.json",
-              "RelativeDocumentMoniker": "CRM.Web\\appsettings.json",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\appsettings.json",
-              "RelativeToolTip": "CRM.Web\\appsettings.json",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-14T07:50:35.839Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "MachineController.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM\\Controllers\\MachineController.cs",
-              "RelativeDocumentMoniker": "CRM\\Controllers\\MachineController.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM\\Controllers\\MachineController.cs",
-              "RelativeToolTip": "CRM\\Controllers\\MachineController.cs",
-              "ViewState": "AgIAAIwAAAAAAAAAAAAqwJsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T07:20:12.072Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ClientTasks.cshtml.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\ClientTasks.cshtml.cs",
-              "RelativeDocumentMoniker": "CRM.Web\\Pages\\ClientTasks.cshtml.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\ClientTasks.cshtml.cs",
-              "RelativeToolTip": "CRM.Web\\Pages\\ClientTasks.cshtml.cs",
-              "ViewState": "AgIAAJsAAAAAAAAAAAAAAKAAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T06:54:25.455Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Machines.cshtml.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Machines.cshtml.cs",
-              "RelativeDocumentMoniker": "CRM.Web\\Pages\\Machines.cshtml.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Machines.cshtml.cs",
-              "RelativeToolTip": "CRM.Web\\Pages\\Machines.cshtml.cs",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAAALUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T06:35:28.095Z"
->>>>>>> 17243a1dae93d0443a767c6d4c796e13b15de264
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-<<<<<<< HEAD
+              "DocumentIndex": 16,
               "Title": "Jobs.cshtml.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Jobs.cshtml.cs",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Jobs.cshtml.cs",
               "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Jobs.cshtml.cs",
               "RelativeToolTip": "CRM.Web\\Pages\\Jobs.cshtml.cs",
               "ViewState": "AgIAAJkAAAAAAAAAAAAQwMcAAAANAAAAAAAAAA==",
-=======
-              "Title": "Clients.cshtml",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Clients.cshtml",
-              "RelativeDocumentMoniker": "CRM.Web\\Pages\\Clients.cshtml",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Clients.cshtml",
-              "RelativeToolTip": "CRM.Web\\Pages\\Clients.cshtml",
-              "ViewState": "AgIAACABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-14T05:52:48.788Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ClientController.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM\\Controllers\\ClientController.cs",
-              "RelativeDocumentMoniker": "CRM\\Controllers\\ClientController.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM\\Controllers\\ClientController.cs",
-              "RelativeToolTip": "CRM\\Controllers\\ClientController.cs",
-              "ViewState": "AgIAAI4AAAAAAAAAAAAqwJIAAAAYAAAAAAAAAA==",
->>>>>>> 17243a1dae93d0443a767c6d4c796e13b15de264
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T04:45:25.154Z"
+              "WhenOpened": "2025-04-02T12:53:09.969Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Users.cshtml.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Users.cshtml.cs",
-              "RelativeDocumentMoniker": "CRM.Web\\Pages\\Users.cshtml.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Users.cshtml.cs",
-              "RelativeToolTip": "CRM.Web\\Pages\\Users.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKEAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T04:36:37.79Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "CRM.Web\\Pages\\Shared\\_Layout.cshtml",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "CRM.Web\\Pages\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAAAHEAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-14T04:01:09.482Z"
-            },
-            {
-              "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "Logs.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\Logs.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\Logs.cs",
@@ -758,58 +588,10 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-12T11:29:40.456Z"
-=======
-              "DocumentIndex": 15,
-              "Title": "Users.cshtml",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Users.cshtml",
-              "RelativeDocumentMoniker": "CRM.Web\\Pages\\Users.cshtml",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Users.cshtml",
-              "RelativeToolTip": "CRM.Web\\Pages\\Users.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAABcAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-13T15:15:19.593Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "UserListDto.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\ViewModel\\UserListDto.cs",
-              "RelativeDocumentMoniker": "CRM.Web\\ViewModel\\UserListDto.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\ViewModel\\UserListDto.cs",
-              "RelativeToolTip": "CRM.Web\\ViewModel\\UserListDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T15:14:29.855Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "CRM.Web\\appsettings.Development.json",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\appsettings.Development.json",
-              "RelativeToolTip": "CRM.Web\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-13T15:08:50.187Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ClientTaskController.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM\\Controllers\\ClientTaskController.cs",
-              "RelativeDocumentMoniker": "CRM\\Controllers\\ClientTaskController.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM\\Controllers\\ClientTaskController.cs",
-              "RelativeToolTip": "CRM\\Controllers\\ClientTaskController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALgAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T09:10:54.113Z"
->>>>>>> 17243a1dae93d0443a767c6d4c796e13b15de264
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-<<<<<<< HEAD
               "Title": "Clients.cshtml.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Clients.cshtml.cs",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Clients.cshtml.cs",
@@ -822,40 +604,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "JobLogs.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\JobLogs.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\JobLogs.cs",
               "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\JobLogs.cs",
               "RelativeToolTip": "CRM.Data\\Entities\\JobLogs.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAQwBwAAAAAAAAAAAAAAA==",
-=======
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Program.cs",
-              "RelativeDocumentMoniker": "CRM.Web\\Program.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Program.cs",
-              "RelativeToolTip": "CRM.Web\\Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAHIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:47:28.789Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "JobLogs.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\JobLogs.cs",
-              "RelativeDocumentMoniker": "CRM.Data\\Entities\\JobLogs.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\JobLogs.cs",
-              "RelativeToolTip": "CRM.Data\\Entities\\JobLogs.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAqwBwAAAAAAAAAAAAAAA==",
->>>>>>> 17243a1dae93d0443a767c6d4c796e13b15de264
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-12T11:29:27.506Z"
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Program.cs",
               "RelativeDocumentMoniker": "CRM\\Program.cs",
@@ -867,7 +628,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "Client.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\Client.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\Client.cs",
@@ -879,7 +640,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "ClientController.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\ClientController.cs",
               "RelativeDocumentMoniker": "CRM\\Controllers\\ClientController.cs",
@@ -892,41 +653,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "ClientTask.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\ClientTask.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\ClientTask.cs",
               "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\ClientTask.cs",
               "RelativeToolTip": "CRM.Data\\Entities\\ClientTask.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAowBoAAAAAAAAAAAAAAA==",
-=======
-              "DocumentIndex": 24,
-              "Title": "Job.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\Job.cs",
-              "RelativeDocumentMoniker": "CRM.Data\\Entities\\Job.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\Job.cs",
-              "RelativeToolTip": "CRM.Data\\Entities\\Job.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAqwBsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T11:29:21.698Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ClientTask.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\ClientTask.cs",
-              "RelativeDocumentMoniker": "CRM.Data\\Entities\\ClientTask.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\ClientTask.cs",
-              "RelativeToolTip": "CRM.Data\\Entities\\ClientTask.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAowBUAAAAZAAAAAAAAAA==",
->>>>>>> 17243a1dae93d0443a767c6d4c796e13b15de264
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-12T11:27:15.254Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-<<<<<<< HEAD
+              "DocumentIndex": 25,
               "Title": "MenuController.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\MenuController.cs",
               "RelativeDocumentMoniker": "CRM\\Controllers\\MenuController.cs",
@@ -938,7 +677,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "JobsController.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\JobsController.cs",
               "RelativeDocumentMoniker": "CRM\\Controllers\\JobsController.cs",
@@ -951,7 +690,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "ClientTaskController.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\ClientTaskController.cs",
               "RelativeDocumentMoniker": "CRM\\Controllers\\ClientTaskController.cs",
@@ -963,7 +702,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "MachineController.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\MachineController.cs",
               "RelativeDocumentMoniker": "CRM\\Controllers\\MachineController.cs",
@@ -975,7 +714,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 32,
               "Title": "UserListDto.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\ViewModels\\UserListDto.cs",
               "RelativeDocumentMoniker": "CRM\\ViewModels\\UserListDto.cs",
@@ -987,7 +726,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "LogsController.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\Controllers\\LogsController.cs",
               "RelativeDocumentMoniker": "CRM\\Controllers\\LogsController.cs",
@@ -999,7 +738,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "Users.cshtml",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Users.cshtml",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Users.cshtml",
@@ -1011,7 +750,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "Users.cshtml.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Users.cshtml.cs",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Users.cshtml.cs",
@@ -1023,7 +762,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 34,
               "Title": "UserClientService.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\Services\\Repositories\\UserClientService.cs",
               "RelativeDocumentMoniker": "CRM.Service\\Services\\Repositories\\UserClientService.cs",
@@ -1035,7 +774,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 33,
               "Title": "UserListDto.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\ViewModel\\UserListDto.cs",
               "RelativeDocumentMoniker": "CRM.Web\\ViewModel\\UserListDto.cs",
@@ -1047,7 +786,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 38,
               "Title": "RegisterUserDto.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\ViewModel\\RegisterUserDto.cs",
               "RelativeDocumentMoniker": "CRM.Web\\ViewModel\\RegisterUserDto.cs",
@@ -1059,7 +798,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 36,
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\Services\\UnitOfWork\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "CRM.Service\\Services\\UnitOfWork\\UnitOfWork.cs",
@@ -1071,7 +810,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 64,
               "Title": "20250427060313_UserClients.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Migrations\\20250427060313_UserClients.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Migrations\\20250427060313_UserClients.cs",
@@ -1083,7 +822,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 37,
               "Title": "UserMenuService.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\Services\\Repositories\\UserMenuService.cs",
               "RelativeDocumentMoniker": "CRM.Service\\Services\\Repositories\\UserMenuService.cs",
@@ -1095,7 +834,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 35,
               "Title": "IUnitOfWork.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\Interfaces\\UnitOfWork\\IUnitOfWork.cs",
               "RelativeDocumentMoniker": "CRM.Service\\Interfaces\\UnitOfWork\\IUnitOfWork.cs",
@@ -1107,7 +846,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 39,
               "Title": "IRepository.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\Interfaces\\Repositories\\IRepository.cs",
               "RelativeDocumentMoniker": "CRM.Service\\Interfaces\\Repositories\\IRepository.cs",
@@ -1119,7 +858,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 45,
               "Title": "Schedule.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\Schedule.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\Schedule.cs",
@@ -1131,7 +870,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 44,
               "Title": "Menus.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\Menus.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\Menus.cs",
@@ -1143,28 +882,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 40,
               "Title": "ProjectDbContext.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\DbContext\\ProjectDbContext.cs",
               "RelativeDocumentMoniker": "CRM.Data\\DbContext\\ProjectDbContext.cs",
               "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\DbContext\\ProjectDbContext.cs",
               "RelativeToolTip": "CRM.Data\\DbContext\\ProjectDbContext.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAAAJMAAAAAAAAAAAAAAA==",
-=======
-              "Title": "ProjectDbContext.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Data\\DbContext\\ProjectDbContext.cs",
-              "RelativeDocumentMoniker": "CRM.Data\\DbContext\\ProjectDbContext.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Data\\DbContext\\ProjectDbContext.cs",
-              "RelativeToolTip": "CRM.Data\\DbContext\\ProjectDbContext.cs",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAswJMAAAAAAAAAAAAAAA==",
->>>>>>> 17243a1dae93d0443a767c6d4c796e13b15de264
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-11T07:10:02.948Z"
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 38,
+              "DocumentIndex": 41,
               "Title": "RegisterModel.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Models\\RegisterModel.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Models\\RegisterModel.cs",
@@ -1176,7 +906,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 46,
               "Title": "Machine.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\Machine.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\Machine.cs",
@@ -1188,7 +918,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 43,
               "Title": "UserMenus.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\UserMenus.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\UserMenus.cs",
@@ -1200,7 +930,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 42,
               "Title": "ApplicationUser.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\ApplicationUser.cs",
@@ -1212,7 +942,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 49,
               "Title": "Machines.cshtml.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Machines.cshtml.cs",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Machines.cshtml.cs",
@@ -1224,7 +954,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 48,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
@@ -1236,7 +966,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 47,
               "Title": "Login.cshtml.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
               "RelativeDocumentMoniker": "CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
@@ -1248,7 +978,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 52,
               "Title": "Schedules.cshtml.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Schedules.cshtml.cs",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Schedules.cshtml.cs",
@@ -1260,7 +990,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 50,
               "Title": "ClientTasks.cshtml",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\ClientTasks.cshtml",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\ClientTasks.cshtml",
@@ -1272,7 +1002,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 55,
               "Title": "Tasks.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\Tasks.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\Tasks.cs",
@@ -1284,7 +1014,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 54,
               "Title": "WeeklySchedule.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\WeeklySchedule.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Entities\\WeeklySchedule.cs",
@@ -1296,7 +1026,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 51,
               "Title": "Schedules.cshtml",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Schedules.cshtml",
               "RelativeDocumentMoniker": "CRM.Web\\Pages\\Schedules.cshtml",
@@ -1308,7 +1038,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 63,
               "Title": "20250312113821_Cascade.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Migrations\\20250312113821_Cascade.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Migrations\\20250312113821_Cascade.cs",
@@ -1320,7 +1050,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 53,
               "Title": "ScheduleWorker.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Service\\Services\\ScheduleWorker.cs",
               "RelativeDocumentMoniker": "CRM.Service\\Services\\ScheduleWorker.cs",
@@ -1332,7 +1062,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 62,
               "Title": "20250311145917_NewTable.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Migrations\\20250311145917_NewTable.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Migrations\\20250311145917_NewTable.cs",
@@ -1344,7 +1074,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 56,
               "Title": "20250311150041_TblUpdate.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Migrations\\20250311150041_TblUpdate.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Migrations\\20250311150041_TblUpdate.cs",
@@ -1356,26 +1086,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
-=======
-              "DocumentIndex": 25,
-              "Title": "Client.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\Client.cs",
-              "RelativeDocumentMoniker": "CRM.Data\\Entities\\Client.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Data\\Entities\\Client.cs",
-              "RelativeToolTip": "CRM.Data\\Entities\\Client.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAuwBUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T14:57:12.464Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
->>>>>>> 17243a1dae93d0443a767c6d4c796e13b15de264
+              "DocumentIndex": 60,
               "Title": "Logout.cshtml.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
               "RelativeDocumentMoniker": "CRM.Web\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
               "RelativeToolTip": "CRM.Web\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAAwA4AAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -1383,94 +1098,20 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 56,
-=======
-              "DocumentIndex": 5,
-              "Title": "Login.cshtml.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
-              "RelativeDocumentMoniker": "CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
-              "RelativeToolTip": "CRM.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
-              "ViewState": "AgIAAJEAAAAAAAAAAAAQwJAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T11:44:09.061Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Users.cshtml.cs",
-              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Users.cshtml.cs",
-              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Users.cshtml.cs",
-              "ViewState": "AgIAALsAAAAAAAAAAAAIwAsAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T11:28:54.952Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "CRM\\Controllers\\AccountController.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "CRM\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAqwI4AAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T11:42:42.735Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM\\appsettings.json",
-              "RelativeDocumentMoniker": "CRM\\appsettings.json",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM\\appsettings.json",
-              "RelativeToolTip": "CRM\\appsettings.json",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-08T10:32:52.275Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Clients.cshtml.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Clients.cshtml.cs",
-              "RelativeDocumentMoniker": "CRM.Web\\Pages\\Clients.cshtml.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Clients.cshtml.cs",
-              "RelativeToolTip": "CRM.Web\\Pages\\Clients.cshtml.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAqwIEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T08:04:58.15Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "CRM.Web\\Pages\\Index.cshtml.cs",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM.Web\\Pages\\Index.cshtml.cs",
-              "RelativeToolTip": "CRM.Web\\Pages\\Index.cshtml.cs",
-              "ViewState": "AgIAAPMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T08:04:52.735Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
->>>>>>> 17243a1dae93d0443a767c6d4c796e13b15de264
+              "DocumentIndex": 59,
               "Title": "CRM.API.csproj",
-              "DocumentMoniker": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj",
+              "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj",
               "RelativeDocumentMoniker": "CRM\\CRM.API.csproj",
-              "ToolTip": "F:\\Work\\Code_S Bd\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj",
+              "ToolTip": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\CRM.API.csproj",
               "RelativeToolTip": "CRM\\CRM.API.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-08T09:40:14.087Z"
-<<<<<<< HEAD
+              "WhenOpened": "2025-03-08T09:40:14.087Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 61,
               "Title": "20250311073828_SeedAdminUser.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Data\\Migrations\\20250311073828_SeedAdminUser.cs",
               "RelativeDocumentMoniker": "CRM.Data\\Migrations\\20250311073828_SeedAdminUser.cs",
@@ -1482,7 +1123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 57,
               "Title": "ForgotPassword.cshtml.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM.Web\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml.cs",
               "RelativeDocumentMoniker": "CRM.Web\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml.cs",
@@ -1494,7 +1135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 58,
               "Title": "JwtTokenService.cs",
               "DocumentMoniker": "C:\\Freelance Projects\\CrmForBhupindarJoshi\\CRMForBhupinderJoshi\\CRM\\JwtServices\\JwtTokenService.cs",
               "RelativeDocumentMoniker": "CRM\\JwtServices\\JwtTokenService.cs",
@@ -1647,8 +1288,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:151:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-=======
->>>>>>> 17243a1dae93d0443a767c6d4c796e13b15de264
             }
           ]
         }
