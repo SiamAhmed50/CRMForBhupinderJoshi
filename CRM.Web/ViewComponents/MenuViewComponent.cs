@@ -21,7 +21,8 @@ public class MenuViewComponent : ViewComponent
             return View(new List<Menus>());
 
         var client = _httpClientFactory.CreateClient();
-        client.BaseAddress = new Uri("https://api-monitor.robobotics.eu"); // API base URL
+        //client.BaseAddress = new Uri("https://api-monitor.robobotics.eu"); // API base URL
+        client.BaseAddress = new Uri("https://localhost:44332/");
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
         var response = await client.GetAsync("api/Menu/usermenus");

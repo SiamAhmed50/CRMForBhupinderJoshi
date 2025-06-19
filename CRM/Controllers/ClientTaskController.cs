@@ -81,6 +81,7 @@ namespace CRM.Controllers
 
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetClientTask(int id)
         {
             var clientTask = await _unitOfWork.ClientTaskRepository.GetByIdAsync(ct => EF.Property<int>(ct, "Id") == id);
@@ -162,7 +163,7 @@ namespace CRM.Controllers
         }
 
         
-        [HttpDelete("{id}")]
+        /*[HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var data = await _unitOfWork.TaskRepository.GetAllAsync(filter:x=>x.ClientTaskId==id);
@@ -170,7 +171,7 @@ namespace CRM.Controllers
             {
                 await _unitOfWork.TaskRepository.DeleteAsync(item.Id.ToString());
             }
-            var deleted = await _unitOfWork.ClientTaskRepository.DeleteAsync(id.ToString());
+            var deleted = await _unitOfWork.ClientTaskRepository.DeleteAsync(id*//*.ToString()*//*);
 
             if (!deleted)
             {
@@ -179,6 +180,24 @@ namespace CRM.Controllers
 
             await _unitOfWork.SaveChangesAsync();
             return NoContent();
+        }*/
+
+        // POST: api/ClientTasks/5/delete
+        [HttpPost("{id}/delete")]
+        [AllowAnonymous]    // if you still want anonymous access
+        public async Task<IActionResult> DeleteClientTaskViaPost(int id)
+        {
+            var data = await _unitOfWork.TaskRepository.GetAllAsync(filter: x => x.ClientTaskId == id);
+            foreach (var item in data)
+            {
+                await _unitOfWork.TaskRepository.DeleteAsync(item.Id.ToString());
+            }
+            var deleted = await _unitOfWork.ClientTaskRepository.DeleteAsync(id);
+            if (!deleted)
+                return NotFound();
+
+            await _unitOfWork.SaveChangesAsync();
+            return NoContent();   // 204
         }
 
         [HttpGet("ToggleTaskStatus/{id}")]

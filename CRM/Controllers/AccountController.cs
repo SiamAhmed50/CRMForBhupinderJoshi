@@ -140,6 +140,7 @@ namespace CRM.Controllers
 
 
         [HttpDelete("delete/{email}")]
+        [AllowAnonymous]
         public async Task<IActionResult> DeleteUser(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);

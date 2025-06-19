@@ -16,7 +16,7 @@ namespace CRM.Service.Interfaces.UnitOfWork
         IUserClientRepository UserClientRepository { get; }
 
         IRepository<Client, int> ClientRepository { get; } 
-        IRepository<ClientTask, string> ClientTaskRepository { get; } 
+        IRepository<ClientTask, int> ClientTaskRepository { get; } 
         IRepository<Job, string> JobRepository { get; } 
         IRepository<JobLogs, string> GenericJobLogsRepository { get; } 
         IRepository<Logs, string> LogsRepository { get; } 

@@ -243,9 +243,9 @@
   },
   {
     "ContainingType": "CRM.Controllers.ClientTaskController",
-    "Method": "Delete",
-    "RelativePath": "api/ClientTask/{id}",
-    "HttpMethod": "DELETE",
+    "Method": "DeleteClientTaskViaPost",
+    "RelativePath": "api/ClientTask/{id}/delete",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -843,9 +843,9 @@
   },
   {
     "ContainingType": "CRM.Controllers.MachineController",
-    "Method": "DeleteMachine",
-    "RelativePath": "api/Machine/{id}",
-    "HttpMethod": "DELETE",
+    "Method": "DeleteMachineViaPost",
+    "RelativePath": "api/Machine/{id}/delete",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
