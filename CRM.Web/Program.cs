@@ -77,11 +77,14 @@ builder.Services.Configure<ApiSettings>(builder.Configuration.GetSection("ApiSet
 builder.Services.AddHttpContextAccessor(); // Allows accessing HTTP context (cookies, etc.)
 builder.Services.AddTransient<CustomAuthorizationHandler>();
 
-builder.Services.AddHttpClient("ApiClient", client =>
+builder.Services.AddHttpClient("ApiClient", (sp, client) =>
 {
-
-    client.BaseAddress = new Uri("https://localhost:44300"); // Replace with your API base URL
-                                                             // client.BaseAddress = new Uri("https://api-monitor.robobotics.eu"); // Replace with your API base URL
+    var configuration = sp.GetRequiredService<IConfiguration>();
+    var apiUrl = configuration.GetValue<string>("ApiSettings:ApiUrl");
+    if (!string.IsNullOrWhiteSpace(apiUrl))
+    {
+        client.BaseAddress = new Uri(apiUrl);
+    }
 }).AddHttpMessageHandler<CustomAuthorizationHandler>();
 
 var app = builder.Build();
