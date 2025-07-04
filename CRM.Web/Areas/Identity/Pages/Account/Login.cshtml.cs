@@ -161,7 +161,7 @@ namespace CRM.UI.Areas.Identity.Pages.Account
                         {
                             //HttpOnly = false,
                             HttpOnly = true,
-                            Secure = true,
+                            Secure = Request.IsHttps,
                             SameSite = SameSiteMode.Strict,
                             Expires = DateTimeOffset.UtcNow.AddDays(30)
                         };

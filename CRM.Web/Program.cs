@@ -107,7 +107,9 @@ var cookiePolicyOptions = new CookiePolicyOptions
 {
     MinimumSameSitePolicy = SameSiteMode.Strict,
     HttpOnly = Microsoft.AspNetCore.CookiePolicy.HttpOnlyPolicy.Always,
-    Secure = CookieSecurePolicy.None,
+    Secure = builder.Environment.IsDevelopment()
+        ? CookieSecurePolicy.SameAsRequest
+        : CookieSecurePolicy.Always,
 };
 app.UseCookiePolicy(cookiePolicyOptions);
 app.UseMiddleware<JwtAuthenticationMiddleware>();
