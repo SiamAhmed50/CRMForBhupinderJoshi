@@ -77,7 +77,7 @@ namespace CRM.Controllers
                 Response.Cookies.Append("jwt", token, new CookieOptions
                 {
                     HttpOnly = true,
-                    Secure = true,
+                    Secure = Request.IsHttps,
                     SameSite = SameSiteMode.Lax,
                     Expires = DateTimeOffset.UtcNow.AddDays(30)
                 });
