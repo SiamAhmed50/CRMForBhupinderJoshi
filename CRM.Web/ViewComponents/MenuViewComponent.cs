@@ -20,9 +20,8 @@ public class MenuViewComponent : ViewComponent
         if (string.IsNullOrEmpty(token))
             return View(new List<Menus>());
 
-        var client = _httpClientFactory.CreateClient();
-        //client.BaseAddress = new Uri("https://api-monitor.robobotics.eu"); // API base URL
-        client.BaseAddress = new Uri("https://localhost:44332/");
+        // Use the named client configured with the API base address
+        var client = _httpClientFactory.CreateClient("ApiClient");
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
         var response = await client.GetAsync("api/Menu/usermenus");
