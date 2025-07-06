@@ -26,6 +26,7 @@
                 <th>MachineIp</th>
                 <th>Username</th>
                 <th>Password</th>
+                <th>Status</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -73,7 +74,13 @@
                         <div class="col mb-2">
 
                             <input type="text" asp-for="MachineModel.Password" class="form-control" placeholder="Enter Password">
-                            
+
+                        </div>
+                    </div>
+                    <div class="row g-2">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" asp-for="MachineModel.Status" id="MachineModel_Status" />
+                            <label class="form-check-label" for="MachineModel_Status">Connected</label>
                         </div>
                     </div>
                 </div>
@@ -115,6 +122,12 @@
                             // The actual password is stored as a data attribute.
                             return `<span class="password-mask" data-password="${data}">*******</span>
                                 <i class="fas fa-eye toggle-password" style="cursor: pointer; margin-left: 5px;"></i>`;
+                        }
+                    },
+                    {
+                        data: 'status',
+                        render: function (data) {
+                            return data ? 'Connected' : 'Not Connected';
                         }
                     },
                     {
@@ -160,6 +173,7 @@
                 $('#MachineModel_MachineIp').val(data.machineIp);
                 $('#MachineModel_Username').val(data.username);
                 $('#MachineModel_Password').val(data.password);
+                $('#MachineModel_Status').prop('checked', data.status);
 
                 $('#modalTitle').text('Edit Machine');
                 $('#machineModal').modal('show');
@@ -174,7 +188,8 @@
                     ClientId: $('#MachineModel_ClientId').val(),
                     MachineIp: $('#MachineModel_MachineIp').val(),
                     Username: $('#MachineModel_Username').val(),
-                    Password: $('#MachineModel_Password').val()
+                    Password: $('#MachineModel_Password').val(),
+                    Status: $('#MachineModel_Status').is(':checked')
                 };
 
                 // Send POST request to update the machine
