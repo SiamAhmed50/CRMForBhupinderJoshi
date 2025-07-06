@@ -195,5 +195,29 @@ namespace CRM.Controllers
             }
         }
 
+        [HttpPost("UpdateStatus")]
+        [AllowAnonymous]
+        public async Task<IActionResult> UpdateStatus(int clientId, string machineIp, bool status)
+        {
+            try
+            {
+                var machine = await _unitOfWork.MachineRepository.GetByIdAsync(m =>
+                    m.ClientId == clientId && m.MachineIp.Contains(machineIp));
+
+                if (machine == null)
+                    return NotFound();
+
+                machine.Status = status;
+                await _unitOfWork.MachineRepository.UpdateAsync(machine);
+                await _unitOfWork.SaveChangesAsync();
+
+                return Ok(machine);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
     }
 }
