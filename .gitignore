@@ -3,4 +3,85 @@
 ################################################################################
 
 /CRM/bin/Release/net8.0/CRM.API.dll
-*.vsidx
+# Build folders
+[Bb]in/
+[Oo]bj/
+out/
+artifacts/
+
+# VS & VS Code directories and files
+.vs/
+.vscode/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Rider
+.idea/
+*.sln.iml
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# DotCover
+*.dotCover
+
+# Coverage & profiling
+*.coverage
+*.coveragexml
+*.runsettings
+*.pem
+
+# Publish/Web Deploy
+publish/
+*.azurePubxml
+*.Publish.xml
+
+# IIS Express
+/.vs/launchSettings.json
+IISExpress/
+
+# SQL Server LocalDB files
+*.mdf
+*.ldf
+*.ndf
+*.dbmdl
+
+# Logs
+logs/
+*.log
+*.tlg
+*.vsp
+
+# npm/yarn (if you have front-end assets)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.*.local
+
+# Docker
+docker-compose*
+Dockerfile*
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# NuGet packages and caches
+*.nupkg
+# NuGet v2
+packages/
+# NuGet v3
+*.nuget.props
+*.nuget.targets
+

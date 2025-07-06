@@ -110,7 +110,7 @@ namespace CRM.Controllers
         {
             if (machine.ClientId != 0)
             {
-               var client = await _unitOfWork.ClientRepository.GetByIdAsync(c => EF.Property<int>(c, "ClientId") == machine.ClientId);
+               var client = await _unitOfWork.ClientRepository.GetByIdAsync(c => EF.Property<int>(c, "Id") == machine.ClientId);
                if (client != null)
                {
                    machine.Client = client;
