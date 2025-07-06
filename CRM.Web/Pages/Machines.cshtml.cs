@@ -243,5 +243,6 @@ namespace CRM.Web.Pages
         public string Username { get; set; }
         public string Password { get; set; }
         public Client Client { get; set; }
+        public bool Status { get; set; }
     }
 }
