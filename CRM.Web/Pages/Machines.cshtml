@@ -38,6 +38,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <form method="post">
+                @Html.AntiForgeryToken()
+                <input asp-for="MachineModel.Id" type="hidden" id="MachineModel_Id" />
 
 
                 <div class="modal-header">
@@ -48,7 +50,7 @@
                     
                     <div class="row g-2">
                         <div class="col mb-2"> 
-                            <select class="form-select" id="clientId" name="MachineModel.ClientId" required>
+                            <select asp-for="MachineModel.ClientId" class="form-select" id="MachineModel_ClientId" required>
                                     <option value="">Select Client</option>
                                     @if (Model.Clients.Count > 0)
                                     {
@@ -88,7 +90,7 @@
                     <button type="button" class="btn btn-outline-secondary waves-effect" data-bs-dismiss="modal">
                         Close
                     </button>
-                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save changes</button>
+                    <button type="submit" class="btn btn-primary waves-effect waves-light" id="saveMachine">Save changes</button>
                 </div>
             </form>
         </div>
