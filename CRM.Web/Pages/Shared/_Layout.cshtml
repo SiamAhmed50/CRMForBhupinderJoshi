@@ -97,56 +97,9 @@
 
                 <div class="menu-inner-shadow"></div>
                 <ul class="menu-inner py-1 ps ps--active-y" id="sidebarMenuContainer">
-                    @await Component.InvokeAsync("Menu")
                     @if (userRole != null)
                     {
-                        <!-- Cards -->
-                        @if (userRole == "Admin")
-                        {
-                            <li class="menu-item" id="usersmenu">
-                                <a href="/Users" class="menu-link">
-                                    <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-                                    <div data-i18n="Basic">Users</div>
-                                </a>
-                            </li>
-                        }
-
-                        <li class="menu-item" id="clientsmenu">
-                            <a href="/Clients" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-                                <div data-i18n="Basic">Clients</div>
-                            </a>
-                        </li>
-                        <li class="menu-item" id="clientsmenu">
-                            <a href="/Users" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-                                <div data-i18n="Basic">Users</div>
-                            </a>
-                        </li>
-                        <li class="menu-item" id="clienttasksmenu">
-                            <a href="/ClientTasks" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-                                <div data-i18n="Basic">Tasks</div>
-                            </a>
-                        </li>
-                        <li class="menu-item" id="clienttasksmenu">
-                            <a href="/Jobs" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-                                <div data-i18n="Basic">Jobs</div>
-                            </a>
-                        </li>
-                        <li class="menu-item" id="machinesmenu">
-                            <a href="/Machines" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-                                <div data-i18n="Basic">Machines</div>
-                            </a>
-                        </li>
-                        <li class="menu-item" id="schedulesmenu">
-                            <a href="/ScheduleList" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-                                <div data-i18n="Basic">Schedules</div>
-                            </a>
-                        </li>
+                        @await Component.InvokeAsync("Menu")
                     }
                     <div class="ps__rail-x" style="left: 0px; bottom: -78px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div>
                     <div class="ps__rail-y" style="top: 78px; height: 266px; right: 4px;"><div class="ps__thumb-y" tabindex="0" style="top: 14px; height: 47px;"></div></div>
