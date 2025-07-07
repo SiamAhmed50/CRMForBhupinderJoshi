@@ -196,8 +196,7 @@
                 $.ajax({
                     url: "/Machines?handler=Update",
                     type: "POST",
-                    contentType: "application/json",
-                    data: JSON.stringify(formData),
+                    data: formData,
                     beforeSend: function (xhr) {
                         xhr.setRequestHeader('XSRF-TOKEN', $('input[name="__RequestVerificationToken"]').val());
                     },
