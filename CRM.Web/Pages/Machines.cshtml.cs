@@ -41,20 +41,33 @@ namespace CRM.Web.Pages
         {
 
             MachineModel = new MachineModel();
-            // Get the list of clients from your service or repository
             var httpClient = _httpClientFactory.CreateClient("ApiClient");
-            
-                AddAuthorizationToken(httpClient); 
-                var response = await httpClient.GetAsync("/api/Clients");
-              
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var content = await response.Content.ReadAsStringAsync();
-                    Clients = JsonConvert.DeserializeObject<List<ClientModel>>(content);
-                } 
-                 
-            //Clients = new List<ClientModel>();
+            AddAuthorizationToken(httpClient);
+
+            // Load machines
+            var machineResponse = await httpClient.GetAsync(apiEndpoint);
+            if (machineResponse.IsSuccessStatusCode)
+            {
+                var machineContent = await machineResponse.Content.ReadAsStringAsync();
+                Machines = JsonConvert.DeserializeObject<List<MachineModel>>(machineContent);
+            }
+            else
+            {
+                Machines = new List<MachineModel>();
+            }
+
+            // Load clients for dropdown
+            var clientResponse = await httpClient.GetAsync("/api/Clients");
+            if (clientResponse.IsSuccessStatusCode)
+            {
+                var content = await clientResponse.Content.ReadAsStringAsync();
+                Clients = JsonConvert.DeserializeObject<List<ClientModel>>(content);
+            }
+            else
+            {
+                Clients = new List<ClientModel>();
+            }
 
         }
         public async Task<IActionResult> OnPost()
