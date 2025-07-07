@@ -2,252 +2,120 @@ using CRM.Data.Entities;
 using CRM.UI.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 
 namespace CRM.Web.Pages
 {
-
     public class MachinesModel : PageModel
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        //private readonly string apiBaseUrl;
-        private readonly string apiEndpoint = "/api/Machine";
+        private const string ApiEndpoint = "/api/Machine";
 
-        [BindProperty]
-        public MachineModel MachineModel { get; set; }
+        [BindProperty] public MachineModel MachineModel { get; set; }
         public List<MachineModel> Machines { get; set; }
         public List<ClientModel> Clients { get; set; }
 
-        [TempData]
-        public string SuccessMessage { get; set; }
-        [TempData]
-        public string ErrorMessage { get; set; }
+        [TempData] public string SuccessMessage { get; set; }
+        [TempData] public string ErrorMessage { get; set; }
 
         public MachinesModel(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
-        //public MachinesModel()
-        //{
 
-        //}
+        /* ---------- Page load ---------- */
         public async Task OnGetAsync()
         {
-
             MachineModel = new MachineModel();
-            var httpClient = _httpClientFactory.CreateClient("ApiClient");
-
-            AddAuthorizationToken(httpClient);
-
-            // Load machines
-            var machineResponse = await httpClient.GetAsync(apiEndpoint);
-            if (machineResponse.IsSuccessStatusCode)
-            {
-                var machineContent = await machineResponse.Content.ReadAsStringAsync();
-                Machines = JsonConvert.DeserializeObject<List<MachineModel>>(machineContent);
-            }
-            else
-            {
-                Machines = new List<MachineModel>();
-            }
-
-            // Load clients for dropdown
-            var clientResponse = await httpClient.GetAsync("/api/Clients");
-            if (clientResponse.IsSuccessStatusCode)
-            {
-                var content = await clientResponse.Content.ReadAsStringAsync();
-                Clients = JsonConvert.DeserializeObject<List<ClientModel>>(content);
-            }
-            else
-            {
-                Clients = new List<ClientModel>();
-            }
-
+            await LoadClientsAsync();
         }
+
+        /* ---------- CREATE ---------- */
         public async Task<IActionResult> OnPost()
         {
-            var httpClient = _httpClientFactory.CreateClient("ApiClient");
-            
-                try
-                {
-                    AddAuthorizationToken(httpClient); 
-                    var response = await httpClient.PostAsJsonAsync(apiEndpoint, MachineModel);
+            var client = _httpClientFactory.CreateClient("ApiClient");
+            AddJwt(client);
 
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        ErrorMessage = $"Error creating Machine. Status code: {response.StatusCode}";
-                        return RedirectToPage();
-                    }
-
-                    SuccessMessage = "Machine has been created successfully.";
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error creating Machine: {ex.Message}");
-                    throw new Exception($"Error creating Machine: {ex.Message}");
-                } 
-
+            var resp = await client.PostAsJsonAsync(ApiEndpoint, MachineModel);
+            if (!resp.IsSuccessStatusCode)
+            {
+                ErrorMessage = $"Error creating machine. Status code: {resp.StatusCode}";
+                return RedirectToPage();
+            }
+            SuccessMessage = "Machine created successfully.";
             return RedirectToPage();
         }
 
-
-
-
+        /* ---------- UPDATE ---------- */
         public async Task<IActionResult> OnPostUpdate()
         {
-            var httpClient = _httpClientFactory.CreateClient("ApiClient");
-             
-                try
-                {
-                    AddAuthorizationToken(httpClient); 
-                    var response = await httpClient.PutAsJsonAsync($"{apiEndpoint}/{MachineModel.Id}", MachineModel);
+            var client = _httpClientFactory.CreateClient("ApiClient");
+            AddJwt(client);
 
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        ErrorMessage = $"Error updating Machine. Status code: {response.StatusCode}";
-                        return RedirectToPage();
-                    }
-                    SuccessMessage = "Machine has been updated successfully.";
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error updating Machine: {ex.Message}");
-                    throw new Exception($"Error updating Machine: {ex.Message}");
-                } 
+            var resp = await client.PutAsJsonAsync($"{ApiEndpoint}/{MachineModel.Id}", MachineModel);
+            if (!resp.IsSuccessStatusCode)
+            {
+                ErrorMessage = $"Error updating machine. Status code: {resp.StatusCode}";
+                return RedirectToPage();
+            }
+            SuccessMessage = "Machine updated successfully.";
             return RedirectToPage();
         }
 
-        /*public async Task<IActionResult> OnPostDelete(int id)
-        {
-            var httpClient = _httpClientFactory.CreateClient("ApiClient");
-            
-                try
-                {
-                    AddAuthorizationToken(httpClient); 
-                    var response = await httpClient.DeleteAsync($"{apiEndpoint}/{id}");
-
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        ErrorMessage = $"Error deleting Machine. Status code: {response.StatusCode}";
-                        return RedirectToPage();
-                    }
-                    SuccessMessage = "Machine has been deleted successfully.";
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error deleting Machine with ID {id}: {ex.Message}");
-                    throw new Exception($"Error deleting Machine with ID {id}: {ex.Message}");
-                } 
-
-            return RedirectToPage();
-        }*/
-
+        /* ---------- DELETE (AJAX) ---------- */
         public async Task<IActionResult> OnPostDelete(int id)
         {
-            var httpClient = _httpClientFactory.CreateClient("ApiClient");
+            var client = _httpClientFactory.CreateClient("ApiClient");
+            AddJwt(client);
 
-            try
+            var resp = await client.PostAsync($"{ApiEndpoint}/{id}/delete", null);
+            if (!resp.IsSuccessStatusCode)
             {
-                // 1) Attach the JWT from cookie
-                var token = HttpContext.Request.Cookies["jwt"];
-                if (!string.IsNullOrEmpty(token))
-                {
-                    httpClient.DefaultRequestHeaders.Authorization =
-                        new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-                }
-
-                // 2) POST to the delete route (instead of DELETE)
-                var url = $"{apiEndpoint}/{id}/delete";
-                var response = await httpClient.PostAsync(url, content: null);
-
-                // 3) Check status
-                if (!response.IsSuccessStatusCode)
-                {
-                    return new JsonResult(new
-                    {
-                        success = false,
-                        message = $"Error deleting Machine. Status code: {response.StatusCode}"
-                    });
-                }
-
-                return new JsonResult(new
-                {
-                    success = true,
-                    message = "Machine has been deleted successfully."
-                });
+                return new JsonResult(new { success = false, message = "Delete failed." });
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error deleting Machine with ID {id}: {ex.Message}");
-                return new JsonResult(new
-                {
-                    success = false,
-                    message = $"Error deleting Machine with ID {id}: {ex.Message}"
-                });
-            }
+            return new JsonResult(new { success = true, message = "Machine deleted." });
         }
 
-
-        public async Task<IActionResult> OnPostList()
+        /* ---------- LIST (AJAX) ---------- */
+        public async Task<JsonResult> OnPostList()
         {
-            try
-            {
-                // Get all Machines as JSON for DataTable via AJAX
-                await LoadMachinesAsync();
-                return new JsonResult(Machines);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error loading machines: {ex.Message}");
-                return new JsonResult(new List<MachineModel>());
-            }
+            var client = _httpClientFactory.CreateClient("ApiClient");
+            AddJwt(client);
+
+            var resp = await client.GetAsync(ApiEndpoint);
+            var list = resp.IsSuccessStatusCode
+                       ? JsonConvert.DeserializeObject<List<MachineModel>>(await resp.Content.ReadAsStringAsync())
+                       : new List<MachineModel>();
+            return new JsonResult(list);
         }
 
-        private async Task LoadMachinesAsync()
+        /* ---------- Helpers ---------- */
+        private async Task LoadClientsAsync()
         {
-            var httpClient = _httpClientFactory.CreateClient("ApiClient");
-            
-                try
-                {
-                    AddAuthorizationToken(httpClient); 
-                    var response = await httpClient.GetAsync(apiEndpoint);
+            var client = _httpClientFactory.CreateClient("ApiClient");
+            AddJwt(client);
 
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var content = await response.Content.ReadAsStringAsync();
-                        Machines = JsonConvert.DeserializeObject<List<MachineModel>>(content);
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Error loading machines. Status code: {response.StatusCode}");
-                        Machines = new List<MachineModel>();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error loading clients: {ex.Message}");
-                    Machines = new List<MachineModel>();
-                } 
+            var resp = await client.GetAsync("/api/Clients");
+            Clients = resp.IsSuccessStatusCode
+                      ? JsonConvert.DeserializeObject<List<ClientModel>>(await resp.Content.ReadAsStringAsync())
+                      : new List<ClientModel>();
         }
-        private void AddAuthorizationToken(HttpClient httpClient)
+
+        private void AddJwt(HttpClient client)
         {
             var token = HttpContext.Request.Cookies["jwt"];
             if (!string.IsNullOrEmpty(token))
-            {
-                httpClient.DefaultRequestHeaders.Authorization =
+                client.DefaultRequestHeaders.Authorization =
                     new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-            }
         }
     }
 
-
-
+    /* ---------- DTO ---------- */
     public class MachineModel
     {
         public int Id { get; set; }
@@ -255,7 +123,8 @@ namespace CRM.Web.Pages
         public string MachineIp { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public Client Client { get; set; }
         public bool Status { get; set; }
+
+        public ClientModel Client { get; set; }
     }
 }
