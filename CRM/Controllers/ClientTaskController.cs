@@ -182,23 +182,49 @@ namespace CRM.Controllers
             return NoContent();
         }*/
 
-        // POST: api/ClientTasks/5/delete
+     
         [HttpPost("{id}/delete")]
-        [AllowAnonymous]    // if you still want anonymous access
+        [AllowAnonymous]
         public async Task<IActionResult> DeleteClientTaskViaPost(int id)
         {
-            var data = await _unitOfWork.TaskRepository.GetAllAsync(filter: x => x.ClientTaskId == id);
-            foreach (var item in data)
+            // 1. Get all tasks under this ClientTask
+            var tasks = await _unitOfWork.TaskRepository.GetAllAsync(x => x.ClientTaskId == id);
+
+            // 2. Check if any task is used in a Job
+            foreach (var task in tasks)
             {
-                await _unitOfWork.TaskRepository.DeleteAsync(item.Id.ToString());
+                var jobExists = await _unitOfWork.JobRepository.GetAllAsync(j => j.TasksId == task.Id);
+
+                if (jobExists.Any())
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = $"Task '{task.Name}' is assigned in a Job and cannot be deleted."
+                    });
+                }
             }
+
+            // 3. Delete all tasks safely
+            foreach (var task in tasks)
+            {
+                await _unitOfWork.TaskRepository.DeleteAsync(task.Id.ToString());
+            }
+
+            // 4. Delete the ClientTask itself
             var deleted = await _unitOfWork.ClientTaskRepository.DeleteAsync(id);
             if (!deleted)
-                return NotFound();
+                return NotFound(new { success = false, message = "ClientTask not found." });
 
             await _unitOfWork.SaveChangesAsync();
-            return NoContent();   // 204
+
+            return Ok(new
+            {
+                success = true,
+                message = "Tasks deleted successfully."
+            });
         }
+
 
         [HttpGet("ToggleTaskStatus/{id}")]
         [AllowAnonymous]

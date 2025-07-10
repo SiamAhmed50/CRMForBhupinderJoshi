@@ -143,13 +143,13 @@ namespace CRM.Web.Pages
             return RedirectToPage();
         }*/
 
+
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
             var httpClient = _httpClientFactory.CreateClient("ApiClient");
 
             try
             {
-                // 1) Attach the JWT from cookie
                 var token = HttpContext.Request.Cookies["jwt"];
                 if (!string.IsNullOrEmpty(token))
                 {
@@ -157,33 +157,36 @@ namespace CRM.Web.Pages
                         new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
                 }
 
-                // 2) POST to the delete route (instead of DELETE verb)
                 var url = $"{_apiEndpoint}/{id}/delete";
                 var response = await httpClient.PostAsync(url, content: null);
 
-                // 3) Check status
-                if (!response.IsSuccessStatusCode)
+                // Try to read and deserialize the JSON response
+                var jsonString = await response.Content.ReadAsStringAsync();
+
+                // Attempt to parse the response
+                var result = JsonConvert.DeserializeObject<DeleteResponse>(jsonString);
+
+                if (!response.IsSuccessStatusCode || result == null || result.success == false)
                 {
                     return new JsonResult(new
                     {
                         success = false,
-                        message = $"Error deleting tasks. Status code: {response.StatusCode}"
+                        message = result?.message ?? "Unknown error occurred while deleting task."
                     });
                 }
 
                 return new JsonResult(new
                 {
                     success = true,
-                    message = "Tasks have been deleted successfully."
+                    message = result.message ?? "Task deleted successfully."
                 });
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error deleting tasks with ID {id}: {ex.Message}");
                 return new JsonResult(new
                 {
                     success = false,
-                    message = $"Error deleting tasks with ID {id}: {ex.Message}"
+                    message = $"Error deleting task with ID {id}: {ex.Message}"
                 });
             }
         }
@@ -290,5 +293,12 @@ namespace CRM.Web.Pages
         public int ClientId { get; set; }
         public ClientTaskStatus Status { get; set; }
         public List<Tasks> Tasks { get; set; }
+    }
+
+    // Helper DTO to map the API response
+    public class DeleteResponse
+    {
+        public bool success { get; set; }
+        public string message { get; set; }
     }
 }
