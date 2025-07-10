@@ -139,7 +139,7 @@ namespace CRM.Controllers
         }
 
 
-        [HttpDelete("delete/{email}")]
+        [HttpPost("delete/{email}")]
         [AllowAnonymous]
         public async Task<IActionResult> DeleteUser(string email)
         {

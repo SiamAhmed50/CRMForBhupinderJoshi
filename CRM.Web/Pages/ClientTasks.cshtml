@@ -339,23 +339,36 @@
                                     // Set the XSRF token
                                     xhr.setRequestHeader('XSRF-TOKEN', $('input:hidden[name="__RequestVerificationToken"]').val());
                                 },
-                                success: function (response) {
-                                    // Handle success, e.g., show a success message
-                                    table.ajax.reload();
-                                    Swal.fire({
-                                        title: 'Deleted!',
-                                        text: 'The client has been deleted.',
-                                        icon: 'success'
-                                    });
-                                },
-                                error: function (error) {
-                                    // Handle error, e.g., show an error message
+                                
+                               success: function (response) {
+                                   if (response.success) {
+                                       table.ajax.reload();
+                                       Swal.fire({
+                                       title: 'Deleted!',
+                                       text: response.message || 'The task has been deleted.',
+                                       icon: 'success'
+                                });
+                               } else {
                                     Swal.fire({
                                         title: 'Error!',
-                                        text: 'An error occurred while deleting the client. ',
+                                        text: response.message || 'Task could not be deleted.',
                                         icon: 'error'
                                     });
+                               }
+                            },
+                                error: function (xhr) {
+                                    let msg = "An error occurred while deleting the task.";
+                                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                                    msg = xhr.responseJSON.message;
+                                    }
+
+                                    Swal.fire({
+                                    title: 'Error!',
+                                    text: msg,
+                                    icon: 'error'
+                                    });
                                 }
+
                             });
                         }
                     });
