@@ -20,5 +20,7 @@ namespace CRM.Data.Entities
 
         // Navigation Property
         public Client? Client { get; set; }
+
+        public string? ApiResponse { get; set; }
     }
 }

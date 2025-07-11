@@ -24,12 +24,15 @@ builder.Services.AddDbContext<ProjectDbContext>(options =>
 // 2. Repositories and Services
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<IClientTaskRepository, ClientTaskService>();
+builder.Services.AddScoped<IMachineRepository, MachineService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IUserMenuRepository, UserMenuService>();
 builder.Services.AddScoped<IMenuService, MenuService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddHostedService<LicenseStatusUpdaterService>();
 builder.Services.AddHostedService<ScheduleWorker>();
+builder.Services.AddHostedService<ApiResponseProcessorService>();
+
 
 // 3. Identity
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
