@@ -66,7 +66,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # Environment files
-.env
 .env.*.local
 
 # Docker
@@ -85,3 +84,4 @@ packages/
 *.nuget.props
 *.nuget.targets
 
+config.bat
