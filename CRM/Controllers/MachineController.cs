@@ -195,9 +195,9 @@ namespace CRM.Controllers
             }
         }
 
-        [HttpPost("UpdateStatus")]
+        [HttpPost("TriggerApiResponse")]
         [AllowAnonymous]
-        public async Task<IActionResult> UpdateStatus(int clientId, string machineIp, bool status)
+        public async Task<IActionResult> TriggerApiResponse(int clientId, string machineIp, bool status, string? apiResponse = null)
         {
             try
             {
@@ -208,6 +208,7 @@ namespace CRM.Controllers
                     return NotFound();
 
                 machine.Status = status;
+                machine.ApiResponse = apiResponse ?? string.Empty;
                 await _unitOfWork.MachineRepository.UpdateAsync(machine);
                 await _unitOfWork.SaveChangesAsync();
 
