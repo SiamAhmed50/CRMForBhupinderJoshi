@@ -4,3 +4,5 @@
 
 /CRM/bin/Release/net8.0/CRM.API.dll
 *.vsidx
+config.bat
+node_modules
