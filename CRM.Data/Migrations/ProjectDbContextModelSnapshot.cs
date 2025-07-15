@@ -91,15 +91,25 @@ namespace CRM.Data.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
+<<<<<<< Updated upstream
                             ConcurrencyStamp = "308f01e9-ba3a-4fc7-92b0-06b25a22d292",
+=======
+                            ConcurrencyStamp = "67908ee9-2fd3-4c9f-8542-dc40c0783522",
+>>>>>>> Stashed changes
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
+<<<<<<< Updated upstream
                             PasswordHash = "AQAAAAIAAYagAAAAEBAF/QKMOReBEYkI6IunLJ6PSeBXC0Ss27FELwZa5YbHN3pwM+9av/2M6Cs2zAtuNw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "54327c90-80f0-4571-b66d-2b01ba3067ae",
+=======
+                            PasswordHash = "AQAAAAIAAYagAAAAENfpvQbLHevs41lpNv9hMhxMAZO+OUbyenVJSdmrxa79if7u0THMU9uWEk09RybGbg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "b5d26ec5-6ce0-4986-8037-cd4462e38ced",
+>>>>>>> Stashed changes
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -301,6 +311,9 @@ namespace CRM.Data.Migrations
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Username")
                         .IsRequired()
