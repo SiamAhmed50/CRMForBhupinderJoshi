@@ -91,15 +91,15 @@ namespace CRM.Data.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7f7bf978-89ff-4c9f-af2c-e003b41df120",
+                            ConcurrencyStamp = "b39337b9-d0dd-41d4-b497-7cf8098372b3",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAELaOo49p66SoVkb89eRdieTnJ5wO2Nmtr4LfuWFR0fmq16Q3HPYzVRpqK4qM4q0gKw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEF+1X5Q4vR0uVVwDjW27sPa2FHhLmPHp2M3dpM4QI0qnk2LNxcMlBBXBVg7nOLjpEQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ab114808-e12a-4106-9708-19ebbcde1c39",
+                            SecurityStamp = "ec85d281-285d-493a-9aa1-f7c9272fdbf6",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -291,6 +291,9 @@ namespace CRM.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("ApiResponse")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ClientId")
                         .HasColumnType("int");
 
@@ -301,6 +304,9 @@ namespace CRM.Data.Migrations
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Username")
                         .IsRequired()
