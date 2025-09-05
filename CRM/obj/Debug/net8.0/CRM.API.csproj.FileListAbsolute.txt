@@ -246,11 +246,6 @@ C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\ne
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\CRM.API.sourcelink.json
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\staticwebassets.build.json
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\staticwebassets.development.json
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\staticwebassets\msbuild.CRM.API.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\staticwebassets\msbuild.build.CRM.API.props
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.CRM.API.props
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.CRM.API.props
-C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\scopedcss\bundle\CRM.API.styles.css
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\CRM.API.csproj.Up2Date
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\CRM.API.dll
@@ -259,3 +254,11 @@ C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\ne
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\CRM.API.genruntimeconfig.cache
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\ref\CRM.API.dll
 C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\bin\Debug\net8.0\appsettings.json
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\bin\Debug\net8.0\CRM.API.staticwebassets.endpoints.json
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Freelance Projects\CrmForBhupindarJoshi\CRMForBhupinderJoshi\CRM\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
