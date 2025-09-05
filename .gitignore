@@ -11,7 +11,6 @@ artifacts/
 
 # VS & VS Code directories and files
 .vs/
-.vscode/
 
 # User-specific files
 *.suo
@@ -66,7 +65,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # Environment files
-.env
 .env.*.local
 
 # Docker
@@ -85,3 +83,4 @@ packages/
 *.nuget.props
 *.nuget.targets
 
+config.bat
