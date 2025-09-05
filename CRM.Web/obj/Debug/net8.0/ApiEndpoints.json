@@ -3,7 +3,7 @@
     "ContainingType": "CRM.Controllers.AccountController",
     "Method": "DeleteUser",
     "RelativePath": "api/Account/delete/{email}",
-    "HttpMethod": "DELETE",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -869,6 +869,37 @@
         "Name": "clientId",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CRM.Controllers.MachineController",
+    "Method": "TriggerApiResponse",
+    "RelativePath": "api/Machine/TriggerApiResponse",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clientId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "machineIp",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "apiResponse",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
